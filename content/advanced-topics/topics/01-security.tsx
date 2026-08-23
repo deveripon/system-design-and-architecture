@@ -33,10 +33,10 @@ export const securityContent: TopicData = {
                                 <span className='font-mono text-xs px-3 py-1 border border-primary/30 text-primary bg-primary/5 rounded'>
                                     ⏱ ৯০-১২০ মিনিট
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-red-500/30 text-red-400 bg-red-500/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-red-500/30 text-red-700 dark:text-red-400 bg-red-500/5 rounded'>
                                     🔐 Advanced Security
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-400 bg-orange-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-700 dark:text-orange-400 bg-orange-400/5 rounded'>
                                     🛡️ Phase 5 — Topic 1
                                 </span>
                             </div>
@@ -565,25 +565,25 @@ export const securityContent: TopicData = {
                                 JWT Structure — header.payload.signature
                             </p>
                             <div className='flex flex-wrap gap-2 mb-4'>
-                                <span className='font-mono text-xs px-3 py-2 border border-red-400/40 text-red-400 bg-red-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-2 border border-red-400/40 text-red-700 dark:text-red-400 bg-red-400/5 rounded'>
                                     eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9
                                 </span>
                                 <span className='font-mono text-xs text-muted-foreground self-center'>
                                     .
                                 </span>
-                                <span className='font-mono text-xs px-3 py-2 border border-purple-400/40 text-purple-400 bg-purple-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-2 border border-purple-400/40 text-purple-700 dark:text-purple-400 bg-purple-400/5 rounded'>
                                     eyJzdWIiOiJ1c2VyXzEyMyIsInJvbGUiOiJhZG1pbiJ9
                                 </span>
                                 <span className='font-mono text-xs text-muted-foreground self-center'>
                                     .
                                 </span>
-                                <span className='font-mono text-xs px-3 py-2 border border-emerald-400/40 text-emerald-400 bg-emerald-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-2 border border-emerald-400/40 text-emerald-700 dark:text-emerald-400 bg-emerald-400/5 rounded'>
                                     SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                                 </span>
                             </div>
                             <div className='grid grid-cols-1 md:grid-cols-3 gap-3 text-xs'>
                                 <div className='border border-red-400/20 rounded p-3 bg-red-400/5'>
-                                    <p className='text-red-400 font-mono font-bold mb-1'>
+                                    <p className='text-red-700 dark:text-red-400 font-mono font-bold mb-1'>
                                         HEADER
                                     </p>
                                     <p className='text-muted-foreground font-mono'>
@@ -597,7 +597,7 @@ export const securityContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='border border-purple-400/20 rounded p-3 bg-purple-400/5'>
-                                    <p className='text-purple-400 font-mono font-bold mb-1'>
+                                    <p className='text-purple-700 dark:text-purple-400 font-mono font-bold mb-1'>
                                         PAYLOAD
                                     </p>
                                     <p className='text-muted-foreground font-mono'>
@@ -614,7 +614,7 @@ export const securityContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='border border-emerald-400/20 rounded p-3 bg-emerald-400/5'>
-                                    <p className='text-emerald-400 font-mono font-bold mb-1'>
+                                    <p className='text-emerald-700 dark:text-emerald-400 font-mono font-bold mb-1'>
                                         SIGNATURE
                                     </p>
                                     <p className='text-muted-foreground font-mono text-xs'>
@@ -747,18 +747,18 @@ def verify_token(token: str) -> dict:
                             'Stateful — horizontal scaling কঠিন',
                         ],
                         [
-                            <span className='font-mono font-bold text-purple-400'>
+                            <span className='font-mono font-bold text-purple-700 dark:text-purple-400'>
                                 JWT
                             </span>,
                             'Self-contained token। Server-side storage নেই।',
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Excellent — stateless
                             </span>,
                             'Microservices, SPA, mobile apps',
                             'Token revocation কঠিন। Size বড়।',
                         ],
                         [
-                            <span className='font-mono font-bold text-orange-400'>
+                            <span className='font-mono font-bold text-orange-700 dark:text-orange-400'>
                                 OAuth2
                             </span>,
                             'Third-party authorization। Delegation protocol।',
@@ -846,7 +846,7 @@ def verify_token(token: str) -> dict:
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 2 — User Google-এ Login করে Consent দেয়
                                 </span>
                             ),
@@ -862,7 +862,7 @@ def verify_token(token: str) -> dict:
                         },
                         {
                             title: (
-                                <span className='font-mono text-purple-400'>
+                                <span className='font-mono text-purple-700 dark:text-purple-400'>
                                     Step 3 — Authorization Code App-এ Redirect হয়
                                 </span>
                             ),
@@ -879,7 +879,7 @@ def verify_token(token: str) -> dict:
                         },
                         {
                             title: (
-                                <span className='font-mono text-orange-400'>
+                                <span className='font-mono text-orange-700 dark:text-orange-400'>
                                     Step 4 — Backend Code দিয়ে Token Exchange করে
                                 </span>
                             ),
@@ -895,7 +895,7 @@ def verify_token(token: str) -> dict:
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 5 — Access Token দিয়ে Resource Access করুন
                                 </span>
                             ),
@@ -924,23 +924,23 @@ def verify_token(token: str) -> dict:
                                 Authorization Code
                             </span>,
                             'Web apps — server-side code exchange',
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Highest
                             </span>,
                             '"Login with Google" — web app',
                         ],
                         [
-                            <span className='font-mono text-purple-400 font-semibold'>
+                            <span className='font-mono text-purple-700 dark:text-purple-400 font-semibold'>
                                 Authorization Code + PKCE
                             </span>,
                             'SPA, Mobile apps — no client secret',
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 High
                             </span>,
                             'React SPA, iOS/Android app',
                         ],
                         [
-                            <span className='font-mono text-orange-400 font-semibold'>
+                            <span className='font-mono text-orange-700 dark:text-orange-400 font-semibold'>
                                 Client Credentials
                             </span>,
                             'Machine-to-machine, no user involved',
@@ -948,11 +948,11 @@ def verify_token(token: str) -> dict:
                             'Microservice A calls Microservice B',
                         ],
                         [
-                            <span className='font-mono text-red-400 font-semibold'>
+                            <span className='font-mono text-red-700 dark:text-red-400 font-semibold'>
                                 Resource Owner Password
                             </span>,
                             'Legacy — highly trusted first-party apps',
-                            <span className='text-red-400 font-semibold'>
+                            <span className='text-red-700 dark:text-red-400 font-semibold'>
                                 Low — AVOID
                             </span>,
                             'Deprecated — direct username/password',
@@ -1031,14 +1031,14 @@ def verify_token(token: str) -> dict:
                         [
                             'Granularity',
                             'Coarse-grained — role level',
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Fine-grained — attribute level
                             </span>,
                             'Complex rules = ABAC',
                         ],
                         [
                             'Complexity',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Simple to implement
                             </span>,
                             'Policy-based, complex rules',
@@ -1052,7 +1052,7 @@ def verify_token(token: str) -> dict:
                         ],
                         [
                             'Performance',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Fast — role check
                             </span>,
                             'Slower — multiple attribute evaluation',
@@ -1208,7 +1208,7 @@ export function checkPolicy(action: string, resource: any) {
                         ],
                         [
                             'Speed',
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Fast — bulk data জন্য ideal
                             </span>,
                             'Slow — key exchange জন্য use করুন',
@@ -1978,7 +1978,7 @@ export function checkPolicy(action: string, resource: any) {
                                 2023-এ Toyota-র AWS key GitHub-এ ছিল — লক্ষ
                                 customer data exposed।
                             </p>
-                            <p className='font-mono text-xs bg-red-500/10 border border-red-500/20 rounded p-2 text-red-400'>
+                            <p className='font-mono text-xs bg-red-500/10 border border-red-500/20 rounded p-2 text-red-700 dark:text-red-400'>
                                 {`// ❌ NEVER DO THIS`}
                                 <br />
                                 {`const DB_PASSWORD = "super_secret_123";`}
@@ -2116,23 +2116,23 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                     rows: [
                         [
                             'Dynamic Secrets',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 ✓ DB, SSH, PKI
                             </span>,
-                            <span className='text-orange-400'>
+                            <span className='text-orange-700 dark:text-orange-400'>
                                 Limited (RDS only)
                             </span>,
                             '✗ Static only',
                         ],
                         [
                             'Auto Rotation',
-                            <span className='text-emerald-400'>✓ Built-in</span>,
-                            <span className='text-emerald-400'>✓ Lambda-based</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>✓ Built-in</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>✓ Lambda-based</span>,
                             '✓ Cloud Functions',
                         ],
                         [
                             'Multi-cloud',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 ✓ Any cloud / on-prem
                             </span>,
                             'AWS only',
@@ -2203,7 +2203,7 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                     ],
                     rows: [
                         [
-                            <span className='font-mono font-bold text-red-400'>
+                            <span className='font-mono font-bold text-red-700 dark:text-red-400'>
                                 #1
                             </span>,
                             'Broken Access Control',
@@ -2212,7 +2212,7 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                             'IDOR — /users/123 → /users/456',
                         ],
                         [
-                            <span className='font-mono font-bold text-red-400'>
+                            <span className='font-mono font-bold text-red-700 dark:text-red-400'>
                                 #2
                             </span>,
                             'Cryptographic Failures',
@@ -2221,7 +2221,7 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                             'MD5 password hash, HTTP instead of HTTPS',
                         ],
                         [
-                            <span className='font-mono font-bold text-orange-400'>
+                            <span className='font-mono font-bold text-orange-700 dark:text-orange-400'>
                                 #3
                             </span>,
                             'Injection (SQL, NoSQL, LDAP)',
@@ -2230,7 +2230,7 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                             `SELECT * FROM users WHERE id='1 OR 1=1'`,
                         ],
                         [
-                            <span className='font-mono font-bold text-orange-400'>
+                            <span className='font-mono font-bold text-orange-700 dark:text-orange-400'>
                                 #4
                             </span>,
                             'Insecure Design',
@@ -2239,7 +2239,7 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                             'Rate limiting না থাকলে brute force possible',
                         ],
                         [
-                            <span className='font-mono font-bold text-yellow-400'>
+                            <span className='font-mono font-bold text-yellow-700 dark:text-yellow-400'>
                                 #7
                             </span>,
                             'XSS (Cross-Site Scripting)',
@@ -2339,22 +2339,22 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                                 {
                                     label: 'JWT + mTLS',
                                     desc: 'Auth stack',
-                                    color: 'border-purple-400/30 text-purple-400 bg-purple-400/5',
+                                    color: 'border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5',
                                 },
                                 {
                                     label: 'Zero Trust',
                                     desc: 'Architecture model',
-                                    color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                    color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                 },
                                 {
                                     label: 'Vault',
                                     desc: 'Secrets management',
-                                    color: 'border-orange-400/30 text-orange-400 bg-orange-400/5',
+                                    color: 'border-orange-400/30 text-orange-700 dark:text-orange-400 bg-orange-400/5',
                                 },
                                 {
                                     label: 'OWASP Top 10',
                                     desc: 'Vulnerability catalog',
-                                    color: 'border-red-400/30 text-red-400 bg-red-400/5',
+                                    color: 'border-red-400/30 text-red-700 dark:text-red-400 bg-red-400/5',
                                 },
                                 {
                                     label: 'RBAC/ABAC',
@@ -2364,12 +2364,12 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                                 {
                                     label: 'TLS 1.3',
                                     desc: 'Transit encryption',
-                                    color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                    color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                 },
                                 {
                                     label: 'AES-256',
                                     desc: 'Data encryption',
-                                    color: 'border-purple-400/30 text-purple-400 bg-purple-400/5',
+                                    color: 'border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5',
                                 },
                             ].map((item, i) => (
                                 <div
@@ -2401,12 +2401,12 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                 <span className='font-mono font-bold text-primary'>JWT</span>,
                 'Stateless authentication token। Self-contained claims।',
                 'RS256 signature, HttpOnly cookie',
-                <span className='text-emerald-400 font-semibold'>
+                <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                     Very High — every API design
                 </span>,
             ],
             [
-                <span className='font-mono font-bold text-purple-400'>
+                <span className='font-mono font-bold text-purple-700 dark:text-purple-400'>
                     OAuth2 / OIDC
                 </span>,
                 'Delegated authorization + authentication।',
@@ -2414,12 +2414,12 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                 'High — third-party integration',
             ],
             [
-                <span className='font-mono font-bold text-orange-400'>
+                <span className='font-mono font-bold text-orange-700 dark:text-orange-400'>
                     mTLS
                 </span>,
                 'Mutual authentication — client + server both verify।',
                 'Istio service mesh, certificates',
-                <span className='text-emerald-400 font-semibold'>
+                <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                     High — microservices security
                 </span>,
             ],
@@ -2432,7 +2432,7 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                 'High — authorization design',
             ],
             [
-                <span className='font-mono font-bold text-emerald-400'>
+                <span className='font-mono font-bold text-emerald-700 dark:text-emerald-400'>
                     Zero Trust
                 </span>,
                 'Never trust, always verify। Internal ও external।',
@@ -2440,7 +2440,7 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                 'High — architecture principle',
             ],
             [
-                <span className='font-mono font-bold text-orange-400'>
+                <span className='font-mono font-bold text-orange-700 dark:text-orange-400'>
                     Vault
                 </span>,
                 'Dynamic secrets, auto-rotation। No hardcoded creds।',
@@ -2448,7 +2448,7 @@ async function getSecret(secretName: string): Promise<Record<string, string>> {
                 'Medium-High — production systems',
             ],
             [
-                <span className='font-mono font-bold text-red-400'>
+                <span className='font-mono font-bold text-red-700 dark:text-red-400'>
                     OWASP Top 10
                 </span>,
                 'Common vulnerabilities catalog। Mitigation guide।',

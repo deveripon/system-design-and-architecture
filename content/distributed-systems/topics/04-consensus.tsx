@@ -84,7 +84,7 @@ export const consensusContent: TopicData = {
                                 <div className='p-8 border-r border-border bg-card/30'>
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
-                                        <span className='text-red-400'>
+                                        <span className='text-red-700 dark:text-red-400'>
                                             ❌ Without Consensus
                                         </span>
                                     </h4>
@@ -100,7 +100,7 @@ export const consensusContent: TopicData = {
                                 <div className='p-8 bg-card/30'>
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ With Consensus
                                         </span>
                                     </h4>
@@ -158,7 +158,7 @@ export const consensusContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-yellow-400 mb-10 mt-20'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-yellow-700 dark:text-yellow-400 mb-10 mt-20'>
                                 QUORUM: Majority Wins
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
@@ -217,7 +217,7 @@ export const consensusContent: TopicData = {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10 mt-4'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10 mt-4'>
                             Raft এর তিনটা Core Concept
                         </h3>
                     ),
@@ -229,7 +229,7 @@ export const consensusContent: TopicData = {
                             <div className='p-8 border-r border-b border-border bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-yellow-500' />
-                                    <span className='text-yellow-400'>
+                                    <span className='text-yellow-700 dark:text-yellow-400'>
                                         👑 Leader Election
                                     </span>
                                 </h4>
@@ -242,7 +242,7 @@ export const consensusContent: TopicData = {
                             <div className='p-8 border-b border-border bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-blue-500' />
-                                    <span className='text-blue-400'>
+                                    <span className='text-blue-700 dark:text-blue-400'>
                                         📋 Log Replication
                                     </span>
                                 </h4>
@@ -255,7 +255,7 @@ export const consensusContent: TopicData = {
                             <div className='p-8 border-r border-border bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-emerald-500' />
-                                    <span className='text-emerald-400'>
+                                    <span className='text-emerald-700 dark:text-emerald-400'>
                                         🔒 Safety
                                     </span>
                                 </h4>
@@ -268,7 +268,7 @@ export const consensusContent: TopicData = {
                             <div className='p-8 bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-purple-500' />
-                                    <span className='text-purple-400'>
+                                    <span className='text-purple-700 dark:text-purple-400'>
                                         ⏰ Term
                                     </span>
                                 </h4>
@@ -294,14 +294,14 @@ export const consensusContent: TopicData = {
                     steps: [
                         {
                             title: (
-                                <span className='text-blue-400'>FOLLOWER</span>
+                                <span className='text-blue-700 dark:text-blue-400'>FOLLOWER</span>
                             ),
                             description:
                                 'Heartbeat timeout expired → election শুরু করে',
                         },
                         {
                             title: (
-                                <span className='text-yellow-400'>
+                                <span className='text-yellow-700 dark:text-yellow-400'>
                                     CANDIDATE
                                 </span>
                             ),
@@ -310,7 +310,7 @@ export const consensusContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='text-emerald-400'>
+                                <span className='text-emerald-700 dark:text-emerald-400'>
                                     MAJORITY VOTE
                                 </span>
                             ),
@@ -319,7 +319,7 @@ export const consensusContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='text-yellow-400'>
+                                <span className='text-yellow-700 dark:text-yellow-400'>
                                     LEADER 👑
                                 </span>
                             ),
@@ -367,7 +367,7 @@ export const consensusContent: TopicData = {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10 mt-4'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10 mt-4'>
                             ZooKeeper কী কী করে?
                         </h3>
                     ),
@@ -379,7 +379,7 @@ export const consensusContent: TopicData = {
                             <div className='p-8 border-r border-b border-border bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-blue-500' />
-                                    <span className='text-blue-400'>
+                                    <span className='text-blue-700 dark:text-blue-400'>
                                         🔐 Distributed Locking
                                     </span>
                                 </h4>
@@ -392,7 +392,7 @@ export const consensusContent: TopicData = {
                             <div className='p-8 border-b border-border bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-purple-500' />
-                                    <span className='text-purple-400'>
+                                    <span className='text-purple-700 dark:text-purple-400'>
                                         📋 Configuration Management
                                     </span>
                                 </h4>
@@ -405,7 +405,7 @@ export const consensusContent: TopicData = {
                             <div className='p-8 border-r border-border bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-yellow-500' />
-                                    <span className='text-yellow-400'>
+                                    <span className='text-yellow-700 dark:text-yellow-400'>
                                         🏃 Leader Election
                                     </span>
                                 </h4>
@@ -417,7 +417,7 @@ export const consensusContent: TopicData = {
                             <div className='p-8 bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-emerald-500' />
-                                    <span className='text-emerald-400'>
+                                    <span className='text-emerald-700 dark:text-emerald-400'>
                                         📡 Service Registry
                                     </span>
                                 </h4>
@@ -461,31 +461,31 @@ export const consensusContent: TopicData = {
                         ],
                         [
                             'Complexity',
-                            <span className='text-red-400'>High</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>High</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Low
                             </span>,
-                            <span className='text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
                         ],
                         [
                             'Watch/Events',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Yes
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Yes
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Yes
                             </span>,
                         ],
                         [
                             'Production 2024',
-                            <span className='text-yellow-400'>Legacy</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>Legacy</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Preferred
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Preferred
                             </span>,
                         ],

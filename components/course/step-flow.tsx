@@ -17,6 +17,7 @@ export function StepFlow({ steps = [],stepName="STEP" }: StepFlowProps) {
     const gridCols = 
         stepCount === 1 ? 'grid-cols-1' :
         stepCount === 2 ? 'grid-cols-1 md:grid-cols-2' :
+        stepCount === 4 || stepCount === 8 ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-4' :
         'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
 
     return (
@@ -24,7 +25,7 @@ export function StepFlow({ steps = [],stepName="STEP" }: StepFlowProps) {
             {steps.map((step, idx) => (
                 <div
                     key={idx}
-                    className='p-6 md:p-10 border-r border-b border-border bg-card hover:bg-white/2 transition-colors group'>
+                    className='p-6 md:p-10 border-r border-b border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors group'>
                     <div className='flex flex-col gap-6 md:gap-8'>
                         <SubHeader
                             index={`${stepName} 0${idx + 1}`}

@@ -71,11 +71,11 @@ export const cdnStorageContent: TopicData = {
                     content: (
                         <p>
                             ঢাকা → USA server:{' '}
-                            <strong className='text-red-400'>
+                            <strong className='text-red-700 dark:text-red-400'>
                                 ~200-300ms latency
                             </strong>
                             । ঢাকা → Singapore CDN PoP:{' '}
-                            <strong className='text-emerald-400'>
+                            <strong className='text-emerald-700 dark:text-emerald-400'>
                                 ~30-50ms latency
                             </strong>
                             । ৫-১০x faster! Netflix, YouTube, Facebook সবাই CDN
@@ -114,7 +114,7 @@ export const cdnStorageContent: TopicData = {
                             <div className='flex flex-col items-center gap-4'>
                                 {/* Origin Server */}
                                 <div className='border border-orange-500/40 bg-orange-500/10 rounded px-6 py-3 text-center'>
-                                    <p className='font-mono text-xs font-bold text-orange-400'>
+                                    <p className='font-mono text-xs font-bold text-orange-700 dark:text-orange-400'>
                                         🏢 Origin Server
                                     </p>
                                     <p className='font-mono text-[10px] text-muted-foreground'>
@@ -166,7 +166,7 @@ export const cdnStorageContent: TopicData = {
                                         <div
                                             key={pop.city}
                                             className='border border-emerald-500/40 bg-emerald-500/10 rounded px-3 py-2 text-center'>
-                                            <p className='font-mono text-[10px] font-bold text-emerald-400'>
+                                            <p className='font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-400'>
                                                 ⚡ PoP: {pop.city}
                                             </p>
                                             <p className='font-mono text-[9px] text-muted-foreground'>
@@ -175,7 +175,7 @@ export const cdnStorageContent: TopicData = {
                                         </div>
                                     ))}
                                 </div>
-                                <p className='font-mono text-[10px] text-blue-400 text-center'>
+                                <p className='font-mono text-[10px] text-blue-700 dark:text-blue-400 text-center'>
                                     BD User → Singapore PoP: ~35ms ✓
                                     &nbsp;|&nbsp; Without CDN (USA): ~250ms ✗
                                 </p>
@@ -187,7 +187,7 @@ export const cdnStorageContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-4 mt-10'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-4 mt-10'>
                                 CDN Cache Control
                             </h3>
                             <ContentParagraph className='mb-4'>
@@ -234,10 +234,10 @@ Cache-Control: no-store
                             'Cloudflare',
                             '300+',
                             'DDoS protection, global sites',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Free tier available
                             </span>,
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 ✅ Built-in
                             </span>,
                         ],
@@ -245,10 +245,10 @@ Cache-Control: no-store
                             'AWS CloudFront',
                             '450+',
                             'AWS ecosystem integration',
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Pay per use
                             </span>,
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 ✅ WAF Integration
                             </span>,
                         ],
@@ -256,17 +256,17 @@ Cache-Control: no-store
                             'Fastly',
                             '100+',
                             'Programmable CDN, edge compute',
-                            <span className='text-red-400'>Expensive</span>,
-                            <span className='text-yellow-400'>✅ Add-on</span>,
+                            <span className='text-red-700 dark:text-red-400'>Expensive</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>✅ Add-on</span>,
                         ],
                         [
                             'Akamai',
                             '4000+',
                             'Enterprise, largest network',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 Very expensive
                             </span>,
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 ✅ Enterprise-grade
                             </span>,
                         ],
@@ -323,14 +323,14 @@ Cache-Control: no-store
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-8'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-8'>
                                 কখন S3 ব্যবহার করবো এবং করবো না
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ S3 ব্যবহার করুন
                                         </span>
                                     </h4>
@@ -344,7 +344,7 @@ Cache-Control: no-store
                                 <div className='p-8 bg-card/30'>
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
-                                        <span className='text-red-400'>
+                                        <span className='text-red-700 dark:text-red-400'>
                                             ❌ S3 ব্যবহার করুন না
                                         </span>
                                     </h4>
@@ -362,7 +362,7 @@ Cache-Control: no-store
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-4 mt-12'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-4 mt-12'>
                             S3 Storage Classes
                         </h3>
                     ),
@@ -373,44 +373,44 @@ Cache-Control: no-store
                     rows: [
                         [
                             'S3 Standard',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Instant
                             </span>,
-                            <span className='text-red-400'>Highest</span>,
+                            <span className='text-red-700 dark:text-red-400'>Highest</span>,
                             'Frequently accessed — profile photos, app assets',
                         ],
                         [
                             'S3 Standard-IA',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Instant
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 30% cheaper
                             </span>,
                             'Infrequent access — backups, older files',
                         ],
                         [
                             'S3 Glacier',
-                            <span className='text-red-400'>Minutes/hours</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>Minutes/hours</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Very cheap
                             </span>,
                             'Long-term archive — compliance, audit logs',
                         ],
                         [
                             'Glacier Deep Archive',
-                            <span className='text-red-400'>12 hours</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>12 hours</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Cheapest
                             </span>,
                             '7-10 year retention, rarely accessed',
                         ],
                         [
                             'Intelligent-Tiering',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Instant
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Auto-optimize
                             </span>,
                             'Unknown access pattern — auto moves between tiers',
@@ -457,7 +457,7 @@ Cache-Control: no-store
                             <div className='flex flex-col md:flex-row items-center justify-center gap-0'>
                                 {/* User */}
                                 <div className='border border-blue-500/40 bg-blue-500/10 rounded px-4 py-3 text-center min-w-[100px]'>
-                                    <p className='font-mono text-xs font-bold text-blue-400'>
+                                    <p className='font-mono text-xs font-bold text-blue-700 dark:text-blue-400'>
                                         👤 User
                                     </p>
                                     <p className='font-mono text-[9px] text-muted-foreground'>
@@ -474,16 +474,16 @@ Cache-Control: no-store
                                 </div>
                                 {/* CloudFront */}
                                 <div className='border border-yellow-500/40 bg-yellow-500/10 rounded px-4 py-3 text-center min-w-[140px]'>
-                                    <p className='font-mono text-xs font-bold text-yellow-400'>
+                                    <p className='font-mono text-xs font-bold text-yellow-700 dark:text-yellow-400'>
                                         ☁️ CloudFront
                                     </p>
                                     <p className='font-mono text-[9px] text-muted-foreground'>
                                         Edge: Singapore PoP
                                     </p>
-                                    <p className='font-mono text-[9px] text-emerald-400 mt-1'>
+                                    <p className='font-mono text-[9px] text-emerald-700 dark:text-emerald-400 mt-1'>
                                         Cache HIT → serve ✓
                                     </p>
-                                    <p className='font-mono text-[9px] text-orange-400'>
+                                    <p className='font-mono text-[9px] text-orange-700 dark:text-orange-400'>
                                         Cache MISS → fetch origin
                                     </p>
                                 </div>
@@ -497,7 +497,7 @@ Cache-Control: no-store
                                 </div>
                                 {/* S3 Origin */}
                                 <div className='border border-orange-500/40 bg-orange-500/10 rounded px-4 py-3 text-center min-w-[120px]'>
-                                    <p className='font-mono text-xs font-bold text-orange-400'>
+                                    <p className='font-mono text-xs font-bold text-orange-700 dark:text-orange-400'>
                                         🗂️ S3 Origin
                                     </p>
                                     <p className='font-mono text-[9px] text-muted-foreground'>
@@ -511,7 +511,7 @@ Cache-Control: no-store
                                     </p>
                                 </div>
                             </div>
-                            <p className='font-mono text-[10px] text-emerald-400 text-center mt-4'>
+                            <p className='font-mono text-[10px] text-emerald-700 dark:text-emerald-400 text-center mt-4'>
                                 95%+ requests served from edge — origin barely
                                 touched
                             </p>
@@ -571,7 +571,7 @@ Cache-Control: no-store
                                 Presigned URL: Direct S3 upload (API server
                                 bandwidth save হয়)
                             </p>
-                            <p className='font-mono text-[9px] text-blue-400 mb-6'>
+                            <p className='font-mono text-[9px] text-blue-700 dark:text-blue-400 mb-6'>
                                 UPLOAD FLOW DIAGRAM
                             </p>
                             {/* Step flow as horizontal diagram */}
@@ -579,7 +579,7 @@ Cache-Control: no-store
                                 {/* Row 1 */}
                                 <div className='flex flex-col md:flex-row items-start md:items-center gap-3'>
                                     <div className='border border-blue-500/40 bg-blue-500/10 rounded px-4 py-2 text-center min-w-[90px]'>
-                                        <p className='font-mono text-xs font-bold text-blue-400'>
+                                        <p className='font-mono text-xs font-bold text-blue-700 dark:text-blue-400'>
                                             📱 User
                                         </p>
                                     </div>
@@ -589,7 +589,7 @@ Cache-Control: no-store
                                         </p>
                                     </div>
                                     <div className='border border-purple-500/40 bg-purple-500/10 rounded px-4 py-2 text-center min-w-[110px]'>
-                                        <p className='font-mono text-xs font-bold text-purple-400'>
+                                        <p className='font-mono text-xs font-bold text-purple-700 dark:text-purple-400'>
                                             🔌 API Server
                                         </p>
                                         <p className='font-mono text-[9px] text-muted-foreground'>
@@ -597,7 +597,7 @@ Cache-Control: no-store
                                         </p>
                                     </div>
                                     <div className='flex flex-col items-center'>
-                                        <p className='font-mono text-[9px] text-purple-400'>
+                                        <p className='font-mono text-[9px] text-purple-700 dark:text-purple-400'>
                                             ← 2. presigned URL
                                         </p>
                                     </div>
@@ -605,18 +605,18 @@ Cache-Control: no-store
                                 {/* Row 2 */}
                                 <div className='flex flex-col md:flex-row items-start md:items-center gap-3 ml-0 md:ml-4'>
                                     <div className='border border-blue-500/40 bg-blue-500/10 rounded px-4 py-2 text-center min-w-[90px]'>
-                                        <p className='font-mono text-xs font-bold text-blue-400'>
+                                        <p className='font-mono text-xs font-bold text-blue-700 dark:text-blue-400'>
                                             📱 User
                                         </p>
                                     </div>
                                     <div className='flex flex-col items-center'>
-                                        <p className='font-mono text-[9px] text-orange-400'>
+                                        <p className='font-mono text-[9px] text-orange-700 dark:text-orange-400'>
                                             3. Direct upload to S3 (no server!)
                                             →
                                         </p>
                                     </div>
                                     <div className='border border-orange-500/40 bg-orange-500/10 rounded px-4 py-2 text-center min-w-[90px]'>
-                                        <p className='font-mono text-xs font-bold text-orange-400'>
+                                        <p className='font-mono text-xs font-bold text-orange-700 dark:text-orange-400'>
                                             🗂️ S3
                                         </p>
                                         <p className='font-mono text-[9px] text-muted-foreground'>
@@ -627,10 +627,10 @@ Cache-Control: no-store
                                 {/* Row 3 */}
                                 <div className='flex flex-col md:flex-row items-start md:items-center gap-3 ml-0 md:ml-[calc(4px+90px+110px)]'>
                                     <div className='border border-yellow-500/40 bg-yellow-500/10 rounded px-4 py-2 text-center min-w-[90px]'>
-                                        <p className='font-mono text-[9px] text-yellow-400'>
+                                        <p className='font-mono text-[9px] text-yellow-700 dark:text-yellow-400'>
                                             4. S3 Event →
                                         </p>
-                                        <p className='font-mono text-xs font-bold text-yellow-400'>
+                                        <p className='font-mono text-xs font-bold text-yellow-700 dark:text-yellow-400'>
                                             ⚡ Lambda
                                         </p>
                                         <p className='font-mono text-[9px] text-muted-foreground'>
@@ -638,12 +638,12 @@ Cache-Control: no-store
                                         </p>
                                     </div>
                                     <div className='flex flex-col items-center'>
-                                        <p className='font-mono text-[9px] text-emerald-400'>
+                                        <p className='font-mono text-[9px] text-emerald-700 dark:text-emerald-400'>
                                             5. Store processed →
                                         </p>
                                     </div>
                                     <div className='border border-emerald-500/40 bg-emerald-500/10 rounded px-4 py-2 text-center min-w-[120px]'>
-                                        <p className='font-mono text-xs font-bold text-emerald-400'>
+                                        <p className='font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400'>
                                             S3 + CloudFront
                                         </p>
                                         <p className='font-mono text-[9px] text-muted-foreground'>
@@ -684,7 +684,7 @@ Cache-Control: no-store
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-4'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-4'>
                             Python — S3 Upload & Presigned URL
                         </h3>
                     ),
@@ -751,7 +751,7 @@ s3.put_bucket_lifecycle_configuration(
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-4 mt-10'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-4 mt-10'>
                             Node.js — Express + S3 Upload API
                         </h3>
                     ),

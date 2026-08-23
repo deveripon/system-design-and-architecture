@@ -167,7 +167,7 @@ export const networkingContent: TopicData = {
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         USE CASE{' '}
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ TCP use করুন যখন
                                         </span>
                                     </h4>
@@ -181,7 +181,7 @@ export const networkingContent: TopicData = {
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         USE CASE{' '}
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ UDP use করুন যখন
                                         </span>
                                     </h4>
@@ -207,28 +207,28 @@ export const networkingContent: TopicData = {
                         ],
                         [
                             'Reliability',
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 ✅ Guaranteed delivery
                             </span>,
-                            <span className='text-red-400 uppercase tracking-tight'>
+                            <span className='text-red-700 dark:text-red-400 uppercase tracking-tight'>
                                 ❌ Best-effort, no guarantee
                             </span>,
                         ],
                         [
                             'Order',
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 ✅ In-order delivery
                             </span>,
-                            <span className='text-red-400 uppercase tracking-tight'>
+                            <span className='text-red-700 dark:text-red-400 uppercase tracking-tight'>
                                 ❌ No ordering
                             </span>,
                         ],
                         [
                             'Speed',
-                            <span className='text-yellow-400 uppercase tracking-tight'>
+                            <span className='text-yellow-700 dark:text-yellow-400 uppercase tracking-tight'>
                                 ⚠️ Slower (overhead বেশি)
                             </span>,
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 ✅ Faster (overhead কম)
                             </span>,
                         ],
@@ -308,38 +308,38 @@ udpServer.bind(4000);`,
                         ['Year', '1997', '2015', '2022'],
                         [
                             'Multiplexing',
-                            <span className='text-red-400 uppercase tracking-tight'>
+                            <span className='text-red-700 dark:text-red-400 uppercase tracking-tight'>
                                 ❌ নেই
                             </span>,
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 ✅ আছে
                             </span>,
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 ✅ আছে
                             </span>,
                         ],
                         ['Transport', 'TCP', 'TCP', 'QUIC (UDP)'],
                         [
                             'Header Compression',
-                            <span className='text-red-400 uppercase tracking-tight'>
+                            <span className='text-red-700 dark:text-red-400 uppercase tracking-tight'>
                                 ❌ নেই
                             </span>,
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 ✅ HPACK
                             </span>,
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 ✅ QPACK
                             </span>,
                         ],
                         [
                             'Head-of-Line Blocking',
-                            <span className='text-red-400 uppercase tracking-tight'>
+                            <span className='text-red-700 dark:text-red-400 uppercase tracking-tight'>
                                 ❌ আছে
                             </span>,
-                            <span className='text-yellow-400 uppercase tracking-tight'>
+                            <span className='text-yellow-700 dark:text-yellow-400 uppercase tracking-tight'>
                                 ⚠️ TCP level এ
                             </span>,
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 ✅ সমাধান
                             </span>,
                         ],

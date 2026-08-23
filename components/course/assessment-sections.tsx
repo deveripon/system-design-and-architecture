@@ -105,9 +105,9 @@ export const PracticalLabSection = React.memo(
                     {isExpanded && (
                         <div className='mt-12 animate-in fade-in slide-in-from-top-4 duration-300'>
                             <div className='border border-border bg-card overflow-hidden'>
-                                <div className='p-6 md:p-10 border-b border-border bg-emerald-500/10 flex items-center gap-4'>
+                                <div className='p-6 md:p-10 border-b border-border bg-accent/10 flex items-center gap-4'>
                                     <span className='text-3xl'>🚀</span>
-                                    <h2 className='text-xl md:text-2xl font-black uppercase tracking-tighter text-emerald-500 leading-none'>
+                                    <h2 className='text-xl md:text-2xl font-black uppercase tracking-tighter text-accent leading-none'>
                                         {data.title}
                                     </h2>
                                 </div>

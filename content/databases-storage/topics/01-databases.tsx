@@ -124,34 +124,34 @@ export const databasesContent: TopicData = {
                         [
                             'Schema',
                             'Fixed (ALTER TABLE লাগে)',
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 Flexible
                             </span>,
                         ],
                         [
                             'Scaling',
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Vertical (harder horizontal)
                             </span>,
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 Horizontal (সহজ)
                             </span>,
                         ],
                         [
                             'ACID',
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 Full ACID support
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Eventual consistency
                             </span>,
                         ],
                         [
                             'JOIN',
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 Complex JOINs সহজ
                             </span>,
-                            <span className='text-red-400 font-bold uppercase tracking-tight'>
+                            <span className='text-red-700 dark:text-red-400 font-bold uppercase tracking-tight'>
                                 JOIN কঠিন বা অসম্ভব
                             </span>,
                         ],
@@ -499,7 +499,7 @@ async function updateUser(userId, data) {
                         [
                             'PostgreSQL',
                             'SQL',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 ✅ Full
                             </span>,
                             'Vertical + Read Replica',
@@ -508,7 +508,7 @@ async function updateUser(userId, data) {
                         [
                             'MySQL',
                             'SQL',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 ✅ Full
                             </span>,
                             'Master-slave replication',
@@ -517,21 +517,21 @@ async function updateUser(userId, data) {
                         [
                             'MongoDB',
                             'Document NoSQL',
-                            <span className='text-yellow-400'>⚠️ Partial</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>⚠️ Partial</span>,
                             'Horizontal sharding',
                             'Flexible schema, JSON docs',
                         ],
                         [
                             'Redis',
                             'Key-Value NoSQL',
-                            <span className='text-red-400'>❌ No</span>,
+                            <span className='text-red-700 dark:text-red-400'>❌ No</span>,
                             'Cluster mode',
                             'Caching, Sessions, Pub/Sub',
                         ],
                         [
                             'Cassandra',
                             'Column NoSQL',
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 ⚠️ Eventual
                             </span>,
                             'Linear horizontal',

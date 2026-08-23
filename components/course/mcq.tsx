@@ -74,16 +74,16 @@ export function MCQ({ questions = [] }: MCQProps) {
                     className={cn(
                       "flex items-start gap-4 md:gap-8 p-6 md:p-8 border-r border-b border-border text-left transition-all group",
                       !showFeedback && "hover:bg-muted/10",
-                      showFeedback && isCorrect && "bg-emerald-500/5",
-                      showFeedback && isSelected && !isCorrect && "bg-red-500/5",
+                      showFeedback && isCorrect && "bg-accent/10",
+                      showFeedback && isSelected && !isCorrect && "bg-red-500/10",
                       !showFeedback && isSelected && "bg-primary/5"
                     )}
                   >
                     <div className={cn(
                       "w-8 h-8 md:w-12 md:h-12 border border-border flex items-center justify-center font-mono text-xs md:text-sm font-black transition-all shrink-0",
-                      showFeedback && isCorrect ? "bg-emerald-500 text-white border-emerald-500" :
-                      showFeedback && isSelected && !isCorrect ? "bg-red-500 text-white border-red-500" :
-                      !showFeedback && isSelected ? "bg-primary text-white border-primary" :
+                      showFeedback && isCorrect ? "bg-accent text-accent-foreground border-accent" :
+                      showFeedback && isSelected && !isCorrect ? "bg-red-600 text-white border-red-600" :
+                      !showFeedback && isSelected ? "bg-primary text-primary-foreground border-primary" :
                       "bg-background group-hover:border-primary/50"
                     )}>
                       {option.key}
@@ -93,7 +93,7 @@ export function MCQ({ questions = [] }: MCQProps) {
                       {showFeedback && (isSelected || isCorrect) && (
                         <p className={cn(
                           "text-xs md:text-sm leading-relaxed font-medium max-w-2xl",
-                          isCorrect ? "text-emerald-400" : "text-red-400"
+                          isCorrect ? "text-accent" : "text-red-700 dark:text-red-400"
                         )}>
                           {option.explanation}
                         </p>
@@ -112,7 +112,7 @@ export function MCQ({ questions = [] }: MCQProps) {
           <button
             onClick={() => setShowResults(true)}
             disabled={Object.keys(selectedOptions).length < questions.length}
-            className="w-full py-3 md:py-4 border border-primary bg-primary/10 text-primary font-black uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed text-xs md:text-sm"
+            className="w-full py-3 md:py-4 border border-primary bg-primary/10 text-primary font-black uppercase tracking-[0.2em] hover:bg-primary hover:text-primary-foreground transition-all disabled:opacity-50 disabled:cursor-not-allowed text-xs md:text-sm"
           >
             Check Answers
           </button>

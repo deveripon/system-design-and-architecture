@@ -94,7 +94,7 @@ export const resilienceContent: TopicData = {
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         STATE{' '}
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             🟢 CLOSED
                                         </span>
                                     </h4>
@@ -108,7 +108,7 @@ export const resilienceContent: TopicData = {
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         STATE{' '}
-                                        <span className='text-red-400'>
+                                        <span className='text-red-700 dark:text-red-400'>
                                             🔴 OPEN
                                         </span>
                                     </h4>
@@ -124,7 +124,7 @@ export const resilienceContent: TopicData = {
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-yellow-500' />
                                         STATE{' '}
-                                        <span className='text-yellow-400'>
+                                        <span className='text-yellow-700 dark:text-yellow-400'>
                                             🟡 HALF-OPEN
                                         </span>
                                     </h4>
@@ -134,7 +134,7 @@ export const resilienceContent: TopicData = {
                                     </p>
                                 </div>
                             </div>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-16'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-16'>
                                 Typical Thresholds &amp; Fast Fail Benefits
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
@@ -170,21 +170,21 @@ export const resilienceContent: TopicData = {
                     headers: ['State', 'অবস্থা', 'পরবর্তী Transition'],
                     rows: [
                         [
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 🟢 CLOSED
                             </span>,
                             'Normal — সব requests pass',
                             'Failure threshold exceed → OPEN',
                         ],
                         [
-                            <span className='text-red-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400 font-bold'>
                                 🔴 OPEN
                             </span>,
                             'Broken — fast fail, fallback',
                             'Recovery timeout পর → HALF-OPEN',
                         ],
                         [
-                            <span className='text-yellow-400 font-bold'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-bold'>
                                 🟡 HALF-OPEN
                             </span>,
                             'Testing — probe requests',
@@ -245,7 +245,7 @@ export const resilienceContent: TopicData = {
                                 thread pool full হলেও Search pool available
                                 থাকে।
                             </p>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-purple-400 mb-6 mt-8'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-purple-700 dark:text-purple-400 mb-6 mt-8'>
                                 Bulkhead: Isolated Thread Pools
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
@@ -255,7 +255,7 @@ export const resilienceContent: TopicData = {
                                         Payment Pool (10 threads)
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
-                                        <span className='text-emerald-400 font-bold'>
+                                        <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                             3/10 busy ✅
                                         </span>{' '}
                                         — Isolated, safe।
@@ -267,7 +267,7 @@ export const resilienceContent: TopicData = {
                                         Search Pool (8 threads)
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
-                                        <span className='text-emerald-400 font-bold'>
+                                        <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                             1/8 busy ✅
                                         </span>{' '}
                                         — Completely unaffected!
@@ -480,7 +480,7 @@ const result = await retryWithBackoff(async () => {
                     headers: ['Tool', 'Language', 'Type', 'Best For'],
                     rows: [
                         [
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Resilience4j
                             </span>,
                             'Java',
@@ -488,13 +488,13 @@ const result = await retryWithBackoff(async () => {
                             'Spring Boot microservices (Hystrix replacement)',
                         ],
                         [
-                            <span className='text-red-400'>Hystrix</span>,
+                            <span className='text-red-700 dark:text-red-400'>Hystrix</span>,
                             'Java',
                             'Library',
                             'Legacy Netflix stack (deprecated 2018)',
                         ],
                         [
-                            <span className='text-blue-400 font-bold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold'>
                                 Polly
                             </span>,
                             '.NET',
@@ -502,7 +502,7 @@ const result = await retryWithBackoff(async () => {
                             '.NET microservices — retry, CB, bulkhead',
                         ],
                         [
-                            <span className='text-yellow-400 font-bold'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-bold'>
                                 opossum
                             </span>,
                             'Node.js',
@@ -510,7 +510,7 @@ const result = await retryWithBackoff(async () => {
                             'Node.js service calls',
                         ],
                         [
-                            <span className='text-purple-400 font-bold'>
+                            <span className='text-purple-700 dark:text-purple-400 font-bold'>
                                 pybreaker
                             </span>,
                             'Python',
@@ -518,7 +518,7 @@ const result = await retryWithBackoff(async () => {
                             'Python microservices',
                         ],
                         [
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Istio
                             </span>,
                             'Any',

@@ -64,7 +64,7 @@ export const throttlingContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10 mt-20'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10 mt-20'>
                                 কেন দরকার? — ৪টা কারণ
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
@@ -125,12 +125,12 @@ export const throttlingContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10'>
                                 Algorithm Overview
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-b border-border bg-card/30'>
-                                    <h4 className='font-bold text-emerald-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
+                                    <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
                                         Token Bucket
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed mb-3'>
@@ -139,15 +139,15 @@ export const throttlingContent: TopicData = {
                                         refill। Bucket full হলে tokens overflow
                                         হয়।
                                     </p>
-                                    <p className='text-xs text-emerald-400'>
+                                    <p className='text-xs text-emerald-700 dark:text-emerald-400'>
                                         ✅ Burst traffic handle করতে পারে
                                     </p>
-                                    <p className='text-xs text-red-400'>
+                                    <p className='text-xs text-red-700 dark:text-red-400'>
                                         ❌ Implementation কিছুটা complex
                                     </p>
                                 </div>
                                 <div className='p-8 border-b border-border bg-card/30'>
-                                    <h4 className='font-bold text-blue-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
+                                    <h4 className='font-bold text-blue-700 dark:text-blue-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
                                         Leaky Bucket
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed mb-3'>
@@ -155,15 +155,15 @@ export const throttlingContent: TopicData = {
                                         &quot;leak&quot; হয়। Queue full হলে reject। Output
                                         সবসময় smooth।
                                     </p>
-                                    <p className='text-xs text-emerald-400'>
+                                    <p className='text-xs text-emerald-700 dark:text-emerald-400'>
                                         ✅ Consistent output rate
                                     </p>
-                                    <p className='text-xs text-red-400'>
+                                    <p className='text-xs text-red-700 dark:text-red-400'>
                                         ❌ Burst requests drop হতে পারে
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-yellow-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
+                                    <h4 className='font-bold text-yellow-700 dark:text-yellow-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
                                         Fixed Window
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed mb-3'>
@@ -171,15 +171,15 @@ export const throttlingContent: TopicData = {
                                         Window শেষে reset। সবচেয়ে simple
                                         algorithm।
                                     </p>
-                                    <p className='text-xs text-emerald-400'>
+                                    <p className='text-xs text-emerald-700 dark:text-emerald-400'>
                                         ✅ সহজ implement করা
                                     </p>
-                                    <p className='text-xs text-red-400'>
+                                    <p className='text-xs text-red-700 dark:text-red-400'>
                                         ❌ Window boundary তে ২x spike possible
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-purple-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
+                                    <h4 className='font-bold text-purple-700 dark:text-purple-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
                                         Sliding Window
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed mb-3'>
@@ -187,10 +187,10 @@ export const throttlingContent: TopicData = {
                                         Window এর বাইরেরগুলো drop। যেকোনো
                                         moment এ last N minutes check।
                                     </p>
-                                    <p className='text-xs text-emerald-400'>
+                                    <p className='text-xs text-emerald-700 dark:text-emerald-400'>
                                         ✅ Most accurate, no boundary issue
                                     </p>
-                                    <p className='text-xs text-red-400'>
+                                    <p className='text-xs text-red-700 dark:text-red-400'>
                                         ❌ High memory — প্রতি request store
                                     </p>
                                 </div>
@@ -267,7 +267,7 @@ export const throttlingContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10 mt-10'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10 mt-10'>
                                 Architecture: Client → LB → API Servers → Redis
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
@@ -514,7 +514,7 @@ app.use('/api/', rateLimit(100, 60000));       // 100 per min`,
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10 mt-16'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10 mt-16'>
                                 Production Headers & Tools
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
@@ -748,28 +748,28 @@ http {
                             'বিনামূল্যে',
                         ],
                         [
-                            <span className='text-blue-400 font-bold font-mono'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold font-mono'>
                                 Basic
                             </span>,
                             '১০,০০০ req/day',
                             '50 req burst',
-                            <span className='text-emerald-400'>$9/month</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>$9/month</span>,
                         ],
                         [
-                            <span className='text-yellow-400 font-bold font-mono'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-bold font-mono'>
                                 Premium
                             </span>,
                             '১,০০,০০০ req/day',
                             '200 req burst',
-                            <span className='text-emerald-400'>$99/month</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>$99/month</span>,
                         ],
                         [
-                            <span className='text-purple-400 font-bold font-mono'>
+                            <span className='text-purple-700 dark:text-purple-400 font-bold font-mono'>
                                 Enterprise
                             </span>,
                             'Unlimited',
                             'Custom',
-                            <span className='text-yellow-400'>Custom pricing</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Custom pricing</span>,
                         ],
                     ],
                 },

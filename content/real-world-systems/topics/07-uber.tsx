@@ -33,13 +33,13 @@ export const uberContent: TopicData = {
                                 <span className='font-mono text-xs px-3 py-1 border border-primary/30 text-primary bg-primary/5 rounded'>
                                     ⏱ ৯০-১২০ মিনিট
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-emerald-500/30 text-emerald-400 bg-emerald-500/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5 rounded'>
                                     📊 Junior Level
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-400 bg-orange-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-700 dark:text-orange-400 bg-orange-400/5 rounded'>
                                     🗺️ Geospatial Systems
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-400 bg-purple-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5 rounded'>
                                     FINAL SYSTEM 07 / 07
                                 </span>
                             </div>
@@ -562,7 +562,7 @@ export const uberContent: TopicData = {
                                 </ul>
                             </div>
                             <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-400 mb-4'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4'>
                                     ⚡ Non-Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -707,7 +707,7 @@ export const uberContent: TopicData = {
                     steps: [
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Driver App — GPS Update (প্রতি 4 sec)
                                 </span>
                             ),
@@ -737,7 +737,7 @@ export const uberContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-orange-400'>
+                                <span className='font-mono text-orange-700 dark:text-orange-400'>
                                     Matching Service — Best Driver Select
                                 </span>
                             ),
@@ -752,7 +752,7 @@ export const uberContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-purple-400'>
+                                <span className='font-mono text-purple-700 dark:text-purple-400'>
                                     Driver Response — Accept/Decline (15 sec
                                     window)
                                 </span>
@@ -768,7 +768,7 @@ export const uberContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Trip in Progress — Real-time Tracking
                                 </span>
                             ),
@@ -799,19 +799,19 @@ export const uberContent: TopicData = {
                                         {[
                                             {
                                                 label: 'Go (Location/Matching)',
-                                                color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                                color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                             },
                                             {
                                                 label: 'Python (ML/Surge)',
-                                                color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                                color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                             },
                                             {
                                                 label: 'Node.js (API)',
-                                                color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                                color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                             },
                                             {
                                                 label: 'Kubernetes',
-                                                color: 'border-purple-400/30 text-purple-400 bg-purple-400/5',
+                                                color: 'border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5',
                                             },
                                         ].map((tag, i) => (
                                             <span
@@ -830,7 +830,7 @@ export const uberContent: TopicData = {
                                         {[
                                             {
                                                 label: 'Redis GEO (Driver locations)',
-                                                color: 'border-yellow-400/30 text-yellow-400 bg-yellow-400/5',
+                                                color: 'border-yellow-400/30 text-yellow-700 dark:text-yellow-400 bg-yellow-400/5',
                                             },
                                             {
                                                 label: 'Cassandra (Trip history)',
@@ -861,19 +861,19 @@ export const uberContent: TopicData = {
                                         {[
                                             {
                                                 label: 'WebSocket (Driver-Rider)',
-                                                color: 'border-purple-400/30 text-purple-400 bg-purple-400/5',
+                                                color: 'border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5',
                                             },
                                             {
                                                 label: 'Apache Kafka',
-                                                color: 'border-orange-400/30 text-orange-400 bg-orange-400/5',
+                                                color: 'border-orange-400/30 text-orange-700 dark:text-orange-400 bg-orange-400/5',
                                             },
                                             {
                                                 label: 'Apache Flink (Stream processing)',
-                                                color: 'border-purple-400/30 text-purple-400 bg-purple-400/5',
+                                                color: 'border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5',
                                             },
                                             {
                                                 label: 'Hadoop + Spark (ML training)',
-                                                color: 'border-purple-400/30 text-purple-400 bg-purple-400/5',
+                                                color: 'border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5',
                                             },
                                         ].map((tag, i) => (
                                             <span
@@ -1273,7 +1273,7 @@ def find_nearby_drivers(rider_lat: float, rider_lng: float, radius_km: float = 5
                         ['Driver rating', 'High', 'Quality assurance'],
                         [
                             'Car type match',
-                            <span className='text-red-400 font-semibold'>
+                            <span className='text-red-700 dark:text-red-400 font-semibold'>
                                 Critical
                             </span>,
                             'UberX vs UberXL',
@@ -1381,13 +1381,13 @@ def find_nearby_drivers(rider_lat: float, rider_lng: float, radius_km: float = 5
                             <div className='flex flex-col gap-4'>
                                 {/* Driver side */}
                                 <div className='flex flex-wrap items-center gap-3'>
-                                    <div className='px-4 py-3 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-400 font-bold'>
+                                    <div className='px-4 py-3 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold'>
                                         Driver App
                                     </div>
                                     <span className='text-muted-foreground font-mono text-xs'>
                                         WebSocket →
                                     </span>
-                                    <div className='px-4 py-3 border border-emerald-500/50 bg-card rounded text-xs font-mono text-emerald-400'>
+                                    <div className='px-4 py-3 border border-emerald-500/50 bg-card rounded text-xs font-mono text-emerald-700 dark:text-emerald-400'>
                                         Location Service
                                     </div>
                                     <span className='text-muted-foreground font-mono text-xs'>
@@ -1409,7 +1409,7 @@ def find_nearby_drivers(rider_lat: float, rider_lng: float, radius_km: float = 5
                                     <span className='text-muted-foreground font-mono text-xs'>
                                         HTTP →
                                     </span>
-                                    <div className='px-4 py-3 border border-purple-500/50 bg-card rounded text-xs font-mono text-purple-400'>
+                                    <div className='px-4 py-3 border border-purple-500/50 bg-card rounded text-xs font-mono text-purple-700 dark:text-purple-400'>
                                         Trip Service
                                     </div>
                                     <span className='text-muted-foreground font-mono text-xs'>
@@ -1421,20 +1421,20 @@ def find_nearby_drivers(rider_lat: float, rider_lng: float, radius_km: float = 5
                                     <span className='text-muted-foreground font-mono text-xs'>
                                         →
                                     </span>
-                                    <div className='px-4 py-3 border border-orange-400/50 bg-card rounded text-xs font-mono text-orange-400'>
+                                    <div className='px-4 py-3 border border-orange-400/50 bg-card rounded text-xs font-mono text-orange-700 dark:text-orange-400'>
                                         Matching Service
                                     </div>
                                 </div>
                                 <div className='h-px bg-border w-full' />
                                 {/* Notification side */}
                                 <div className='flex flex-wrap items-center gap-3'>
-                                    <div className='px-4 py-3 border border-orange-400/50 bg-card rounded text-xs font-mono text-orange-400'>
+                                    <div className='px-4 py-3 border border-orange-400/50 bg-card rounded text-xs font-mono text-orange-700 dark:text-orange-400'>
                                         Matching Service
                                     </div>
                                     <span className='text-muted-foreground font-mono text-xs'>
                                         WebSocket PUSH →
                                     </span>
-                                    <div className='px-4 py-3 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-400 font-bold'>
+                                    <div className='px-4 py-3 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold'>
                                         Driver App
                                     </div>
                                     <span className='text-xs text-muted-foreground'>
@@ -1499,7 +1499,7 @@ def find_nearby_drivers(rider_lat: float, rider_lng: float, radius_km: float = 5
                     rows: [
                         [
                             'Driver real-time location',
-                            <span className='text-yellow-400 font-semibold font-mono'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-semibold font-mono'>
                                 Redis GEO
                             </span>,
                             'In-memory, GEO commands, fast update',
@@ -1558,35 +1558,35 @@ def find_nearby_drivers(rider_lat: float, rider_lng: float, radius_km: float = 5
                             {[
                                 {
                                     type: 'strategy',
-                                    color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
+                                    color: 'text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
                                     label: 'Strategy',
                                     title: 'City-based Sharding',
                                     desc: 'Uber globally 63 countries-এ। প্রতিটা city আলাদাভাবে shard করুন। Dhaka-র requests Dhaka shard-এ যায়, London-এর London-এ। Cross-city matching needed না।',
                                 },
                                 {
                                     type: 'strategy',
-                                    color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
+                                    color: 'text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
                                     label: 'Strategy',
                                     title: 'Redis GEO for Location',
                                     desc: '5M drivers × 1 update/4sec = 1.25M writes/sec। Redis in-memory, millisecond writes, GEO commands built-in। Perfect fit।',
                                 },
                                 {
                                     type: 'strategy',
-                                    color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
+                                    color: 'text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
                                     label: 'Strategy',
                                     title: 'WebSocket for Real-time',
                                     desc: 'Driver app-এ persistent WebSocket connection। Ride request, matching notification, trip updates — সব push। Polling impractical।',
                                 },
                                 {
                                     type: 'tradeoff',
-                                    color: 'text-red-400 bg-red-500/10 border-red-500/20',
+                                    color: 'text-red-700 dark:text-red-400 bg-red-500/10 border-red-500/20',
                                     label: 'Trade-off',
                                     title: 'ETA Accuracy',
                                     desc: 'Real-time traffic data + historical patterns। Google Maps API expensive at scale। Uber নিজেই map data build করেছেনে (Uber Movement)।',
                                 },
                                 {
                                     type: 'tradeoff',
-                                    color: 'text-red-400 bg-red-500/10 border-red-500/20',
+                                    color: 'text-red-700 dark:text-red-400 bg-red-500/10 border-red-500/20',
                                     label: 'Trade-off',
                                     title: 'Driver Ghosting',
                                     desc: 'Driver accept করে তারপর না গেলে? Timeout + automatic reassign। Penalty system। Acceptance rate track করুন matching algorithm-এ।',
@@ -1684,11 +1684,11 @@ def find_nearby_drivers(rider_lat: float, rider_lng: float, radius_km: float = 5
                 'Complex math, library dependency',
             ],
             [
-                <span className='font-bold text-emerald-400 font-mono'>
+                <span className='font-bold text-emerald-700 dark:text-emerald-400 font-mono'>
                     H3 (Uber custom)
                 </span>,
                 'Hexagonal grid। Equal area hexagons।',
-                <span className='text-emerald-400 font-semibold'>
+                <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                     Uber-এর actual system। Surge pricing।
                 </span>,
                 'Uniform neighbor distance, no corner distortion',

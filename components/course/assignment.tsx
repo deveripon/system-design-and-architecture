@@ -48,7 +48,7 @@ export function Assignment({ title, time, difficulty, tasks = [], deliverables =
           <div className="space-y-4">
             {deliverables.map((item, idx) => (
               <div key={idx} className="flex items-center gap-4 p-4 border border-border bg-card group hover:border-primary/50 transition-colors">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500/50 group-hover:text-emerald-500 transition-colors shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors shrink-0" />
                 <span className="text-sm font-bold uppercase tracking-tight text-foreground/80">{item}</span>
               </div>
             ))}

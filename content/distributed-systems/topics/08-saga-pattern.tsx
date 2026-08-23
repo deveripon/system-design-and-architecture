@@ -106,7 +106,7 @@ export const sagaPatternContent: TopicData = {
                             </p>
                             <div className='space-y-6'>
                                 <div>
-                                    <p className='text-xs font-mono text-emerald-400 mb-3 font-bold'>
+                                    <p className='text-xs font-mono text-emerald-700 dark:text-emerald-400 mb-3 font-bold'>
                                         ✅ HAPPY PATH
                                     </p>
                                     <div className='flex flex-wrap items-center gap-2'>
@@ -119,53 +119,53 @@ export const sagaPatternContent: TopicData = {
                                             <div
                                                 key={i}
                                                 className='flex items-center gap-2'>
-                                                <div className='px-3 py-2 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-400'>
+                                                <div className='px-3 py-2 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-700 dark:text-emerald-400'>
                                                     {step}
                                                 </div>
                                                 {i < 3 && (
-                                                    <span className='text-emerald-400 font-mono'>
+                                                    <span className='text-emerald-700 dark:text-emerald-400 font-mono'>
                                                         →
                                                     </span>
                                                 )}
                                             </div>
                                         ))}
-                                        <div className='ml-2 px-3 py-2 bg-emerald-500/10 border border-emerald-500 rounded text-xs font-mono text-emerald-400'>
+                                        <div className='ml-2 px-3 py-2 bg-emerald-500/10 border border-emerald-500 rounded text-xs font-mono text-emerald-700 dark:text-emerald-400'>
                                             🎉 Order Complete!
                                         </div>
                                     </div>
                                 </div>
                                 <div>
-                                    <p className='text-xs font-mono text-red-400 mb-3 font-bold'>
+                                    <p className='text-xs font-mono text-red-700 dark:text-red-400 mb-3 font-bold'>
                                         ❌ FAILURE PATH
                                     </p>
                                     <div className='flex flex-wrap items-center gap-2 mb-4'>
-                                        <div className='px-3 py-2 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-400'>
+                                        <div className='px-3 py-2 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-700 dark:text-emerald-400'>
                                             1. Order Created ✓
                                         </div>
-                                        <span className='text-emerald-400 font-mono'>
+                                        <span className='text-emerald-700 dark:text-emerald-400 font-mono'>
                                             →
                                         </span>
-                                        <div className='px-3 py-2 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-400'>
+                                        <div className='px-3 py-2 border border-emerald-500 bg-card rounded text-xs font-mono text-emerald-700 dark:text-emerald-400'>
                                             2. Payment Charged ✓
                                         </div>
-                                        <span className='text-emerald-400 font-mono'>
+                                        <span className='text-emerald-700 dark:text-emerald-400 font-mono'>
                                             →
                                         </span>
-                                        <div className='px-3 py-2 border-2 border-red-500 bg-card rounded text-xs font-mono text-red-400'>
+                                        <div className='px-3 py-2 border-2 border-red-500 bg-card rounded text-xs font-mono text-red-700 dark:text-red-400'>
                                             3. Inventory FAIL! ❌
                                         </div>
                                     </div>
                                     <div className='flex flex-wrap gap-2 ml-8'>
-                                        <div className='px-3 py-2 bg-yellow-500/8 border border-yellow-500 rounded text-xs font-mono text-yellow-400'>
+                                        <div className='px-3 py-2 bg-yellow-500/8 border border-yellow-500 rounded text-xs font-mono text-yellow-700 dark:text-yellow-400'>
                                             ↩️ Refund Payment
                                         </div>
-                                        <span className='text-yellow-400 font-mono'>
+                                        <span className='text-yellow-700 dark:text-yellow-400 font-mono'>
                                             →
                                         </span>
-                                        <div className='px-3 py-2 bg-yellow-500/8 border border-yellow-500 rounded text-xs font-mono text-yellow-400'>
+                                        <div className='px-3 py-2 bg-yellow-500/8 border border-yellow-500 rounded text-xs font-mono text-yellow-700 dark:text-yellow-400'>
                                             ↩️ Cancel Order
                                         </div>
-                                        <span className='text-yellow-400 font-mono text-xs self-center'>
+                                        <span className='text-yellow-700 dark:text-yellow-400 font-mono text-xs self-center'>
                                             ← Compensating Transactions!
                                         </span>
                                     </div>
@@ -218,12 +218,12 @@ export const sagaPatternContent: TopicData = {
                                 CHOREOGRAPHY — Event-Driven, No Central Control
                             </p>
                             <div className='flex flex-col gap-4'>
-                                <div className='self-center px-6 py-3 border-2 border-orange-400 bg-card rounded text-xs font-mono text-orange-300 font-bold'>
+                                <div className='self-center px-6 py-3 border-2 border-orange-400 bg-card rounded text-xs font-mono text-orange-700 dark:text-orange-300 font-bold'>
                                     Event Bus (Kafka / RabbitMQ)
                                 </div>
                                 <div className='grid grid-cols-1 md:grid-cols-4 gap-3'>
                                     <div className='p-4 border border-pink-500 bg-card rounded'>
-                                        <p className='text-xs font-mono text-pink-400 font-bold mb-2'>
+                                        <p className='text-xs font-mono text-pink-700 dark:text-pink-400 font-bold mb-2'>
                                             Order Service
                                         </p>
                                         <p className='text-[11px] text-muted-foreground'>
@@ -232,40 +232,40 @@ export const sagaPatternContent: TopicData = {
                                         <p className='text-[11px] text-muted-foreground'>
                                             2. Publish:
                                         </p>
-                                        <p className='text-[11px] text-orange-400 font-mono'>
+                                        <p className='text-[11px] text-orange-700 dark:text-orange-400 font-mono'>
                                             OrderPlaced →
                                         </p>
                                     </div>
                                     <div className='p-4 border border-emerald-500 bg-card rounded'>
-                                        <p className='text-xs font-mono text-emerald-400 font-bold mb-2'>
+                                        <p className='text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold mb-2'>
                                             Payment Service
                                         </p>
                                         <p className='text-[11px] text-muted-foreground'>
                                             Listens: OrderPlaced
                                         </p>
-                                        <p className='text-[11px] text-orange-400 font-mono'>
+                                        <p className='text-[11px] text-orange-700 dark:text-orange-400 font-mono'>
                                             Publish: PaymentDone →
                                         </p>
                                     </div>
                                     <div className='p-4 border border-purple-500 bg-card rounded'>
-                                        <p className='text-xs font-mono text-purple-400 font-bold mb-2'>
+                                        <p className='text-xs font-mono text-purple-700 dark:text-purple-400 font-bold mb-2'>
                                             Inventory Service
                                         </p>
                                         <p className='text-[11px] text-muted-foreground'>
                                             Listens: PaymentDone
                                         </p>
-                                        <p className='text-[11px] text-orange-400 font-mono'>
+                                        <p className='text-[11px] text-orange-700 dark:text-orange-400 font-mono'>
                                             Publish: StockReserved →
                                         </p>
                                     </div>
                                     <div className='p-4 border border-blue-500 bg-card rounded'>
-                                        <p className='text-xs font-mono text-blue-400 font-bold mb-2'>
+                                        <p className='text-xs font-mono text-blue-700 dark:text-blue-400 font-bold mb-2'>
                                             Notification Svc
                                         </p>
                                         <p className='text-[11px] text-muted-foreground'>
                                             Listens: multiple events
                                         </p>
-                                        <p className='text-[11px] text-emerald-400'>
+                                        <p className='text-[11px] text-emerald-700 dark:text-emerald-400'>
                                             ✓ Sends email/SMS
                                         </p>
                                     </div>
@@ -278,14 +278,14 @@ export const sagaPatternContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10 mt-16'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10 mt-16'>
                                 Choreography — Pros &amp; Cons
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ Pros
                                         </span>
                                     </h4>
@@ -298,7 +298,7 @@ export const sagaPatternContent: TopicData = {
                                 <div className='p-8 bg-card/30'>
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
-                                        <span className='text-red-400'>
+                                        <span className='text-red-700 dark:text-red-400'>
                                             ❌ Cons
                                         </span>
                                     </h4>
@@ -348,7 +348,7 @@ export const sagaPatternContent: TopicData = {
                             </p>
                             <div className='flex flex-col items-center gap-6'>
                                 <div className='px-8 py-4 border-2 border-pink-500 bg-card rounded text-center'>
-                                    <p className='text-xs font-mono text-pink-400 font-bold'>
+                                    <p className='text-xs font-mono text-pink-700 dark:text-pink-400 font-bold'>
                                         Saga Orchestrator
                                     </p>
                                     <p className='text-[11px] text-muted-foreground mt-1'>
@@ -361,22 +361,22 @@ export const sagaPatternContent: TopicData = {
                                 <div className='grid grid-cols-2 md:grid-cols-4 gap-3 w-full'>
                                     {[
                                         {
-                                            color: 'border-emerald-500 text-emerald-400',
+                                            color: 'border-emerald-500 text-emerald-700 dark:text-emerald-400',
                                             step: '1. CreateOrder',
                                             label: 'Order Service',
                                         },
                                         {
-                                            color: 'border-orange-400 text-orange-300',
+                                            color: 'border-orange-400 text-orange-700 dark:text-orange-300',
                                             step: '2. ChargePayment',
                                             label: 'Payment Service',
                                         },
                                         {
-                                            color: 'border-purple-500 text-purple-400',
+                                            color: 'border-purple-500 text-purple-700 dark:text-purple-400',
                                             step: '3. ReserveInventory',
                                             label: 'Inventory Service',
                                         },
                                         {
-                                            color: 'border-blue-500 text-blue-400',
+                                            color: 'border-blue-500 text-blue-700 dark:text-blue-400',
                                             step: '4. SendNotification',
                                             label: 'Notification Svc',
                                         },
@@ -411,28 +411,28 @@ export const sagaPatternContent: TopicData = {
                         ],
                         [
                             'Coupling',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Loose
                             </span>,
-                            <span className='text-yellow-400'>Moderate</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Moderate</span>,
                         ],
                         [
                             'Visibility',
-                            <span className='text-red-400'>Hard to track</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>Hard to track</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Easy to visualize
                             </span>,
                         ],
                         [
                             'Debugging',
-                            <span className='text-red-400'>Difficult</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>Difficult</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Centralized logs
                             </span>,
                         ],
                         [
                             'Simple flows',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Better
                             </span>,
                             'Overkill',
@@ -440,7 +440,7 @@ export const sagaPatternContent: TopicData = {
                         [
                             'Complex flows',
                             'Gets messy',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Better
                             </span>,
                         ],
@@ -481,14 +481,14 @@ export const sagaPatternContent: TopicData = {
                     steps: [
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     T1 — Order Service: Order Create করুন
                                 </span>
                             ),
                             description: (
                                 <span className='text-muted-foreground'>
                                     Compensation:{' '}
-                                    <span className='text-yellow-400'>
+                                    <span className='text-yellow-700 dark:text-yellow-400'>
                                         Order Cancel করুন (order status =
                                         CANCELLED)
                                     </span>
@@ -497,14 +497,14 @@ export const sagaPatternContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     T2 — Payment Service: Payment Charge করুন
                                 </span>
                             ),
                             description: (
                                 <span className='text-muted-foreground'>
                                     Compensation:{' '}
-                                    <span className='text-yellow-400'>
+                                    <span className='text-yellow-700 dark:text-yellow-400'>
                                         Refund করুন (full amount return)
                                     </span>
                                 </span>
@@ -512,7 +512,7 @@ export const sagaPatternContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-red-400'>
+                                <span className='font-mono text-red-700 dark:text-red-400'>
                                     T3 — Inventory Service: Stock Reserve করতে
                                     গিয়ে FAIL! ❌
                                 </span>
@@ -525,14 +525,14 @@ export const sagaPatternContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     C2 — Payment Service: Refund চালাও
                                 </span>
                             ),
                             description: (
                                 <span className='text-muted-foreground'>
                                     Payment reversed। Customer কে money ফেরত।{' '}
-                                    <span className='text-emerald-400'>
+                                    <span className='text-emerald-700 dark:text-emerald-400'>
                                         Done ✓
                                     </span>
                                 </span>
@@ -540,14 +540,14 @@ export const sagaPatternContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     C1 — Order Service: Order Cancel করুন
                                 </span>
                             ),
                             description: (
                                 <span className='text-muted-foreground'>
                                     Order status = CANCELLED।{' '}
-                                    <span className='text-emerald-400'>
+                                    <span className='text-emerald-700 dark:text-emerald-400'>
                                         Done ✓
                                     </span>{' '}
                                     System eventually consistent।

@@ -96,7 +96,7 @@ export const amazonContent: TopicData = {
                             </div>
                             {/* Non-Functional Requirements */}
                             <div className='bg-card border border-border rounded-lg p-5'>
-                                <p className='font-mono text-[11px] uppercase tracking-[0.15em] text-purple-400 mb-4 font-bold'>
+                                <p className='font-mono text-[11px] uppercase tracking-[0.15em] text-purple-700 dark:text-purple-400 mb-4 font-bold'>
                                     ⚡ Non-Functional Requirements
                                 </p>
                                 <ul className='space-y-0'>
@@ -341,14 +341,14 @@ export const amazonContent: TopicData = {
                                     height='40'
                                     rx='4'
                                     fill='hsl(var(--card))'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                     strokeWidth='1.2'
                                 />
                                 <text
                                     x='305'
                                     y='78'
                                     textAnchor='middle'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='9'>
                                     PRODUCT
@@ -844,37 +844,37 @@ export const amazonContent: TopicData = {
                             '1. Cart Review',
                             'Items এবং prices confirm',
                             'Cart Service',
-                            <span className='text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
                         ],
                         [
                             '2. Lock Inventory',
                             'Stock reserve করুন (soft lock)',
                             'Inventory Service',
-                            <span className='text-red-400'>⚠️ Very Critical</span>,
+                            <span className='text-red-700 dark:text-red-400'>⚠️ Very Critical</span>,
                         ],
                         [
                             '3. Payment',
                             'Card charge করুন',
                             'Payment Service',
-                            <span className='text-red-400'>⚠️ Most Critical</span>,
+                            <span className='text-red-700 dark:text-red-400'>⚠️ Most Critical</span>,
                         ],
                         [
                             '4. Confirm Order',
                             'Order create করুন DB-তে',
                             'Order Service',
-                            <span className='text-emerald-400 font-bold'>Critical</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>Critical</span>,
                         ],
                         [
                             '5. Reduce Inventory',
                             'Actual stock deduct করুন',
                             'Inventory Service',
-                            <span className='text-emerald-400 font-bold'>Critical</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>Critical</span>,
                         ],
                         [
                             '6. Notify',
                             'Email/SMS পাঠাও',
                             'Notification Service',
-                            <span className='text-emerald-400 font-bold'>Low (async)</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>Low (async)</span>,
                         ],
                     ],
                 },
@@ -898,7 +898,7 @@ export const amazonContent: TopicData = {
                     steps: [
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 1 — Reserve Inventory
                                 </span>
                             ),
@@ -906,7 +906,7 @@ export const amazonContent: TopicData = {
                                 <span className='text-muted-foreground'>
                                     Inventory Service-এ stock soft-lock করুন।
                                     Compensation:{' '}
-                                    <span className='text-yellow-400'>
+                                    <span className='text-yellow-700 dark:text-yellow-400'>
                                         inventory.release(cart.items)
                                     </span>
                                 </span>
@@ -914,7 +914,7 @@ export const amazonContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 2 — Process Payment
                                 </span>
                             ),
@@ -922,7 +922,7 @@ export const amazonContent: TopicData = {
                                 <span className='text-muted-foreground'>
                                     Payment Service-এ card charge করুন।
                                     Compensation:{' '}
-                                    <span className='text-yellow-400'>
+                                    <span className='text-yellow-700 dark:text-yellow-400'>
                                         payment.refund(payment_id)
                                     </span>
                                 </span>
@@ -930,7 +930,7 @@ export const amazonContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 3 — Create Order
                                 </span>
                             ),
@@ -938,7 +938,7 @@ export const amazonContent: TopicData = {
                                 <span className='text-muted-foreground'>
                                     Order Service DB-তে order create করুন।
                                     Compensation:{' '}
-                                    <span className='text-yellow-400'>
+                                    <span className='text-yellow-700 dark:text-yellow-400'>
                                         order.cancel(order_id)
                                     </span>
                                 </span>
@@ -946,7 +946,7 @@ export const amazonContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-blue-400'>
+                                <span className='font-mono text-blue-700 dark:text-blue-400'>
                                     Step 4 — Async Notifications (Kafka)
                                 </span>
                             ),
@@ -954,7 +954,7 @@ export const amazonContent: TopicData = {
                                 <span className='text-muted-foreground'>
                                     Event publish করুন — Notification, Fulfillment
                                     service async consume করবেন।{' '}
-                                    <span className='text-emerald-400'>
+                                    <span className='text-emerald-700 dark:text-emerald-400'>
                                         Non-blocking ✓
                                     </span>
                                 </span>
@@ -1097,8 +1097,8 @@ export const amazonContent: TopicData = {
                                     <span
                                         className={`font-mono text-[11px] px-2.5 py-[3px] rounded flex-shrink-0 border ${
                                             item.type === 'pro'
-                                                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
-                                                : 'bg-red-500/10 text-red-400 border-red-500/20'
+                                                ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20'
+                                                : 'bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/20'
                                         }`}>
                                         {item.label}
                                     </span>
@@ -1123,19 +1123,19 @@ export const amazonContent: TopicData = {
                                     tags: [
                                         {
                                             text: 'Java / Kotlin',
-                                            color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                            color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                         },
                                         {
                                             text: 'Python (ML/Recommendations)',
-                                            color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                            color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                         },
                                         {
                                             text: 'AWS ECS / Kubernetes',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                         {
                                             text: 'AWS API Gateway',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                     ],
                                 },
@@ -1152,7 +1152,7 @@ export const amazonContent: TopicData = {
                                         },
                                         {
                                             text: 'Redis (Cart + Cache)',
-                                            color: 'border-yellow-500/30 text-yellow-400 bg-yellow-500/5',
+                                            color: 'border-yellow-500/30 text-yellow-700 dark:text-yellow-400 bg-yellow-500/5',
                                         },
                                         {
                                             text: 'Elasticsearch (Search)',
@@ -1169,19 +1169,19 @@ export const amazonContent: TopicData = {
                                     tags: [
                                         {
                                             text: 'Amazon SQS / Kafka',
-                                            color: 'border-orange-500/30 text-orange-400 bg-orange-500/5',
+                                            color: 'border-orange-500/30 text-orange-700 dark:text-orange-400 bg-orange-500/5',
                                         },
                                         {
                                             text: 'CloudFront CDN',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                         {
                                             text: 'AWS S3 (Images)',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                         {
                                             text: 'Amazon SageMaker (ML)',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                     ],
                                 },
@@ -1213,7 +1213,7 @@ export const amazonContent: TopicData = {
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                                 <div className='bg-card border border-border rounded-lg p-5'>
-                                    <h4 className='font-mono text-[11px] uppercase tracking-widest text-emerald-400 font-bold mb-3'>
+                                    <h4 className='font-mono text-[11px] uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold mb-3'>
                                         💳 Payment System
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -1225,7 +1225,7 @@ export const amazonContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='bg-card border border-border rounded-lg p-5'>
-                                    <h4 className='font-mono text-[11px] uppercase tracking-widest text-orange-400 font-bold mb-3'>
+                                    <h4 className='font-mono text-[11px] uppercase tracking-widest text-orange-700 dark:text-orange-400 font-bold mb-3'>
                                         🤖 Recommendations
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>

@@ -85,25 +85,25 @@ export const loadBalancingContent: TopicData = {
                     content: (
                         <ul className='space-y-2'>
                             <li>
-                                <strong className='text-emerald-400'>
+                                <strong className='text-emerald-700 dark:text-emerald-400'>
                                     High Availability:
                                 </strong>{' '}
                                 একটা server down হলেও app চলতে থাকে
                             </li>
                             <li>
-                                <strong className='text-emerald-400'>
+                                <strong className='text-emerald-700 dark:text-emerald-400'>
                                     Scalability:
                                 </strong>{' '}
                                 নতুন server যোগ করে traffic handle করা সহজ
                             </li>
                             <li>
-                                <strong className='text-emerald-400'>
+                                <strong className='text-emerald-700 dark:text-emerald-400'>
                                     Performance:
                                 </strong>{' '}
                                 Load সমান ভাগ হওয়ায় response time কমে
                             </li>
                             <li>
-                                <strong className='text-emerald-400'>
+                                <strong className='text-emerald-700 dark:text-emerald-400'>
                                     Zero-downtime deployment:
                                 </strong>{' '}
                                 একে একে server update করা যায়, app বন্ধ হয় না
@@ -306,7 +306,7 @@ export const loadBalancingContent: TopicData = {
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         LAYER 4{' '}
-                                        <span className='text-blue-400'>
+                                        <span className='text-blue-700 dark:text-blue-400'>
                                             Transport Layer
                                         </span>
                                     </h4>
@@ -322,7 +322,7 @@ export const loadBalancingContent: TopicData = {
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         LAYER 7{' '}
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             Application Layer
                                         </span>
                                     </h4>
@@ -344,42 +344,42 @@ export const loadBalancingContent: TopicData = {
                     rows: [
                         [
                             'OSI Layer',
-                            <span className='text-blue-400'>
+                            <span className='text-blue-700 dark:text-blue-400'>
                                 Transport (L4)
                             </span>,
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Application (L7)
                             </span>,
                         ],
                         [
                             'Speed',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 অনেক Fast
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Slightly Slower
                             </span>,
                         ],
                         [
                             'Content Awareness',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 না — IP+Port only
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 হ্যাঁ — URL, Header, Cookie
                             </span>,
                         ],
                         [
                             'SSL Termination',
-                            <span className='text-red-400'>না</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>না</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 হ্যাঁ
                             </span>,
                         ],
                         [
                             'Path-based Routing',
-                            <span className='text-red-400'>না</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>না</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 হ্যাঁ
                             </span>,
                         ],
@@ -408,7 +408,7 @@ export const loadBalancingContent: TopicData = {
                         <div className='space-y-8'>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-b border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-yellow-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-yellow-700 dark:text-yellow-400 mb-3'>
                                         Round Robin
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -419,7 +419,7 @@ export const loadBalancingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-b border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-blue-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-blue-700 dark:text-blue-400 mb-3'>
                                         Weighted Round Robin
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -430,7 +430,7 @@ export const loadBalancingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-b border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-emerald-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-emerald-700 dark:text-emerald-400 mb-3'>
                                         Least Connections
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -442,7 +442,7 @@ export const loadBalancingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-b border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-purple-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-purple-700 dark:text-purple-400 mb-3'>
                                         IP Hash
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -453,7 +453,7 @@ export const loadBalancingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-red-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-red-700 dark:text-red-400 mb-3'>
                                         Random
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -476,7 +476,7 @@ export const loadBalancingContent: TopicData = {
                     ],
                     rows: [
                         [
-                            <span className='font-bold text-yellow-400'>
+                            <span className='font-bold text-yellow-700 dark:text-yellow-400'>
                                 Round Robin
                             </span>,
                             'Sequential rotation',
@@ -484,7 +484,7 @@ export const loadBalancingContent: TopicData = {
                             'Load consider করে না',
                         ],
                         [
-                            <span className='font-bold text-blue-400'>
+                            <span className='font-bold text-blue-700 dark:text-blue-400'>
                                 Weighted RR
                             </span>,
                             'Capacity-based weight',
@@ -492,7 +492,7 @@ export const loadBalancingContent: TopicData = {
                             'Static weight, dynamic load না',
                         ],
                         [
-                            <span className='font-bold text-emerald-400'>
+                            <span className='font-bold text-emerald-700 dark:text-emerald-400'>
                                 Least Connections
                             </span>,
                             'Lowest active connections',
@@ -500,7 +500,7 @@ export const loadBalancingContent: TopicData = {
                             'Connection count != actual load',
                         ],
                         [
-                            <span className='font-bold text-purple-400'>
+                            <span className='font-bold text-purple-700 dark:text-purple-400'>
                                 IP Hash
                             </span>,
                             'IP → same server',
@@ -508,7 +508,7 @@ export const loadBalancingContent: TopicData = {
                             'Uneven distribution possible',
                         ],
                         [
-                            <span className='font-bold text-red-400'>
+                            <span className='font-bold text-red-700 dark:text-red-400'>
                                 Random
                             </span>,
                             'Random selection',
@@ -546,21 +546,21 @@ export const loadBalancingContent: TopicData = {
                     content: (
                         <ul className='space-y-3'>
                             <li>
-                                <strong className='text-yellow-400'>
+                                <strong className='text-yellow-700 dark:text-yellow-400'>
                                     TCP Check:
                                 </strong>{' '}
                                 শুধু port open আছে কিনা check করে। দ্রুত কিন্তু
                                 app actually কাজ করছে কিনা বলে না।
                             </li>
                             <li>
-                                <strong className='text-yellow-400'>
+                                <strong className='text-yellow-700 dark:text-yellow-400'>
                                     HTTP Check:
                                 </strong>{' '}
                                 নির্দিষ্ট URL এ request পাঠিয়ে 200 OK আশা করে।
                                 App level check — বেশি reliable।
                             </li>
                             <li>
-                                <strong className='text-yellow-400'>
+                                <strong className='text-yellow-700 dark:text-yellow-400'>
                                     Custom Script:
                                 </strong>{' '}
                                 Database connection, disk space ইত্যাদি check
@@ -627,67 +627,67 @@ server {
                     ],
                     rows: [
                         [
-                            <span className='font-bold text-emerald-400'>
+                            <span className='font-bold text-emerald-700 dark:text-emerald-400'>
                                 Nginx
                             </span>,
                             'Open Source',
                             'L7',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Excellent
                             </span>,
                             'বেশিরভাগ web apps, reverse proxy',
                         ],
                         [
-                            <span className='font-bold text-blue-400'>
+                            <span className='font-bold text-blue-700 dark:text-blue-400'>
                                 HAProxy
                             </span>,
                             'Open Source',
                             'L4+L7',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Industry Best
                             </span>,
                             'High performance TCP, financial systems',
                         ],
                         [
-                            <span className='font-bold text-yellow-400'>
+                            <span className='font-bold text-yellow-700 dark:text-yellow-400'>
                                 AWS ALB
                             </span>,
                             'Managed Cloud',
                             'L7',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Excellent
                             </span>,
                             'AWS microservices, containers',
                         ],
                         [
-                            <span className='font-bold text-yellow-400'>
+                            <span className='font-bold text-yellow-700 dark:text-yellow-400'>
                                 AWS NLB
                             </span>,
                             'Managed Cloud',
                             'L4',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Ultra Fast
                             </span>,
                             'Ultra-low latency, video streaming',
                         ],
                         [
-                            <span className='font-bold text-orange-400'>
+                            <span className='font-bold text-orange-700 dark:text-orange-400'>
                                 Cloudflare LB
                             </span>,
                             'CDN+LB',
                             'L7',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Global
                             </span>,
                             'Global apps, DDoS protection দরকার',
                         ],
                         [
-                            <span className='font-bold text-purple-400'>
+                            <span className='font-bold text-purple-700 dark:text-purple-400'>
                                 Traefik
                             </span>,
                             'Open Source',
                             'L7',
-                            <span className='text-yellow-400'>Good</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Good</span>,
                             'Kubernetes, Docker environments',
                         ],
                     ],
@@ -874,7 +874,7 @@ Promise.all([
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                             <div className='p-8 border-r border-b border-border bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-emerald-400 mb-4'>
+                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-emerald-700 dark:text-emerald-400 mb-4'>
                                     🎵 Spotify
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -886,7 +886,7 @@ Promise.all([
                                 </p>
                             </div>
                             <div className='p-8 border-b border-border bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-yellow-400 mb-4'>
+                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-yellow-700 dark:text-yellow-400 mb-4'>
                                     🛍️ Shopify
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -897,7 +897,7 @@ Promise.all([
                                 </p>
                             </div>
                             <div className='p-8 border-r border-border bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-red-400 mb-4'>
+                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-red-700 dark:text-red-400 mb-4'>
                                     🎬 Netflix
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -908,7 +908,7 @@ Promise.all([
                                 </p>
                             </div>
                             <div className='p-8 bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-blue-400 mb-4'>
+                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-blue-700 dark:text-blue-400 mb-4'>
                                     🏦 Banks
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -935,7 +935,7 @@ Promise.all([
                     title: 'Q1: L4 vs L7 — কখন কোনটা?',
                     content: (
                         <>
-                            <strong className='text-emerald-400'>
+                            <strong className='text-emerald-700 dark:text-emerald-400'>
                                 L4 ব্যবহার করুন যখন:
                             </strong>{' '}
                             Ultra-low latency দরকার (gaming, video streaming,
@@ -943,7 +943,7 @@ Promise.all([
                             নেই। Non-HTTP protocols (TCP/UDP) handle করতে হবে।
                             <br />
                             <br />
-                            <strong className='text-blue-400'>
+                            <strong className='text-blue-700 dark:text-blue-400'>
                                 L7 ব্যবহার করুন যখন:
                             </strong>{' '}
                             Path-based routing দরকার (<code>/api</code> vs{' '}
@@ -964,7 +964,7 @@ Promise.all([
                             route করা। IP Hash algorithm এটা করে।
                             <br />
                             <br />
-                            <strong className='text-red-400'>
+                            <strong className='text-red-700 dark:text-red-400'>
                                 সমস্যা হলো:
                             </strong>{' '}
                             (১) Uneven load distribution — একটা server এ সব
@@ -973,7 +973,7 @@ Promise.all([
                             scaling এর benefit কমে।
                             <br />
                             <br />
-                            <strong className='text-emerald-400'>
+                            <strong className='text-emerald-700 dark:text-emerald-400'>
                                 Better solution:
                             </strong>{' '}
                             Session data Redis এ রাখুন — যেকোনো server request
@@ -991,14 +991,14 @@ Promise.all([
                             Balancer কেও redundant করা।
                             <br />
                             <br />
-                            <strong className='text-emerald-400'>
+                            <strong className='text-emerald-700 dark:text-emerald-400'>
                                 Active-Active:
                             </strong>{' '}
                             দুটো LB একসাথে কাজ করে, traffic ভাগ করে নেয়। একটা
                             down হলে অন্যটা সব traffic নেয়।
                             <br />
                             <br />
-                            <strong className='text-blue-400'>
+                            <strong className='text-blue-700 dark:text-blue-400'>
                                 Active-Passive:
                             </strong>{' '}
                             একটা primary, একটা standby। Primary down হলে

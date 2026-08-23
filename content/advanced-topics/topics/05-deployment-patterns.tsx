@@ -33,10 +33,10 @@ export const deploymentPatternsContent: TopicData = {
                                 <span className='font-mono text-xs px-3 py-1 border border-primary/30 text-primary bg-primary/5 rounded'>
                                     ⏱ ৯০-১২০ মিনিট
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-400 bg-orange-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-700 dark:text-orange-400 bg-orange-400/5 rounded'>
                                     🚀 Deployment Engineering
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-400 bg-purple-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5 rounded'>
                                     TOPIC 05 / 07
                                 </span>
                             </div>
@@ -51,31 +51,31 @@ export const deploymentPatternsContent: TopicData = {
                                 Production-এ এটা অগ্রহণযোগ্য।
                             </ContentParagraph>
                             <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-red-400 mb-4'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-red-700 dark:text-red-400 mb-4'>
                                     Naive Deploy Flow — ভয়ংকর পরিণতি
                                 </p>
                                 <div className='flex flex-wrap items-center gap-3 font-mono text-sm'>
-                                    <div className='px-4 py-2 border border-emerald-500/50 rounded text-emerald-400 bg-emerald-500/5'>
+                                    <div className='px-4 py-2 border border-emerald-500/50 rounded text-emerald-700 dark:text-emerald-400 bg-emerald-500/5'>
                                         Server Running ✓
                                     </div>
                                     <span className='text-muted-foreground'>→</span>
-                                    <div className='px-4 py-2 border border-red-500/50 rounded text-red-400 bg-red-500/5'>
+                                    <div className='px-4 py-2 border border-red-500/50 rounded text-red-700 dark:text-red-400 bg-red-500/5'>
                                         Server STOP ✗
                                     </div>
                                     <span className='text-muted-foreground'>→</span>
-                                    <div className='px-4 py-2 border border-yellow-400/50 rounded text-yellow-400 bg-yellow-400/5'>
+                                    <div className='px-4 py-2 border border-yellow-400/50 rounded text-yellow-700 dark:text-yellow-400 bg-yellow-400/5'>
                                         Deploy Code
                                     </div>
                                     <span className='text-muted-foreground'>→</span>
-                                    <div className='px-4 py-2 border border-red-500/50 rounded text-red-400 bg-red-500/5'>
+                                    <div className='px-4 py-2 border border-red-500/50 rounded text-red-700 dark:text-red-400 bg-red-500/5'>
                                         Restart ⟳
                                     </div>
                                     <span className='text-muted-foreground'>→</span>
-                                    <div className='px-4 py-2 border border-emerald-500/50 rounded text-emerald-400 bg-emerald-500/5'>
+                                    <div className='px-4 py-2 border border-emerald-500/50 rounded text-emerald-700 dark:text-emerald-400 bg-emerald-500/5'>
                                         Server Running ✓
                                     </div>
                                 </div>
-                                <p className='text-xs text-red-400 font-mono mt-3'>
+                                <p className='text-xs text-red-700 dark:text-red-400 font-mono mt-3'>
                                     ↑ এই মাঝখানের সময়টা = DOWNTIME = users দেখে &quot;Service Unavailable&quot;
                                 </p>
                             </div>
@@ -89,7 +89,7 @@ export const deploymentPatternsContent: TopicData = {
                             {[
                                 {
                                     num: '01',
-                                    color: 'text-red-400',
+                                    color: 'text-red-700 dark:text-red-400',
                                     borderColor: 'border-red-500/30',
                                     bgColor: 'bg-red-500/5',
                                     title: 'Downtime = টাকা নষ্ট',
@@ -97,7 +97,7 @@ export const deploymentPatternsContent: TopicData = {
                                 },
                                 {
                                     num: '02',
-                                    color: 'text-orange-400',
+                                    color: 'text-orange-700 dark:text-orange-400',
                                     borderColor: 'border-orange-400/30',
                                     bgColor: 'bg-orange-400/5',
                                     title: 'Bug in Production',
@@ -105,7 +105,7 @@ export const deploymentPatternsContent: TopicData = {
                                 },
                                 {
                                     num: '03',
-                                    color: 'text-yellow-400',
+                                    color: 'text-yellow-700 dark:text-yellow-400',
                                     borderColor: 'border-yellow-400/30',
                                     bgColor: 'bg-yellow-400/5',
                                     title: 'Big Bang Release',
@@ -113,7 +113,7 @@ export const deploymentPatternsContent: TopicData = {
                                 },
                                 {
                                     num: '04',
-                                    color: 'text-purple-400',
+                                    color: 'text-purple-700 dark:text-purple-400',
                                     borderColor: 'border-purple-400/30',
                                     bgColor: 'bg-purple-400/5',
                                     title: 'Fear of Deployment',
@@ -152,28 +152,28 @@ export const deploymentPatternsContent: TopicData = {
                             </p>
                             <ul className='space-y-1 mt-2'>
                                 <li className='flex items-start gap-2'>
-                                    <span className='text-emerald-400 font-mono mt-0.5'>✓</span>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-mono mt-0.5'>✓</span>
                                     <span>
                                         <strong>Zero Downtime</strong> — users
                                         কোনো interruption ছাড়াই service পাবেন
                                     </span>
                                 </li>
                                 <li className='flex items-start gap-2'>
-                                    <span className='text-emerald-400 font-mono mt-0.5'>✓</span>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-mono mt-0.5'>✓</span>
                                     <span>
                                         <strong>Instant Rollback</strong> — bug
                                         পেলে মুহূর্তে আগের version-এ ফিরে যানয়া
                                     </span>
                                 </li>
                                 <li className='flex items-start gap-2'>
-                                    <span className='text-emerald-400 font-mono mt-0.5'>✓</span>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-mono mt-0.5'>✓</span>
                                     <span>
                                         <strong>Gradual Traffic Shift</strong> —
                                         ধীরে ধীরে নতুন version-এ traffic পাঠানো
                                     </span>
                                 </li>
                                 <li className='flex items-start gap-2'>
-                                    <span className='text-emerald-400 font-mono mt-0.5'>✓</span>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-mono mt-0.5'>✓</span>
                                     <span>
                                         <strong>Deployment Confidence</strong> —
                                         team যেন ভয় না পেয়ে frequently deploy
@@ -201,9 +201,9 @@ export const deploymentPatternsContent: TopicData = {
                         <ContentParagraph>
                             Blue-Green deployment-এ সবসময় দুটো identical
                             production environment থাকে —{' '}
-                            <strong className='text-blue-400'>Blue</strong>{' '}
+                            <strong className='text-blue-700 dark:text-blue-400'>Blue</strong>{' '}
                             (current live) এবং{' '}
-                            <strong className='text-emerald-400'>Green</strong>{' '}
+                            <strong className='text-emerald-700 dark:text-emerald-400'>Green</strong>{' '}
                             (new version)। Traffic switch করে deployment হয়।
                             Downtime zero।
                         </ContentParagraph>
@@ -253,7 +253,7 @@ export const deploymentPatternsContent: TopicData = {
                                         orient='auto'>
                                         <path
                                             d='M0,0 L0,6 L8,3 z'
-                                            fill='#3b82f6'
+                                            fill='#cc6b45'
                                         />
                                     </marker>
                                 </defs>
@@ -268,10 +268,10 @@ export const deploymentPatternsContent: TopicData = {
                                 <text x='80' y='52' textAnchor='middle' fill='#94a3b8' fontFamily='monospace' fontSize='9'>LOAD BALANCER</text>
                                 <text x='80' y='65' textAnchor='middle' fill='#64748b' fontFamily='monospace' fontSize='8'>100% traffic →</text>
 
-                                <path d='M 80 75 L 80 100' stroke='#3b82f6' strokeWidth='1.5' markerEnd='url(#bg-arrB)' />
+                                <path d='M 80 75 L 80 100' stroke='#cc6b45' strokeWidth='1.5' markerEnd='url(#bg-arrB)' />
 
-                                <rect x='20' y='100' width='120' height='45' rx='4' fill='rgba(59,130,246,0.1)' stroke='#3b82f6' strokeWidth='2' />
-                                <text x='80' y='120' textAnchor='middle' fill='#3b82f6' fontFamily='monospace' fontSize='10' fontWeight='bold'>BLUE (v1)</text>
+                                <rect x='20' y='100' width='120' height='45' rx='4' fill='rgba(204,107,69,0.1)' stroke='#cc6b45' strokeWidth='2' />
+                                <text x='80' y='120' textAnchor='middle' fill='#cc6b45' fontFamily='monospace' fontSize='10' fontWeight='bold'>BLUE (v1)</text>
                                 <text x='80' y='135' textAnchor='middle' fill='#64748b' fontFamily='monospace' fontSize='8'>LIVE ✓</text>
 
                                 <rect x='20' y='175' width='120' height='45' rx='4' fill='transparent' stroke='#334155' strokeWidth='1.2' strokeDasharray='4,3' />
@@ -286,10 +286,10 @@ export const deploymentPatternsContent: TopicData = {
                                 <text x='330' y='52' textAnchor='middle' fill='#94a3b8' fontFamily='monospace' fontSize='9'>LOAD BALANCER</text>
                                 <text x='330' y='65' textAnchor='middle' fill='#64748b' fontFamily='monospace' fontSize='8'>100% traffic →</text>
 
-                                <path d='M 310 75 L 295 100' stroke='#3b82f6' strokeWidth='1.5' markerEnd='url(#bg-arrB)' />
+                                <path d='M 310 75 L 295 100' stroke='#cc6b45' strokeWidth='1.5' markerEnd='url(#bg-arrB)' />
 
-                                <rect x='270' y='100' width='120' height='45' rx='4' fill='rgba(59,130,246,0.1)' stroke='#3b82f6' strokeWidth='1.5' />
-                                <text x='330' y='120' textAnchor='middle' fill='#3b82f6' fontFamily='monospace' fontSize='10'>BLUE (v1)</text>
+                                <rect x='270' y='100' width='120' height='45' rx='4' fill='rgba(204,107,69,0.1)' stroke='#cc6b45' strokeWidth='1.5' />
+                                <text x='330' y='120' textAnchor='middle' fill='#cc6b45' fontFamily='monospace' fontSize='10'>BLUE (v1)</text>
                                 <text x='330' y='135' textAnchor='middle' fill='#64748b' fontFamily='monospace' fontSize='8'>STILL LIVE</text>
 
                                 <text x='330' y='165' textAnchor='middle' fill='#f97316' fontFamily='monospace' fontSize='8'>⬇ deploying...</text>
@@ -595,7 +595,7 @@ spec:
                     steps: [
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     Step 1 — ৫% Traffic (Initial Canary)
                                 </span>
                             ),
@@ -609,7 +609,7 @@ spec:
                         },
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     Step 2 — Monitor করুন (৩০ মিনিট - ১ ঘন্টা)
                                 </span>
                             ),
@@ -623,7 +623,7 @@ spec:
                         },
                         {
                             title: (
-                                <span className='font-mono text-orange-400'>
+                                <span className='font-mono text-orange-700 dark:text-orange-400'>
                                     Step 3 — ২৫% Traffic
                                 </span>
                             ),
@@ -637,7 +637,7 @@ spec:
                         },
                         {
                             title: (
-                                <span className='font-mono text-orange-400'>
+                                <span className='font-mono text-orange-700 dark:text-orange-400'>
                                     Step 4 — ৫০% Traffic
                                 </span>
                             ),
@@ -651,7 +651,7 @@ spec:
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 5 — ১০০% Traffic (Full Rollout)
                                 </span>
                             ),
@@ -718,10 +718,10 @@ spec:
 
                                 {/* Phase 0: All old pods (4 blue) */}
                                 {[0, 1, 2, 3].map(j => (
-                                    <rect key={j} x={10 + j * 22} y='30' width='18' height='30' rx='3' fill='rgba(59,130,246,0.2)' stroke='#3b82f6' strokeWidth='1.5' />
+                                    <rect key={j} x={10 + j * 22} y='30' width='18' height='30' rx='3' fill='rgba(204,107,69,0.2)' stroke='#cc6b45' strokeWidth='1.5' />
                                 ))}
                                 {[0, 1, 2, 3].map(j => (
-                                    <text key={j} x={19 + j * 22} y='50' textAnchor='middle' fill='#3b82f6' fontFamily='monospace' fontSize='7'>v1</text>
+                                    <text key={j} x={19 + j * 22} y='50' textAnchor='middle' fill='#cc6b45' fontFamily='monospace' fontSize='7'>v1</text>
                                 ))}
                                 <text x='48' y='80' textAnchor='middle' fill='#64748b' fontFamily='monospace' fontSize='7'>4×v1</text>
 
@@ -730,10 +730,10 @@ spec:
 
                                 {/* Phase 1: 3 old + 1 new */}
                                 {[0, 1, 2].map(j => (
-                                    <rect key={j} x={155 + j * 22} y='30' width='18' height='30' rx='3' fill='rgba(59,130,246,0.2)' stroke='#3b82f6' strokeWidth='1.5' />
+                                    <rect key={j} x={155 + j * 22} y='30' width='18' height='30' rx='3' fill='rgba(204,107,69,0.2)' stroke='#cc6b45' strokeWidth='1.5' />
                                 ))}
                                 {[0, 1, 2].map(j => (
-                                    <text key={j} x={164 + j * 22} y='50' textAnchor='middle' fill='#3b82f6' fontFamily='monospace' fontSize='7'>v1</text>
+                                    <text key={j} x={164 + j * 22} y='50' textAnchor='middle' fill='#cc6b45' fontFamily='monospace' fontSize='7'>v1</text>
                                 ))}
                                 <rect x='221' y='30' width='18' height='30' rx='3' fill='rgba(16,185,129,0.2)' stroke='#10b981' strokeWidth='1.5' />
                                 <text x='230' y='50' textAnchor='middle' fill='#10b981' fontFamily='monospace' fontSize='7'>v2</text>
@@ -744,10 +744,10 @@ spec:
 
                                 {/* Phase 2: 2 old + 2 new */}
                                 {[0, 1].map(j => (
-                                    <rect key={j} x={305 + j * 22} y='30' width='18' height='30' rx='3' fill='rgba(59,130,246,0.2)' stroke='#3b82f6' strokeWidth='1.5' />
+                                    <rect key={j} x={305 + j * 22} y='30' width='18' height='30' rx='3' fill='rgba(204,107,69,0.2)' stroke='#cc6b45' strokeWidth='1.5' />
                                 ))}
                                 {[0, 1].map(j => (
-                                    <text key={j} x={314 + j * 22} y='50' textAnchor='middle' fill='#3b82f6' fontFamily='monospace' fontSize='7'>v1</text>
+                                    <text key={j} x={314 + j * 22} y='50' textAnchor='middle' fill='#cc6b45' fontFamily='monospace' fontSize='7'>v1</text>
                                 ))}
                                 {[0, 1].map(j => (
                                     <rect key={j} x={349 + j * 22} y='30' width='18' height='30' rx='3' fill='rgba(16,185,129,0.2)' stroke='#10b981' strokeWidth='1.5' />
@@ -761,8 +761,8 @@ spec:
                                 <text x='420' y='50' textAnchor='middle' fill='#475569' fontFamily='monospace' fontSize='14'>→</text>
 
                                 {/* Phase 3: 1 old + 3 new */}
-                                <rect x='445' y='30' width='18' height='30' rx='3' fill='rgba(59,130,246,0.2)' stroke='#3b82f6' strokeWidth='1.5' />
-                                <text x='454' y='50' textAnchor='middle' fill='#3b82f6' fontFamily='monospace' fontSize='7'>v1</text>
+                                <rect x='445' y='30' width='18' height='30' rx='3' fill='rgba(204,107,69,0.2)' stroke='#cc6b45' strokeWidth='1.5' />
+                                <text x='454' y='50' textAnchor='middle' fill='#cc6b45' fontFamily='monospace' fontSize='7'>v1</text>
                                 {[0, 1, 2].map(j => (
                                     <rect key={j} x={467 + j * 22} y='30' width='18' height='30' rx='3' fill='rgba(16,185,129,0.2)' stroke='#10b981' strokeWidth='1.5' />
                                 ))}
@@ -784,7 +784,7 @@ spec:
                                 <text x='634' y='80' textAnchor='middle' fill='#10b981' fontFamily='monospace' fontSize='7'>4×v2 ✓</text>
 
                                 {/* Legend */}
-                                <rect x='10' y='110' width='14' height='12' rx='2' fill='rgba(59,130,246,0.2)' stroke='#3b82f6' strokeWidth='1.2' />
+                                <rect x='10' y='110' width='14' height='12' rx='2' fill='rgba(204,107,69,0.2)' stroke='#cc6b45' strokeWidth='1.2' />
                                 <text x='30' y='121' fill='#94a3b8' fontFamily='monospace' fontSize='9'>v1 (old)</text>
                                 <rect x='100' y='110' width='14' height='12' rx='2' fill='rgba(16,185,129,0.2)' stroke='#10b981' strokeWidth='1.2' />
                                 <text x='120' y='121' fill='#94a3b8' fontFamily='monospace' fontSize='9'>v2 (new)</text>
@@ -840,24 +840,24 @@ spec:
                     headers: ['Pattern', 'Cost', 'Rollback Speed', 'Complexity', 'Risk'],
                     rows: [
                         [
-                            <span className='text-blue-400 font-semibold font-mono'>Blue-Green</span>,
-                            <span className='text-red-400'>High (2× infra)</span>,
-                            <span className='text-emerald-400 font-semibold'>Instant</span>,
+                            <span className='text-blue-700 dark:text-blue-400 font-semibold font-mono'>Blue-Green</span>,
+                            <span className='text-red-700 dark:text-red-400'>High (2× infra)</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>Instant</span>,
                             'Medium',
-                            <span className='text-emerald-400'>Low</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Low</span>,
                         ],
                         [
-                            <span className='text-yellow-400 font-semibold font-mono'>Canary</span>,
-                            <span className='text-yellow-400'>Medium</span>,
-                            <span className='text-yellow-400'>Slow (gradual)</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400 font-semibold font-mono'>Canary</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Slow (gradual)</span>,
                             'High',
-                            <span className='text-yellow-400'>Very Low</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Very Low</span>,
                         ],
                         [
-                            <span className='text-emerald-400 font-semibold font-mono'>Rolling Update</span>,
-                            <span className='text-emerald-400 font-semibold'>Low</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold font-mono'>Rolling Update</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>Low</span>,
                             'Medium',
-                            <span className='text-emerald-400'>Low</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Low</span>,
                             'Medium',
                         ],
                     ],
@@ -888,7 +888,7 @@ spec:
                             </ContentParagraph>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                                 <div className='bg-muted/30 border border-border rounded-lg p-4'>
-                                    <p className='font-mono text-xs text-red-400 uppercase tracking-widest mb-3'>
+                                    <p className='font-mono text-xs text-red-700 dark:text-red-400 uppercase tracking-widest mb-3'>
                                         পুরনো উপায় (Without Flags)
                                     </p>
                                     <div className='space-y-1 text-sm text-muted-foreground font-mono'>
@@ -896,11 +896,11 @@ spec:
                                         <div>2. কয়েক সপ্তাহ branch-এ রাখুন</div>
                                         <div>3. বড় merge = conflicts 😱</div>
                                         <div>4. Deploy করলেনই সবাই দেখে</div>
-                                        <div className='text-red-400'>5. Bug = পুরো rollback</div>
+                                        <div className='text-red-700 dark:text-red-400'>5. Bug = পুরো rollback</div>
                                     </div>
                                 </div>
                                 <div className='bg-muted/30 border border-border rounded-lg p-4'>
-                                    <p className='font-mono text-xs text-emerald-400 uppercase tracking-widest mb-3'>
+                                    <p className='font-mono text-xs text-emerald-700 dark:text-emerald-400 uppercase tracking-widest mb-3'>
                                         Feature Flags দিয়ে
                                     </p>
                                     <div className='space-y-1 text-sm text-muted-foreground font-mono'>
@@ -908,7 +908,7 @@ spec:
                                         <div>2. Flag off দিয়ে main-এ merge</div>
                                         <div>3. Deploy (flag off = hidden)</div>
                                         <div>4. ৫% users-এ flag on করুন</div>
-                                        <div className='text-emerald-400'>5. Problem = flag off! ✓</div>
+                                        <div className='text-emerald-700 dark:text-emerald-400'>5. Problem = flag off! ✓</div>
                                     </div>
                                 </div>
                             </div>
@@ -1016,7 +1016,7 @@ async function handleCheckout(userId: string, cart: Cart) {
                         },
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     Verify — Internal Team Test করুন
                                 </span>
                             ),
@@ -1030,7 +1030,7 @@ async function handleCheckout(userId: string, cart: Cart) {
                         },
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     Flag ON — ৫% Users
                                 </span>
                             ),
@@ -1043,7 +1043,7 @@ async function handleCheckout(userId: string, cart: Cart) {
                         },
                         {
                             title: (
-                                <span className='font-mono text-orange-400'>
+                                <span className='font-mono text-orange-700 dark:text-orange-400'>
                                     Monitor — Business Metrics দেখুন
                                 </span>
                             ),
@@ -1057,7 +1057,7 @@ async function handleCheckout(userId: string, cart: Cart) {
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Full Rollout — ১০০% Users
                                 </span>
                             ),
@@ -1121,31 +1121,31 @@ async function handleCheckout(userId: string, cart: Cart) {
                     ],
                     rows: [
                         [
-                            <span className='text-blue-400 font-semibold font-mono'>Blue-Green</span>,
-                            <span className='text-red-400'>High (2× infra)</span>,
-                            <span className='text-emerald-400 font-semibold'>Instant (&lt;1 min)</span>,
-                            <span className='text-emerald-400'>Low</span>,
+                            <span className='text-blue-700 dark:text-blue-400 font-semibold font-mono'>Blue-Green</span>,
+                            <span className='text-red-700 dark:text-red-400'>High (2× infra)</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>Instant (&lt;1 min)</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Low</span>,
                             'Major releases, database migrations',
                         ],
                         [
-                            <span className='text-yellow-400 font-semibold font-mono'>Canary</span>,
-                            <span className='text-yellow-400'>Medium</span>,
-                            <span className='text-yellow-400'>Slow (gradual)</span>,
-                            <span className='text-emerald-400'>Very Low</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400 font-semibold font-mono'>Canary</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Slow (gradual)</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Very Low</span>,
                             'Risky features, experimental changes',
                         ],
                         [
-                            <span className='text-emerald-400 font-semibold font-mono'>Rolling Update</span>,
-                            <span className='text-emerald-400 font-semibold'>Low</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold font-mono'>Rolling Update</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>Low</span>,
                             'Medium (re-deploy old)',
-                            <span className='text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
                             'Routine updates, bug fixes',
                         ],
                         [
-                            <span className='text-purple-400 font-semibold font-mono'>Feature Flags</span>,
-                            <span className='text-emerald-400 font-semibold'>Lowest</span>,
-                            <span className='text-emerald-400 font-semibold'>Instant (config)</span>,
-                            <span className='text-emerald-400'>Lowest</span>,
+                            <span className='text-purple-700 dark:text-purple-400 font-semibold font-mono'>Feature Flags</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>Lowest</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>Instant (config)</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Lowest</span>,
                             'All use cases, A/B testing',
                         ],
                     ],
@@ -1161,25 +1161,25 @@ async function handleCheckout(userId: string, cart: Cart) {
                                 {
                                     scenario: 'E-commerce checkout redesign',
                                     pattern: 'Canary + Feature Flags',
-                                    color: 'text-yellow-400',
+                                    color: 'text-yellow-700 dark:text-yellow-400',
                                     reason: 'High business risk। ৫% দিয়ে শুরু, conversion rate monitor করুন। Flag দিয়ে instant rollback।',
                                 },
                                 {
                                     scenario: 'Critical security patch',
                                     pattern: 'Rolling Update',
-                                    color: 'text-emerald-400',
+                                    color: 'text-emerald-700 dark:text-emerald-400',
                                     reason: 'Fast deployment দরকার। Complex strategy-র সময় নেই। maxUnavailable: 0 দিয়ে zero downtime।',
                                 },
                                 {
                                     scenario: 'Database schema migration',
                                     pattern: 'Blue-Green',
-                                    color: 'text-blue-400',
+                                    color: 'text-blue-700 dark:text-blue-400',
                                     reason: 'Atomic switch দরকার। Old version-কে compatible রাখুন। Problem হলে selector বদলে instant rollback।',
                                 },
                                 {
                                     scenario: 'New AI feature (beta)',
                                     pattern: 'Feature Flags',
-                                    color: 'text-purple-400',
+                                    color: 'text-purple-700 dark:text-purple-400',
                                     reason: 'Deploy now, release later। Internal team-এ test, তারপর ধীরে ধীরে rollout। A/B test করুন।',
                                 },
                             ].map((item, i) => (
@@ -1272,7 +1272,7 @@ async function handleCheckout(userId: string, cart: Cart) {
                             </p>
                             <div className='space-y-4'>
                                 <div className='flex gap-3 items-start'>
-                                    <span className='font-mono text-xs px-2 py-1 border border-red-500/30 text-red-400 bg-red-500/5 rounded flex-shrink-0'>
+                                    <span className='font-mono text-xs px-2 py-1 border border-red-500/30 text-red-700 dark:text-red-400 bg-red-500/5 rounded flex-shrink-0'>
                                         ✗ Weak Answer
                                     </span>
                                     <p className='text-sm text-muted-foreground leading-relaxed italic'>
@@ -1280,7 +1280,7 @@ async function handleCheckout(userId: string, cart: Cart) {
                                     </p>
                                 </div>
                                 <div className='flex gap-3 items-start'>
-                                    <span className='font-mono text-xs px-2 py-1 border border-emerald-500/30 text-emerald-400 bg-emerald-500/5 rounded flex-shrink-0'>
+                                    <span className='font-mono text-xs px-2 py-1 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5 rounded flex-shrink-0'>
                                         ✓ Strong Answer
                                     </span>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -1315,19 +1315,19 @@ async function handleCheckout(userId: string, cart: Cart) {
                             </p>
                             <ul className='space-y-1 mt-2 text-sm'>
                                 <li className='flex items-start gap-2'>
-                                    <span className='text-blue-400 font-mono mt-0.5'>→</span>
+                                    <span className='text-blue-700 dark:text-blue-400 font-mono mt-0.5'>→</span>
                                     <span>Blue-Green: selector পরিবর্তন — seconds-এ rollback</span>
                                 </li>
                                 <li className='flex items-start gap-2'>
-                                    <span className='text-yellow-400 font-mono mt-0.5'>→</span>
+                                    <span className='text-yellow-700 dark:text-yellow-400 font-mono mt-0.5'>→</span>
                                     <span>Canary: error threshold → automatic rollback to 0%</span>
                                 </li>
                                 <li className='flex items-start gap-2'>
-                                    <span className='text-emerald-400 font-mono mt-0.5'>→</span>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-mono mt-0.5'>→</span>
                                     <span>Rolling: kubectl rollout undo deployment/myapp</span>
                                 </li>
                                 <li className='flex items-start gap-2'>
-                                    <span className='text-purple-400 font-mono mt-0.5'>→</span>
+                                    <span className='text-purple-700 dark:text-purple-400 font-mono mt-0.5'>→</span>
                                     <span>Feature Flags: flag off — deploy ছাড়াই instant</span>
                                 </li>
                             </ul>
@@ -1345,7 +1345,7 @@ async function handleCheckout(userId: string, cart: Cart) {
                                 {[
                                     {
                                         company: 'Netflix',
-                                        color: 'text-red-400',
+                                        color: 'text-red-700 dark:text-red-400',
                                         borderColor: 'border-red-500/30',
                                         bgColor: 'bg-red-500/5',
                                         details: [
@@ -1357,7 +1357,7 @@ async function handleCheckout(userId: string, cart: Cart) {
                                     },
                                     {
                                         company: 'Google',
-                                        color: 'text-blue-400',
+                                        color: 'text-blue-700 dark:text-blue-400',
                                         borderColor: 'border-blue-500/30',
                                         bgColor: 'bg-blue-500/5',
                                         details: [

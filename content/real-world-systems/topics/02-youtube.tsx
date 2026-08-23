@@ -102,7 +102,7 @@ export const youtubeContent: TopicData = {
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                <p className='text-xs font-mono uppercase tracking-widest text-emerald-400 mb-4 font-bold'>
+                                <p className='text-xs font-mono uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4 font-bold'>
                                     ✅ Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -127,7 +127,7 @@ export const youtubeContent: TopicData = {
                                 </ul>
                             </div>
                             <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                <p className='text-xs font-mono uppercase tracking-widest text-purple-400 mb-4 font-bold'>
+                                <p className='text-xs font-mono uppercase tracking-widest text-purple-700 dark:text-purple-400 mb-4 font-bold'>
                                     ⚡ Non-Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -306,7 +306,7 @@ export const youtubeContent: TopicData = {
                                     width='70'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#1e2d4a'
                                     strokeWidth='1.5'
                                 />
@@ -343,7 +343,7 @@ export const youtubeContent: TopicData = {
                                     width='90'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#ef4444'
                                     strokeWidth='1.5'
                                 />
@@ -380,7 +380,7 @@ export const youtubeContent: TopicData = {
                                     width='90'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#eab308'
                                     strokeWidth='1.5'
                                 />
@@ -417,7 +417,7 @@ export const youtubeContent: TopicData = {
                                     width='80'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.2'
                                 />
@@ -454,7 +454,7 @@ export const youtubeContent: TopicData = {
                                     width='100'
                                     height='60'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#f97316'
                                     strokeWidth='1.5'
                                 />
@@ -500,7 +500,7 @@ export const youtubeContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                     strokeWidth='1.5'
                                 />
@@ -537,7 +537,7 @@ export const youtubeContent: TopicData = {
                                     width='180'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#1d9bf0'
                                     strokeWidth='2'
                                 />
@@ -579,7 +579,7 @@ export const youtubeContent: TopicData = {
                                     width='70'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#1e2d4a'
                                     strokeWidth='1.5'
                                 />
@@ -616,7 +616,7 @@ export const youtubeContent: TopicData = {
                                     width='90'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                     strokeWidth='1.5'
                                 />
@@ -653,15 +653,15 @@ export const youtubeContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
-                                    stroke='#3b82f6'
+                                    fill='#1a1915'
+                                    stroke='#cc6b45'
                                     strokeWidth='1.5'
                                 />
                                 <text
                                     x='300'
                                     y='308'
                                     textAnchor='middle'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='9'>
                                     METADATA
@@ -870,7 +870,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                     {[
                                         {
                                             label: 'Video File',
-                                            color: 'border-yellow-500 text-yellow-400',
+                                            color: 'border-yellow-500 text-yellow-700 dark:text-yellow-400',
                                         },
                                         {
                                             label: '→',
@@ -879,7 +879,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                         },
                                         {
                                             label: 'Segment into 4s Chunks',
-                                            color: 'border-orange-500 text-orange-400',
+                                            color: 'border-orange-500 text-orange-700 dark:text-orange-400',
                                         },
                                         {
                                             label: '→',
@@ -888,7 +888,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                         },
                                         {
                                             label: 'm3u8 Playlist',
-                                            color: 'border-purple-500 text-purple-400',
+                                            color: 'border-purple-500 text-purple-700 dark:text-purple-400',
                                         },
                                         {
                                             label: '→',
@@ -897,7 +897,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                         },
                                         {
                                             label: 'CDN Edge',
-                                            color: 'border-blue-500 text-blue-400',
+                                            color: 'border-blue-500 text-blue-700 dark:text-blue-400',
                                         },
                                         {
                                             label: '→',
@@ -906,7 +906,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                         },
                                         {
                                             label: 'Player Auto-selects Quality',
-                                            color: 'border-emerald-500 text-emerald-400',
+                                            color: 'border-emerald-500 text-emerald-700 dark:text-emerald-400',
                                         },
                                     ].map((item, i) =>
                                         item.plain ? (
@@ -926,36 +926,36 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                 </div>
                                 <div className='grid grid-cols-1 md:grid-cols-3 gap-3 mt-2'>
                                     <div className='bg-card/50 border border-border rounded p-3'>
-                                        <p className='text-xs font-mono text-red-400 font-bold mb-2'>
+                                        <p className='text-xs font-mono text-red-700 dark:text-red-400 font-bold mb-2'>
                                             🐌 Slow Network (≤ 1 Mbps)
                                         </p>
                                         <p className='text-xs text-muted-foreground'>
                                             Player switches to{' '}
-                                            <span className='text-yellow-400'>
+                                            <span className='text-yellow-700 dark:text-yellow-400'>
                                                 360p
                                             </span>
                                             । No buffering। Small chunk size।
                                         </p>
                                     </div>
                                     <div className='bg-card/50 border border-border rounded p-3'>
-                                        <p className='text-xs font-mono text-yellow-400 font-bold mb-2'>
+                                        <p className='text-xs font-mono text-yellow-700 dark:text-yellow-400 font-bold mb-2'>
                                             🚶 Normal Network (5 Mbps)
                                         </p>
                                         <p className='text-xs text-muted-foreground'>
                                             Player uses{' '}
-                                            <span className='text-emerald-400'>
+                                            <span className='text-emerald-700 dark:text-emerald-400'>
                                                 720p
                                             </span>
                                             । Balanced quality/buffer।
                                         </p>
                                     </div>
                                     <div className='bg-card/50 border border-border rounded p-3'>
-                                        <p className='text-xs font-mono text-emerald-400 font-bold mb-2'>
+                                        <p className='text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold mb-2'>
                                             🚀 Fast Network (20+ Mbps)
                                         </p>
                                         <p className='text-xs text-muted-foreground'>
                                             Player serves{' '}
-                                            <span className='text-blue-400'>
+                                            <span className='text-blue-700 dark:text-blue-400'>
                                                 1080p / 4K
                                             </span>
                                             । Full quality।
@@ -978,21 +978,21 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                             'VOD + Live streaming',
                         ],
                         [
-                            <span className='text-purple-400 font-bold'>DASH</span>,
+                            <span className='text-purple-700 dark:text-purple-400 font-bold'>DASH</span>,
                             'MPEG (ISO)',
                             '2-4 sec',
                             'Android, Chrome',
                             'Adaptive VOD',
                         ],
                         [
-                            <span className='text-orange-400 font-bold'>RTMP</span>,
+                            <span className='text-orange-700 dark:text-orange-400 font-bold'>RTMP</span>,
                             'Adobe',
                             'Real-time',
                             'Flash (legacy)',
                             'Live ingest only',
                         ],
                         [
-                            <span className='text-emerald-400 font-bold'>WebRTC</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>WebRTC</span>,
                             'W3C/IETF',
                             'Sub-second',
                             'All browsers',
@@ -1133,8 +1133,8 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                     <span
                                         className={`font-mono text-[11px] px-2 py-1 rounded flex-shrink-0 mt-0.5 ${
                                             item.type === 'pro'
-                                                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                                                : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                                                ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20'
+                                                : 'bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/20'
                                         }`}>
                                         {item.label}
                                     </span>
@@ -1172,19 +1172,19 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                     {[
                                         {
                                             label: 'Python / Java',
-                                            color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                            color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                         },
                                         {
                                             label: 'FFmpeg (Transcoding)',
-                                            color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                            color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                         },
                                         {
                                             label: 'Kubernetes',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                         {
                                             label: 'Apache Kafka',
-                                            color: 'border-orange-500/30 text-orange-400 bg-orange-500/5',
+                                            color: 'border-orange-500/30 text-orange-700 dark:text-orange-400 bg-orange-500/5',
                                         },
                                     ].map((tag, i) => (
                                         <span
@@ -1211,7 +1211,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                         },
                                         {
                                             label: 'Redis (Cache + Counters)',
-                                            color: 'border-yellow-500/30 text-yellow-400 bg-yellow-500/5',
+                                            color: 'border-yellow-500/30 text-yellow-700 dark:text-yellow-400 bg-yellow-500/5',
                                         },
                                         {
                                             label: 'Cassandra (Watch History)',
@@ -1238,19 +1238,19 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                     {[
                                         {
                                             label: 'CloudFront CDN',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                         {
                                             label: 'HLS / MPEG-DASH',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                         {
                                             label: 'Prometheus + Grafana',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                         {
                                             label: 'Apache Spark (Recommendations)',
-                                            color: 'border-purple-500/30 text-purple-400 bg-purple-500/5',
+                                            color: 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/5',
                                         },
                                     ].map((tag, i) => (
                                         <span
@@ -1293,12 +1293,12 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                 </p>
                             </div>
                             <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                <p className='text-xs font-mono uppercase tracking-widest text-emerald-400 mb-3 font-bold'>
+                                <p className='text-xs font-mono uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-3 font-bold'>
                                     ✅ Interview Tips
                                 </p>
                                 <ul className='space-y-2 text-sm text-muted-foreground'>
                                     <li className='flex gap-2'>
-                                        <span className='text-emerald-400 flex-shrink-0'>
+                                        <span className='text-emerald-700 dark:text-emerald-400 flex-shrink-0'>
                                             →
                                         </span>
                                         <span>
@@ -1306,7 +1306,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                         </span>
                                     </li>
                                     <li className='flex gap-2'>
-                                        <span className='text-emerald-400 flex-shrink-0'>
+                                        <span className='text-emerald-700 dark:text-emerald-400 flex-shrink-0'>
                                             →
                                         </span>
                                         <span>
@@ -1314,7 +1314,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                         </span>
                                     </li>
                                     <li className='flex gap-2'>
-                                        <span className='text-emerald-400 flex-shrink-0'>
+                                        <span className='text-emerald-700 dark:text-emerald-400 flex-shrink-0'>
                                             →
                                         </span>
                                         <span>
@@ -1322,7 +1322,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                         </span>
                                     </li>
                                     <li className='flex gap-2'>
-                                        <span className='text-emerald-400 flex-shrink-0'>
+                                        <span className='text-emerald-700 dark:text-emerald-400 flex-shrink-0'>
                                             →
                                         </span>
                                         <span>
@@ -1330,7 +1330,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                         </span>
                                     </li>
                                     <li className='flex gap-2'>
-                                        <span className='text-emerald-400 flex-shrink-0'>
+                                        <span className='text-emerald-700 dark:text-emerald-400 flex-shrink-0'>
                                             →
                                         </span>
                                         <span>

@@ -33,13 +33,13 @@ export const cqrsEventSourcingContent: TopicData = {
                                 <span className='font-mono text-xs px-3 py-1 border border-primary/30 text-primary bg-primary/5 rounded'>
                                     ⏱ ১২০-১৫০ মিনিট
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-red-400/30 text-red-400 bg-red-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-red-400/30 text-red-700 dark:text-red-400 bg-red-400/5 rounded'>
                                     🔴 Expert Level
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-400 bg-orange-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-700 dark:text-orange-400 bg-orange-400/5 rounded'>
                                     ⚡ Advanced Patterns
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-400 bg-purple-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5 rounded'>
                                     TOPIC 04 / Phase 5
                                 </span>
                             </div>
@@ -58,25 +58,25 @@ export const cqrsEventSourcingContent: TopicData = {
                                         num: '01',
                                         title: 'Read/Write Mismatch',
                                         desc: 'Read model ও Write model এর structure প্রায়ই আলাদা। Write: normalized tables। Read: denormalized, joined views। Same DB schema উভয়কে efficiently serve করতে পারে না।',
-                                        color: 'border-red-500/30 text-red-400',
+                                        color: 'border-red-500/30 text-red-700 dark:text-red-400',
                                     },
                                     {
                                         num: '02',
                                         title: 'Lock Contention',
                                         desc: 'Same row-এ Read ও Write একসাথে হলে database lock। High traffic-এ read query write-কে block করে, write query read-কে block করে। Performance bottleneck।',
-                                        color: 'border-orange-400/30 text-orange-400',
+                                        color: 'border-orange-400/30 text-orange-700 dark:text-orange-400',
                                     },
                                     {
                                         num: '03',
                                         title: 'No Audit Trail',
                                         desc: 'UPDATE করলেন পুরনো value চলে যায়। "Account balance কাল কত ছিল?" — CRUD system জানে না। History track করতে পারে না।',
-                                        color: 'border-yellow-400/30 text-yellow-400',
+                                        color: 'border-yellow-400/30 text-yellow-700 dark:text-yellow-400',
                                     },
                                     {
                                         num: '04',
                                         title: 'Time Travel Impossible',
                                         desc: '"৩ মাস আগের state দেখাও" — CRUD-এ অসম্ভব। Data মুছে যায়, overwrite হয়। Past state reconstruct করার উপায় নেই।',
-                                        color: 'border-purple-400/30 text-purple-400',
+                                        color: 'border-purple-400/30 text-purple-700 dark:text-purple-400',
                                     },
                                 ].map((item, i) => (
                                     <div
@@ -296,14 +296,14 @@ export const cqrsEventSourcingContent: TopicData = {
                         ['কাজ', 'State পরিবর্তন করে', 'State পড়ে'],
                         [
                             'Return',
-                            <span className='font-mono text-orange-400'>void / success-failure</span>,
-                            <span className='font-mono text-emerald-400'>DTO / data</span>,
+                            <span className='font-mono text-orange-700 dark:text-orange-400'>void / success-failure</span>,
+                            <span className='font-mono text-emerald-700 dark:text-emerald-400'>DTO / data</span>,
                         ],
                         ['উদাহরণ', 'PlaceOrder, CancelOrder', 'GetOrderById, ListOrders'],
                         [
                             'Database',
-                            <span className='text-orange-400 font-semibold'>PostgreSQL (normalized)</span>,
-                            <span className='text-emerald-400 font-semibold'>Elasticsearch / Redis</span>,
+                            <span className='text-orange-700 dark:text-orange-400 font-semibold'>PostgreSQL (normalized)</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>Elasticsearch / Redis</span>,
                         ],
                         ['Consistency', 'Strong (ACID)', 'Eventual (async sync)'],
                         ['Scale', 'Write-optimized', 'Read-optimized'],
@@ -423,7 +423,7 @@ class GetOrderQueryHandler {
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <div className='bg-muted/30 border border-red-500/20 rounded-lg p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-red-400 mb-4'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-red-700 dark:text-red-400 mb-4'>
                                     ❌ CRUD Approach — Current State Only
                                 </p>
                                 <div className='space-y-2 font-mono text-sm'>
@@ -439,33 +439,33 @@ class GetOrderQueryHandler {
                                             <tbody>
                                                 <tr>
                                                     <td className='pt-2 text-primary'>ACC-001</td>
-                                                    <td className='pt-2 text-right text-emerald-400'>৳ 5,000</td>
+                                                    <td className='pt-2 text-right text-emerald-700 dark:text-emerald-400'>৳ 5,000</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <p className='text-xs text-red-400 mt-3'>
+                                    <p className='text-xs text-red-700 dark:text-red-400 mt-3'>
                                         ❌ Balance কীভাবে 5000 হলো? অজানা।
                                     </p>
-                                    <p className='text-xs text-red-400'>
+                                    <p className='text-xs text-red-700 dark:text-red-400'>
                                         ❌ ৩ দিন আগে balance কত ছিল? অজানা।
                                     </p>
-                                    <p className='text-xs text-red-400'>
+                                    <p className='text-xs text-red-700 dark:text-red-400'>
                                         ❌ কে টাকা তুলেছে? Audit trail নেই।
                                     </p>
                                 </div>
                             </div>
                             <div className='bg-muted/30 border border-emerald-500/20 rounded-lg p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-400 mb-4'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4'>
                                     ✅ Event Sourcing — Full History
                                 </p>
                                 <div className='space-y-2'>
                                     {[
                                         { type: 'AccountOpened', amount: '+৳ 0', time: 'Jan 1', color: 'text-primary' },
-                                        { type: 'MoneyDeposited', amount: '+৳ 10,000', time: 'Jan 2', color: 'text-emerald-400' },
-                                        { type: 'MoneyWithdrawn', amount: '-৳ 3,000', time: 'Jan 3', color: 'text-red-400' },
-                                        { type: 'MoneyDeposited', amount: '+৳ 2,000', time: 'Jan 5', color: 'text-emerald-400' },
-                                        { type: 'MoneyWithdrawn', amount: '-৳ 4,000', time: 'Jan 7', color: 'text-red-400' },
+                                        { type: 'MoneyDeposited', amount: '+৳ 10,000', time: 'Jan 2', color: 'text-emerald-700 dark:text-emerald-400' },
+                                        { type: 'MoneyWithdrawn', amount: '-৳ 3,000', time: 'Jan 3', color: 'text-red-700 dark:text-red-400' },
+                                        { type: 'MoneyDeposited', amount: '+৳ 2,000', time: 'Jan 5', color: 'text-emerald-700 dark:text-emerald-400' },
+                                        { type: 'MoneyWithdrawn', amount: '-৳ 4,000', time: 'Jan 7', color: 'text-red-700 dark:text-red-400' },
                                     ].map((ev, i) => (
                                         <div key={i} className='flex items-center justify-between py-1.5 border-b border-border last:border-0'>
                                             <div className='flex items-center gap-2'>
@@ -475,7 +475,7 @@ class GetOrderQueryHandler {
                                             <span className={`font-mono text-xs font-bold ${ev.color}`}>{ev.amount}</span>
                                         </div>
                                     ))}
-                                    <p className='text-xs text-emerald-400 mt-2'>
+                                    <p className='text-xs text-emerald-700 dark:text-emerald-400 mt-2'>
                                         ✅ Balance = Replay → ৳ 5,000
                                     </p>
                                 </div>
@@ -673,8 +673,8 @@ class BankAccountAggregate {
                     rows: [
                         [
                             'Mutability',
-                            <span className='text-emerald-400 font-semibold'>Immutable (append-only)</span>,
-                            <span className='text-orange-400'>Mutable (UPDATE/DELETE)</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>Immutable (append-only)</span>,
+                            <span className='text-orange-700 dark:text-orange-400'>Mutable (UPDATE/DELETE)</span>,
                         ],
                         ['Query Style', 'aggregateId দিয়ে events পড়ো', 'Any column দিয়ে query'],
                         ['History', 'Complete history preserved', 'Overwrite হয়ে যায়'],
@@ -848,22 +848,22 @@ class EventStore {
                                         {
                                             title: 'Order Status View',
                                             desc: 'orderId → current status, ETA',
-                                            color: 'border-emerald-500/30 text-emerald-400',
+                                            color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400',
                                         },
                                         {
                                             title: 'Customer Order History',
                                             desc: 'customerId → all past orders',
-                                            color: 'border-orange-400/30 text-orange-400',
+                                            color: 'border-orange-400/30 text-orange-700 dark:text-orange-400',
                                         },
                                         {
                                             title: 'Inventory View',
                                             desc: 'productId → sold qty, remaining stock',
-                                            color: 'border-purple-400/30 text-purple-400',
+                                            color: 'border-purple-400/30 text-purple-700 dark:text-purple-400',
                                         },
                                         {
                                             title: 'Revenue Dashboard',
                                             desc: 'date → total revenue, order count',
-                                            color: 'border-cyan-400/30 text-cyan-400',
+                                            color: 'border-cyan-400/30 text-cyan-700 dark:text-cyan-400',
                                         },
                                     ].map((proj, i) => (
                                         <div key={i} className={`bg-muted/30 border rounded p-3 flex-1 ${proj.color.split(' ')[0]}`}>
@@ -1034,7 +1034,7 @@ class InventoryProjection {
                     steps: [
                         {
                             title: (
-                                <span className='font-mono text-purple-400'>
+                                <span className='font-mono text-purple-700 dark:text-purple-400'>
                                     Step 1 — User sends Command
                                 </span>
                             ),
@@ -1048,7 +1048,7 @@ class InventoryProjection {
                         },
                         {
                             title: (
-                                <span className='font-mono text-orange-400'>
+                                <span className='font-mono text-orange-700 dark:text-orange-400'>
                                     Step 2 — Command Handler Validates
                                 </span>
                             ),
@@ -1076,7 +1076,7 @@ class InventoryProjection {
                         },
                         {
                             title: (
-                                <span className='font-mono text-cyan-400'>
+                                <span className='font-mono text-cyan-700 dark:text-cyan-400'>
                                     Step 4 — Event Stored
                                 </span>
                             ),
@@ -1090,7 +1090,7 @@ class InventoryProjection {
                         },
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     Step 5 — Event Published to Bus
                                 </span>
                             ),
@@ -1104,7 +1104,7 @@ class InventoryProjection {
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 6 — Projections Update Read DB
                                 </span>
                             ),
@@ -1118,7 +1118,7 @@ class InventoryProjection {
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 7 — Query Handler Reads
                                 </span>
                             ),
@@ -1246,33 +1246,33 @@ class GetOrderQueryHandler {
                     rows: [
                         [
                             'Read/Write Load',
-                            <span className='text-emerald-400'>Read ও Write load অনেক আলাদা</span>,
-                            <span className='text-red-400'>Similar load, simple CRUD</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Read ও Write load অনেক আলাদা</span>,
+                            <span className='text-red-700 dark:text-red-400'>Similar load, simple CRUD</span>,
                         ],
                         [
                             'Audit Requirement',
-                            <span className='text-emerald-400'>Banking, Healthcare, Legal</span>,
-                            <span className='text-red-400'>No audit needed (e.g., temp data)</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Banking, Healthcare, Legal</span>,
+                            <span className='text-red-700 dark:text-red-400'>No audit needed (e.g., temp data)</span>,
                         ],
                         [
                             'Domain Complexity',
-                            <span className='text-emerald-400'>Complex business rules, DDD</span>,
-                            <span className='text-red-400'>Simple CRUD app, small team</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Complex business rules, DDD</span>,
+                            <span className='text-red-700 dark:text-red-400'>Simple CRUD app, small team</span>,
                         ],
                         [
                             'Team Size',
-                            <span className='text-emerald-400'>Large team, multiple services</span>,
-                            <span className='text-red-400'>Small team, tight deadline</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Large team, multiple services</span>,
+                            <span className='text-red-700 dark:text-red-400'>Small team, tight deadline</span>,
                         ],
                         [
                             'Scalability',
-                            <span className='text-emerald-400'>10M+ users, high throughput</span>,
-                            <span className='text-red-400'>Early-stage startup, MVP</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>10M+ users, high throughput</span>,
+                            <span className='text-red-700 dark:text-red-400'>Early-stage startup, MVP</span>,
                         ],
                         [
                             'Time Travel',
-                            <span className='text-emerald-400'>Past state query দরকার</span>,
-                            <span className='text-red-400'>Current state-ই যথেষ্ট</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Past state query দরকার</span>,
+                            <span className='text-red-700 dark:text-red-400'>Current state-ই যথেষ্ট</span>,
                         ],
                     ],
                 },
@@ -1355,7 +1355,7 @@ class GetOrderQueryHandler {
                                     why: 'Audit trail — কোন transaction কখন, কে করেছেনে সব track করতে হবে। Regulatory compliance।',
                                     example: 'Account transactions, Fund transfers, Loan processing',
                                     color: 'border-emerald-500/30',
-                                    textColor: 'text-emerald-400',
+                                    textColor: 'text-emerald-700 dark:text-emerald-400',
                                 },
                                 {
                                     domain: 'E-commerce Orders',
@@ -1363,7 +1363,7 @@ class GetOrderQueryHandler {
                                     why: 'Order lifecycle — Placed, Confirmed, Packed, Shipped, Delivered, Returned। প্রতিটা state transition event।',
                                     example: 'Amazon, Daraz order management',
                                     color: 'border-orange-400/30',
-                                    textColor: 'text-orange-400',
+                                    textColor: 'text-orange-700 dark:text-orange-400',
                                 },
                                 {
                                     domain: 'Gaming',
@@ -1371,7 +1371,7 @@ class GetOrderQueryHandler {
                                     why: 'Score history, achievement unlocks, inventory changes — সব replayable হওয়া দরকার। Anti-cheat audit।',
                                     example: 'Player stats, Match history, Leaderboards',
                                     color: 'border-purple-400/30',
-                                    textColor: 'text-purple-400',
+                                    textColor: 'text-purple-700 dark:text-purple-400',
                                 },
                                 {
                                     domain: 'Collaboration Tools',
@@ -1379,7 +1379,7 @@ class GetOrderQueryHandler {
                                     why: 'Google Docs-এর প্রতিটা keystroke একটা event। Undo/Redo, version history, conflict resolution সব event-based।',
                                     example: 'Google Docs, Figma, Notion',
                                     color: 'border-cyan-400/30',
-                                    textColor: 'text-cyan-400',
+                                    textColor: 'text-cyan-700 dark:text-cyan-400',
                                 },
                             ].map((item, i) => (
                                 <div key={i} className={`bg-muted/30 border rounded-lg p-5 ${item.color}`}>
@@ -1476,28 +1476,28 @@ class GetOrderQueryHandler {
                 'High read/write disparity',
             ],
             [
-                <span className='font-bold text-emerald-400 font-mono'>Event Sourcing</span>,
+                <span className='font-bold text-emerald-700 dark:text-emerald-400 font-mono'>Event Sourcing</span>,
                 'State নয়, Events store করুন',
                 'Full audit trail, time travel, replay',
                 'Complex querying, event schema evolution',
                 'Banking, audit-heavy domains',
             ],
             [
-                <span className='font-bold text-cyan-400 font-mono'>CQRS + ES</span>,
+                <span className='font-bold text-cyan-700 dark:text-cyan-400 font-mono'>CQRS + ES</span>,
                 'উপরের দুটো একসাথে',
                 'Maximum flexibility, full history',
                 'High complexity, steep learning curve',
                 'Complex domains, large teams',
             ],
             [
-                <span className='font-bold text-orange-400 font-mono'>Projection</span>,
+                <span className='font-bold text-orange-700 dark:text-orange-400 font-mono'>Projection</span>,
                 'Events → Read models',
                 'Multiple views, rebuild anytime',
                 'Async lag, projection failures',
                 'Dashboard, reporting views',
             ],
             [
-                <span className='font-bold text-purple-400 font-mono'>Event Store</span>,
+                <span className='font-bold text-purple-700 dark:text-purple-400 font-mono'>Event Store</span>,
                 'Append-only event log',
                 'Immutable history, time travel',
                 'Storage growth, snapshot needed',

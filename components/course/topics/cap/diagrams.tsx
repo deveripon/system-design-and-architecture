@@ -10,8 +10,8 @@ export const CAPTriangleDiagram = () => (
             <polygon points="250,20 60,200 440,200" fill="none" stroke="currentColor" strokeWidth="2" className="text-border" />
             
             {/* C node top */}
-            <circle cx="250" cy="20" r="40" fill="rgba(59,130,246,0.12)" stroke="#3b82f6" strokeWidth="2" />
-            <text x="250" y="14" textAnchor="middle" fill="#3b82f6" className="font-heading text-xl font-black">C</text>
+            <circle cx="250" cy="20" r="40" fill="rgba(204,107,69,0.12)" stroke="#cc6b45" strokeWidth="2" />
+            <text x="250" y="14" textAnchor="middle" fill="#cc6b45" className="font-heading text-xl font-black">C</text>
             <text x="250" y="28" textAnchor="middle" fill="#93c5fd" className="font-mono text-[8px] font-bold">CONSISTENCY</text>
             
             {/* A node left */}
@@ -25,7 +25,7 @@ export const CAPTriangleDiagram = () => (
             <text x="440" y="208" textAnchor="middle" fill="#c4b5fd" className="font-mono text-[8px] font-bold">PARTITION TOL.</text>
             
             {/* Labels on sides */}
-            <text x="145" y="100" textAnchor="middle" fill="#3b82f6" className="font-mono text-[10px] font-bold">CP</text>
+            <text x="145" y="100" textAnchor="middle" fill="#cc6b45" className="font-mono text-[10px] font-bold">CP</text>
             <text x="145" y="114" textAnchor="middle" fill="currentColor" className="text-muted-foreground font-mono text-[9px]">HBase, Zookeeper</text>
             
             <text x="355" y="100" textAnchor="middle" fill="#8b5cf6" className="font-mono text-[10px] font-bold">CA</text>
@@ -44,7 +44,7 @@ export const PartitionSimulationDiagram = () => (
     <div className="bg-card/50 border border-border p-8 my-8 rounded-lg overflow-x-auto">
         <svg width="560" height="220" viewBox="0 0 560 220" className="mx-auto">
             <defs>
-                <marker id="pa" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#3b82f6" /></marker>
+                <marker id="pa" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#cc6b45" /></marker>
             </defs>
             {/* Normal */}
             <text x="130" y="15" textAnchor="middle" fill="currentColor" className="text-muted-foreground font-mono text-[9px]">NORMAL STATE</text>
@@ -62,9 +62,9 @@ export const PartitionSimulationDiagram = () => (
             
             {/* Partition */}
             <text x="420" y="15" textAnchor="middle" fill="#ef4444" className="font-mono text-[9px]">AFTER PARTITION + WRITE</text>
-            <rect x="290" y="22" width="70" height="28" rx="3" fill="currentColor" stroke="#3b82f6" strokeWidth="1.5" className="text-card" />
+            <rect x="290" y="22" width="70" height="28" rx="3" fill="currentColor" stroke="#cc6b45" strokeWidth="1.5" className="text-card" />
             <text x="325" y="37" textAnchor="middle" fill="#93c5fd" className="font-mono text-[8px]">Node A</text>
-            <text x="325" y="49" textAnchor="middle" fill="#3b82f6" className="font-mono text-[7px]">bal=500 ✍</text>
+            <text x="325" y="49" textAnchor="middle" fill="#cc6b45" className="font-mono text-[7px]">bal=500 ✍</text>
             <text x="380" y="36" textAnchor="middle" fill="#ef4444" className="font-mono text-[10px]">✂✂✂</text>
             <text x="380" y="50" textAnchor="middle" fill="currentColor" className="text-muted-foreground font-mono text-[7px]">no network</text>
             <rect x="420" y="22" width="70" height="28" rx="3" fill="currentColor" stroke="#ef4444" strokeWidth="1" className="text-card" />
@@ -72,8 +72,8 @@ export const PartitionSimulationDiagram = () => (
             <text x="455" y="49" textAnchor="middle" fill="#ef4444" className="font-mono text-[7px]">bal=1000 ← stale!</text>
             
             {/* CP choice */}
-            <rect x="286" y="80" width="200" height="55" rx="4" fill="rgba(59,130,246,0.07)" stroke="#3b82f6" strokeWidth="1" />
-            <text x="386" y="98" textAnchor="middle" fill="#3b82f6" className="font-mono text-[9px] font-bold">CP CHOICE</text>
+            <rect x="286" y="80" width="200" height="55" rx="4" fill="rgba(204,107,69,0.07)" stroke="#cc6b45" strokeWidth="1" />
+            <text x="386" y="98" textAnchor="middle" fill="#cc6b45" className="font-mono text-[9px] font-bold">CP CHOICE</text>
             <text x="386" y="112" textAnchor="middle" fill="currentColor" className="text-muted-foreground text-[9px]">Node B reads → Error দেয়</text>
             <text x="386" y="126" textAnchor="middle" fill="currentColor" className="text-muted-foreground text-[9px]">&quot;Service unavailable&quot;</text>
             

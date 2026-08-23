@@ -24,7 +24,7 @@ export default async function Image({
                 style={{
                     width: '1200px',
                     height: '630px',
-                    background: '#09090b',
+                    background: '#12110e',
                     display: 'flex',
                     flexDirection: 'column',
                     position: 'relative',
@@ -38,7 +38,7 @@ export default async function Image({
                         position: 'absolute',
                         inset: 0,
                         backgroundImage:
-                            'linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px)',
+                            'linear-gradient(rgba(224,138,94,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(224,138,94,0.05) 1px, transparent 1px)',
                         backgroundSize: '48px 48px',
                     }}
                 />
@@ -53,7 +53,7 @@ export default async function Image({
                             top: `${Math.random() * 100}%`,
                             width: i % 3 === 0 ? '2px' : '1px',
                             height: i % 3 === 0 ? '2px' : '1px',
-                            background: i % 5 === 0 ? '#3b82f6' : '#fff',
+                            background: i % 5 === 0 ? '#e08a5e' : '#fff',
                             opacity: 0.3,
                             borderRadius: '50%',
                         }}
@@ -69,7 +69,7 @@ export default async function Image({
                         right: 0,
                         height: '3px',
                         background:
-                            'linear-gradient(90deg, transparent, #3b82f6, transparent)',
+                            'linear-gradient(90deg, transparent, #e08a5e, transparent)',
                     }}
                 />
 
@@ -81,8 +81,8 @@ export default async function Image({
                         left: '60px',
                         width: '32px',
                         height: '32px',
-                        borderTop: '2px solid #3b82f6',
-                        borderLeft: '2px solid #3b82f6',
+                        borderTop: '2px solid #e08a5e',
+                        borderLeft: '2px solid #e08a5e',
                     }}
                 />
                 <div
@@ -92,8 +92,8 @@ export default async function Image({
                         right: '60px',
                         width: '32px',
                         height: '32px',
-                        borderTop: '2px solid #3b82f6',
-                        borderRight: '2px solid #3b82f6',
+                        borderTop: '2px solid #e08a5e',
+                        borderRight: '2px solid #e08a5e',
                     }}
                 />
                 <div
@@ -103,8 +103,8 @@ export default async function Image({
                         left: '60px',
                         width: '32px',
                         height: '32px',
-                        borderBottom: '2px solid #3b82f6',
-                        borderLeft: '2px solid #3b82f6',
+                        borderBottom: '2px solid #e08a5e',
+                        borderLeft: '2px solid #e08a5e',
                     }}
                 />
                 <div
@@ -114,8 +114,8 @@ export default async function Image({
                         right: '60px',
                         width: '32px',
                         height: '32px',
-                        borderBottom: '2px solid #3b82f6',
-                        borderRight: '2px solid #3b82f6',
+                        borderBottom: '2px solid #e08a5e',
+                        borderRight: '2px solid #e08a5e',
                     }}
                 />
 
@@ -143,10 +143,10 @@ export default async function Image({
                                 fontSize: '11px',
                                 letterSpacing: '0.25em',
                                 textTransform: 'uppercase',
-                                color: '#3b82f6',
-                                border: '1px solid rgba(59,130,246,0.3)',
+                                color: '#e08a5e',
+                                border: '1px solid rgba(224,138,94,0.3)',
                                 padding: '4px 12px',
-                                background: 'rgba(59,130,246,0.05)',
+                                background: 'rgba(224,138,94,0.05)',
                             }}
                         >
                             {tag}
@@ -206,7 +206,7 @@ export default async function Image({
                         <span
                             style={{
                                 fontSize: '13px',
-                                color: '#3b82f6',
+                                color: '#e08a5e',
                                 letterSpacing: '0.2em',
                                 textTransform: 'uppercase',
                                 fontWeight: 700,

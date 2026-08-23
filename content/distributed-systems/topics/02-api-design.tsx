@@ -70,13 +70,13 @@ export const apiDesignContent: TopicData = {
                                     width='100'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
-                                    stroke='#3b82f6'
+                                    fill='#1a1915'
+                                    stroke='#cc6b45'
                                 />
                                 <text
                                     x='60'
                                     y='52'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='9'
                                     textAnchor='middle'
@@ -98,7 +98,7 @@ export const apiDesignContent: TopicData = {
                                     y1='55'
                                     x2='200'
                                     y2='55'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                     strokeWidth='1.5'
                                 />
                                 <text
@@ -116,14 +116,14 @@ export const apiDesignContent: TopicData = {
                                     width='140'
                                     height='70'
                                     rx='4'
-                                    fill='rgba(59,130,246,0.1)'
-                                    stroke='#3b82f6'
+                                    fill='rgba(204,107,69,0.1)'
+                                    stroke='#cc6b45'
                                     strokeWidth='2'
                                 />
                                 <text
                                     x='270'
                                     y='48'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='10'
                                     textAnchor='middle'
@@ -174,7 +174,7 @@ export const apiDesignContent: TopicData = {
                                     width='150'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                 />
                                 <text
@@ -226,7 +226,7 @@ export const apiDesignContent: TopicData = {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-4'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-4'>
                             REST HTTP Methods
                         </h3>
                     ),
@@ -239,13 +239,13 @@ export const apiDesignContent: TopicData = {
                             'GET',
                             'Read data',
                             'GET /users/123',
-                            <span className='text-red-400'>No</span>,
+                            <span className='text-red-700 dark:text-red-400'>No</span>,
                         ],
                         [
                             'POST',
                             'Create new',
                             'POST /users',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Yes
                             </span>,
                         ],
@@ -253,7 +253,7 @@ export const apiDesignContent: TopicData = {
                             'PUT',
                             'Replace full',
                             'PUT /users/123',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Yes
                             </span>,
                         ],
@@ -261,7 +261,7 @@ export const apiDesignContent: TopicData = {
                             'PATCH',
                             'Partial update',
                             'PATCH /users/123',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Yes
                             </span>,
                         ],
@@ -269,14 +269,14 @@ export const apiDesignContent: TopicData = {
                             'DELETE',
                             'Delete',
                             'DELETE /users/123',
-                            <span className='text-red-400'>No</span>,
+                            <span className='text-red-700 dark:text-red-400'>No</span>,
                         ],
                     ],
                 },
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-10'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-10'>
                             HTTP Status Codes
                         </h3>
                     ),
@@ -326,27 +326,27 @@ export const apiDesignContent: TopicData = {
                     content: (
                         <p>
                             Nouns use করুন, verbs না:{' '}
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 /users
                             </code>{' '}
                             ভালো,{' '}
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 /getUsers
                             </code>{' '}
                             খারাপ। Plural use করুন:{' '}
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 /users
                             </code>
                             ,{' '}
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 /products
                             </code>
                             । Nesting:{' '}
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 /users/123/orders
                             </code>
                             । Versioning:{' '}
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 /api/v1/users
                             </code>
                             । HTTP status codes সঠিকভাবে use করুন।
@@ -381,7 +381,7 @@ export const apiDesignContent: TopicData = {
                             <div className='p-8 border-r border-border bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-red-500' />
-                                    <span className='text-red-400'>
+                                    <span className='text-red-700 dark:text-red-400'>
                                         REST Problem
                                     </span>
                                 </h4>
@@ -395,13 +395,13 @@ export const apiDesignContent: TopicData = {
                             <div className='p-8 bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-emerald-500' />
-                                    <span className='text-emerald-400'>
+                                    <span className='text-emerald-700 dark:text-emerald-400'>
                                         GraphQL Solution
                                     </span>
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
                                     একটা query তে exactly যা দরকার:{' '}
-                                    <code className='font-mono text-xs bg-card px-1 py-0.5 border border-border text-blue-400'>
+                                    <code className='font-mono text-xs bg-card px-1 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                         {
                                             '{ user(id: 123) { name avatar posts { title } } }'
                                         }
@@ -503,7 +503,7 @@ message UserResponse {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-10'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-10'>
                             REST vs GraphQL vs gRPC — তুলনা
                         </h3>
                     ),
@@ -516,7 +516,7 @@ message UserResponse {
                             'Protocol',
                             'HTTP/1.1',
                             'HTTP/1.1',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 HTTP/2
                             </span>,
                         ],
@@ -524,37 +524,37 @@ message UserResponse {
                             'Data Format',
                             'JSON',
                             'JSON',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Binary (Protobuf)
                             </span>,
                         ],
                         [
                             'Performance',
-                            <span className='text-yellow-400'>Good</span>,
-                            <span className='text-yellow-400'>Good</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>Good</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Good</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Excellent
                             </span>,
                         ],
                         [
                             'Over-fetching',
-                            <span className='text-red-400'>Yes</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>Yes</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 No
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 No (typed)
                             </span>,
                         ],
                         [
                             'Browser Support',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Native
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Native
                             </span>,
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 Limited (grpc-web)
                             </span>,
                         ],
@@ -566,11 +566,11 @@ message UserResponse {
                         ],
                         [
                             'Learning Curve',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Easy
                             </span>,
-                            <span className='text-yellow-400'>Medium</span>,
-                            <span className='text-red-400'>Hard</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
+                            <span className='text-red-700 dark:text-red-400'>Hard</span>,
                         ],
                     ],
                 },
@@ -615,13 +615,13 @@ message UserResponse {
                                     width='80'
                                     height='40'
                                     rx='3'
-                                    fill='#0c1220'
-                                    stroke='#3b82f6'
+                                    fill='#1a1915'
+                                    stroke='#cc6b45'
                                 />
                                 <text
                                     x='50'
                                     y='85'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='8'
                                     textAnchor='middle'
@@ -634,13 +634,13 @@ message UserResponse {
                                     width='80'
                                     height='40'
                                     rx='3'
-                                    fill='#0c1220'
-                                    stroke='#3b82f6'
+                                    fill='#1a1915'
+                                    stroke='#cc6b45'
                                 />
                                 <text
                                     x='50'
                                     y='132'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='8'
                                     textAnchor='middle'
@@ -652,7 +652,7 @@ message UserResponse {
                                     y1='85'
                                     x2='160'
                                     y2='95'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                     strokeWidth='1'
                                 />
                                 <line
@@ -660,7 +660,7 @@ message UserResponse {
                                     y1='132'
                                     x2='160'
                                     y2='105'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                     strokeWidth='1'
                                 />
                                 <rect
@@ -764,7 +764,7 @@ message UserResponse {
                                     width='120'
                                     height='30'
                                     rx='3'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                 />
                                 <text
@@ -783,7 +783,7 @@ message UserResponse {
                                     width='120'
                                     height='30'
                                     rx='3'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                 />
                                 <text
@@ -802,7 +802,7 @@ message UserResponse {
                                     width='120'
                                     height='30'
                                     rx='3'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                 />
                                 <text
@@ -847,7 +847,7 @@ message UserResponse {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6'>
                             Node.js — REST API with Express
                         </h3>
                     ),
@@ -894,7 +894,7 @@ app.patch('/api/v1/users/:id', async (req, res) => {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-10'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-10'>
                             Rate Limiting Middleware
                         </h3>
                     ),
@@ -957,7 +957,7 @@ app.use('/api/', apiLimiter);`,
                             <strong>উত্তর:</strong> Token Bucket বা Sliding
                             Window algorithm ব্যবহার করি। Redis এ per-user
                             counter রাখি। Express এ{' '}
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 express-rate-limit
                             </code>{' '}
                             + RedisStore। Limit exceed হলে 429 Too Many Requests
@@ -975,15 +975,15 @@ app.use('/api/', apiLimiter);`,
                         <p>
                             <strong>উত্তর:</strong> ৩টা approach: URL
                             versioning (
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 /api/v1/
                             </code>{' '}
                             → সবচেয়ে common, visible)। Header versioning (
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 Accept: application/vnd.api+json;version=1
                             </code>{' '}
                             → cleaner URLs)। Query param (
-                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                            <code className='font-mono text-sm bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                                 ?version=1
                             </code>{' '}
                             → easy but messy)। URL versioning সবচেয়ে popular
@@ -1429,7 +1429,7 @@ app.use('/api/', apiLimiter);`,
                 title: 'Setup করুন',
                 description: (
                     <>
-                        <code className='font-mono text-xs bg-card px-1.5 py-0.5 border border-border text-blue-400'>
+                        <code className='font-mono text-xs bg-card px-1.5 py-0.5 border border-border text-blue-700 dark:text-blue-400'>
                             npm install express jsonwebtoken bcrypt
                             express-rate-limit
                         </code>

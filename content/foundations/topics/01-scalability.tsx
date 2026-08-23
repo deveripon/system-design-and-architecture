@@ -153,14 +153,14 @@ export const scalabilityContent: TopicData = {
                                 সুবিধাসমূহ
                             </ConceptHeading>
                             <ContentList>
-                                <ListItem icon='✓' iconColor='text-emerald-500'>
+                                <ListItem icon='✓' iconColor='text-emerald-700 dark:text-emerald-400'>
                                     সেটআপ করা খুব সহজ। বাজার থেকে RAM কিনে এনে
                                     লাগিয়ে দিলেই হলো।
                                 </ListItem>
-                                <ListItem icon='✓' iconColor='text-emerald-500'>
+                                <ListItem icon='✓' iconColor='text-emerald-700 dark:text-emerald-400'>
                                     মেইনটেইন করা সহজ কারণ আপনার সার্ভার একটাই।
                                 </ListItem>
-                                <ListItem icon='✓' iconColor='text-emerald-500'>
+                                <ListItem icon='✓' iconColor='text-emerald-700 dark:text-emerald-400'>
                                     অ্যাপের কোডে বড় কোনো পরিবর্তন ছাড়াই
                                     হার্ডওয়্যার আপগ্রেড করে পারফরম্যান্স বাড়ানো
                                     যায়।
@@ -171,17 +171,17 @@ export const scalabilityContent: TopicData = {
                                 অসুবিধাসমূহ
                             </ConceptHeading>
                             <ContentList>
-                                <ListItem icon='✕' iconColor='text-red-500'>
+                                <ListItem icon='✕' iconColor='text-red-700 dark:text-red-400'>
                                     <strong>হার্ডওয়্যার লিমিট:</strong> একটা
                                     কম্পিউটারের ক্ষমতা অসীম নয়। মাদারবোর্ডের
                                     একটা শেষ সীমানা আছে।
                                 </ListItem>
-                                <ListItem icon='✕' iconColor='text-red-500'>
+                                <ListItem icon='✕' iconColor='text-red-700 dark:text-red-400'>
                                     <strong>অতিরিক্ত খরচ:</strong> হাই-এন্ড
                                     হার্ডওয়্যারের দাম জ্যামিতিক হারে
                                     (Exponentially) বাড়ে।
                                 </ListItem>
-                                <ListItem icon='✕' iconColor='text-red-500'>
+                                <ListItem icon='✕' iconColor='text-red-700 dark:text-red-400'>
                                     <strong>Single Point of Failure:</strong> ওই
                                     একটা সার্ভার নষ্ট হলে পুরো অ্যাপ বন্ধ হয়ে
                                     যাবে।
@@ -260,17 +260,17 @@ export const scalabilityContent: TopicData = {
                                 সুবিধাসমূহ
                             </ConceptHeading>
                             <ContentList>
-                                <ListItem icon='✓' iconColor='text-emerald-500'>
+                                <ListItem icon='✓' iconColor='text-emerald-700 dark:text-emerald-400'>
                                     <strong>আনলিমিটেড পাওয়ার:</strong>{' '}
                                     তাত্ত্বিকভাবে আপনি যত খুশি সার্ভার যোগ করতে
                                     পারবেন।
                                 </ListItem>
-                                <ListItem icon='✓' iconColor='text-emerald-500'>
+                                <ListItem icon='✓' iconColor='text-emerald-700 dark:text-emerald-400'>
                                     <strong>Fault Tolerance:</strong> একটা
                                     সার্ভার নষ্ট হলেও বাকিগুলো ব্যাকআপ দেয়,
                                     ইউজার টেরও পাবে না।
                                 </ListItem>
-                                <ListItem icon='✓' iconColor='text-emerald-500'>
+                                <ListItem icon='✓' iconColor='text-emerald-700 dark:text-emerald-400'>
                                     <strong>সহজ আপগ্রেড:</strong> লাইভ সিস্টেমেই
                                     নতুন সার্ভার যুক্ত করা যায়।
                                 </ListItem>
@@ -280,12 +280,12 @@ export const scalabilityContent: TopicData = {
                                 অসুবিধাসমূহ
                             </ConceptHeading>
                             <ContentList>
-                                <ListItem icon='✕' iconColor='text-red-500'>
+                                <ListItem icon='✕' iconColor='text-red-700 dark:text-red-400'>
                                     <strong>আর্কিটেকচারাল জটিলতা:</strong>{' '}
                                     সিস্টেম মেইনটেইন করা এবং ট্রাফিককে বিভিন্ন
                                     সার্ভারে ভাগ করা কঠিন।
                                 </ListItem>
-                                <ListItem icon='✕' iconColor='text-red-500'>
+                                <ListItem icon='✕' iconColor='text-red-700 dark:text-red-400'>
                                     <strong>ডিস্ট্রিবিউটেড ডাটাবেজ:</strong>{' '}
                                     অনেকগুলো সার্ভারের মধ্যে ডেটা সিঙ্ক করা বেশ
                                     জটিল।
@@ -359,19 +359,19 @@ export const scalabilityContent: TopicData = {
                         ],
                         [
                             'Scale করা যায়?',
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 সহজেই যায়
                             </span>,
-                            <span className='text-red-400 uppercase tracking-tight'>
+                            <span className='text-red-700 dark:text-red-400 uppercase tracking-tight'>
                                 কঠিন, সেশন সিঙ্ক লাগে
                             </span>,
                         ],
                         [
                             'Server crash হলে?',
-                            <span className='text-emerald-400 font-bold uppercase tracking-tight'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-tight'>
                                 অন্য সার্ভার সামলায়
                             </span>,
-                            <span className='text-red-400 uppercase tracking-tight'>
+                            <span className='text-red-700 dark:text-red-400 uppercase tracking-tight'>
                                 ইউজার সেশন হারিয়ে যায়
                             </span>,
                         ],
@@ -415,35 +415,35 @@ app.post('/login', async (req, res) => {
                         ['সংজ্ঞা', 'একটা মেশিন বড় করুন', 'বেশি মেশিন যোগ করুন'],
                         [
                             'Cost',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 জ্যামিতিক হারে বাড়ে
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 সরল রেখায় বাড়ে
                             </span>,
                         ],
                         [
                             'Limit',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 হার্ডওয়্যার লিমিট আছে
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 লিমিট নেই
                             </span>,
                         ],
                         [
                             'Downtime',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 আপগ্রেড করতে ডাউনটাইম লাগে
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 লাইভ সিস্টেমেই বাড়ানো যায়
                             </span>,
                         ],
                         [
                             'Fault Tolerance',
-                            <span className='text-red-400'>নেই</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>নেই</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 চমৎকার
                             </span>,
                         ],

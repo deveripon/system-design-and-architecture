@@ -27,7 +27,7 @@ export function ContentParagraph({ children, className }: { children: React.Reac
  * A grid for displaying features, cards, or case studies
  */
 export function FeatureGrid({ children, className, cols = 2 }: { children: React.ReactNode; className?: string; cols?: 1 | 2 | 3 }) {
-  const colClass = cols === 1 ? "grid-cols-1" : cols === 2 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1 md:grid-cols-3";
+  const colClass = cols === 1 ? "grid-cols-1" : cols === 2 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
   return (
     <div className={cn("my-10 md:my-16 border-t border-l border-border grid", colClass, className)}>
       {children}
@@ -39,9 +39,9 @@ export function FeatureGrid({ children, className, cols = 2 }: { children: React
  * Individual feature card for use within a FeatureGrid
  */
 export function FeatureCard({ title, children, iconColor = "primary", className }: { title: string; children: React.ReactNode; iconColor?: "primary" | "blue" | "emerald" | "purple"; className?: string }) {
-  const colorClass = iconColor === "primary" ? "bg-primary" : iconColor === "blue" ? "bg-blue-500" : iconColor === "emerald" ? "bg-emerald-500" : "bg-purple-500";
+  const colorClass = iconColor === "primary" ? "bg-primary" : iconColor === "blue" ? "bg-primary" : iconColor === "emerald" ? "bg-accent" : "bg-teal-600";
   return (
-    <div className={cn("p-6 md:p-10 border-r border-b border-border bg-card hover:bg-white/2 transition-colors group", className)}>
+    <div className={cn("p-6 md:p-10 border-r border-b border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors group", className)}>
       <div className="flex flex-col gap-6 md:gap-8">
         <h4 className="font-bold flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]">
           <span className={cn("w-1.5 h-1.5 rounded-full", colorClass)} />
@@ -72,8 +72,8 @@ export function ProConGrid({ children, className }: { children: React.ReactNode;
  * Individual item for ProConGrid
  */
 export function ProConItem({ title, badge, children, isLast = false, type = "positive" }: { title: string; badge: string; children: React.ReactNode; isLast?: boolean; type?: "positive" | "negative" }) {
-    const badgeColor = type === "positive" ? "text-emerald-400" : "text-red-400";
-    const dotColor = type === "positive" ? "bg-emerald-500" : "bg-red-500";
+    const badgeColor = type === "positive" ? "text-accent" : "text-red-700 dark:text-red-400";
+    const dotColor = type === "positive" ? "bg-accent" : "bg-red-600 dark:bg-red-500";
     
     return (
         <div className={cn("p-8 bg-card/30", !isLast && "border-b md:border-b-0 md:border-r border-border")}>
@@ -92,7 +92,7 @@ export function ProConItem({ title, badge, children, isLast = false, type = "pos
  * Subtle heading for internal concepts
  */
 export function ConceptHeading({ children, className, color = "blue" }: { children: React.ReactNode; className?: string; color?: "blue" | "emerald" | "purple" | "primary" }) {
-    const textColor = color === "blue" ? "text-blue-400" : color === "emerald" ? "text-emerald-400" : color === "purple" ? "text-purple-400" : "text-primary";
+    const textColor = color === "blue" ? "text-primary" : color === "emerald" ? "text-accent" : color === "purple" ? "text-teal-700 dark:text-teal-300" : "text-primary";
     return (
         <h3 className={cn("text-xs font-mono font-bold uppercase  mb-10 mt-20", textColor, className)}>
             {children}
@@ -105,7 +105,7 @@ export function ConceptHeading({ children, className, color = "blue" }: { childr
  */
 export function GradientText({ children, className }: { children: React.ReactNode; className?: string }) {
     return (
-        <span className={cn("italic bg-gradient-to-br from-white via-white to-blue-400 bg-clip-text text-transparent", className)}>
+        <span className={cn("italic bg-linear-to-br from-foreground via-foreground to-primary bg-clip-text text-transparent", className)}>
             {children}
         </span>
     );

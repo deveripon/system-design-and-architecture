@@ -65,14 +65,14 @@ export const serviceDiscoveryContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10 mt-20'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10 mt-20'>
                                 Without vs With Service Discovery
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
-                                        <span className='text-red-400'>
+                                        <span className='text-red-700 dark:text-red-400'>
                                             ❌ Without Discovery
                                         </span>
                                     </h4>
@@ -88,7 +88,7 @@ export const serviceDiscoveryContent: TopicData = {
                                 <div className='p-8 bg-card/30'>
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ With Discovery
                                         </span>
                                     </h4>
@@ -140,7 +140,7 @@ export const serviceDiscoveryContent: TopicData = {
                             </p>
                             <div className='space-y-4 text-sm text-muted-foreground'>
                                 <div className='flex items-center gap-3'>
-                                    <span className='font-mono text-yellow-400 font-bold shrink-0'>
+                                    <span className='font-mono text-yellow-700 dark:text-yellow-400 font-bold shrink-0'>
                                         1.
                                     </span>
                                     <span>
@@ -152,7 +152,7 @@ export const serviceDiscoveryContent: TopicData = {
                                     </span>
                                 </div>
                                 <div className='flex items-center gap-3'>
-                                    <span className='font-mono text-yellow-400 font-bold shrink-0'>
+                                    <span className='font-mono text-yellow-700 dark:text-yellow-400 font-bold shrink-0'>
                                         2.
                                     </span>
                                     <span>
@@ -164,7 +164,7 @@ export const serviceDiscoveryContent: TopicData = {
                                     </span>
                                 </div>
                                 <div className='flex items-center gap-3'>
-                                    <span className='font-mono text-purple-400 font-bold shrink-0'>
+                                    <span className='font-mono text-purple-700 dark:text-purple-400 font-bold shrink-0'>
                                         3.
                                     </span>
                                     <span>
@@ -173,7 +173,7 @@ export const serviceDiscoveryContent: TopicData = {
                                     </span>
                                 </div>
                                 <div className='flex items-center gap-3 mt-2 pt-3 border-t border-border'>
-                                    <span className='font-mono text-emerald-400 font-bold shrink-0'>
+                                    <span className='font-mono text-emerald-700 dark:text-emerald-400 font-bold shrink-0'>
                                         Note:
                                     </span>
                                     <span>
@@ -182,7 +182,7 @@ export const serviceDiscoveryContent: TopicData = {
                                     </span>
                                 </div>
                                 <div className='flex items-center gap-3 pt-1'>
-                                    <span className='font-mono text-blue-400 font-bold shrink-0'>
+                                    <span className='font-mono text-blue-700 dark:text-blue-400 font-bold shrink-0'>
                                         LB:
                                     </span>
                                     <span>
@@ -219,7 +219,7 @@ export const serviceDiscoveryContent: TopicData = {
                             </p>
                             <div className='space-y-4 text-sm text-muted-foreground'>
                                 <div className='flex items-center gap-3'>
-                                    <span className='font-mono text-blue-400 font-bold shrink-0'>
+                                    <span className='font-mono text-blue-700 dark:text-blue-400 font-bold shrink-0'>
                                         Client →
                                     </span>
                                     <span>
@@ -227,7 +227,7 @@ export const serviceDiscoveryContent: TopicData = {
                                     </span>
                                 </div>
                                 <div className='flex items-center gap-3'>
-                                    <span className='font-mono text-yellow-400 font-bold shrink-0'>
+                                    <span className='font-mono text-yellow-700 dark:text-yellow-400 font-bold shrink-0'>
                                         K8s Service:
                                     </span>
                                     <span>
@@ -236,13 +236,13 @@ export const serviceDiscoveryContent: TopicData = {
                                     </span>
                                 </div>
                                 <div className='flex items-center gap-3'>
-                                    <span className='font-mono text-purple-400 font-bold shrink-0'>
+                                    <span className='font-mono text-purple-700 dark:text-purple-400 font-bold shrink-0'>
                                         etcd:
                                     </span>
                                     <span>Pod registry (internal)</span>
                                 </div>
                                 <div className='flex items-center gap-3'>
-                                    <span className='font-mono text-emerald-400 font-bold shrink-0'>
+                                    <span className='font-mono text-emerald-700 dark:text-emerald-400 font-bold shrink-0'>
                                         Pods:
                                     </span>
                                     <span>
@@ -261,13 +261,13 @@ export const serviceDiscoveryContent: TopicData = {
                         [
                             'Client-side',
                             'Client handles',
-                            <span className='text-red-400'>Higher</span>,
+                            <span className='text-red-700 dark:text-red-400'>Higher</span>,
                             'Netflix Eureka + Ribbon',
                         ],
                         [
                             'Server-side',
                             'LB/Infra handles',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Lower
                             </span>,
                             'Kubernetes Service, AWS ALB',
@@ -319,23 +319,23 @@ export const serviceDiscoveryContent: TopicData = {
                             </p>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border mb-4'>
                                 <div className='p-6 border-r border-border'>
-                                    <p className='font-mono text-[10px] text-purple-400 uppercase tracking-widest mb-3'>
+                                    <p className='font-mono text-[10px] text-purple-700 dark:text-purple-400 uppercase tracking-widest mb-3'>
                                         POD A
                                     </p>
                                     <div className='flex gap-2'>
                                         <div className='flex-1 border border-blue-500/40 rounded p-3 text-center'>
-                                            <p className='font-mono text-xs text-blue-400'>
+                                            <p className='font-mono text-xs text-blue-700 dark:text-blue-400'>
                                                 Order
                                             </p>
-                                            <p className='font-mono text-xs text-blue-400'>
+                                            <p className='font-mono text-xs text-blue-700 dark:text-blue-400'>
                                                 Service
                                             </p>
                                         </div>
                                         <div className='flex-1 border border-purple-400/60 rounded p-3 text-center bg-purple-500/5'>
-                                            <p className='font-mono text-xs text-purple-300 font-bold'>
+                                            <p className='font-mono text-xs text-purple-700 dark:text-purple-300 font-bold'>
                                                 Envoy
                                             </p>
-                                            <p className='font-mono text-[9px] text-purple-400'>
+                                            <p className='font-mono text-[9px] text-purple-700 dark:text-purple-400'>
                                                 Sidecar
                                             </p>
                                             <p className='font-mono text-[8px] text-muted-foreground'>
@@ -348,23 +348,23 @@ export const serviceDiscoveryContent: TopicData = {
                                     </div>
                                 </div>
                                 <div className='p-6'>
-                                    <p className='font-mono text-[10px] text-emerald-400 uppercase tracking-widest mb-3'>
+                                    <p className='font-mono text-[10px] text-emerald-700 dark:text-emerald-400 uppercase tracking-widest mb-3'>
                                         POD B
                                     </p>
                                     <div className='flex gap-2'>
                                         <div className='flex-1 border border-purple-400/60 rounded p-3 text-center bg-purple-500/5'>
-                                            <p className='font-mono text-xs text-purple-300 font-bold'>
+                                            <p className='font-mono text-xs text-purple-700 dark:text-purple-300 font-bold'>
                                                 Envoy
                                             </p>
-                                            <p className='font-mono text-[9px] text-purple-400'>
+                                            <p className='font-mono text-[9px] text-purple-700 dark:text-purple-400'>
                                                 Sidecar
                                             </p>
                                         </div>
                                         <div className='flex-1 border border-blue-500/40 rounded p-3 text-center'>
-                                            <p className='font-mono text-xs text-blue-400'>
+                                            <p className='font-mono text-xs text-blue-700 dark:text-blue-400'>
                                                 Payment
                                             </p>
-                                            <p className='font-mono text-xs text-blue-400'>
+                                            <p className='font-mono text-xs text-blue-700 dark:text-blue-400'>
                                                 Service
                                             </p>
                                         </div>
@@ -372,7 +372,7 @@ export const serviceDiscoveryContent: TopicData = {
                                 </div>
                             </div>
                             <div className='border border-yellow-500/30 rounded p-3 text-center bg-yellow-500/5 mx-auto max-w-xs'>
-                                <p className='font-mono text-xs text-yellow-400 font-bold'>
+                                <p className='font-mono text-xs text-yellow-700 dark:text-yellow-400 font-bold'>
                                     mTLS Encrypted Channel
                                 </p>
                                 <p className='font-mono text-[9px] text-muted-foreground'>
@@ -380,7 +380,7 @@ export const serviceDiscoveryContent: TopicData = {
                                 </p>
                             </div>
                             <div className='mt-3 border border-purple-500/30 rounded p-2 text-center bg-purple-500/5 mx-auto max-w-xs'>
-                                <p className='font-mono text-[9px] text-purple-400'>
+                                <p className='font-mono text-[9px] text-purple-700 dark:text-purple-400'>
                                     Istio Control Plane
                                 </p>
                             </div>
@@ -391,7 +391,7 @@ export const serviceDiscoveryContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10 mt-20'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10 mt-20'>
                                 Service Mesh কী কী করে?
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
@@ -877,42 +877,42 @@ async def health_check(response: Response):
                     rows: [
                         [
                             'Kubernetes only environment',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 K8s DNS (built-in)
                             </span>,
                             'No extra setup, automatic, free',
                         ],
                         [
                             'K8s + complex traffic management',
-                            <span className='text-blue-400 font-bold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold'>
                                 Istio
                             </span>,
                             'mTLS, circuit breaking, observability',
                         ],
                         [
                             'K8s + lightweight mesh',
-                            <span className='text-purple-400 font-bold'>
+                            <span className='text-purple-700 dark:text-purple-400 font-bold'>
                                 Linkerd
                             </span>,
                             'Simpler than Istio, less overhead',
                         ],
                         [
                             'Mixed (VMs + containers)',
-                            <span className='text-yellow-400 font-bold'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-bold'>
                                 Consul
                             </span>,
                             'Works everywhere, multi-DC support',
                         ],
                         [
                             'AWS managed environment',
-                            <span className='text-blue-400 font-bold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold'>
                                 AWS App Mesh
                             </span>,
                             'Managed, ECS/EKS integration',
                         ],
                         [
                             'Java Spring Cloud apps',
-                            <span className='text-red-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400 font-bold'>
                                 Netflix Eureka + Ribbon
                             </span>,
                             'Spring ecosystem integration',

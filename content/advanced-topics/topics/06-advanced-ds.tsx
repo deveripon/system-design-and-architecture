@@ -36,13 +36,13 @@ export const advancedDsContent: TopicData = {
                                 <span className='font-mono text-xs px-3 py-1 border border-primary/30 text-primary bg-primary/5 rounded'>
                                     ⏱ ৯০-১২০ মিনিট
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-emerald-500/30 text-emerald-400 bg-emerald-500/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5 rounded'>
                                     📊 Expert Level
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-400 bg-purple-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5 rounded'>
                                     🧮 Probabilistic Algorithms
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-yellow-400/30 text-yellow-400 bg-yellow-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-yellow-400/30 text-yellow-700 dark:text-yellow-400 bg-yellow-400/5 rounded'>
                                     FINAL TOPIC 06 / 06
                                 </span>
                             </div>
@@ -77,35 +77,35 @@ export const advancedDsContent: TopicData = {
                             {[
                                 {
                                     title: '💾 Memory Problem',
-                                    color: 'text-red-400',
+                                    color: 'text-red-700 dark:text-red-400',
                                     border: 'border-red-500/20 bg-red-500/5',
                                     desc: '1 Billion URLs × 50 bytes = 50 GB। কোনো single server-এ এটা রাখা possible না। Distributed হলেও network overhead massive।',
                                     stat: 'HashSet: 50 GB',
-                                    statColor: 'text-red-400',
+                                    statColor: 'text-red-700 dark:text-red-400',
                                 },
                                 {
                                     title: '⚡ Speed Problem',
-                                    color: 'text-yellow-400',
+                                    color: 'text-yellow-700 dark:text-yellow-400',
                                     border: 'border-yellow-400/20 bg-yellow-400/5',
                                     desc: 'HashSet-এ lookup করতে হলে hash calculate করতে হয়, memory access করতে হয়। Billion-item set-এ cache miss হলে 100ns+ latency।',
                                     stat: 'Cache miss rate: 90%+',
-                                    statColor: 'text-yellow-400',
+                                    statColor: 'text-yellow-700 dark:text-yellow-400',
                                 },
                                 {
                                     title: '📈 Scale Problem',
-                                    color: 'text-orange-400',
+                                    color: 'text-orange-700 dark:text-orange-400',
                                     border: 'border-orange-400/20 bg-orange-400/5',
                                     desc: 'Web crawlers প্রতি second লাখো URL check করে। Exact membership test এই throughput-এ scalable না।',
                                     stat: 'Throughput: 1M checks/sec needed',
-                                    statColor: 'text-orange-400',
+                                    statColor: 'text-orange-700 dark:text-orange-400',
                                 },
                                 {
                                     title: '⚖️ The Trade-off',
-                                    color: 'text-emerald-400',
+                                    color: 'text-emerald-700 dark:text-emerald-400',
                                     border: 'border-emerald-500/20 bg-emerald-500/5',
                                     desc: 'Approximate answer accept করলেন — ৯৯%+ accurate হলে production-এ sufficient। False positive rate controllable।',
                                     stat: 'Bloom Filter: 1 MB (50,000x savings!)',
-                                    statColor: 'text-emerald-400',
+                                    statColor: 'text-emerald-700 dark:text-emerald-400',
                                 },
                             ].map((card, i) => (
                                 <div
@@ -175,8 +175,8 @@ export const advancedDsContent: TopicData = {
                                             <span
                                                 className={
                                                     item.bar > 50
-                                                        ? 'text-red-400 font-bold'
-                                                        : 'text-emerald-400 font-bold'
+                                                        ? 'text-red-700 dark:text-red-400 font-bold'
+                                                        : 'text-emerald-700 dark:text-emerald-400 font-bold'
                                                 }>
                                                 {item.size}
                                             </span>
@@ -764,19 +764,19 @@ console.log(\`Memory used: \${usernameFilter.memoryBytes()} bytes\`);`,
                                         step: '02',
                                         title: 'Leading Zeros Count করুন',
                                         desc: 'Hash-এর শুরুতে কতটা 0 আছে সেটা track করুন। "0001101..." → 3 leading zeros।',
-                                        color: 'text-purple-400 border-purple-400/30 bg-purple-400/5',
+                                        color: 'text-purple-700 dark:text-purple-400 border-purple-400/30 bg-purple-400/5',
                                     },
                                     {
                                         step: '03',
                                         title: 'Maximum Track করুন',
                                         desc: 'সর্বোচ্চ leading zeros count রাখুন। Max leading zeros = k হলে → set-এ ≈ 2^k unique elements।',
-                                        color: 'text-orange-400 border-orange-400/30 bg-orange-400/5',
+                                        color: 'text-orange-700 dark:text-orange-400 border-orange-400/30 bg-orange-400/5',
                                     },
                                     {
                                         step: '04',
                                         title: 'Cardinality Estimate করুন',
                                         desc: 'Multiple sub-streams average করুন। Harmonic mean use করে accuracy improve করুন। Error rate: ~0.81%।',
-                                        color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/5',
+                                        color: 'text-emerald-700 dark:text-emerald-400 border-emerald-500/30 bg-emerald-500/5',
                                     },
                                 ].map((item, i) => (
                                     <div
@@ -1175,27 +1175,27 @@ print(f"Memory: {cms.memory_bytes()} bytes vs exact dict: huge")`,
                             '~1 MB / 1B items',
                             '99%+ (0 false negative)',
                             'Membership test',
-                            <span className='text-red-400'>No</span>,
+                            <span className='text-red-700 dark:text-red-400'>No</span>,
                             'Redis Bloom (BF.ADD)',
                         ],
                         [
-                            <span className='font-bold text-purple-400 font-mono'>
+                            <span className='font-bold text-purple-700 dark:text-purple-400 font-mono'>
                                 HyperLogLog
                             </span>,
                             '12 KB (fixed!)',
                             '~99.19%',
                             'Unique count (cardinality)',
-                            <span className='text-red-400'>No</span>,
+                            <span className='text-red-700 dark:text-red-400'>No</span>,
                             'Redis PFCOUNT',
                         ],
                         [
-                            <span className='font-bold text-orange-400 font-mono'>
+                            <span className='font-bold text-orange-700 dark:text-orange-400 font-mono'>
                                 Count-Min Sketch
                             </span>,
                             'Configurable',
                             '~99%',
                             'Frequency estimation',
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Sort of (decay)
                             </span>,
                             'Redis CMS.QUERY',
@@ -1217,14 +1217,14 @@ print(f"Memory: {cms.memory_bytes()} bytes vs exact dict: huge")`,
                                 reduction।
                             </p>
                             <p>
-                                <strong className='text-purple-400'>
+                                <strong className='text-purple-700 dark:text-purple-400'>
                                     HyperLogLog:
                                 </strong>{' '}
                                 &quot;কতটা unique element?&quot; — unique
                                 visitors, unique views, DAU/MAU counting।
                             </p>
                             <p>
-                                <strong className='text-orange-400'>
+                                <strong className='text-orange-700 dark:text-orange-400'>
                                     Count-Min Sketch:
                                 </strong>{' '}
                                 &quot;এটা কতবার দেখা গেছে?&quot; — trending
@@ -1528,25 +1528,25 @@ async function getHashtagFrequency(hashtag) {
                                     q: 'How does YouTube count unique views efficiently?',
                                     a: 'HyperLogLog use করুন। ১ বিলিয়ন unique viewers-ও মাত্র ১২ KB memory-তে count করা যায়।',
                                     tag: 'Video Platform',
-                                    color: 'text-purple-400 border-purple-400/20',
+                                    color: 'text-purple-700 dark:text-purple-400 border-purple-400/20',
                                 },
                                 {
                                     q: 'How would you find trending topics on Twitter in real-time?',
                                     a: 'Count-Min Sketch দিয়ে hashtag frequency track করুন। Fixed memory-তে top-K find করুন।',
                                     tag: 'Social Media',
-                                    color: 'text-orange-400 border-orange-400/20',
+                                    color: 'text-orange-700 dark:text-orange-400 border-orange-400/20',
                                 },
                                 {
                                     q: 'How does Cassandra optimize read performance?',
                                     a: 'SSTable-এ Bloom Filter use করে unnecessary disk read এড়ায়। ৬০-৮০% I/O reduction।',
                                     tag: 'Database Internals',
-                                    color: 'text-emerald-400 border-emerald-500/20',
+                                    color: 'text-emerald-700 dark:text-emerald-400 border-emerald-500/20',
                                 },
                                 {
                                     q: 'Design a username availability check at scale',
                                     a: 'Bloom Filter দিয়ে first check করুন। Definitely not taken → no DB query। Probably taken → DB confirm।',
                                     tag: 'User Service',
-                                    color: 'text-yellow-400 border-yellow-400/20',
+                                    color: 'text-yellow-700 dark:text-yellow-400 border-yellow-400/20',
                                 },
                             ].map((item, i) => (
                                 <div
@@ -1615,15 +1615,15 @@ async function getHashtagFrequency(hashtag) {
                             {/* ── Part A: Course Complete Celebration Banner ── */}
                             <div className='bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-8 text-center'>
                                 <div className='text-6xl mb-4'>🎉</div>
-                                <h2 className='text-3xl font-black text-emerald-400 mb-3'>
+                                <h2 className='text-3xl font-black text-emerald-700 dark:text-emerald-400 mb-3'>
                                     অভিনন্দন!
                                 </h2>
                                 <p className='text-xl font-bold text-foreground mb-2'>
                                     System Design Mastery সম্পূর্ণ!
                                 </p>
                                 <p className='text-muted-foreground text-base mb-8 max-w-xl mx-auto leading-relaxed'>
-                                    আপনি <strong className='text-emerald-400'>৫টা Phase</strong> এবং{' '}
-                                    <strong className='text-emerald-400'>২৯টা Topic</strong> সম্পূর্ণ
+                                    আপনি <strong className='text-emerald-700 dark:text-emerald-400'>৫টা Phase</strong> এবং{' '}
+                                    <strong className='text-emerald-700 dark:text-emerald-400'>২৯টা Topic</strong> সম্পূর্ণ
                                     করেছেনো। আপনি এখন একজন{' '}
                                     <strong className='text-foreground'>System Design Expert</strong>।
                                 </p>
@@ -1636,35 +1636,35 @@ async function getHashtagFrequency(hashtag) {
                                             title: 'Foundations',
                                             topics: 4,
                                             color: 'border-emerald-500/40 bg-emerald-500/10',
-                                            textColor: 'text-emerald-400',
+                                            textColor: 'text-emerald-700 dark:text-emerald-400',
                                         },
                                         {
                                             phase: 'Phase 2',
                                             title: 'Core Components',
                                             topics: 6,
                                             color: 'border-emerald-500/40 bg-emerald-500/10',
-                                            textColor: 'text-emerald-400',
+                                            textColor: 'text-emerald-700 dark:text-emerald-400',
                                         },
                                         {
                                             phase: 'Phase 3',
                                             title: 'Distributed Systems',
                                             topics: 6,
                                             color: 'border-emerald-500/40 bg-emerald-500/10',
-                                            textColor: 'text-emerald-400',
+                                            textColor: 'text-emerald-700 dark:text-emerald-400',
                                         },
                                         {
                                             phase: 'Phase 4',
                                             title: 'Real-World Systems',
                                             topics: 7,
                                             color: 'border-emerald-500/40 bg-emerald-500/10',
-                                            textColor: 'text-emerald-400',
+                                            textColor: 'text-emerald-700 dark:text-emerald-400',
                                         },
                                         {
                                             phase: 'Phase 5',
                                             title: 'Advanced Topics',
                                             topics: 6,
                                             color: 'border-yellow-400/40 bg-yellow-400/10',
-                                            textColor: 'text-yellow-400',
+                                            textColor: 'text-yellow-700 dark:text-yellow-400',
                                         },
                                     ].map((p, i) => (
                                         <div
@@ -1689,7 +1689,7 @@ async function getHashtagFrequency(hashtag) {
 
                                 {/* Motivational quote */}
                                 <div className='border border-yellow-400/30 bg-yellow-400/5 rounded-lg p-5 max-w-lg mx-auto'>
-                                    <p className='text-yellow-400 font-bold text-base italic leading-relaxed'>
+                                    <p className='text-yellow-700 dark:text-yellow-400 font-bold text-base italic leading-relaxed'>
                                         &ldquo;জ্ঞান অর্জন করা শেষ হয় না — কিন্তু
                                         foundation গড়া শেষ হয়। আপনি সেই foundation
                                         গড়েছো। এখন আপনি যেকোনো system design
@@ -1730,9 +1730,9 @@ async function getHashtagFrequency(hashtag) {
                                                 level: 'Must Read',
                                                 tag: 'THE BIBLE',
                                                 levelColor:
-                                                    'bg-red-500/10 text-red-400',
+                                                    'bg-red-500/10 text-red-700 dark:text-red-400',
                                                 tagColor:
-                                                    'bg-yellow-400/10 text-yellow-400 border-yellow-400/30',
+                                                    'bg-yellow-400/10 text-yellow-700 dark:text-yellow-400 border-yellow-400/30',
                                             },
                                             {
                                                 title: 'System Design Interview Vol. 1 & 2',
@@ -1741,7 +1741,7 @@ async function getHashtagFrequency(hashtag) {
                                                 level: 'Beginner-Intermediate',
                                                 tag: 'INTERVIEW PREP',
                                                 levelColor:
-                                                    'bg-emerald-500/10 text-emerald-400',
+                                                    'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400',
                                                 tagColor:
                                                     'bg-primary/10 text-primary border-primary/30',
                                             },
@@ -1754,7 +1754,7 @@ async function getHashtagFrequency(hashtag) {
                                                 levelColor:
                                                     'bg-primary/10 text-primary',
                                                 tagColor:
-                                                    'bg-purple-400/10 text-purple-400 border-purple-400/30',
+                                                    'bg-purple-400/10 text-purple-700 dark:text-purple-400 border-purple-400/30',
                                             },
                                             {
                                                 title: 'Release It!',
@@ -1765,7 +1765,7 @@ async function getHashtagFrequency(hashtag) {
                                                 levelColor:
                                                     'bg-primary/10 text-primary',
                                                 tagColor:
-                                                    'bg-orange-400/10 text-orange-400 border-orange-400/30',
+                                                    'bg-orange-400/10 text-orange-700 dark:text-orange-400 border-orange-400/30',
                                             },
                                             {
                                                 title: 'Building Microservices',
@@ -1776,7 +1776,7 @@ async function getHashtagFrequency(hashtag) {
                                                 levelColor:
                                                     'bg-primary/10 text-primary',
                                                 tagColor:
-                                                    'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+                                                    'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30',
                                             },
                                             {
                                                 title: 'Site Reliability Engineering',
@@ -1785,9 +1785,9 @@ async function getHashtagFrequency(hashtag) {
                                                 level: 'Advanced',
                                                 tag: 'SRE / OPS',
                                                 levelColor:
-                                                    'bg-red-500/10 text-red-400',
+                                                    'bg-red-500/10 text-red-700 dark:text-red-400',
                                                 tagColor:
-                                                    'bg-red-500/10 text-red-400 border-red-500/30',
+                                                    'bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/30',
                                             },
                                             {
                                                 title: 'The Art of Scalability',
@@ -1796,9 +1796,9 @@ async function getHashtagFrequency(hashtag) {
                                                 level: 'Advanced',
                                                 tag: 'SCALABILITY',
                                                 levelColor:
-                                                    'bg-red-500/10 text-red-400',
+                                                    'bg-red-500/10 text-red-700 dark:text-red-400',
                                                 tagColor:
-                                                    'bg-yellow-400/10 text-yellow-400 border-yellow-400/30',
+                                                    'bg-yellow-400/10 text-yellow-700 dark:text-yellow-400 border-yellow-400/30',
                                             },
                                             {
                                                 title: 'Clean Architecture',
@@ -1809,7 +1809,7 @@ async function getHashtagFrequency(hashtag) {
                                                 levelColor:
                                                     'bg-primary/10 text-primary',
                                                 tagColor:
-                                                    'bg-purple-400/10 text-purple-400 border-purple-400/30',
+                                                    'bg-purple-400/10 text-purple-700 dark:text-purple-400 border-purple-400/30',
                                             },
                                         ].map((book, idx) => (
                                             <div
@@ -1849,7 +1849,7 @@ async function getHashtagFrequency(hashtag) {
                                 {/* ── Subsection 2: Practical Next Steps ── */}
                                 <div className='mb-10'>
                                     <div className='flex items-center gap-3 mb-5'>
-                                        <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-400 bg-purple-400/5 rounded'>
+                                        <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5 rounded'>
                                             🚀 Practical Next Steps
                                         </span>
                                         <p className='text-sm text-muted-foreground font-mono'>
@@ -1882,7 +1882,7 @@ async function getHashtagFrequency(hashtag) {
                                                     'CI/CD',
                                                 ],
                                                 tagColor:
-                                                    'border-emerald-500/30 text-emerald-400 bg-emerald-500/5',
+                                                    'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5',
                                             },
                                             {
                                                 step: '03',
@@ -1894,7 +1894,7 @@ async function getHashtagFrequency(hashtag) {
                                                     'Cloudflare Blog',
                                                 ],
                                                 tagColor:
-                                                    'border-orange-400/30 text-orange-400 bg-orange-400/5',
+                                                    'border-orange-400/30 text-orange-700 dark:text-orange-400 bg-orange-400/5',
                                             },
                                             {
                                                 step: '04',
@@ -1906,7 +1906,7 @@ async function getHashtagFrequency(hashtag) {
                                                     'FAANG Prep',
                                                 ],
                                                 tagColor:
-                                                    'border-purple-400/30 text-purple-400 bg-purple-400/5',
+                                                    'border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5',
                                             },
                                             {
                                                 step: '05',
@@ -1918,7 +1918,7 @@ async function getHashtagFrequency(hashtag) {
                                                     'Netflix Tech',
                                                 ],
                                                 tagColor:
-                                                    'border-yellow-400/30 text-yellow-400 bg-yellow-400/5',
+                                                    'border-yellow-400/30 text-yellow-700 dark:text-yellow-400 bg-yellow-400/5',
                                             },
                                         ].map((item, i) => (
                                             <div
@@ -1958,7 +1958,7 @@ async function getHashtagFrequency(hashtag) {
                                     <div className='flex items-center gap-3 mb-6'>
                                         <span className='text-3xl'>🎯</span>
                                         <div>
-                                            <h3 className='text-xl font-black text-yellow-400'>
+                                            <h3 className='text-xl font-black text-yellow-700 dark:text-yellow-400'>
                                                 Interview Readiness Checklist
                                             </h3>
                                             <p className='text-sm text-muted-foreground'>
@@ -1982,7 +1982,7 @@ async function getHashtagFrequency(hashtag) {
                                             <div
                                                 key={i}
                                                 className='flex items-start gap-3 bg-yellow-400/5 border border-yellow-400/20 rounded-lg p-3'>
-                                                <span className='text-emerald-400 font-bold text-lg flex-shrink-0 leading-none mt-0.5'>
+                                                <span className='text-emerald-700 dark:text-emerald-400 font-bold text-lg flex-shrink-0 leading-none mt-0.5'>
                                                     ✓
                                                 </span>
                                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -1992,7 +1992,7 @@ async function getHashtagFrequency(hashtag) {
                                         ))}
                                     </div>
                                     <div className='mt-6 text-center'>
-                                        <p className='text-yellow-400 font-bold text-base'>
+                                        <p className='text-yellow-700 dark:text-yellow-400 font-bold text-base'>
                                             আপনি এখন System Design-এ Expert।
                                         </p>
                                         <p className='text-muted-foreground text-sm mt-1'>
@@ -2027,27 +2027,27 @@ async function getHashtagFrequency(hashtag) {
                 </span>,
                 '~1 MB / 1B items',
                 '99%+',
-                <span className='text-emerald-400 font-bold'>Never</span>,
+                <span className='text-emerald-700 dark:text-emerald-400 font-bold'>Never</span>,
                 'Membership test (is URL crawled?)',
                 'Redis BF.ADD',
             ],
             [
-                <span className='font-bold text-purple-400 font-mono'>
+                <span className='font-bold text-purple-700 dark:text-purple-400 font-mono'>
                     HyperLogLog
                 </span>,
                 '12 KB (always)',
                 '~99.19%',
-                <span className='text-yellow-400'>N/A</span>,
+                <span className='text-yellow-700 dark:text-yellow-400'>N/A</span>,
                 'Unique count (DAU, unique views)',
                 'Redis PFCOUNT',
             ],
             [
-                <span className='font-bold text-orange-400 font-mono'>
+                <span className='font-bold text-orange-700 dark:text-orange-400 font-mono'>
                     Count-Min Sketch
                 </span>,
                 'Configurable',
                 '~99%',
-                <span className='text-yellow-400'>N/A</span>,
+                <span className='text-yellow-700 dark:text-yellow-400'>N/A</span>,
                 'Frequency estimate (trending topics)',
                 'Redis CMS.QUERY',
             ],
@@ -2057,7 +2057,7 @@ async function getHashtagFrequency(hashtag) {
                 </span>,
                 '50 GB / 1B items',
                 '100%',
-                <span className='text-emerald-400 font-bold'>Never</span>,
+                <span className='text-emerald-700 dark:text-emerald-400 font-bold'>Never</span>,
                 'When exactness is required',
                 'Java HashSet',
             ],

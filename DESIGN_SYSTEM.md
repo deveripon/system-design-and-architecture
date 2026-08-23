@@ -16,14 +16,24 @@ We use a three-font system defined in `app/layout.tsx`:
 3. **Body & Bengali Text** (`font-sans`): *Noto Sans Bengali* – Clean readability for paragraphs and course content.
 
 ## 3. Colors & Theming (Light/Dark Mode)
-The app supports both Light and Dark modes via `next-themes` and a custom `.dark` class implementation in `globals.css`.
-- **Backgrounds**: 
-  - Dark: Deep, almost-black blue (`#05080f`).
-  - Light: Pure white (`#ffffff`).
-- **Primary Accent**: Electric Blue (`#3b82f6`). Used for active states, square dots, and primary buttons.
-- **Borders**: Extremely subtle. `border-border` (`#162035` in dark, `#e2e8f0` in light). Use `border-white/10` (or `border-primary/20 dark:border-white/10` for theme compatibility) for element-specific borders.
-- **Hover States**: Use subtle background shifts rather than solid fills. 
-  - Example: `hover:bg-primary/5 dark:hover:bg-white/[0.02]`.
+The app supports both Light and Dark modes via `next-themes` and a custom `.dark` class implementation in `globals.css`. The palette is **warm** — a clay/orange primary on an ivory or near-black warm ground. Never reintroduce the old electric-blue accent.
+
+Every colour is a token in `globals.css`. Use `text-primary`, `bg-card`, `border-border` etc.; do not hardcode hex values or Tailwind palette shades for chrome.
+
+| Token | Light | Dark | Used for |
+| --- | --- | --- | --- |
+| `--background` | `#faf9f5` ivory | `#12110e` warm near-black | page ground |
+| `--foreground` | `#1a1915` | `#f0efe9` | body text |
+| `--card` | `#ffffff` | `#1a1915` | cards, panels |
+| `--muted` / `--muted-foreground` | `#f4f2ec` / `#5c5a52` | `#171612` / `#b5b1a6` | sidebar, secondary text |
+| `--primary` | `#b3441e` burnt clay | `#e08a5e` warm orange | accents, active states, square dots, primary buttons |
+| `--accent` | `#4d6b1f` deep olive | `#b8d96a` lime | the second accent — badges, success, "tip" boxes |
+| `--border` / `--grid-line` | `#d8d7d2` | `#2b2a25` | **all** hairlines and the blueprint grid |
+
+- **Contrast**: every text token pair clears WCAG AA (primary 5.4:1 light / 7.3:1 dark; accent 5.9:1 / 10:1). If you add a colour, check it in **both** themes before using it for text.
+- **Grid lines are neutral grey and 1px** — never tinted with the primary colour. The page background grid uses `var(--grid-line)` at a 48px pitch, kept faint (`opacity-30 dark:opacity-20`) so it reads as paper texture rather than a table.
+- **Palette shades in content**: a `-400` shade is dark-mode only. Always pair it — `text-emerald-700 dark:text-emerald-400` — otherwise the light theme is unreadable.
+- **Hover States**: subtle background shifts, never solid fills: `hover:bg-primary/5 dark:hover:bg-white/2`. A bare `hover:bg-white/2` is invisible in light mode.
 
 ## 4. Key Architectural Components
 ### The "Cross-Border" Grid System
@@ -59,11 +69,24 @@ Never manually build a section header. Always use the `<SubHeader>` component.
 - **Scrollbar**: A custom, ultra-thin (`4px`) scrollbar is defined at the bottom of `globals.css`. It uses sharp edges (`border-radius: 0px`) and the primary color for the thumb.
 - **Button Reset**: All native buttons have browser outlines and focus rings completely removed (`outline: none; box-shadow: none;`) and `cursor: pointer` explicitly enforced globally.
 
+## 8. Responsive Rules
+- **Desktop width**: a topic/lesson container is centred (`mx-auto`) and grows with the viewport:
+  `md:max-w-3xl lg:max-w-5xl xl:max-w-[80rem] 2xl:max-w-[90rem]`. Never leave the content
+  left-aligned with a fixed cap — on a wide screen all the slack collects on the right.
+- **Grids** step up rather than stopping at two columns: `grid-cols-1 md:grid-cols-2 xl:grid-cols-3`
+  (or `xl:grid-cols-4` for a 4/8-item flow). Build them as `border-t border-l` on the container plus
+  `border-r border-b` on each child, so the borders stay correct at any column count. Avoid
+  `even:border-r-0` parity tricks — they break the moment a full-width row is inserted.
+- **No horizontal overflow** at any width. Check `document.body.scrollWidth` against
+  `documentElement.clientWidth` after a layout change.
+
 ---
 **Checklist for adding new UI:**
 - [ ] Is `border-radius` set to 0?
 - [ ] Are headings utilizing `font-mono uppercase tracking-[0.2em]` where appropriate?
 - [ ] Is it wrapped in `<BorderCross>` if it's a major section?
 - [ ] Does it support both Light and Dark mode using `dark:` variants?
+- [ ] Are colours coming from tokens (`primary`, `accent`, `border`) rather than hardcoded hexes?
+- [ ] Does it use the extra width at `xl`/`2xl` instead of leaving a dead gutter?
 - [ ] Are interactive elements using subtle micro-animations (e.g. `translate-x-0.5`) rather than aggressive color fills?
 - [ ] Are complex animations (accordions, scroll jumps) utilizing Framer Motion with the standard `ease: [0.16, 1, 0.3, 1]`?

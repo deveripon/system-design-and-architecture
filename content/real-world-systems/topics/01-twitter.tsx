@@ -107,7 +107,7 @@ export const twitterContent: TopicData = {
                                     width='70'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#1e2d4a'
                                     strokeWidth='1.5'
                                 />
@@ -142,7 +142,7 @@ export const twitterContent: TopicData = {
                                     width='90'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#1d9bf0'
                                     strokeWidth='1.5'
                                 />
@@ -186,7 +186,7 @@ export const twitterContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                     strokeWidth='1.2'
                                 />
@@ -221,7 +221,7 @@ export const twitterContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.2'
                                 />
@@ -256,7 +256,7 @@ export const twitterContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#f97316'
                                     strokeWidth='1.2'
                                 />
@@ -291,7 +291,7 @@ export const twitterContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#eab308'
                                     strokeWidth='1.5'
                                 />
@@ -326,7 +326,7 @@ export const twitterContent: TopicData = {
                                     width='90'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#64748b'
                                     strokeWidth='1.2'
                                 />
@@ -361,15 +361,15 @@ export const twitterContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
-                                    stroke='#3b82f6'
+                                    fill='#1a1915'
+                                    stroke='#cc6b45'
                                     strokeWidth='1.5'
                                 />
                                 <text
                                     x='430'
                                     y='203'
                                     textAnchor='middle'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='9'>
                                     TWEET DB
@@ -396,7 +396,7 @@ export const twitterContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#eab308'
                                     strokeWidth='1.5'
                                 />
@@ -431,7 +431,7 @@ export const twitterContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.2'
                                 />
@@ -460,7 +460,7 @@ export const twitterContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                     strokeWidth='1.2'
                                 />
@@ -489,7 +489,7 @@ export const twitterContent: TopicData = {
                                     width='100'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#1d9bf0'
                                     strokeWidth='1.2'
                                 />
@@ -532,7 +532,7 @@ export const twitterContent: TopicData = {
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             {/* Functional */}
                             <div className='rounded-lg border border-border bg-card/50 p-5'>
-                                <p className='font-mono text-[11px] uppercase tracking-widest text-emerald-400 mb-4 font-bold'>
+                                <p className='font-mono text-[11px] uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4 font-bold'>
                                     ✅ Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -559,7 +559,7 @@ export const twitterContent: TopicData = {
                             </div>
                             {/* Non-Functional */}
                             <div className='rounded-lg border border-border bg-card/50 p-5'>
-                                <p className='font-mono text-[11px] uppercase tracking-widest text-purple-400 mb-4 font-bold'>
+                                <p className='font-mono text-[11px] uppercase tracking-widest text-purple-700 dark:text-purple-400 mb-4 font-bold'>
                                     ⚡ Non-Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -671,7 +671,7 @@ export const twitterContent: TopicData = {
                     steps: [
                         {
                             title: (
-                                <span className='font-mono text-blue-400'>
+                                <span className='font-mono text-blue-700 dark:text-blue-400'>
                                     API Gateway — Entry Point
                                 </span>
                             ),
@@ -685,7 +685,7 @@ export const twitterContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Tweet Service — Content Storage
                                 </span>
                             ),
@@ -699,7 +699,7 @@ export const twitterContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     Fanout Service — Distribution Engine
                                 </span>
                             ),
@@ -713,7 +713,7 @@ export const twitterContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-orange-400'>
+                                <span className='font-mono text-orange-700 dark:text-orange-400'>
                                     Timeline Service — Feed Generation
                                 </span>
                             ),
@@ -727,7 +727,7 @@ export const twitterContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-purple-400'>
+                                <span className='font-mono text-purple-700 dark:text-purple-400'>
                                     User Service — Social Graph
                                 </span>
                             ),
@@ -778,10 +778,10 @@ export const twitterContent: TopicData = {
                                 Fan-out on Write (Push)
                             </span>,
                             'Tweet করলেনই সব followers-এর cache update',
-                            <span className='text-red-400 font-semibold'>
+                            <span className='text-red-700 dark:text-red-400 font-semibold'>
                                 High (150M writes)
                             </span>,
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Low (cache hit)
                             </span>,
                             'Celebrity problem',
@@ -791,10 +791,10 @@ export const twitterContent: TopicData = {
                                 Fan-out on Read (Pull)
                             </span>,
                             'Timeline load করলেন following-দের tweets pull',
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Low
                             </span>,
-                            <span className='text-red-400 font-semibold'>
+                            <span className='text-red-700 dark:text-red-400 font-semibold'>
                                 High (DB joins)
                             </span>,
                             'Slow timeline',
@@ -804,13 +804,13 @@ export const twitterContent: TopicData = {
                                 Hybrid (Twitter&apos;s approach)
                             </span>,
                             'Normal users: push, Celebrity: pull on read',
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Balanced
                             </span>,
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Balanced
                             </span>,
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Best of both
                             </span>,
                         ],
@@ -843,15 +843,15 @@ export const twitterContent: TopicData = {
                                     New Tweet Posted
                                 </div>
                                 <div className='w-px h-6 bg-border' />
-                                <div className='px-6 py-3 border border-yellow-500/50 bg-yellow-500/5 rounded-lg text-sm font-mono text-yellow-400'>
+                                <div className='px-6 py-3 border border-yellow-500/50 bg-yellow-500/5 rounded-lg text-sm font-mono text-yellow-700 dark:text-yellow-400'>
                                     followers &lt; 10,000?
                                 </div>
                                 <div className='flex gap-12 items-start'>
                                     <div className='flex flex-col items-center gap-2'>
-                                        <span className='text-xs font-mono text-emerald-400'>
+                                        <span className='text-xs font-mono text-emerald-700 dark:text-emerald-400'>
                                             YES ✓
                                         </span>
-                                        <div className='px-4 py-3 border border-emerald-500/50 bg-emerald-500/5 rounded-lg text-xs font-mono text-emerald-400 text-center'>
+                                        <div className='px-4 py-3 border border-emerald-500/50 bg-emerald-500/5 rounded-lg text-xs font-mono text-emerald-700 dark:text-emerald-400 text-center'>
                                             Fan-out on Write
                                             <br />
                                             Push to all
@@ -860,10 +860,10 @@ export const twitterContent: TopicData = {
                                         </div>
                                     </div>
                                     <div className='flex flex-col items-center gap-2'>
-                                        <span className='text-xs font-mono text-orange-400'>
+                                        <span className='text-xs font-mono text-orange-700 dark:text-orange-400'>
                                             NO (celebrity)
                                         </span>
-                                        <div className='px-4 py-3 border border-orange-500/50 bg-orange-500/5 rounded-lg text-xs font-mono text-orange-400 text-center'>
+                                        <div className='px-4 py-3 border border-orange-500/50 bg-orange-500/5 rounded-lg text-xs font-mono text-orange-700 dark:text-orange-400 text-center'>
                                             Kafka Queue
                                             <br />
                                             Pull at read
@@ -873,7 +873,7 @@ export const twitterContent: TopicData = {
                                     </div>
                                 </div>
                                 <div className='w-px h-6 bg-border' />
-                                <div className='px-6 py-3 border border-blue-500/50 bg-blue-500/5 rounded-lg text-sm font-mono text-blue-400 font-bold'>
+                                <div className='px-6 py-3 border border-blue-500/50 bg-blue-500/5 rounded-lg text-sm font-mono text-blue-700 dark:text-blue-400 font-bold'>
                                     Timeline: merge regular + celebrity tweets
                                 </div>
                             </div>
@@ -987,7 +987,7 @@ export const twitterContent: TopicData = {
                             </p>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                                 <div className='p-4 border border-emerald-500/40 bg-emerald-500/5 rounded-lg'>
-                                    <p className='text-xs font-mono text-emerald-400 font-bold mb-3 uppercase tracking-wide'>
+                                    <p className='text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold mb-3 uppercase tracking-wide'>
                                         Normal User (&lt;10K followers)
                                     </p>
                                     <div className='space-y-2 text-sm text-muted-foreground'>
@@ -1000,13 +1000,13 @@ export const twitterContent: TopicData = {
                                             3. Timeline load = Redis cache থেকে
                                             instant read
                                         </p>
-                                        <p className='text-emerald-400 font-mono text-xs'>
+                                        <p className='text-emerald-700 dark:text-emerald-400 font-mono text-xs'>
                                             ✓ Write: High, Read: O(1) fast
                                         </p>
                                     </div>
                                 </div>
                                 <div className='p-4 border border-orange-500/40 bg-orange-500/5 rounded-lg'>
-                                    <p className='text-xs font-mono text-orange-400 font-bold mb-3 uppercase tracking-wide'>
+                                    <p className='text-xs font-mono text-orange-700 dark:text-orange-400 font-bold mb-3 uppercase tracking-wide'>
                                         Celebrity (&gt;10K followers)
                                     </p>
                                     <div className='space-y-2 text-sm text-muted-foreground'>
@@ -1018,7 +1018,7 @@ export const twitterContent: TopicData = {
                                             3. Timeline load-এ celebrity tweets
                                             আলাদাভাবে DB থেকে pull করে merge
                                         </p>
-                                        <p className='text-orange-400 font-mono text-xs'>
+                                        <p className='text-orange-700 dark:text-orange-400 font-mono text-xs'>
                                             ✓ Write: Low, Read: pull+merge
                                         </p>
                                     </div>
@@ -1072,7 +1072,7 @@ export const twitterContent: TopicData = {
                             <span className='font-mono text-foreground'>
                                 Tweets (immutable)
                             </span>,
-                            <span className='text-blue-400 font-semibold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-semibold'>
                                 Cassandra
                             </span>,
                             'Append-only, time-series, massive scale',
@@ -1081,7 +1081,7 @@ export const twitterContent: TopicData = {
                             <span className='font-mono text-foreground'>
                                 User profiles
                             </span>,
-                            <span className='text-blue-400 font-semibold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-semibold'>
                                 PostgreSQL
                             </span>,
                             'ACID, relational, profile updates',
@@ -1090,7 +1090,7 @@ export const twitterContent: TopicData = {
                             <span className='font-mono text-foreground'>
                                 Follow graph
                             </span>,
-                            <span className='text-yellow-400 font-semibold'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-semibold'>
                                 Redis (sorted set) / Neo4j
                             </span>,
                             'Graph traversal, follower counts',
@@ -1099,7 +1099,7 @@ export const twitterContent: TopicData = {
                             <span className='font-mono text-foreground'>
                                 Home timeline
                             </span>,
-                            <span className='text-yellow-400 font-semibold'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-semibold'>
                                 Redis (list)
                             </span>,
                             'Fast reads, pre-computed, in-memory',
@@ -1108,7 +1108,7 @@ export const twitterContent: TopicData = {
                             <span className='font-mono text-foreground'>
                                 Search index
                             </span>,
-                            <span className='text-blue-400 font-semibold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-semibold'>
                                 Elasticsearch
                             </span>,
                             'Full-text search, hashtag search',
@@ -1117,7 +1117,7 @@ export const twitterContent: TopicData = {
                             <span className='font-mono text-foreground'>
                                 Media files
                             </span>,
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Amazon S3 + CloudFront
                             </span>,
                             'Object storage, CDN delivery',
@@ -1126,7 +1126,7 @@ export const twitterContent: TopicData = {
                             <span className='font-mono text-foreground'>
                                 Analytics
                             </span>,
-                            <span className='text-purple-400 font-semibold'>
+                            <span className='text-purple-700 dark:text-purple-400 font-semibold'>
                                 Hadoop/Spark + Hive
                             </span>,
                             'Batch processing, trend analysis',
@@ -1278,8 +1278,8 @@ LTRIM timeline:user123 0 799   -- Keep last 800 tweets only`,
                                     <span
                                         className={`font-mono text-[11px] px-2 py-1 rounded flex-shrink-0 mt-0.5 ${
                                             item.color === 'emerald'
-                                                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                                                : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                                                ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20'
+                                                : 'bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/20'
                                         }`}>
                                         {item.type}
                                     </span>
@@ -1385,19 +1385,19 @@ def like_tweet_atomic(tweet_id: str):
                                     {[
                                         {
                                             label: 'Scala / Java',
-                                            color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/5',
+                                            color: 'text-emerald-700 dark:text-emerald-400 border-emerald-500/30 bg-emerald-500/5',
                                         },
                                         {
                                             label: 'Python (ML/Recommendations)',
-                                            color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/5',
+                                            color: 'text-emerald-700 dark:text-emerald-400 border-emerald-500/30 bg-emerald-500/5',
                                         },
                                         {
                                             label: 'Kubernetes',
-                                            color: 'text-purple-400 border-purple-500/30 bg-purple-500/5',
+                                            color: 'text-purple-700 dark:text-purple-400 border-purple-500/30 bg-purple-500/5',
                                         },
                                         {
                                             label: 'Nginx + Envoy Proxy',
-                                            color: 'text-purple-400 border-purple-500/30 bg-purple-500/5',
+                                            color: 'text-purple-700 dark:text-purple-400 border-purple-500/30 bg-purple-500/5',
                                         },
                                     ].map((tag, i) => (
                                         <span
@@ -1416,23 +1416,23 @@ def like_tweet_atomic(tweet_id: str):
                                     {[
                                         {
                                             label: 'Cassandra (Tweets)',
-                                            color: 'text-blue-400 border-blue-500/30 bg-blue-500/5',
+                                            color: 'text-blue-700 dark:text-blue-400 border-blue-500/30 bg-blue-500/5',
                                         },
                                         {
                                             label: 'PostgreSQL (Users)',
-                                            color: 'text-blue-400 border-blue-500/30 bg-blue-500/5',
+                                            color: 'text-blue-700 dark:text-blue-400 border-blue-500/30 bg-blue-500/5',
                                         },
                                         {
                                             label: 'Redis Cluster (Timeline)',
-                                            color: 'text-yellow-400 border-yellow-500/30 bg-yellow-500/5',
+                                            color: 'text-yellow-700 dark:text-yellow-400 border-yellow-500/30 bg-yellow-500/5',
                                         },
                                         {
                                             label: 'Elasticsearch (Search)',
-                                            color: 'text-blue-400 border-blue-500/30 bg-blue-500/5',
+                                            color: 'text-blue-700 dark:text-blue-400 border-blue-500/30 bg-blue-500/5',
                                         },
                                         {
                                             label: "Manhattan (Twitter's own KV store)",
-                                            color: 'text-blue-400 border-blue-500/30 bg-blue-500/5',
+                                            color: 'text-blue-700 dark:text-blue-400 border-blue-500/30 bg-blue-500/5',
                                         },
                                     ].map((tag, i) => (
                                         <span
@@ -1451,19 +1451,19 @@ def like_tweet_atomic(tweet_id: str):
                                     {[
                                         {
                                             label: 'Apache Kafka (Fanout)',
-                                            color: 'text-orange-400 border-orange-500/30 bg-orange-500/5',
+                                            color: 'text-orange-700 dark:text-orange-400 border-orange-500/30 bg-orange-500/5',
                                         },
                                         {
                                             label: 'Amazon S3 (Media)',
-                                            color: 'text-purple-400 border-purple-500/30 bg-purple-500/5',
+                                            color: 'text-purple-700 dark:text-purple-400 border-purple-500/30 bg-purple-500/5',
                                         },
                                         {
                                             label: 'CloudFront CDN',
-                                            color: 'text-purple-400 border-purple-500/30 bg-purple-500/5',
+                                            color: 'text-purple-700 dark:text-purple-400 border-purple-500/30 bg-purple-500/5',
                                         },
                                         {
                                             label: 'Hadoop + Spark (Analytics)',
-                                            color: 'text-blue-400 border-blue-500/30 bg-blue-500/5',
+                                            color: 'text-blue-700 dark:text-blue-400 border-blue-500/30 bg-blue-500/5',
                                         },
                                     ].map((tag, i) => (
                                         <span

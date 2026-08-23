@@ -33,13 +33,13 @@ export const cloudArchContent: TopicData = {
                                 <span className='font-mono text-xs px-3 py-1 border border-primary/30 text-primary bg-primary/5 rounded'>
                                     ⏱ ৯০-১২০ মিনিট
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-emerald-500/30 text-emerald-400 bg-emerald-500/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5 rounded'>
                                     ☁️ Cloud Architecture
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-400 bg-orange-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-700 dark:text-orange-400 bg-orange-400/5 rounded'>
                                     🔧 Advanced
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-400 bg-purple-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5 rounded'>
                                     TOPIC 03 / Phase 5
                                 </span>
                             </div>
@@ -55,7 +55,7 @@ export const cloudArchContent: TopicData = {
                             </ContentParagraph>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
                                 <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                    <p className='font-mono text-xs uppercase tracking-widest text-red-400 mb-4'>
+                                    <p className='font-mono text-xs uppercase tracking-widest text-red-700 dark:text-red-400 mb-4'>
                                         ❌ Before Cloud — On-Premise
                                     </p>
                                     <ul className='space-y-2'>
@@ -71,7 +71,7 @@ export const cloudArchContent: TopicData = {
                                             <li
                                                 key={i}
                                                 className='text-sm text-muted-foreground flex items-start gap-2 py-1 border-b border-border last:border-0'>
-                                                <span className='text-red-400 mt-0.5'>
+                                                <span className='text-red-700 dark:text-red-400 mt-0.5'>
                                                     →
                                                 </span>
                                                 {item}
@@ -80,7 +80,7 @@ export const cloudArchContent: TopicData = {
                                     </ul>
                                 </div>
                                 <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                    <p className='font-mono text-xs uppercase tracking-widest text-emerald-400 mb-4'>
+                                    <p className='font-mono text-xs uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4'>
                                         ✅ After Cloud — AWS / GCP / Azure
                                     </p>
                                     <ul className='space-y-2'>
@@ -96,7 +96,7 @@ export const cloudArchContent: TopicData = {
                                             <li
                                                 key={i}
                                                 className='text-sm text-muted-foreground flex items-start gap-2 py-1 border-b border-border last:border-0'>
-                                                <span className='text-emerald-400 mt-0.5'>
+                                                <span className='text-emerald-700 dark:text-emerald-400 mt-0.5'>
                                                     →
                                                 </span>
                                                 {item}
@@ -153,7 +153,7 @@ export const cloudArchContent: TopicData = {
                             'EC2, Azure VM',
                         ],
                         [
-                            <span className='font-mono font-bold text-orange-400'>
+                            <span className='font-mono font-bold text-orange-700 dark:text-orange-400'>
                                 PaaS
                             </span>,
                             'App, Data',
@@ -161,7 +161,7 @@ export const cloudArchContent: TopicData = {
                             'Heroku, Beanstalk',
                         ],
                         [
-                            <span className='font-mono font-bold text-emerald-400'>
+                            <span className='font-mono font-bold text-emerald-700 dark:text-emerald-400'>
                                 SaaS
                             </span>,
                             'শুধু use করুন',
@@ -701,28 +701,28 @@ export const cloudArchContent: TopicData = {
                             'Object storage, block disk (EC2), shared file system',
                         ],
                         [
-                            <span className='font-mono font-bold text-emerald-400'>
+                            <span className='font-mono font-bold text-emerald-700 dark:text-emerald-400'>
                                 Database
                             </span>,
                             'RDS / DynamoDB / ElastiCache',
                             'Managed SQL, NoSQL key-value, in-memory cache',
                         ],
                         [
-                            <span className='font-mono font-bold text-orange-400'>
+                            <span className='font-mono font-bold text-orange-700 dark:text-orange-400'>
                                 Network
                             </span>,
                             'VPC / CloudFront / Route53',
                             'Isolated network, CDN edge caching, DNS routing',
                         ],
                         [
-                            <span className='font-mono font-bold text-pink-400'>
+                            <span className='font-mono font-bold text-pink-700 dark:text-pink-400'>
                                 Queue/Event
                             </span>,
                             'SQS / SNS / EventBridge',
                             'Message queue, pub/sub notification, event bus',
                         ],
                         [
-                            <span className='font-mono font-bold text-purple-400'>
+                            <span className='font-mono font-bold text-purple-700 dark:text-purple-400'>
                                 Security
                             </span>,
                             'IAM / KMS / WAF',
@@ -760,13 +760,13 @@ export const cloudArchContent: TopicData = {
                                         icon: '⚡',
                                         title: 'Event-driven',
                                         desc: 'HTTP request, S3 upload, SQS message, scheduled cron — যেকোনো event-এ trigger হয়',
-                                        color: 'border-purple-500/30 text-purple-400',
+                                        color: 'border-purple-500/30 text-purple-700 dark:text-purple-400',
                                     },
                                     {
                                         icon: '💰',
                                         title: 'Pay-per-use',
                                         desc: 'Function run করলেন তখনই charge। Idle থাকলে কোনো cost নেই। 1M free invocations/month',
-                                        color: 'border-emerald-500/30 text-emerald-400',
+                                        color: 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400',
                                     },
                                     {
                                         icon: '📈',
@@ -896,7 +896,7 @@ def lambda_handler(event, context):
                     rows: [
                         [
                             'Cost Model',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Pay per request
                             </span>,
                             'Pay per container runtime',
@@ -904,7 +904,7 @@ def lambda_handler(event, context):
                         ],
                         [
                             'Cold Start',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 100ms - 2s (issue)
                             </span>,
                             'Seconds (pre-warmed)',
@@ -912,7 +912,7 @@ def lambda_handler(event, context):
                         ],
                         [
                             'Scaling',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Instant auto-scale
                             </span>,
                             'Minutes (ECS task)',
@@ -920,11 +920,11 @@ def lambda_handler(event, context):
                         ],
                         [
                             'Ops Overhead',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Near zero
                             </span>,
                             'Medium (Dockerfile)',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 High (OS patches)
                             </span>,
                         ],
@@ -972,7 +972,7 @@ def lambda_handler(event, context):
                             </ContentParagraph>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                                 <div className='bg-muted/30 border border-red-500/20 rounded-lg p-4'>
-                                    <p className='font-mono text-xs text-red-400 uppercase tracking-widest mb-3'>
+                                    <p className='font-mono text-xs text-red-700 dark:text-red-400 uppercase tracking-widest mb-3'>
                                         ❌ Manual Setup — Problems
                                     </p>
                                     <ul className='space-y-1.5 text-sm text-muted-foreground'>
@@ -984,7 +984,7 @@ def lambda_handler(event, context):
                                             'Security misconfiguration সহজ',
                                         ].map((item, i) => (
                                             <li key={i} className='flex gap-2'>
-                                                <span className='text-red-400'>
+                                                <span className='text-red-700 dark:text-red-400'>
                                                     ✗
                                                 </span>
                                                 {item}
@@ -993,7 +993,7 @@ def lambda_handler(event, context):
                                     </ul>
                                 </div>
                                 <div className='bg-muted/30 border border-emerald-500/20 rounded-lg p-4'>
-                                    <p className='font-mono text-xs text-emerald-400 uppercase tracking-widest mb-3'>
+                                    <p className='font-mono text-xs text-emerald-700 dark:text-emerald-400 uppercase tracking-widest mb-3'>
                                         ✅ Terraform IaC — Benefits
                                     </p>
                                     <ul className='space-y-1.5 text-sm text-muted-foreground'>
@@ -1005,7 +1005,7 @@ def lambda_handler(event, context):
                                             'PR review = infra review',
                                         ].map((item, i) => (
                                             <li key={i} className='flex gap-2'>
-                                                <span className='text-emerald-400'>
+                                                <span className='text-emerald-700 dark:text-emerald-400'>
                                                     ✓
                                                 </span>
                                                 {item}
@@ -1200,28 +1200,28 @@ output "db_endpoint" {
                     rows: [
                         [
                             'Traffic Handling',
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 সব regions live traffic serve করে
                             </span>,
                             'Primary region serve করে, secondary standby',
                         ],
                         [
                             'Failover Time',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Instant (no failover needed)
                             </span>,
                             'Minutes (DNS TTL + failover)',
                         ],
                         [
                             'Cost',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 বেশি (দুটো full setup)
                             </span>,
                             'কম (secondary idle/minimal)',
                         ],
                         [
                             'Consistency',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 Complex — conflict resolution দরকার
                             </span>,
                             'Simpler — one write region',
@@ -1582,7 +1582,7 @@ output "db_endpoint" {
                     headers: ['Pricing Model', 'Cost', 'Commitment', 'Best For'],
                     rows: [
                         [
-                            <span className='font-mono font-bold text-red-400'>
+                            <span className='font-mono font-bold text-red-700 dark:text-red-400'>
                                 On-Demand
                             </span>,
                             'সবচেয়ে বেশি (baseline)',
@@ -1590,10 +1590,10 @@ output "db_endpoint" {
                             'Unpredictable, short-term workloads',
                         ],
                         [
-                            <span className='font-mono font-bold text-emerald-400'>
+                            <span className='font-mono font-bold text-emerald-700 dark:text-emerald-400'>
                                 Reserved
                             </span>,
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 ৪০-৬০% সস্তা
                             </span>,
                             '1 or 3 year commitment',
@@ -1610,10 +1610,10 @@ output "db_endpoint" {
                             'Lambda, Fargate, EC2 — flexible',
                         ],
                         [
-                            <span className='font-mono font-bold text-yellow-400'>
+                            <span className='font-mono font-bold text-yellow-700 dark:text-yellow-400'>
                                 Spot Instances
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 ৭০-৯০% সস্তা
                             </span>,
                             'Interruptible (2-min notice)',
@@ -1632,7 +1632,7 @@ output "db_endpoint" {
                                 {[
                                     {
                                         label: 'Target Tracking',
-                                        color: 'text-emerald-400 border-emerald-500/20',
+                                        color: 'text-emerald-700 dark:text-emerald-400 border-emerald-500/20',
                                         desc: 'CPU 60% target রাখুন। Traffic বাড়লে instance add, কমলে remove। Simplest approach।',
                                     },
                                     {
@@ -1642,7 +1642,7 @@ output "db_endpoint" {
                                     },
                                     {
                                         label: 'Step Scaling',
-                                        color: 'text-orange-400 border-orange-400/20',
+                                        color: 'text-orange-700 dark:text-orange-400 border-orange-400/20',
                                         desc: 'CPU 70% = +2 instances, CPU 90% = +5 instances। Graduated response।',
                                     },
                                 ].map((item, i) => (
@@ -1970,7 +1970,7 @@ spec:
                     rows: [
                         [
                             'Short, event-driven function (&lt; 15 min)',
-                            <span className='font-mono font-bold text-purple-400'>
+                            <span className='font-mono font-bold text-purple-700 dark:text-purple-400'>
                                 Lambda
                             </span>,
                             'Serverless, pay-per-use, zero ops',
@@ -1984,56 +1984,56 @@ spec:
                         ],
                         [
                             'Traditional VM, full OS control',
-                            <span className='font-mono font-bold text-emerald-400'>
+                            <span className='font-mono font-bold text-emerald-700 dark:text-emerald-400'>
                                 EC2
                             </span>,
                             'IaaS, any workload, legacy app',
                         ],
                         [
                             'Managed SQL database',
-                            <span className='font-mono font-bold text-emerald-400'>
+                            <span className='font-mono font-bold text-emerald-700 dark:text-emerald-400'>
                                 RDS / Aurora
                             </span>,
                             'PostgreSQL/MySQL managed, Multi-AZ',
                         ],
                         [
                             'Key-value NoSQL, massive scale',
-                            <span className='font-mono font-bold text-emerald-400'>
+                            <span className='font-mono font-bold text-emerald-700 dark:text-emerald-400'>
                                 DynamoDB
                             </span>,
                             'Serverless DB, single-digit ms, unlimited scale',
                         ],
                         [
                             'In-memory caching layer',
-                            <span className='font-mono font-bold text-red-400'>
+                            <span className='font-mono font-bold text-red-700 dark:text-red-400'>
                                 ElastiCache (Redis)
                             </span>,
                             'Microsecond reads, session store, rate limiting',
                         ],
                         [
                             'Async task queue / decoupling',
-                            <span className='font-mono font-bold text-pink-400'>
+                            <span className='font-mono font-bold text-pink-700 dark:text-pink-400'>
                                 SQS
                             </span>,
                             'At-least-once delivery, decouple services',
                         ],
                         [
                             'Pub/sub fan-out notification',
-                            <span className='font-mono font-bold text-orange-400'>
+                            <span className='font-mono font-bold text-orange-700 dark:text-orange-400'>
                                 SNS
                             </span>,
                             'Topic → multiple subscribers simultaneously',
                         ],
                         [
                             'Static files / media / backups',
-                            <span className='font-mono font-bold text-yellow-400'>
+                            <span className='font-mono font-bold text-yellow-700 dark:text-yellow-400'>
                                 S3
                             </span>,
                             'Unlimited object storage, 99.999999999% durability',
                         ],
                         [
                             'Global CDN / edge caching',
-                            <span className='font-mono font-bold text-orange-400'>
+                            <span className='font-mono font-bold text-orange-700 dark:text-orange-400'>
                                 CloudFront
                             </span>,
                             '450+ PoP worldwide, reduces origin load',
@@ -2054,21 +2054,21 @@ spec:
                                         solution:
                                             'SQS queue + Lambda consumer। Checkout request → SQS। Lambda asynchronously process করে। Queue absorbs burst traffic। Database overwhelm হয় না।',
                                         services: ['SQS', 'Lambda', 'RDS'],
-                                        color: 'border-purple-500/20 text-purple-400',
+                                        color: 'border-purple-500/20 text-purple-700 dark:text-purple-400',
                                     },
                                     {
                                         scenario: 'Image upload + resize',
                                         solution:
                                             'S3 PUT → S3 Event Notification → Lambda trigger। Lambda image resize করে processed/ folder-এ save করে। CloudFront দিয়ে serve।',
                                         services: ['S3', 'Lambda', 'CloudFront'],
-                                        color: 'border-orange-400/20 text-orange-400',
+                                        color: 'border-orange-400/20 text-orange-700 dark:text-orange-400',
                                     },
                                     {
                                         scenario: 'Microservices communication',
                                         solution:
                                             'Synchronous: API Gateway + Lambda/ECS। Asynchronous: EventBridge/SNS fan-out। Service mesh: ECS + App Mesh (Envoy)।',
                                         services: ['API GW', 'EventBridge', 'App Mesh'],
-                                        color: 'border-emerald-500/20 text-emerald-400',
+                                        color: 'border-emerald-500/20 text-emerald-700 dark:text-emerald-400',
                                     },
                                     {
                                         scenario: 'Multi-region disaster recovery',
@@ -2162,7 +2162,7 @@ spec:
                 'Model সঠিকভাবে explain করতে পারা',
             ],
             [
-                <span className='font-bold text-purple-400 font-mono'>
+                <span className='font-bold text-purple-700 dark:text-purple-400 font-mono'>
                     Serverless
                 </span>,
                 'Event-driven, pay-per-use, no server management',
@@ -2170,7 +2170,7 @@ spec:
                 'Cold start limitation জানা জরুরি',
             ],
             [
-                <span className='font-bold text-emerald-400 font-mono'>
+                <span className='font-bold text-emerald-700 dark:text-emerald-400 font-mono'>
                     IaC
                 </span>,
                 'Infrastructure = code, reproducible, version controlled',
@@ -2178,7 +2178,7 @@ spec:
                 'terraform plan/apply workflow জানেন',
             ],
             [
-                <span className='font-bold text-orange-400 font-mono'>
+                <span className='font-bold text-orange-700 dark:text-orange-400 font-mono'>
                     Multi-Region
                 </span>,
                 'Active-Active vs Active-Passive, data sovereignty',
@@ -2186,7 +2186,7 @@ spec:
                 'Consistency challenge বলতে পারা',
             ],
             [
-                <span className='font-bold text-yellow-400 font-mono'>
+                <span className='font-bold text-yellow-700 dark:text-yellow-400 font-mono'>
                     Cost
                 </span>,
                 'On-Demand vs Reserved vs Spot instances',
@@ -2194,7 +2194,7 @@ spec:
                 'Spot instance use case — batch/ML',
             ],
             [
-                <span className='font-bold text-pink-400 font-mono'>
+                <span className='font-bold text-pink-700 dark:text-pink-400 font-mono'>
                     Patterns
                 </span>,
                 'Circuit Breaker, Bulkhead, Sidecar, 12-Factor',

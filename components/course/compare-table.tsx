@@ -25,7 +25,7 @@ export function CompareTable({ headers = [], rows = [] }: CompareTableProps) {
           </thead>
           <tbody className="divide-y divide-border">
             {rows.map((row, rowIdx) => (
-              <tr key={rowIdx} className="group hover:bg-white/2 transition-colors">
+              <tr key={rowIdx} className="group hover:bg-primary/5 dark:hover:bg-white/2 transition-colors">
                 {row.map((cell, cellIdx) => (
                   <td 
                     key={cellIdx} 

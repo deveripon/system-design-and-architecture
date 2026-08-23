@@ -91,7 +91,7 @@ export const tinyurlContent: TopicData = {
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-500 mb-4 font-bold'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4 font-bold'>
                                     ✅ Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -112,7 +112,7 @@ export const tinyurlContent: TopicData = {
                                 </ul>
                             </div>
                             <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-purple-400 mb-4 font-bold'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-purple-700 dark:text-purple-400 mb-4 font-bold'>
                                     ⚡ Non-Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -299,8 +299,8 @@ export const tinyurlContent: TopicData = {
                                 <path d='M 380 165 L 430 220' stroke='#64748b' strokeWidth='1.2' markerEnd='url(#arr-tinyurl)' />
 
                                 {/* Database */}
-                                <rect x='430' y='200' width='100' height='50' rx='4' fill='transparent' stroke='#3b82f6' strokeWidth='1.5' />
-                                <text x='480' y='222' textAnchor='middle' fill='#3b82f6' fontFamily='JetBrains Mono, monospace' fontSize='9'>DATABASE</text>
+                                <rect x='430' y='200' width='100' height='50' rx='4' fill='transparent' stroke='#cc6b45' strokeWidth='1.5' />
+                                <text x='480' y='222' textAnchor='middle' fill='#cc6b45' fontFamily='JetBrains Mono, monospace' fontSize='9'>DATABASE</text>
                                 <text x='480' y='238' textAnchor='middle' fill='#64748b' fontFamily='JetBrains Mono, monospace' fontSize='8'>MySQL/Cassandra</text>
 
                                 {/* Arrow DB to Replica */}
@@ -378,25 +378,25 @@ export const tinyurlContent: TopicData = {
                             'Random String',
                             '6 random chars generate করুন',
                             'Collision check দরকার, DB round trip',
-                            <span className='text-yellow-400 font-medium'>মাঝামাঝি</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400 font-medium'>মাঝামাঝি</span>,
                         ],
                         [
                             'MD5/SHA256 Hash',
                             'URL hash করুন, first 7 chars নাও',
                             'Collision possible, predictable',
-                            <span className='text-red-400'>সাধারণত না</span>,
+                            <span className='text-red-700 dark:text-red-400'>সাধারণত না</span>,
                         ],
                         [
                             'Base62 Encoding',
                             'Auto-increment ID → Base62 convert',
                             'Sequential, predictable',
-                            <span className='text-yellow-400 font-medium'>কখনো কখনো</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400 font-medium'>কখনো কখনো</span>,
                         ],
                         [
                             'Snowflake ID + Base62',
                             'Distributed unique ID → Base62',
                             'Slightly complex setup',
-                            <span className='text-emerald-400 font-bold'>✓ Best Practice</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>✓ Best Practice</span>,
                         ],
                     ],
                 },
@@ -459,15 +459,15 @@ def create_short_url(long_url: str, db, cache) -> str:
                         [
                             '301 Permanent',
                             'URL চিরতরে move হয়েছে',
-                            <span className='text-emerald-400 font-bold'>হ্যাঁ, cache করে</span>,
-                            <span className='text-red-400'>কম accurate</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>হ্যাঁ, cache করে</span>,
+                            <span className='text-red-700 dark:text-red-400'>কম accurate</span>,
                             'Server load কমাতে',
                         ],
                         [
                             '302 Temporary',
                             'এই moment এ redirect',
-                            <span className='text-red-400'>না করে</span>,
-                            <span className='text-emerald-400 font-bold'>Accurate tracking</span>,
+                            <span className='text-red-700 dark:text-red-400'>না করে</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>Accurate tracking</span>,
                             'Analytics দরকার হলে',
                         ],
                     ],
@@ -501,25 +501,25 @@ def create_short_url(long_url: str, db, cache) -> str:
                             'MySQL (SQL)',
                             'ACID, familiar, strong consistency',
                             'Scaling কঠিন, single point',
-                            <span className='text-yellow-400'>Okay for small</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Okay for small</span>,
                         ],
                         [
                             'PostgreSQL',
                             'ACID, better performance',
                             'Horizontal scaling কঠিন',
-                            <span className='text-yellow-400'>Medium scale</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium scale</span>,
                         ],
                         [
                             'Cassandra (NoSQL)',
                             'Massive scale, fault tolerant',
                             'No ACID, complex queries কঠিন',
-                            <span className='text-emerald-400 font-bold'>✓ Large scale</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>✓ Large scale</span>,
                         ],
                         [
                             'DynamoDB',
                             'Managed, auto-scale, low latency',
                             'Expensive, vendor lock-in',
-                            <span className='text-emerald-400 font-bold'>✓ AWS setup</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>✓ AWS setup</span>,
                         ],
                     ],
                 },
@@ -612,8 +612,8 @@ CREATE TABLE url_clicks (
                                         <span
                                             className={`font-mono text-xs px-2 py-1 rounded border flex-shrink-0 ${
                                                 item.type === 'pro'
-                                                    ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
-                                                    : 'bg-red-500/10 text-red-400 border-red-500/20'
+                                                    ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20'
+                                                    : 'bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/20'
                                             }`}>
                                             {item.type === 'pro' ? 'Pro' : 'Con'}
                                         </span>
@@ -691,10 +691,10 @@ CREATE TABLE url_clicks (
                                 </h3>
                                 <div className='flex flex-wrap gap-2'>
                                     {[
-                                        { label: 'Go (Golang)', color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/5' },
-                                        { label: 'Python (FastAPI)', color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/5' },
-                                        { label: 'Nginx Load Balancer', color: 'text-purple-400 border-purple-500/30 bg-purple-500/5' },
-                                        { label: 'Docker + Kubernetes', color: 'text-purple-400 border-purple-500/30 bg-purple-500/5' },
+                                        { label: 'Go (Golang)', color: 'text-emerald-700 dark:text-emerald-400 border-emerald-500/30 bg-emerald-500/5' },
+                                        { label: 'Python (FastAPI)', color: 'text-emerald-700 dark:text-emerald-400 border-emerald-500/30 bg-emerald-500/5' },
+                                        { label: 'Nginx Load Balancer', color: 'text-purple-700 dark:text-purple-400 border-purple-500/30 bg-purple-500/5' },
+                                        { label: 'Docker + Kubernetes', color: 'text-purple-700 dark:text-purple-400 border-purple-500/30 bg-purple-500/5' },
                                     ].map((tag, i) => (
                                         <span
                                             key={i}
@@ -710,10 +710,10 @@ CREATE TABLE url_clicks (
                                 </h3>
                                 <div className='flex flex-wrap gap-2'>
                                     {[
-                                        { label: 'MySQL 8 (Write Master)', color: 'text-blue-400 border-blue-500/30 bg-blue-500/5' },
-                                        { label: 'MySQL Replica (Read)', color: 'text-blue-400 border-blue-500/30 bg-blue-500/5' },
-                                        { label: 'Redis Cluster', color: 'text-yellow-400 border-yellow-500/30 bg-yellow-500/5' },
-                                        { label: 'Cassandra (High Scale)', color: 'text-blue-400 border-blue-500/30 bg-blue-500/5' },
+                                        { label: 'MySQL 8 (Write Master)', color: 'text-blue-700 dark:text-blue-400 border-blue-500/30 bg-blue-500/5' },
+                                        { label: 'MySQL Replica (Read)', color: 'text-blue-700 dark:text-blue-400 border-blue-500/30 bg-blue-500/5' },
+                                        { label: 'Redis Cluster', color: 'text-yellow-700 dark:text-yellow-400 border-yellow-500/30 bg-yellow-500/5' },
+                                        { label: 'Cassandra (High Scale)', color: 'text-blue-700 dark:text-blue-400 border-blue-500/30 bg-blue-500/5' },
                                     ].map((tag, i) => (
                                         <span
                                             key={i}
@@ -729,11 +729,11 @@ CREATE TABLE url_clicks (
                                 </h3>
                                 <div className='flex flex-wrap gap-2'>
                                     {[
-                                        { label: 'AWS / GCP / Azure', color: 'text-purple-400 border-purple-500/30 bg-purple-500/5' },
-                                        { label: 'CloudFront CDN', color: 'text-purple-400 border-purple-500/30 bg-purple-500/5' },
-                                        { label: 'Apache Kafka', color: 'text-orange-400 border-orange-500/30 bg-orange-500/5' },
-                                        { label: 'ClickHouse (Analytics)', color: 'text-blue-400 border-blue-500/30 bg-blue-500/5' },
-                                        { label: 'Prometheus + Grafana', color: 'text-purple-400 border-purple-500/30 bg-purple-500/5' },
+                                        { label: 'AWS / GCP / Azure', color: 'text-purple-700 dark:text-purple-400 border-purple-500/30 bg-purple-500/5' },
+                                        { label: 'CloudFront CDN', color: 'text-purple-700 dark:text-purple-400 border-purple-500/30 bg-purple-500/5' },
+                                        { label: 'Apache Kafka', color: 'text-orange-700 dark:text-orange-400 border-orange-500/30 bg-orange-500/5' },
+                                        { label: 'ClickHouse (Analytics)', color: 'text-blue-700 dark:text-blue-400 border-blue-500/30 bg-blue-500/5' },
+                                        { label: 'Prometheus + Grafana', color: 'text-purple-700 dark:text-purple-400 border-purple-500/30 bg-purple-500/5' },
                                     ].map((tag, i) => (
                                         <span
                                             key={i}
@@ -823,7 +823,7 @@ CREATE TABLE url_clicks (
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Cache + DB Architecture বলুন
                                 </span>
                             ),

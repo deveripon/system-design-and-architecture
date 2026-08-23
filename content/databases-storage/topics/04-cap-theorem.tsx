@@ -152,42 +152,42 @@ export const capContent: TopicData = {
                     rows: [
                         [
                             'Bank balance',
-                            <span className='text-blue-400 font-bold uppercase'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold uppercase'>
                                 CP
                             </span>,
                             'Wrong balance দেখালে double-spending হবে',
                         ],
                         [
                             'Facebook likes',
-                            <span className='text-emerald-400 font-bold uppercase'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase'>
                                 AP
                             </span>,
                             'কয়েক seconds stale count দেখানো acceptable',
                         ],
                         [
                             'Online booking',
-                            <span className='text-blue-400 font-bold uppercase'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold uppercase'>
                                 CP
                             </span>,
                             'Double-booking prevent করতে হবে',
                         ],
                         [
                             'DNS records',
-                            <span className='text-emerald-400 font-bold uppercase'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase'>
                                 AP
                             </span>,
                             'Always available, propagation delay acceptable',
                         ],
                         [
                             'Shopping cart',
-                            <span className='text-emerald-400 font-bold uppercase'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold uppercase'>
                                 AP
                             </span>,
                             'Cart lock হলে sale হারাবে, stale cart acceptable',
                         ],
                         [
                             'Leader election',
-                            <span className='text-blue-400 font-bold uppercase'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold uppercase'>
                                 CP
                             </span>,
                             'Split-brain হলে catastrophic',
@@ -210,7 +210,7 @@ export const capContent: TopicData = {
                                 </p>
                             </div>
                             <div className='p-6 bg-card border border-border'>
-                                <h4 className='font-bold text-emerald-400 mb-3 uppercase tracking-widest text-xs'>
+                                <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-3 uppercase tracking-widest text-xs'>
                                     AP Systems — Availability Priority
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -344,40 +344,40 @@ CONSISTENCY ALL;            -- Critical financial op`,
                     rows: [
                         [
                             'DynamoDB',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 PA (available)
                             </span>,
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 EL (low latency)
                             </span>,
                             'Fast, eventual consistency',
                         ],
                         [
                             'Cassandra',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 PA (available)
                             </span>,
-                            <span className='text-blue-400'>
+                            <span className='text-blue-700 dark:text-blue-400'>
                                 EL (configurable)
                             </span>,
                             'Tunable, default fast',
                         ],
                         [
                             'MongoDB',
-                            <span className='text-blue-400'>
+                            <span className='text-blue-700 dark:text-blue-400'>
                                 PC (consistent)
                             </span>,
-                            <span className='text-blue-400'>
+                            <span className='text-blue-700 dark:text-blue-400'>
                                 EC (some latency)
                             </span>,
                             'Strong consistency',
                         ],
                         [
                             'PostgreSQL',
-                            <span className='text-blue-400'>
+                            <span className='text-blue-700 dark:text-blue-400'>
                                 PC (consistent)
                             </span>,
-                            <span className='text-blue-400'>
+                            <span className='text-blue-700 dark:text-blue-400'>
                                 EC (ACID overhead)
                             </span>,
                             'Full ACID, slower',
@@ -519,81 +519,81 @@ asyncio.run(demo())`,
                     rows: [
                         [
                             'Zookeeper',
-                            <span className='text-blue-400 font-bold'>CP</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold'>CP</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Strong
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Partition = reject
                             </span>,
                             'Leader election, locks',
                         ],
                         [
                             'HBase',
-                            <span className='text-blue-400 font-bold'>CP</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold'>CP</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Strong
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Partition = reject
                             </span>,
                             'Big data analytics',
                         ],
                         [
                             'MongoDB',
-                            <span className='text-blue-400 font-bold'>CP</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold'>CP</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Strong (default)
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Primary must respond
                             </span>,
                             'Content, catalogs',
                         ],
                         [
                             'Cassandra',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 AP (tunable)
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Tunable ONE→ALL
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Always responds
                             </span>,
                             'Social, IoT, logging',
                         ],
                         [
                             'DynamoDB',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 AP (default)
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Eventually/Strong
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 99.999% SLA
                             </span>,
                             'E-commerce, gaming',
                         ],
                         [
                             'CouchDB',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 AP
                             </span>,
-                            <span className='text-yellow-400'>Eventual</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>Eventual</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Always available
                             </span>,
                             'Offline-first apps',
                         ],
                         [
                             'PostgreSQL',
-                            <span className='text-blue-400 font-bold'>CP</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-blue-700 dark:text-blue-400 font-bold'>CP</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Strong (ACID)
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Single-node limit
                             </span>,
                             'Finance, e-commerce',

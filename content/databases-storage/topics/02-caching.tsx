@@ -48,7 +48,7 @@ export const cachingContent: TopicData = {
                                     100-500ms
                                 </strong>{' '}
                                 লাগে। Cache থেকে আনতে লাগে{' '}
-                                <strong className='text-emerald-400'>1ms</strong>
+                                <strong className='text-emerald-700 dark:text-emerald-400'>1ms</strong>
                                 এরও কম। পার্থক্যটা ৫০০ গুণ পর্যন্ত।
                             </ContentParagraph>
                         </div>
@@ -72,7 +72,7 @@ export const cachingContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <div className='space-y-8 mt-4'>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6'>
                                 Cache ছাড়া কী হয়?
                             </h3>
                             <ContentParagraph>
@@ -83,7 +83,7 @@ export const cachingContent: TopicData = {
                             </ContentParagraph>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-red-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-red-700 dark:text-red-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         WITHOUT CACHE
                                     </h4>
@@ -91,13 +91,13 @@ export const cachingContent: TopicData = {
                                         <p>User → App Server → Database</p>
                                         <p>User → App Server → Database</p>
                                         <p>User → App Server → Database</p>
-                                        <p className='text-red-400 font-bold mt-3'>
+                                        <p className='text-red-700 dark:text-red-400 font-bold mt-3'>
                                             ১০,০০০ queries/sec → DB CRASH 💥
                                         </p>
                                     </div>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-emerald-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         WITH CACHE
                                     </h4>
@@ -107,7 +107,7 @@ export const cachingContent: TopicData = {
                                         <p>
                                             User → Cache MISS → DB (1st time)
                                         </p>
-                                        <p className='text-emerald-400 font-bold mt-3'>
+                                        <p className='text-emerald-700 dark:text-emerald-400 font-bold mt-3'>
                                             DB পায় মাত্র ১টা query 🚀
                                         </p>
                                     </div>
@@ -140,12 +140,12 @@ export const cachingContent: TopicData = {
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
                                     Database query:{' '}
-                                    <span className='text-red-400 font-bold'>
+                                    <span className='text-red-700 dark:text-red-400 font-bold'>
                                         100–500ms
                                     </span>
                                     <br />
                                     Cache hit:{' '}
-                                    <span className='text-emerald-400 font-bold'>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                         &lt;1ms
                                     </span>
                                     <br />
@@ -160,7 +160,7 @@ export const cachingContent: TopicData = {
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
                                     Facebook cache ব্যবহার করে{' '}
-                                    <span className='text-emerald-400 font-bold'>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                         লক্ষ কোটি টাকা
                                     </span>{' '}
                                     বাঁচায়। Database server অনেক বেশি expensive।
@@ -175,7 +175,7 @@ export const cachingContent: TopicData = {
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
                                     DB scale করা কঠিন এবং ব্যয়বহুল। Cache
                                     layer add করলেন DB এর load{' '}
-                                    <span className='text-emerald-400 font-bold'>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                         ৯০%+ কমে
                                     </span>{' '}
                                     যায়। এতে কম DB server দিয়েই বেশি traffic
@@ -190,7 +190,7 @@ export const cachingContent: TopicData = {
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
                                     Database down হলেও cache থেকে serve করা
                                     যায়। User হয়তো একটু পুরনো data দেখবেন, কিন্তু{' '}
-                                    <span className='text-emerald-400 font-bold'>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                         site up থাকবেন
                                     </span>
                                     ।
@@ -244,7 +244,7 @@ export const cachingContent: TopicData = {
                         <div className='space-y-8'>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-emerald-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         CACHE HIT ✅
                                     </h4>
@@ -253,12 +253,12 @@ export const cachingContent: TopicData = {
                                         পানয়া গেলো → সাথে সাথে return করুন।
                                         Database touch করার দরকারই নেই।
                                     </p>
-                                    <p className='text-xs font-mono text-emerald-400'>
+                                    <p className='text-xs font-mono text-emerald-700 dark:text-emerald-400'>
                                         Response time: &lt;1ms
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-red-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-red-700 dark:text-red-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         CACHE MISS ❌
                                     </h4>
@@ -267,7 +267,7 @@ export const cachingContent: TopicData = {
                                         নেই → Database থেকে আনো → Cache এ
                                         রাখুন → Return করুন।
                                     </p>
-                                    <p className='text-xs font-mono text-red-400'>
+                                    <p className='text-xs font-mono text-red-700 dark:text-red-400'>
                                         Response time: 100-500ms (DB query)
                                     </p>
                                 </div>
@@ -284,7 +284,7 @@ export const cachingContent: TopicData = {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-8'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-8'>
                             Cache Eviction Policies — Cache পূর্ণ হলে কোনটা
                             বাদ দেবে?
                         </h3>
@@ -300,7 +300,7 @@ export const cachingContent: TopicData = {
                             </span>,
                             'Least Recently Used',
                             'সবচেয়ে পুরনো সময়ে access হওয়া item বাদ দিন',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 সবচেয়ে common — general purpose
                             </span>,
                         ],
@@ -352,7 +352,7 @@ export const cachingContent: TopicData = {
                             {/* Cache-Aside */}
                             <div>
                                 <h3 className='text-xl font-bold mb-3 flex items-center gap-3'>
-                                    <span className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 bg-blue-400/10 px-3 py-1'>
+                                    <span className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 bg-blue-400/10 px-3 py-1'>
                                         01
                                     </span>
                                     Cache-Aside (Lazy Loading)
@@ -367,19 +367,19 @@ export const cachingContent: TopicData = {
                                 <div className='font-mono text-xs text-muted-foreground bg-card/50 border border-border p-4 space-y-1'>
                                     <p>
                                         1. GET /user/123 →{' '}
-                                        <span className='text-blue-400'>
+                                        <span className='text-blue-700 dark:text-blue-400'>
                                             cache.get(&quot;user:123&quot;)
                                         </span>
                                     </p>
                                     <p>
                                         2. Cache MISS →{' '}
-                                        <span className='text-yellow-400'>
+                                        <span className='text-yellow-700 dark:text-yellow-400'>
                                             db.query(&quot;SELECT * FROM users WHERE id=123&quot;)
                                         </span>
                                     </p>
                                     <p>
                                         3.{' '}
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             cache.set(&quot;user:123&quot;, data, TTL=300)
                                         </span>
                                     </p>
@@ -392,7 +392,7 @@ export const cachingContent: TopicData = {
                             {/* Write-Through */}
                             <div>
                                 <h3 className='text-xl font-bold mb-3 flex items-center gap-3'>
-                                    <span className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 bg-blue-400/10 px-3 py-1'>
+                                    <span className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 bg-blue-400/10 px-3 py-1'>
                                         02
                                     </span>
                                     Write-Through
@@ -409,7 +409,7 @@ export const cachingContent: TopicData = {
                             {/* Write-Behind */}
                             <div>
                                 <h3 className='text-xl font-bold mb-3 flex items-center gap-3'>
-                                    <span className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 bg-blue-400/10 px-3 py-1'>
+                                    <span className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 bg-blue-400/10 px-3 py-1'>
                                         03
                                     </span>
                                     Write-Behind (Write-Back)
@@ -426,7 +426,7 @@ export const cachingContent: TopicData = {
                             {/* Read-Through */}
                             <div>
                                 <h3 className='text-xl font-bold mb-3 flex items-center gap-3'>
-                                    <span className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 bg-blue-400/10 px-3 py-1'>
+                                    <span className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 bg-blue-400/10 px-3 py-1'>
                                         04
                                     </span>
                                     Read-Through
@@ -470,7 +470,7 @@ export const cachingContent: TopicData = {
                             <span className='font-bold text-primary'>
                                 Cache-Aside
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Fast
                             </span>,
                             'Normal',
@@ -481,11 +481,11 @@ export const cachingContent: TopicData = {
                             <span className='font-bold text-primary'>
                                 Write-Through
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Fast
                             </span>,
-                            <span className='text-red-400'>Slow</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400'>Slow</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Strong
                             </span>,
                             'Banking, payment systems',
@@ -494,20 +494,20 @@ export const cachingContent: TopicData = {
                             <span className='font-bold text-primary'>
                                 Write-Behind
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Fast
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Very Fast
                             </span>,
-                            <span className='text-yellow-400'>Weak</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Weak</span>,
                             'Gaming scores, analytics',
                         ],
                         [
                             <span className='font-bold text-primary'>
                                 Read-Through
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Fast
                             </span>,
                             'Normal',
@@ -542,7 +542,7 @@ export const cachingContent: TopicData = {
                                     single-threaded
                                 </strong>{' '}
                                 হওয়া সত্ত্বেও{' '}
-                                <strong className='text-emerald-400'>
+                                <strong className='text-emerald-700 dark:text-emerald-400'>
                                     1 million+ operations/second
                                 </strong>{' '}
                                 handle করতে পারে। কারণ সব data RAM এ থাকে —
@@ -588,7 +588,7 @@ export const cachingContent: TopicData = {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-8'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-8'>
                             Redis Data Structures — প্রতিটার নিজস্ব use case
                             আছে
                         </h3>
@@ -606,7 +606,7 @@ export const cachingContent: TopicData = {
                             <span className='font-bold text-primary font-mono'>
                                 String
                             </span>,
-                            <span className='font-mono text-xs text-blue-400'>
+                            <span className='font-mono text-xs text-blue-700 dark:text-blue-400'>
                                 GET, SET, INCR, DECR
                             </span>,
                             'Simple cache, counters, session tokens',
@@ -615,7 +615,7 @@ export const cachingContent: TopicData = {
                             <span className='font-bold text-primary font-mono'>
                                 Hash
                             </span>,
-                            <span className='font-mono text-xs text-blue-400'>
+                            <span className='font-mono text-xs text-blue-700 dark:text-blue-400'>
                                 HSET, HGET, HGETALL
                             </span>,
                             'User profile, product details (object store)',
@@ -624,7 +624,7 @@ export const cachingContent: TopicData = {
                             <span className='font-bold text-primary font-mono'>
                                 List
                             </span>,
-                            <span className='font-mono text-xs text-blue-400'>
+                            <span className='font-mono text-xs text-blue-700 dark:text-blue-400'>
                                 LPUSH, RPUSH, LRANGE
                             </span>,
                             'Queue, recent activity feed, job queue',
@@ -633,7 +633,7 @@ export const cachingContent: TopicData = {
                             <span className='font-bold text-primary font-mono'>
                                 Set
                             </span>,
-                            <span className='font-mono text-xs text-blue-400'>
+                            <span className='font-mono text-xs text-blue-700 dark:text-blue-400'>
                                 SADD, SMEMBERS, SINTER
                             </span>,
                             'Unique visitors, tags, friend lists',
@@ -642,10 +642,10 @@ export const cachingContent: TopicData = {
                             <span className='font-bold text-primary font-mono'>
                                 Sorted Set
                             </span>,
-                            <span className='font-mono text-xs text-blue-400'>
+                            <span className='font-mono text-xs text-blue-700 dark:text-blue-400'>
                                 ZADD, ZRANGE, ZRANK
                             </span>,
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Leaderboard, priority queue, rate limiting
                             </span>,
                         ],
@@ -655,7 +655,7 @@ export const cachingContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-10'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-10'>
                                 Redis Persistence — Data হারাবে না
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
@@ -669,7 +669,7 @@ export const cachingContent: TopicData = {
                                         মিনিটে) পুরো memory এর snapshot disk
                                         এ save করুন। Fast restart। কিন্তু last
                                         snapshot এর পর এর data হারাতে পারে।{' '}
-                                        <span className='text-yellow-400'>
+                                        <span className='text-yellow-700 dark:text-yellow-400'>
                                             Default Redis behavior।
                                         </span>
                                     </p>
@@ -683,7 +683,7 @@ export const cachingContent: TopicData = {
                                         প্রতিটা write operation log এ রাখুন।
                                         Crash হলে log replay করে data recover
                                         করুন। More durable কিন্তু file বড় হয়।{' '}
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             Critical data এর জন্য best।
                                         </span>
                                     </p>
@@ -695,7 +695,7 @@ export const cachingContent: TopicData = {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-10'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-10'>
                             Redis vs Memcached
                         </h3>
                     ),
@@ -706,44 +706,44 @@ export const cachingContent: TopicData = {
                     rows: [
                         [
                             'Data Structures',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 String, Hash, List, Set, Sorted Set, Stream
                             </span>,
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 শুধু String (key-value)
                             </span>,
                         ],
                         [
                             'Persistence',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 আছে (RDB + AOF)
                             </span>,
-                            <span className='text-red-400'>নেই</span>,
+                            <span className='text-red-700 dark:text-red-400'>নেই</span>,
                         ],
                         [
                             'Replication',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 আছে (Master-Replica)
                             </span>,
-                            <span className='text-red-400'>নেই</span>,
+                            <span className='text-red-700 dark:text-red-400'>নেই</span>,
                         ],
                         [
                             'Pub/Sub',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 আছে
                             </span>,
-                            <span className='text-red-400'>নেই</span>,
+                            <span className='text-red-700 dark:text-red-400'>নেই</span>,
                         ],
                         [
                             'Multi-threading',
                             'Single-threaded (I/O multi-threaded v6+)',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Multi-threaded
                             </span>,
                         ],
                         [
                             'কখন ব্যবহার করুন',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Almost always — more features
                             </span>,
                             'Simple cache, multi-thread দরকার হলে',
@@ -1002,7 +1002,7 @@ app.use('/api/auth/', rateLimitMiddleware(5, 60));  // Login: 5 req/min`,
                                     করা আছে। যখন কেউ tweet করে, তখন তার
                                     followers এর cached timeline update হয়।
                                     এই{' '}
-                                    <span className='text-blue-400 font-bold'>
+                                    <span className='text-blue-700 dark:text-blue-400 font-bold'>
                                         &quot;fan-out on write&quot;
                                     </span>{' '}
                                     approach ব্যবহার করে millisecond এ timeline
@@ -1019,7 +1019,7 @@ app.use('/api/auth/', rateLimitMiddleware(5, 60));  // Login: 5 req/min`,
                                     সব cache এ থাকে। ১০০ms delay = ১% sales
                                     drop — তাই Amazon এর entire product catalog
                                     heavily cached।{' '}
-                                    <span className='text-yellow-400 font-bold'>
+                                    <span className='text-yellow-700 dark:text-yellow-400 font-bold'>
                                         Cache = direct revenue।
                                     </span>
                                 </p>
@@ -1033,7 +1033,7 @@ app.use('/api/auth/', rateLimitMiddleware(5, 60));  // Login: 5 req/min`,
                                     Redis Sorted Set দিয়ে real-time leaderboard।
                                     লক্ষ player এর score ZADD দিয়ে update,
                                     ZREVRANGE দিয়ে top players।{' '}
-                                    <span className='text-purple-400 font-bold'>
+                                    <span className='text-purple-700 dark:text-purple-400 font-bold'>
                                         O(log N) complexity
                                     </span>{' '}
                                     — ১ মিলিয়ন players হলেও fast।
@@ -1047,7 +1047,7 @@ app.use('/api/auth/', rateLimitMiddleware(5, 60));  // Login: 5 req/min`,
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
                                     JWT token blacklist, session data, OTP
                                     সব Redis এ। TTL দিয়ে auto-expire।{' '}
-                                    <span className='text-emerald-400 font-bold'>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                         Stateless servers
                                     </span>{' '}
                                     maintain করতে Redis session store অপরিহার্য।
@@ -1228,7 +1228,7 @@ app.use('/api/auth/', rateLimitMiddleware(5, 60));  // Login: 5 req/min`,
                                 <li>
                                     <strong>Distributed Cache:</strong> Redis,
                                     Memcached। All servers share করে।{' '}
-                                    <span className='text-emerald-400 font-bold'>
+                                    <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                         Most common production choice।
                                     </span>
                                 </li>

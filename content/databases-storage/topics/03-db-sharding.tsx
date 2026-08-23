@@ -95,12 +95,12 @@ export const dbShardingContent: TopicData = {
                                     height='60'
                                     rx='4'
                                     fill='transparent'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                 />
                                 <text
                                     x='60'
                                     y='76'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='9'
                                     textAnchor='middle'
@@ -273,14 +273,14 @@ export const dbShardingContent: TopicData = {
                                     y1='90'
                                     x2='370'
                                     y2='89'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                     strokeWidth='1'
                                     strokeDasharray='3'
                                 />
                                 <text
                                     x='240'
                                     y='115'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='7'
                                     textAnchor='middle'
@@ -298,7 +298,7 @@ export const dbShardingContent: TopicData = {
                             <div className='p-8 border-r border-border bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-emerald-500' />
-                                    <span className='text-emerald-400'>
+                                    <span className='text-emerald-700 dark:text-emerald-400'>
                                         Replication সুবিধা
                                     </span>
                                 </h4>
@@ -311,7 +311,7 @@ export const dbShardingContent: TopicData = {
                             <div className='p-8 bg-card/30'>
                                 <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                     <span className='w-1.5 h-1.5 bg-yellow-500' />
-                                    <span className='text-yellow-400'>
+                                    <span className='text-yellow-700 dark:text-yellow-400'>
                                         Replication সীমাবদ্ধতা
                                     </span>
                                 </h4>
@@ -333,13 +333,13 @@ export const dbShardingContent: TopicData = {
                             'Synchronous',
                             'Primary AND all replicas acknowledge করলেন write complete',
                             'Strong consistency needed',
-                            <span className='text-red-400'>Slow writes</span>,
+                            <span className='text-red-700 dark:text-red-400'>Slow writes</span>,
                         ],
                         [
                             'Asynchronous',
                             'Primary acknowledge করলেনই write complete, replicas background এ sync',
                             'High write throughput',
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Possible data lag
                             </span>,
                         ],
@@ -347,7 +347,7 @@ export const dbShardingContent: TopicData = {
                             'Semi-sync',
                             'কমপক্ষে ১টা replica acknowledge করলেন complete',
                             'Balance between both',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Good compromise
                             </span>,
                         ],
@@ -390,12 +390,12 @@ export const dbShardingContent: TopicData = {
                                     height='40'
                                     rx='4'
                                     fill='transparent'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                 />
                                 <text
                                     x='60'
                                     y='85'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='monospace'
                                     fontSize='9'
                                     textAnchor='middle'
@@ -407,7 +407,7 @@ export const dbShardingContent: TopicData = {
                                     y1='85'
                                     x2='180'
                                     y2='85'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                     strokeWidth='1.5'
                                 />
                                 <rect
@@ -579,7 +579,7 @@ export const dbShardingContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6'>
                                 1. Range-based Sharding
                             </h3>
                             <ContentParagraph>
@@ -606,7 +606,7 @@ export const dbShardingContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-10'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-10'>
                                 2. Hash-based Sharding
                             </h3>
                             <ContentParagraph>
@@ -660,7 +660,7 @@ print(ring.get_shard("user:67890"))   # → shard-1`,
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-10'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-10'>
                                 3. Directory-based Sharding
                             </h3>
                             <ContentParagraph>
@@ -683,50 +683,50 @@ print(ring.get_shard("user:67890"))   # → shard-1`,
                     rows: [
                         [
                             'Range',
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 Uneven (hotspot)
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Easy
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Range queries easy
                             </span>,
                             'Time-series data',
                         ],
                         [
                             'Hash',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Even
                             </span>,
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 Hard (data moves)
                             </span>,
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 Range queries hard
                             </span>,
                             'User data, general',
                         ],
                         [
                             'Consistent Hash',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Even
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Minimal movement
                             </span>,
-                            <span className='text-yellow-400'>OK</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>OK</span>,
                             'Dynamic scaling',
                         ],
                         [
                             'Directory',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Flexible
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Easy
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 Lookup overhead
                             </span>,
                             'Custom rules',
@@ -806,7 +806,7 @@ print(ring.get_shard("user:67890"))   # → shard-1`,
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6'>
                             Node.js — Read/Write Splitting
                         </h3>
                     ),
@@ -853,7 +853,7 @@ await readQuery('SELECT * FROM users WHERE id=$1', [userId]);`,
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-10'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-10'>
                             Python — Shard Router
                         </h3>
                     ),

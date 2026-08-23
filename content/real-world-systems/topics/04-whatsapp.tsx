@@ -85,7 +85,7 @@ export const whatsappContent: TopicData = {
                                             orient='auto'>
                                             <path
                                                 d='M0,0 L0,6 L8,3 z'
-                                                fill='#3b82f6'
+                                                fill='#cc6b45'
                                             />
                                         </marker>
                                     </defs>
@@ -96,7 +96,7 @@ export const whatsappContent: TopicData = {
                                         width='70'
                                         height='50'
                                         rx='4'
-                                        fill='#0c1220'
+                                        fill='#1a1915'
                                         stroke='#25d366'
                                         strokeWidth='1.5'
                                     />
@@ -150,7 +150,7 @@ export const whatsappContent: TopicData = {
                                         width='100'
                                         height='90'
                                         rx='4'
-                                        fill='#0c1220'
+                                        fill='#1a1915'
                                         stroke='#25d366'
                                         strokeWidth='1.5'
                                     />
@@ -213,7 +213,7 @@ export const whatsappContent: TopicData = {
                                         width='100'
                                         height='60'
                                         rx='4'
-                                        fill='#0c1220'
+                                        fill='#1a1915'
                                         stroke='#eab308'
                                         strokeWidth='1.5'
                                     />
@@ -258,15 +258,15 @@ export const whatsappContent: TopicData = {
                                         width='100'
                                         height='90'
                                         rx='4'
-                                        fill='#0c1220'
-                                        stroke='#3b82f6'
+                                        fill='#1a1915'
+                                        stroke='#cc6b45'
                                         strokeWidth='1.5'
                                     />
                                     <text
                                         x='450'
                                         y='125'
                                         textAnchor='middle'
-                                        fill='#3b82f6'
+                                        fill='#cc6b45'
                                         fontFamily='monospace'
                                         fontSize='9'>
                                         CHAT
@@ -275,7 +275,7 @@ export const whatsappContent: TopicData = {
                                         x='450'
                                         y='138'
                                         textAnchor='middle'
-                                        fill='#3b82f6'
+                                        fill='#cc6b45'
                                         fontFamily='monospace'
                                         fontSize='9'>
                                         SERVER 2
@@ -310,7 +310,7 @@ export const whatsappContent: TopicData = {
                                     {/* Arrow CS2 to User B */}
                                     <path
                                         d='M 500 145 L 540 145'
-                                        stroke='#3b82f6'
+                                        stroke='#cc6b45'
                                         strokeWidth='2'
                                         markerEnd='url(#arrWB)'
                                     />
@@ -318,7 +318,7 @@ export const whatsappContent: TopicData = {
                                         x='520'
                                         y='140'
                                         textAnchor='middle'
-                                        fill='#3b82f6'
+                                        fill='#cc6b45'
                                         fontFamily='monospace'
                                         fontSize='7'>
                                         WS
@@ -330,15 +330,15 @@ export const whatsappContent: TopicData = {
                                         width='70'
                                         height='50'
                                         rx='4'
-                                        fill='#0c1220'
-                                        stroke='#3b82f6'
+                                        fill='#1a1915'
+                                        stroke='#cc6b45'
                                         strokeWidth='1.5'
                                     />
                                     <text
                                         x='575'
                                         y='140'
                                         textAnchor='middle'
-                                        fill='#3b82f6'
+                                        fill='#cc6b45'
                                         fontFamily='monospace'
                                         fontSize='9'>
                                         USER B
@@ -368,7 +368,7 @@ export const whatsappContent: TopicData = {
                                         width='70'
                                         height='50'
                                         rx='4'
-                                        fill='#0c1220'
+                                        fill='#1a1915'
                                         stroke='#64748b'
                                         strokeWidth='1.5'
                                     />
@@ -397,15 +397,15 @@ export const whatsappContent: TopicData = {
                                         width='100'
                                         height='50'
                                         rx='4'
-                                        fill='#0c1220'
-                                        stroke='#3b82f6'
+                                        fill='#1a1915'
+                                        stroke='#cc6b45'
                                         strokeWidth='1.5'
                                     />
                                     <text
                                         x='310'
                                         y='252'
                                         textAnchor='middle'
-                                        fill='#3b82f6'
+                                        fill='#cc6b45'
                                         fontFamily='monospace'
                                         fontSize='9'>
                                         MSG DB
@@ -441,7 +441,7 @@ export const whatsappContent: TopicData = {
                                         width='100'
                                         height='40'
                                         rx='4'
-                                        fill='#0c1220'
+                                        fill='#1a1915'
                                         stroke='#8b5cf6'
                                         strokeWidth='1.2'
                                     />
@@ -470,7 +470,7 @@ export const whatsappContent: TopicData = {
                                         width='100'
                                         height='40'
                                         rx='4'
-                                        fill='#0c1220'
+                                        fill='#1a1915'
                                         stroke='#f97316'
                                         strokeWidth='1.2'
                                     />
@@ -535,7 +535,7 @@ export const whatsappContent: TopicData = {
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <div className='border border-border rounded-lg bg-card/50 p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-400 mb-4 font-bold'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4 font-bold'>
                                     Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -561,7 +561,7 @@ export const whatsappContent: TopicData = {
                                 </ul>
                             </div>
                             <div className='border border-border rounded-lg bg-card/50 p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-purple-400 mb-4 font-bold'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-purple-700 dark:text-purple-400 mb-4 font-bold'>
                                     Non-Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -699,7 +699,7 @@ export const whatsappContent: TopicData = {
                                 <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                                     {/* Client Layer */}
                                     <div className='border border-emerald-500/30 rounded-lg bg-emerald-500/5 p-4'>
-                                        <p className='font-mono text-xs text-emerald-400 uppercase tracking-widest mb-3 font-bold'>
+                                        <p className='font-mono text-xs text-emerald-700 dark:text-emerald-400 uppercase tracking-widest mb-3 font-bold'>
                                             Client Layer
                                         </p>
                                         <div className='space-y-2'>
@@ -710,7 +710,7 @@ export const whatsappContent: TopicData = {
                                             ].map((c, i) => (
                                                 <div
                                                     key={i}
-                                                    className='px-3 py-2 border border-emerald-500/30 rounded text-xs font-mono text-emerald-300 bg-card/50'>
+                                                    className='px-3 py-2 border border-emerald-500/30 rounded text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-card/50'>
                                                     {c}
                                                 </div>
                                             ))}
@@ -721,7 +721,7 @@ export const whatsappContent: TopicData = {
                                     </div>
                                     {/* Server Layer */}
                                     <div className='border border-yellow-500/30 rounded-lg bg-yellow-500/5 p-4'>
-                                        <p className='font-mono text-xs text-yellow-400 uppercase tracking-widest mb-3 font-bold'>
+                                        <p className='font-mono text-xs text-yellow-700 dark:text-yellow-400 uppercase tracking-widest mb-3 font-bold'>
                                             Server Layer
                                         </p>
                                         <div className='space-y-2'>
@@ -734,7 +734,7 @@ export const whatsappContent: TopicData = {
                                             ].map((s, i) => (
                                                 <div
                                                     key={i}
-                                                    className='px-3 py-2 border border-yellow-500/30 rounded text-xs font-mono text-yellow-300 bg-card/50'>
+                                                    className='px-3 py-2 border border-yellow-500/30 rounded text-xs font-mono text-yellow-700 dark:text-yellow-300 bg-card/50'>
                                                     {s}
                                                 </div>
                                             ))}
@@ -742,7 +742,7 @@ export const whatsappContent: TopicData = {
                                     </div>
                                     {/* Storage Layer */}
                                     <div className='border border-blue-500/30 rounded-lg bg-blue-500/5 p-4'>
-                                        <p className='font-mono text-xs text-blue-400 uppercase tracking-widest mb-3 font-bold'>
+                                        <p className='font-mono text-xs text-blue-700 dark:text-blue-400 uppercase tracking-widest mb-3 font-bold'>
                                             Storage Layer
                                         </p>
                                         <div className='space-y-2'>
@@ -755,7 +755,7 @@ export const whatsappContent: TopicData = {
                                             ].map((s, i) => (
                                                 <div
                                                     key={i}
-                                                    className='px-3 py-2 border border-blue-500/30 rounded text-xs font-mono text-blue-300 bg-card/50'>
+                                                    className='px-3 py-2 border border-blue-500/30 rounded text-xs font-mono text-blue-700 dark:text-blue-300 bg-card/50'>
                                                     {s}
                                                 </div>
                                             ))}
@@ -771,7 +771,7 @@ export const whatsappContent: TopicData = {
                     steps: [
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 1 — User A connects via WebSocket
                                 </span>
                             ),
@@ -785,7 +785,7 @@ export const whatsappContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Step 2 — Message Send করা হয়
                                 </span>
                             ),
@@ -799,7 +799,7 @@ export const whatsappContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     Step 3 — Cross-server routing (যদি দরকার হয়)
                                 </span>
                             ),
@@ -813,7 +813,7 @@ export const whatsappContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-blue-400'>
+                                <span className='font-mono text-blue-700 dark:text-blue-400'>
                                     Step 4 — User B-তে Deliver
                                 </span>
                             ),
@@ -827,7 +827,7 @@ export const whatsappContent: TopicData = {
                         },
                         {
                             title: (
-                                <span className='font-mono text-purple-400'>
+                                <span className='font-mono text-purple-700 dark:text-purple-400'>
                                     Step 5 — Offline handling
                                 </span>
                             ),
@@ -880,17 +880,17 @@ export const whatsappContent: TopicData = {
                             <span className='font-mono'>HTTP Polling</span>,
                             'New each time',
                             'Client → Server only',
-                            <span className='text-red-400 font-bold'>
+                            <span className='text-red-700 dark:text-red-400 font-bold'>
                                 High (500ms+)
                             </span>,
-                            <span className='text-red-400'>Terrible</span>,
+                            <span className='text-red-700 dark:text-red-400'>Terrible</span>,
                         ],
                         [
                             <span className='font-mono'>Long Polling</span>,
                             'Held open',
                             'Server can respond',
-                            <span className='text-yellow-400'>Medium</span>,
-                            <span className='text-yellow-400'>Okay</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Okay</span>,
                         ],
                         [
                             <span className='font-mono'>
@@ -898,10 +898,10 @@ export const whatsappContent: TopicData = {
                             </span>,
                             'Persistent',
                             'Server → Client only',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Low
                             </span>,
-                            <span className='text-red-400'>One-way only</span>,
+                            <span className='text-red-700 dark:text-red-400'>One-way only</span>,
                         ],
                         [
                             <span className='font-mono font-bold text-primary'>
@@ -909,10 +909,10 @@ export const whatsappContent: TopicData = {
                             </span>,
                             'Persistent',
                             'Both directions',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Very Low (&lt; 50ms)
                             </span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 ✓ Perfect
                             </span>,
                         ],
@@ -1026,7 +1026,7 @@ async def send_message(sender_id, receiver_id, content):
                             "Receiver-এর phone-এ পৌঁছালে",
                         ],
                         [
-                            <span className='font-mono text-blue-400'>
+                            <span className='font-mono text-blue-700 dark:text-blue-400'>
                                 🔵 (blue tick)
                             </span>,
                             'Read',
@@ -1175,7 +1175,7 @@ CREATE TABLE message_receipts (
                                     KAFKA — Cross-Server Routing Flow
                                 </p>
                                 <div className='flex flex-wrap items-center gap-3 justify-center'>
-                                    <div className='px-4 py-3 border border-emerald-500/50 rounded bg-emerald-500/10 text-xs font-mono text-emerald-300 text-center'>
+                                    <div className='px-4 py-3 border border-emerald-500/50 rounded bg-emerald-500/10 text-xs font-mono text-emerald-700 dark:text-emerald-300 text-center'>
                                         <p className='font-bold mb-1'>
                                             Chat Server 1
                                         </p>
@@ -1186,7 +1186,7 @@ CREATE TABLE message_receipts (
                                     <span className='text-muted-foreground font-mono text-lg'>
                                         →
                                     </span>
-                                    <div className='px-4 py-3 border border-yellow-500/50 rounded bg-yellow-500/10 text-xs font-mono text-yellow-300 text-center'>
+                                    <div className='px-4 py-3 border border-yellow-500/50 rounded bg-yellow-500/10 text-xs font-mono text-yellow-700 dark:text-yellow-300 text-center'>
                                         <p className='font-bold mb-1'>
                                             Kafka Topic
                                         </p>
@@ -1197,7 +1197,7 @@ CREATE TABLE message_receipts (
                                     <span className='text-muted-foreground font-mono text-lg'>
                                         →
                                     </span>
-                                    <div className='px-4 py-3 border border-blue-500/50 rounded bg-blue-500/10 text-xs font-mono text-blue-300 text-center'>
+                                    <div className='px-4 py-3 border border-blue-500/50 rounded bg-blue-500/10 text-xs font-mono text-blue-700 dark:text-blue-300 text-center'>
                                         <p className='font-bold mb-1'>
                                             Chat Server 5
                                         </p>
@@ -1208,11 +1208,11 @@ CREATE TABLE message_receipts (
                                     <span className='text-muted-foreground font-mono text-lg'>
                                         →
                                     </span>
-                                    <div className='px-4 py-3 border border-purple-500/50 rounded bg-purple-500/10 text-xs font-mono text-purple-300 text-center'>
+                                    <div className='px-4 py-3 border border-purple-500/50 rounded bg-purple-500/10 text-xs font-mono text-purple-700 dark:text-purple-300 text-center'>
                                         <p className='font-bold mb-1'>
                                             User B
                                         </p>
-                                        <p className='text-[10px] text-emerald-400'>
+                                        <p className='text-[10px] text-emerald-700 dark:text-emerald-400'>
                                             Gets message!
                                         </p>
                                     </div>
@@ -1257,7 +1257,7 @@ CREATE TABLE message_receipts (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             {/* Online Presence */}
                             <div className='border border-border rounded-lg bg-card/50 p-4'>
-                                <p className='font-mono text-xs text-purple-400 uppercase tracking-widest mb-3 font-bold'>
+                                <p className='font-mono text-xs text-purple-700 dark:text-purple-400 uppercase tracking-widest mb-3 font-bold'>
                                     Online Presence System
                                 </p>
                                 <ul className='space-y-2 text-sm text-muted-foreground'>
@@ -1294,7 +1294,7 @@ CREATE TABLE message_receipts (
                             </div>
                             {/* E2E Encryption */}
                             <div className='border border-border rounded-lg bg-card/50 p-4'>
-                                <p className='font-mono text-xs text-orange-400 uppercase tracking-widest mb-3 font-bold'>
+                                <p className='font-mono text-xs text-orange-700 dark:text-orange-400 uppercase tracking-widest mb-3 font-bold'>
                                     End-to-End Encryption
                                 </p>
                                 <ul className='space-y-2 text-sm text-muted-foreground'>
@@ -1413,8 +1413,8 @@ CREATE TABLE message_receipts (
                                         <span
                                             className={`font-mono text-xs px-2 py-1 rounded shrink-0 border ${
                                                 item.type === 'pro'
-                                                    ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
-                                                    : 'bg-red-500/10 text-red-400 border-red-500/30'
+                                                    ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30'
+                                                    : 'bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/30'
                                             }`}>
                                             {item.label}
                                         </span>
@@ -1462,8 +1462,8 @@ CREATE TABLE message_receipts (
                                                 key={i}
                                                 className={`font-mono text-xs px-3 py-1.5 rounded border ${
                                                     t.color === 'emerald'
-                                                        ? 'border-emerald-500/30 text-emerald-400 bg-emerald-500/10'
-                                                        : 'border-purple-500/30 text-purple-400 bg-purple-500/10'
+                                                        ? 'border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/10'
+                                                        : 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/10'
                                                 }`}>
                                                 {t.label}
                                             </span>
@@ -1497,8 +1497,8 @@ CREATE TABLE message_receipts (
                                                 key={i}
                                                 className={`font-mono text-xs px-3 py-1.5 rounded border ${
                                                     t.color === 'blue'
-                                                        ? 'border-blue-500/30 text-blue-400 bg-blue-500/10'
-                                                        : 'border-yellow-500/30 text-yellow-400 bg-yellow-500/10'
+                                                        ? 'border-blue-500/30 text-blue-700 dark:text-blue-400 bg-blue-500/10'
+                                                        : 'border-yellow-500/30 text-yellow-700 dark:text-yellow-400 bg-yellow-500/10'
                                                 }`}>
                                                 {t.label}
                                             </span>
@@ -1532,8 +1532,8 @@ CREATE TABLE message_receipts (
                                                 key={i}
                                                 className={`font-mono text-xs px-3 py-1.5 rounded border ${
                                                     t.color === 'orange'
-                                                        ? 'border-orange-500/30 text-orange-400 bg-orange-500/10'
-                                                        : 'border-purple-500/30 text-purple-400 bg-purple-500/10'
+                                                        ? 'border-orange-500/30 text-orange-700 dark:text-orange-400 bg-orange-500/10'
+                                                        : 'border-purple-500/30 text-purple-700 dark:text-purple-400 bg-purple-500/10'
                                                 }`}>
                                                 {t.label}
                                             </span>
@@ -1574,14 +1574,14 @@ CREATE TABLE message_receipts (
                         ],
                         [
                             'Online status',
-                            <span className='font-mono text-yellow-400'>
+                            <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                 Redis (TTL)
                             </span>,
                             'In-memory, fast, TTL for "last seen"',
                         ],
                         [
                             'User-server mapping',
-                            <span className='font-mono text-yellow-400'>
+                            <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                 Redis
                             </span>,
                             "Which server holds user's connection",
@@ -1595,7 +1595,7 @@ CREATE TABLE message_receipts (
                         ],
                         [
                             'Message search',
-                            <span className='font-mono text-orange-400'>
+                            <span className='font-mono text-orange-700 dark:text-orange-400'>
                                 Elasticsearch
                             </span>,
                             'Full-text search in chat history',

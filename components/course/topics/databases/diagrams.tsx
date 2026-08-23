@@ -7,8 +7,8 @@ export const ACIDDiagram = () => (
     <div className="bg-card/50 border border-border p-8 my-8 rounded-lg overflow-x-auto">
         <svg width="560" height="170" viewBox="0 0 560 170" className="mx-auto">
             {/* Atomicity */}
-            <rect x="5" y="15" width="128" height="138" rx="5" fill="rgba(59,130,246,0.08)" stroke="#3b82f6" strokeWidth="1.5" />
-            <text x="69" y="52" textAnchor="middle" fill="#3b82f6" className="font-heading text-4xl font-black">A</text>
+            <rect x="5" y="15" width="128" height="138" rx="5" fill="rgba(204,107,69,0.08)" stroke="#cc6b45" strokeWidth="1.5" />
+            <text x="69" y="52" textAnchor="middle" fill="#cc6b45" className="font-heading text-4xl font-black">A</text>
             <text x="69" y="72" textAnchor="middle" fill="#93c5fd" className="font-mono text-[9px] font-bold">ATOMICITY</text>
             <text x="69" y="92" textAnchor="middle" fill="currentColor" className="text-muted-foreground text-[10px]">All or Nothing</text>
             <text x="69" y="110" textAnchor="middle" fill="currentColor" className="text-muted-foreground text-[10px]">সব হবে না হয়</text>
@@ -93,7 +93,7 @@ export const DBReplicationDiagram = () => (
     <div className="bg-card/50 border border-border p-8 my-8 rounded-lg overflow-x-auto">
         <svg width="480" height="145" viewBox="0 0 480 145" className="mx-auto">
             <defs>
-                <marker id="ra" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#3b82f6" /></marker>
+                <marker id="ra" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#cc6b45" /></marker>
                 <marker id="rb" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#f97316" /></marker>
                 <marker id="rc" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#10b981" /></marker>
             </defs>
@@ -112,9 +112,9 @@ export const DBReplicationDiagram = () => (
             <text x="214" y="104" textAnchor="middle" fill="currentColor" className="text-muted-foreground font-mono text-[8px]">Read only</text>
             <rect x="164" y="117" width="100" height="24" rx="3" fill="currentColor" stroke="#10b981" strokeWidth="0.8" className="text-card" />
             <text x="214" y="133" textAnchor="middle" fill="#6ee7b7" className="font-mono text-[8px]">REPLICA 2 (Read)</text>
-            <path d="M 266 39 L 340 50" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4,2" markerEnd="url(#ra)" />
-            <path d="M 266 39 L 340 125" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4,2" markerEnd="url(#ra)" />
-            <text x="350" y="45" fill="#3b82f6" className="font-mono text-[8px]">async replication</text>
+            <path d="M 266 39 L 340 50" stroke="#cc6b45" strokeWidth="1" strokeDasharray="4,2" markerEnd="url(#ra)" />
+            <path d="M 266 39 L 340 125" stroke="#cc6b45" strokeWidth="1" strokeDasharray="4,2" markerEnd="url(#ra)" />
+            <text x="350" y="45" fill="#cc6b45" className="font-mono text-[8px]">async replication</text>
             <text x="350" y="60" fill="currentColor" className="text-muted-foreground font-mono text-[8px]">→ Replica 1 synced</text>
             <text x="350" y="128" fill="currentColor" className="text-muted-foreground font-mono text-[8px]">→ Replica 2 synced</text>
         </svg>

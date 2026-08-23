@@ -109,7 +109,7 @@ export const microservicesContent: TopicData = {
                                     width='200'
                                     height='220'
                                     rx='8'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#1e2d4a'
                                     strokeWidth='1.5'
                                 />
@@ -216,13 +216,13 @@ export const microservicesContent: TopicData = {
                                     height='28'
                                     rx='4'
                                     fill='#1e2d4a'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                     strokeWidth='1.5'
                                 />
                                 <text
                                     x='160'
                                     y='288'
-                                    fill='#3b82f6'
+                                    fill='#cc6b45'
                                     fontFamily='JetBrains Mono, monospace'
                                     fontSize='10'
                                     textAnchor='middle'
@@ -234,7 +234,7 @@ export const microservicesContent: TopicData = {
                                     y1='260'
                                     x2='160'
                                     y2='270'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                     strokeWidth='1'
                                     strokeDasharray='4'
                                 />
@@ -267,7 +267,7 @@ export const microservicesContent: TopicData = {
                                     width='90'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.5'
                                 />
@@ -297,7 +297,7 @@ export const microservicesContent: TopicData = {
                                     width='90'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.5'
                                 />
@@ -327,7 +327,7 @@ export const microservicesContent: TopicData = {
                                     width='90'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                     strokeWidth='1.5'
                                 />
@@ -357,7 +357,7 @@ export const microservicesContent: TopicData = {
                                     width='90'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                     strokeWidth='1.5'
                                 />
@@ -387,7 +387,7 @@ export const microservicesContent: TopicData = {
                                     width='90'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#f97316'
                                     strokeWidth='1.5'
                                 />
@@ -569,19 +569,19 @@ export const microservicesContent: TopicData = {
                         ],
                         [
                             'Complexity',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Simple
                             </span>,
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 High (Network, tracing)
                             </span>,
                         ],
                         [
                             'Startup',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Ideal for small teams
                             </span>,
-                            <span className='text-red-400'>
+                            <span className='text-red-700 dark:text-red-400'>
                                 Overkill for small apps
                             </span>,
                         ],
@@ -641,7 +641,7 @@ export const microservicesContent: TopicData = {
                                     >
                                         <polygon
                                             points='0 0, 8 3, 0 6'
-                                            fill='#3b82f6'
+                                            fill='#cc6b45'
                                         />
                                     </marker>
                                     <marker
@@ -678,8 +678,8 @@ export const microservicesContent: TopicData = {
                                     width='80'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
-                                    stroke='#3b82f6'
+                                    fill='#1a1915'
+                                    stroke='#cc6b45'
                                     strokeWidth='1.5'
                                 />
                                 <text
@@ -698,7 +698,7 @@ export const microservicesContent: TopicData = {
                                     y1='120'
                                     x2='130'
                                     y2='120'
-                                    stroke='#3b82f6'
+                                    stroke='#cc6b45'
                                     strokeWidth='1.5'
                                     markerEnd='url(#arr-ms)'
                                 />
@@ -709,7 +709,7 @@ export const microservicesContent: TopicData = {
                                     width='100'
                                     height='60'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#eab308'
                                     strokeWidth='2'
                                 />
@@ -770,7 +770,7 @@ export const microservicesContent: TopicData = {
                                     width='110'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.5'
                                 />
@@ -801,7 +801,7 @@ export const microservicesContent: TopicData = {
                                     width='110'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.5'
                                 />
@@ -832,7 +832,7 @@ export const microservicesContent: TopicData = {
                                     width='110'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.5'
                                 />
@@ -863,7 +863,7 @@ export const microservicesContent: TopicData = {
                                     width='120'
                                     height='60'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#f97316'
                                     strokeWidth='2'
                                 />
@@ -922,7 +922,7 @@ export const microservicesContent: TopicData = {
                                     width='110'
                                     height='50'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                     strokeWidth='1.5'
                                 />
@@ -1004,7 +1004,7 @@ export const microservicesContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-10 mt-20'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-10 mt-20'>
                                 Key Components
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
@@ -1162,8 +1162,8 @@ export const microservicesContent: TopicData = {
                                     width='80'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
-                                    stroke='#3b82f6'
+                                    fill='#1a1915'
+                                    stroke='#cc6b45'
                                     strokeWidth='1.5'
                                 />
                                 <text
@@ -1191,7 +1191,7 @@ export const microservicesContent: TopicData = {
                                     width='120'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#f97316'
                                     strokeWidth='1.5'
                                 />
@@ -1220,7 +1220,7 @@ export const microservicesContent: TopicData = {
                                     width='120'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.5'
                                 />
@@ -1249,7 +1249,7 @@ export const microservicesContent: TopicData = {
                                     width='110'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#f97316'
                                     strokeWidth='1.5'
                                 />
@@ -1278,7 +1278,7 @@ export const microservicesContent: TopicData = {
                                     width='110'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#8b5cf6'
                                     strokeWidth='1.5'
                                 />
@@ -1317,7 +1317,7 @@ export const microservicesContent: TopicData = {
                                     width='110'
                                     height='40'
                                     rx='4'
-                                    fill='#0c1220'
+                                    fill='#1a1915'
                                     stroke='#10b981'
                                     strokeWidth='1.5'
                                 />
@@ -1609,7 +1609,7 @@ services:
                             'Kubernetes (K8s)',
                             'Orchestration',
                             'Production microservices',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Growing
                             </span>,
                         ],
@@ -1617,7 +1617,7 @@ services:
                             'Docker Compose',
                             'Local Dev',
                             'Development ও testing',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Very Common
                             </span>,
                         ],
@@ -1625,13 +1625,13 @@ services:
                             'AWS ECS/EKS',
                             'Managed',
                             'Cloud deployment',
-                            <span className='text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
                         ],
                         [
                             'Kong / NGINX',
                             'API Gateway',
                             'Request routing',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Common
                             </span>,
                         ],
@@ -1639,13 +1639,13 @@ services:
                             'Kafka',
                             'Message Queue',
                             'Async communication',
-                            <span className='text-yellow-400'>Growing</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Growing</span>,
                         ],
                         [
                             'Jaeger / Zipkin',
                             'Tracing',
                             'Debugging distributed calls',
-                            <span className='text-red-400'>Rare</span>,
+                            <span className='text-red-700 dark:text-red-400'>Rare</span>,
                         ],
                     ],
                 },

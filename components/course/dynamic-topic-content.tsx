@@ -24,7 +24,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
                             {data.introduction.badge}
                         </span>
                     </div>
-                    <h1 className='text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 md:mb-8 leading-none'>
+                    <h1 className='text-[1.75rem] sm:text-4xl md:text-5xl xl:text-6xl font-black uppercase tracking-tighter mb-6 md:mb-8 leading-[1.05] break-words'>
                         {data.introduction.title}
                     </h1>
                     <div className='text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 md:mb-12'>
@@ -55,7 +55,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
                             title={section.subHeader.title}
                             className='mb-8'
                         />
-                        <h2 className='text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6 md:mb-8 leading-none'>
+                        <h2 className='text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6 md:mb-8 leading-[1.1] break-words'>
                             {section.title}
                         </h2>
 
@@ -131,7 +131,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
                 <BorderCross className='p-4 md:p-10'>
                     <div className='flex flex-col items-center text-center py-8 md:py-12'>
                         <div className='text-5xl md:text-6xl mb-6 md:mb-8'>🎉</div>
-                        <h2 className='text-3xl md:text-5xl font-heading mb-4 md:mb-6 tracking-tight'>
+                        <h2 className='text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-heading mb-4 md:mb-6 tracking-tight break-words'>
                             {data.phaseComplete.title}
                         </h2>
                         <p className='text-base md:text-xl text-muted-foreground leading-relaxed max-w-2xl mb-8 md:mb-12'>
@@ -142,9 +142,9 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
                             {data.phaseComplete.topics.map(topic => (
                                 <div
                                     key={topic.id}
-                                    className='px-4 md:px-6 py-2 md:py-3 border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 font-mono text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-2 md:gap-3'
+                                    className='px-4 md:px-6 py-2 md:py-3 border border-accent/30 bg-accent/10 text-accent font-mono text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-2 md:gap-3'
                                 >
-                                    <span className='text-emerald-500 font-bold'>
+                                    <span className='text-accent font-bold'>
                                         ✓
                                     </span>
                                     {topic.title}

@@ -36,10 +36,12 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
 
-  --color-success: #10b981;
-  --color-warning: #f97316;
-  --color-error: #ef4444;
-  --color-info: #3b82f6;
+  --color-success: #4d7c2f;
+  --color-warning: #c2740c;
+  --color-error: #b3261e;
+  --color-info: #b3441e;
+
+  --color-grid-line: var(--grid-line);
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -47,65 +49,73 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #020817;
+  /* Warm ivory base — Anthropic-inspired, easier on the eyes than pure white */
+  --background: #faf9f5;
+  --foreground: #1a1915;
 
-  --card: #f8fafc;
-  --card-foreground: #020817;
+  --card: #ffffff;
+  --card-foreground: #1a1915;
 
   --popover: #ffffff;
-  --popover-foreground: #020817;
+  --popover-foreground: #1a1915;
 
-  --primary: #2563eb;
+  /* Burnt clay — 5.4:1 on the ivory background, safe for 10px mono labels */
+  --primary: #b3441e;
   --primary-foreground: #ffffff;
 
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
+  --secondary: #f0eee7;
+  --secondary-foreground: #2b2a24;
 
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted: #f4f2ec;
+  --muted-foreground: #5c5a52;
 
-  --accent: #e2e8f0;
-  --accent-foreground: #0f172a;
+  /* Deep olive-lime — the second accent, 5.9:1 on ivory */
+  --accent: #4d6b1f;
+  --accent-foreground: #ffffff;
 
-  --destructive: #ef4444;
-  --destructive-foreground: #f8fafc;
+  --destructive: #b3261e;
+  --destructive-foreground: #ffffff;
 
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #2563eb;
+  /* Neutral grey hairlines — no blue cast */
+  --border: #d8d7d2;
+  --input: #d8d7d2;
+  --grid-line: #d8d7d2;
+  --ring: #b3441e;
 
   --radius: 0px;
 }
 
 .dark {
-  --background: #05080f;
-  --foreground: #e2e8f0;
+  --background: #12110e;
+  --foreground: #f0efe9;
 
-  --card: #0c1220;
-  --card-foreground: #e2e8f0;
+  --card: #1a1915;
+  --card-foreground: #f0efe9;
 
-  --popover: #090e1a;
-  --popover-foreground: #e2e8f0;
+  --popover: #171612;
+  --popover-foreground: #f0efe9;
 
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
+  /* Warm orange — 7.3:1 on the near-black background */
+  --primary: #e08a5e;
+  --primary-foreground: #1a1005;
 
-  --secondary: #162035;
-  --secondary-foreground: #e2e8f0;
+  --secondary: #26241f;
+  --secondary-foreground: #f0efe9;
 
-  --muted: #090e1a;
-  --muted-foreground: #c7cbd7;
+  --muted: #171612;
+  --muted-foreground: #b5b1a6;
 
-  --accent: #1e2d4a;
-  --accent-foreground: #3b82f6;
+  /* Lime — 10:1, used for badges and secondary emphasis */
+  --accent: #b8d96a;
+  --accent-foreground: #1a1d0c;
 
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
+  --destructive: #e5675c;
+  --destructive-foreground: #1a1005;
 
-  --border: #162035;
-  --input: #162035;
-  --ring: #3b82f6;
+  --border: #2b2a25;
+  --input: #2b2a25;
+  --grid-line: #2b2a25;
+  --ring: #e08a5e;
 
   --radius: 0px;
 }
@@ -124,7 +134,7 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     /* Firefox */
     scrollbar-width: thin;
-    scrollbar-color: var(--primary) var(--border);
+    scrollbar-color: var(--border) transparent;
   }
 
 
@@ -154,7 +164,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 999;
-    opacity: 0.4;
+    opacity: 0.25;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -168,7 +178,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-br from-white via-white to-blue-400 bg-clip-text text-transparent;
+    @apply bg-linear-to-br from-foreground via-foreground to-primary bg-clip-text text-transparent;
   }
   
   .glass {
@@ -233,11 +243,11 @@
 @layer utilities {
   .animate-stars {
     background-image: 
-      radial-gradient(1.5px 1.5px at 20px 30px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1.5px 1.5px at 20px 30px, var(--foreground), rgba(0,0,0,0)),
       radial-gradient(2px 2px at 40px 70px, var(--primary), rgba(0,0,0,0)),
-      radial-gradient(1.5px 1.5px at 50px 160px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1.5px 1.5px at 50px 160px, var(--foreground), rgba(0,0,0,0)),
       radial-gradient(2px 2px at 80px 120px, var(--primary), rgba(0,0,0,0)),
-      radial-gradient(1.5px 1.5px at 110px 210px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1.5px 1.5px at 110px 210px, var(--foreground), rgba(0,0,0,0)),
       radial-gradient(2px 2px at 150px 40px, var(--primary), rgba(0,0,0,0));
     background-size: 250px 250px;
     animation: stars-up 15s linear infinite;
@@ -246,9 +256,9 @@
 
   .animate-stars-slow {
     background-image: 
-      radial-gradient(1px 1px at 10px 10px, #fff, rgba(0,0,0,0)),
-      radial-gradient(1px 1px at 100px 100px, #fff, rgba(0,0,0,0)),
-      radial-gradient(1px 1px at 200px 150px, #fff, rgba(0,0,0,0));
+      radial-gradient(1px 1px at 10px 10px, var(--foreground), rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 100px 100px, var(--foreground), rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 200px 150px, var(--foreground), rgba(0,0,0,0));
     background-size: 300px 300px;
     animation: stars-up 30s linear infinite;
     opacity: 0.2;
@@ -282,17 +292,16 @@
 }
 
 ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: 0px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 0px;
-}
-
 ::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--primary) 70%, white);
+  background: var(--primary);
 }
 
 ::-webkit-scrollbar-corner {

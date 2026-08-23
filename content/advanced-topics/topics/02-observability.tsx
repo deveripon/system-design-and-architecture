@@ -36,13 +36,13 @@ export const observabilityContent: TopicData = {
                                 <span className='font-mono text-xs px-3 py-1 border border-primary/30 text-primary bg-primary/5 rounded'>
                                     ⏱ ৯০-১২০ মিনিট
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-emerald-500/30 text-emerald-400 bg-emerald-500/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 bg-emerald-500/5 rounded'>
                                     🔭 Advanced Level
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-400 bg-orange-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-orange-400/30 text-orange-700 dark:text-orange-400 bg-orange-400/5 rounded'>
                                     📊 Observability
                                 </span>
-                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-400 bg-purple-400/5 rounded'>
+                                <span className='font-mono text-xs px-3 py-1 border border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5 rounded'>
                                     TOPIC 02 / Phase 5
                                 </span>
                             </div>
@@ -56,7 +56,7 @@ export const observabilityContent: TopicData = {
                             </ContentParagraph>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
                                 <div className='bg-red-500/5 border border-red-500/20 rounded-lg p-5'>
-                                    <p className='font-mono text-xs uppercase tracking-widest text-red-400 mb-3'>
+                                    <p className='font-mono text-xs uppercase tracking-widest text-red-700 dark:text-red-400 mb-3'>
                                         ❌ Without Observability
                                     </p>
                                     <ul className='space-y-2'>
@@ -71,7 +71,7 @@ export const observabilityContent: TopicData = {
                                             <li
                                                 key={i}
                                                 className='text-sm text-muted-foreground flex items-start gap-2'>
-                                                <span className='text-red-400 mt-0.5 flex-shrink-0'>
+                                                <span className='text-red-700 dark:text-red-400 mt-0.5 flex-shrink-0'>
                                                     →
                                                 </span>
                                                 {item}
@@ -80,7 +80,7 @@ export const observabilityContent: TopicData = {
                                     </ul>
                                 </div>
                                 <div className='bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-5'>
-                                    <p className='font-mono text-xs uppercase tracking-widest text-emerald-400 mb-3'>
+                                    <p className='font-mono text-xs uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-3'>
                                         ✅ With Observability
                                     </p>
                                     <ul className='space-y-2'>
@@ -95,7 +95,7 @@ export const observabilityContent: TopicData = {
                                             <li
                                                 key={i}
                                                 className='text-sm text-muted-foreground flex items-start gap-2'>
-                                                <span className='text-emerald-400 mt-0.5 flex-shrink-0'>
+                                                <span className='text-emerald-700 dark:text-emerald-400 mt-0.5 flex-shrink-0'>
                                                     →
                                                 </span>
                                                 {item}
@@ -482,7 +482,7 @@ export const observabilityContent: TopicData = {
                                 {
                                     icon: '📊',
                                     title: 'Metrics',
-                                    color: 'border-yellow-400/30 text-yellow-400 bg-yellow-400/5',
+                                    color: 'border-yellow-400/30 text-yellow-700 dark:text-yellow-400 bg-yellow-400/5',
                                     borderColor: 'border-yellow-400/20',
                                     items: [
                                         'Aggregated numbers',
@@ -508,7 +508,7 @@ export const observabilityContent: TopicData = {
                                 {
                                     icon: '🔍',
                                     title: 'Traces',
-                                    color: 'border-purple-400/30 text-purple-400 bg-purple-400/5',
+                                    color: 'border-purple-400/30 text-purple-700 dark:text-purple-400 bg-purple-400/5',
                                     borderColor: 'border-purple-400/20',
                                     items: [
                                         'Request journey tracking',
@@ -836,19 +836,19 @@ export const observabilityContent: TopicData = {
                             'Request count, error count',
                         ],
                         [
-                            <span className='text-emerald-400 font-mono font-semibold'>Gauge</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-mono font-semibold'>Gauge</span>,
                             'বাড়ে এবং কমে উভয়',
                             'memory_usage_bytes',
                             'CPU, memory, active connections',
                         ],
                         [
-                            <span className='text-yellow-400 font-mono font-semibold'>Histogram</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400 font-mono font-semibold'>Histogram</span>,
                             'Bucketed observations',
                             'http_request_duration_seconds',
                             'Latency percentiles (P99)',
                         ],
                         [
-                            <span className='text-purple-400 font-mono font-semibold'>Summary</span>,
+                            <span className='text-purple-700 dark:text-purple-400 font-mono font-semibold'>Summary</span>,
                             'Pre-calculated quantiles',
                             'rpc_duration_seconds',
                             'Client-side percentile calculation',
@@ -928,7 +928,7 @@ groups:
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <div className='bg-muted/30 border border-border rounded-lg p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-orange-400 mb-4'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-orange-700 dark:text-orange-400 mb-4'>
                                     📊 Grafana Data Sources
                                 </p>
                                 <ul className='space-y-2'>
@@ -943,7 +943,7 @@ groups:
                                         <li
                                             key={i}
                                             className='text-sm text-muted-foreground flex items-start gap-2'>
-                                            <span className='text-orange-400 mt-0.5'>
+                                            <span className='text-orange-700 dark:text-orange-400 mt-0.5'>
                                                 →
                                             </span>
                                             {item}
@@ -2030,14 +2030,14 @@ app.listen(3000);`,
                     headers: ['Company', 'Metrics', 'Logs', 'Tracing', 'বিশেষত্ব'],
                     rows: [
                         [
-                            <span className='text-red-400 font-semibold'>Netflix</span>,
+                            <span className='text-red-700 dark:text-red-400 font-semibold'>Netflix</span>,
                             'Atlas (custom)',
                             'Elasticsearch',
                             'Zipkin',
                             'Chaos engineering + observability integrated',
                         ],
                         [
-                            <span className='text-emerald-400 font-semibold'>Uber</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>Uber</span>,
                             'M3 (custom)',
                             'ELK Stack',
                             'Jaeger (created by Uber)',
@@ -2051,14 +2051,14 @@ app.listen(3000);`,
                             'Dapper paper — distributed tracing এর origin',
                         ],
                         [
-                            <span className='text-yellow-400 font-semibold'>Facebook</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400 font-semibold'>Facebook</span>,
                             'ODS',
                             'Scribe',
                             'Canopy',
                             'Billions of events/sec log processing',
                         ],
                         [
-                            <span className='text-orange-400 font-semibold'>Airbnb</span>,
+                            <span className='text-orange-700 dark:text-orange-400 font-semibold'>Airbnb</span>,
                             'Prometheus',
                             'ELK',
                             'Jaeger',
@@ -2087,7 +2087,7 @@ app.listen(3000);`,
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Metrics প্রথমে — &quot;কী হচ্ছে&quot; জানেন
                                 </span>
                             ),
@@ -2102,7 +2102,7 @@ app.listen(3000);`,
                         },
                         {
                             title: (
-                                <span className='font-mono text-yellow-400'>
+                                <span className='font-mono text-yellow-700 dark:text-yellow-400'>
                                     Logs দিয়ে &quot;কেন হচ্ছে&quot; বোঝো
                                 </span>
                             ),
@@ -2116,7 +2116,7 @@ app.listen(3000);`,
                         },
                         {
                             title: (
-                                <span className='font-mono text-purple-400'>
+                                <span className='font-mono text-purple-700 dark:text-purple-400'>
                                     Traces দিয়ে &quot;কোথায় হচ্ছে&quot; নির্দিষ্ট করুন
                                 </span>
                             ),
@@ -2130,7 +2130,7 @@ app.listen(3000);`,
                         },
                         {
                             title: (
-                                <span className='font-mono text-orange-400'>
+                                <span className='font-mono text-orange-700 dark:text-orange-400'>
                                     Alerting Strategy — Symptoms-based Alert
                                 </span>
                             ),
@@ -2189,7 +2189,7 @@ app.listen(3000);`,
                                     {
                                         category: 'Metrics',
                                         tools: ['Prometheus', 'Grafana', 'Thanos (long-term)'],
-                                        color: 'text-yellow-400 border-yellow-400/30 bg-yellow-400/5',
+                                        color: 'text-yellow-700 dark:text-yellow-400 border-yellow-400/30 bg-yellow-400/5',
                                     },
                                     {
                                         category: 'Logs',
@@ -2199,12 +2199,12 @@ app.listen(3000);`,
                                     {
                                         category: 'Traces',
                                         tools: ['Jaeger', 'Zipkin', 'Tempo', 'OpenTelemetry SDK'],
-                                        color: 'text-purple-400 border-purple-400/30 bg-purple-400/5',
+                                        color: 'text-purple-700 dark:text-purple-400 border-purple-400/30 bg-purple-400/5',
                                     },
                                     {
                                         category: 'Alerting',
                                         tools: ['AlertManager', 'PagerDuty', 'OpsGenie', 'Slack'],
-                                        color: 'text-red-400 border-red-400/30 bg-red-400/5',
+                                        color: 'text-red-700 dark:text-red-400 border-red-400/30 bg-red-400/5',
                                     },
                                 ].map((row, i) => (
                                     <div key={i} className='flex flex-wrap items-center gap-3'>
@@ -2235,7 +2235,7 @@ app.listen(3000);`,
         headers: ['Pillar', 'Tool', 'কী জানায়', 'Query Language', 'সেরা Use Case'],
         rows: [
             [
-                <span className='font-bold text-yellow-400 font-mono'>Metrics</span>,
+                <span className='font-bold text-yellow-700 dark:text-yellow-400 font-mono'>Metrics</span>,
                 'Prometheus + Grafana',
                 'Aggregated numbers over time',
                 'PromQL',
@@ -2249,14 +2249,14 @@ app.listen(3000);`,
                 'Error debugging, audit trail',
             ],
             [
-                <span className='font-bold text-purple-400 font-mono'>Traces</span>,
+                <span className='font-bold text-purple-700 dark:text-purple-400 font-mono'>Traces</span>,
                 'Jaeger + OpenTelemetry',
                 'Request journey across services',
                 'Trace ID search',
                 'Latency bottleneck, microservice debugging',
             ],
             [
-                <span className='font-bold text-orange-400 font-mono'>Alerting</span>,
+                <span className='font-bold text-orange-700 dark:text-orange-400 font-mono'>Alerting</span>,
                 'AlertManager + PagerDuty',
                 'Proactive incident notification',
                 'Alert rules (YAML)',

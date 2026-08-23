@@ -608,7 +608,7 @@ export const searchEngineContent: TopicData = {
 
                             {/* Non-Functional Requirements */}
                             <div className='bg-card/50 border border-emerald-500/20 rounded-lg p-5'>
-                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-400 mb-4 font-bold'>
+                                <p className='font-mono text-xs uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4 font-bold'>
                                     ⚡ Non-Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -1196,7 +1196,7 @@ print(trie.autocomplete("app"))
                         },
                         {
                             title: (
-                                <span className='font-mono text-emerald-400'>
+                                <span className='font-mono text-emerald-700 dark:text-emerald-400'>
                                     Document Store + Indexing Pipeline
                                 </span>
                             ),
@@ -1205,7 +1205,7 @@ print(trie.autocomplete("app"))
                                     Crawled content S3/HDFS-এ store করুন।
                                     Indexing pipeline-এ পাঠাও। New links
                                     queue-এ add করুন।{' '}
-                                    <span className='text-emerald-400'>
+                                    <span className='text-emerald-700 dark:text-emerald-400'>
                                         Repeat ✓
                                     </span>
                                 </span>
@@ -1343,7 +1343,7 @@ def search(query: str) -> list:
                         [
                             'TF-IDF Score',
                             <code className='font-mono text-xs'>TF × IDF</code>,
-                            <span className='text-emerald-400 font-semibold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-semibold'>
                                 Higher = more relevant
                             </span>,
                         ],
@@ -1394,26 +1394,26 @@ def search(query: str) -> list:
                         [
                             'TF-IDF',
                             'Word frequency & rarity',
-                            <span className='text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
                         ],
                         [
                             'PageRank',
                             'কতটা important sites link করেছেনে',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 High
                             </span>,
                         ],
                         [
                             'Click-through Rate',
                             'Users কতবার result click করে',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 High
                             </span>,
                         ],
                         [
                             'Freshness',
                             'Content কতটা নতুন',
-                            <span className='text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
                         ],
                         [
                             'User Location',
@@ -1423,7 +1423,7 @@ def search(query: str) -> list:
                         [
                             'ML Models (BERT)',
                             'Query intent বোঝা',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Very High
                             </span>,
                         ],
@@ -1482,35 +1482,35 @@ def search(query: str) -> list:
                         ],
                         [
                             'Typeahead Trie',
-                            <span className='text-yellow-400 font-mono text-sm'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-mono text-sm'>
                                 Redis (Sorted Sets) / In-memory
                             </span>,
                             'Sub-millisecond prefix lookup',
                         ],
                         [
                             'Popular queries',
-                            <span className='text-yellow-400 font-mono text-sm'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-mono text-sm'>
                                 Redis Sorted Set (ZADD score)
                             </span>,
                             'Rank by search frequency',
                         ],
                         [
                             'Search analytics',
-                            <span className='text-orange-400 font-mono text-sm'>
+                            <span className='text-orange-700 dark:text-orange-400 font-mono text-sm'>
                                 Kafka → Hadoop/Spark
                             </span>,
                             'Stream processing for trending',
                         ],
                         [
                             'Document store',
-                            <span className='text-emerald-400 font-mono text-sm'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-mono text-sm'>
                                 Elasticsearch + S3
                             </span>,
                             'Original content + index',
                         ],
                         [
                             'Query cache',
-                            <span className='text-yellow-400 font-mono text-sm'>
+                            <span className='text-yellow-700 dark:text-yellow-400 font-mono text-sm'>
                                 Redis (TTL 1 hr)
                             </span>,
                             'Popular searches cached',
@@ -1633,8 +1633,8 @@ def search(query: str) -> list:
                                     <span
                                         className={`font-mono text-xs px-2 py-1 rounded flex-shrink-0 mt-0.5 ${
                                             row.color === 'emerald'
-                                                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                                                : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                                                ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20'
+                                                : 'bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/20'
                                         }`}>
                                         {row.type}
                                     </span>
@@ -1672,7 +1672,7 @@ def search(query: str) -> list:
                                             },
                                             {
                                                 label: 'Java / Go',
-                                                color: 'text-emerald-400 border-emerald-400/30 bg-emerald-500/5',
+                                                color: 'text-emerald-700 dark:text-emerald-400 border-emerald-400/30 bg-emerald-500/5',
                                             },
                                         ].map((t, i) => (
                                             <span
@@ -1691,15 +1691,15 @@ def search(query: str) -> list:
                                         {[
                                             {
                                                 label: 'Redis Sorted Sets',
-                                                color: 'text-yellow-400 border-yellow-400/30 bg-yellow-500/5',
+                                                color: 'text-yellow-700 dark:text-yellow-400 border-yellow-400/30 bg-yellow-500/5',
                                             },
                                             {
                                                 label: 'In-memory Trie',
-                                                color: 'text-yellow-400 border-yellow-400/30 bg-yellow-500/5',
+                                                color: 'text-yellow-700 dark:text-yellow-400 border-yellow-400/30 bg-yellow-500/5',
                                             },
                                             {
                                                 label: 'CDN (static prefix cache)',
-                                                color: 'text-orange-400 border-orange-400/30 bg-orange-500/5',
+                                                color: 'text-orange-700 dark:text-orange-400 border-orange-400/30 bg-orange-500/5',
                                             },
                                         ].map((t, i) => (
                                             <span
@@ -1718,19 +1718,19 @@ def search(query: str) -> list:
                                         {[
                                             {
                                                 label: 'Apache Kafka',
-                                                color: 'text-red-400 border-red-400/30 bg-red-500/5',
+                                                color: 'text-red-700 dark:text-red-400 border-red-400/30 bg-red-500/5',
                                             },
                                             {
                                                 label: 'Apache Spark (batch)',
-                                                color: 'text-orange-400 border-orange-400/30 bg-orange-500/5',
+                                                color: 'text-orange-700 dark:text-orange-400 border-orange-400/30 bg-orange-500/5',
                                             },
                                             {
                                                 label: 'Flink (stream processing)',
-                                                color: 'text-orange-400 border-orange-400/30 bg-orange-500/5',
+                                                color: 'text-orange-700 dark:text-orange-400 border-orange-400/30 bg-orange-500/5',
                                             },
                                             {
                                                 label: 'Hadoop HDFS',
-                                                color: 'text-orange-400 border-orange-400/30 bg-orange-500/5',
+                                                color: 'text-orange-700 dark:text-orange-400 border-orange-400/30 bg-orange-500/5',
                                             },
                                         ].map((t, i) => (
                                             <span

@@ -49,7 +49,7 @@ export const messageQueuesContent: TopicData = {
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         SYNC{' '}
-                                        <span className='text-red-400'>
+                                        <span className='text-red-700 dark:text-red-400'>
                                             ❌ ব্লকিং
                                         </span>
                                     </h4>
@@ -63,7 +63,7 @@ export const messageQueuesContent: TopicData = {
                                     <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         ASYNC{' '}
-                                        <span className='text-emerald-400'>
+                                        <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ নন-ব্লকিং
                                         </span>
                                     </h4>
@@ -122,7 +122,7 @@ export const messageQueuesContent: TopicData = {
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                             <div className='p-8 border-r border-b border-border bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-widest text-[10px] text-blue-400 font-bold mb-3'>
+                                <h4 className='font-mono uppercase tracking-widest text-[10px] text-blue-700 dark:text-blue-400 font-bold mb-3'>
                                     1. DECOUPLING
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -133,7 +133,7 @@ export const messageQueuesContent: TopicData = {
                                 </p>
                             </div>
                             <div className='p-8 border-b border-border bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-widest text-[10px] text-blue-400 font-bold mb-3'>
+                                <h4 className='font-mono uppercase tracking-widest text-[10px] text-blue-700 dark:text-blue-400 font-bold mb-3'>
                                     2. TRAFFIC SPIKE BUFFER
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -143,7 +143,7 @@ export const messageQueuesContent: TopicData = {
                                 </p>
                             </div>
                             <div className='p-8 border-r border-border bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-widest text-[10px] text-blue-400 font-bold mb-3'>
+                                <h4 className='font-mono uppercase tracking-widest text-[10px] text-blue-700 dark:text-blue-400 font-bold mb-3'>
                                     3. RETRY LOGIC
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -153,7 +153,7 @@ export const messageQueuesContent: TopicData = {
                                 </p>
                             </div>
                             <div className='p-8 bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-widest text-[10px] text-blue-400 font-bold mb-3'>
+                                <h4 className='font-mono uppercase tracking-widest text-[10px] text-blue-700 dark:text-blue-400 font-bold mb-3'>
                                     4. MICROSERVICES
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -224,7 +224,7 @@ export const messageQueuesContent: TopicData = {
                     content: (
                         <div className='space-y-12'>
                             <div>
-                                <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6'>
+                                <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6'>
                                     Pattern 1 — Point-to-Point (Queue Model)
                                 </h3>
                                 <p className='text-muted-foreground leading-relaxed mb-6 text-lg'>
@@ -235,19 +235,19 @@ export const messageQueuesContent: TopicData = {
                                 <div className='border border-border bg-card/20 p-6 font-mono text-sm'>
                                     <div className='space-y-2 text-muted-foreground'>
                                         <div className='flex items-center gap-3'>
-                                            <span className='text-blue-400 font-bold'>
+                                            <span className='text-blue-700 dark:text-blue-400 font-bold'>
                                                 Producer
                                             </span>
                                             <span className='text-border'>
                                                 ─────────►
                                             </span>
-                                            <span className='border border-yellow-500/50 px-3 py-1 text-yellow-400'>
+                                            <span className='border border-yellow-500/50 px-3 py-1 text-yellow-700 dark:text-yellow-400'>
                                                 Queue
                                             </span>
                                             <span className='text-border'>
                                                 ─────────►
                                             </span>
-                                            <span className='text-emerald-400 font-bold'>
+                                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                                 Consumer A
                                             </span>
                                             <span className='text-muted-foreground text-xs italic'>
@@ -265,7 +265,7 @@ export const messageQueuesContent: TopicData = {
                                 </div>
                             </div>
                             <div>
-                                <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6'>
+                                <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6'>
                                     Pattern 2 — Publish-Subscribe (Topic / Fan-out)
                                 </h3>
                                 <p className='text-muted-foreground leading-relaxed mb-6 text-lg'>
@@ -275,13 +275,13 @@ export const messageQueuesContent: TopicData = {
                                 <div className='border border-border bg-card/20 p-6 font-mono text-sm'>
                                     <div className='space-y-3 text-muted-foreground'>
                                         <div className='flex items-center gap-3'>
-                                            <span className='text-blue-400 font-bold'>
+                                            <span className='text-blue-700 dark:text-blue-400 font-bold'>
                                                 Producer
                                             </span>
                                             <span className='text-border'>
                                                 ──►
                                             </span>
-                                            <span className='border border-purple-500/50 px-3 py-1 text-purple-400'>
+                                            <span className='border border-purple-500/50 px-3 py-1 text-purple-700 dark:text-purple-400'>
                                                 Topic: order_placed
                                             </span>
                                         </div>
@@ -290,7 +290,7 @@ export const messageQueuesContent: TopicData = {
                                                 <span className='text-border'>
                                                     ├──►
                                                 </span>
-                                                <span className='text-emerald-400'>
+                                                <span className='text-emerald-700 dark:text-emerald-400'>
                                                     Email Service
                                                 </span>
                                             </div>
@@ -298,7 +298,7 @@ export const messageQueuesContent: TopicData = {
                                                 <span className='text-border'>
                                                     ├──►
                                                 </span>
-                                                <span className='text-emerald-400'>
+                                                <span className='text-emerald-700 dark:text-emerald-400'>
                                                     SMS Service
                                                 </span>
                                             </div>
@@ -306,7 +306,7 @@ export const messageQueuesContent: TopicData = {
                                                 <span className='text-border'>
                                                     └──►
                                                 </span>
-                                                <span className='text-emerald-400'>
+                                                <span className='text-emerald-700 dark:text-emerald-400'>
                                                     Analytics Service
                                                 </span>
                                             </div>
@@ -388,14 +388,14 @@ export const messageQueuesContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <>
-                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-6 mt-12'>
+                            <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-6 mt-12'>
                                 Kafka Architecture
                             </h3>
                             <div className='border border-border bg-card/20 p-6 font-mono text-sm'>
                                 <div className='space-y-4 text-muted-foreground'>
                                     <div className='flex items-center gap-4 flex-wrap'>
                                         <div className='space-y-1'>
-                                            <div className='text-blue-400 font-bold text-xs'>
+                                            <div className='text-blue-700 dark:text-blue-400 font-bold text-xs'>
                                                 PRODUCERS
                                             </div>
                                             <div className='border border-blue-500/40 px-3 py-2 text-xs space-y-1'>
@@ -408,7 +408,7 @@ export const messageQueuesContent: TopicData = {
                                             ──►
                                         </span>
                                         <div className='space-y-1'>
-                                            <div className='text-yellow-400 font-bold text-xs'>
+                                            <div className='text-yellow-700 dark:text-yellow-400 font-bold text-xs'>
                                                 KAFKA BROKER
                                             </div>
                                             <div className='border border-yellow-500/40 px-3 py-2 text-xs space-y-1'>
@@ -426,7 +426,7 @@ export const messageQueuesContent: TopicData = {
                                             ──►
                                         </span>
                                         <div className='space-y-1'>
-                                            <div className='text-emerald-400 font-bold text-xs'>
+                                            <div className='text-emerald-700 dark:text-emerald-400 font-bold text-xs'>
                                                 CONSUMER GROUPS
                                             </div>
                                             <div className='border border-emerald-500/40 px-3 py-2 text-xs space-y-1'>
@@ -534,38 +534,38 @@ export const messageQueuesContent: TopicData = {
                         ],
                         [
                             'Message Retention',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Days/weeks — replay সম্ভব
                             </span>,
-                            <span className='text-yellow-400'>
+                            <span className='text-yellow-700 dark:text-yellow-400'>
                                 ACK এর পর delete
                             </span>,
                         ],
                         [
                             'Throughput',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Millions/sec
                             </span>,
                             'Thousands/sec',
                         ],
                         [
                             'Message Replay',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 হ্যাঁ ✓
                             </span>,
-                            <span className='text-red-400'>না ✗</span>,
+                            <span className='text-red-700 dark:text-red-400'>না ✗</span>,
                         ],
                         [
                             'Complex Routing',
                             'Topic/Partition based',
-                            <span className='text-emerald-400'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>
                                 Exchange types (flexible)
                             </span>,
                         ],
                         [
                             'ACK/NACK + DLQ',
                             'Offset commit',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Explicit ACK/NACK + DLQ
                             </span>,
                         ],
@@ -590,7 +590,7 @@ export const messageQueuesContent: TopicData = {
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-4'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-4'>
                             Kafka — Python Producer &amp; Consumer
                         </h3>
                     ),
@@ -642,7 +642,7 @@ for message in consumer:
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-4 mt-12'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-4 mt-12'>
                             RabbitMQ — Node.js Publisher &amp; Worker
                         </h3>
                     ),
@@ -703,7 +703,7 @@ startWorker();`,
                 {
                     type: CONTENT_TYPES.HTML,
                     content: (
-                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-400 mb-4 mt-12'>
+                        <h3 className='text-xs font-mono font-bold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-400 mb-4 mt-12'>
                             Dead Letter Queue Setup
                         </h3>
                     ),
@@ -758,60 +758,60 @@ setupDLQ();`,
                     headers: ['Tool', 'Best For', 'Throughput', 'Complexity', 'Managed?'],
                     rows: [
                         [
-                            <span className='font-bold text-yellow-400'>
+                            <span className='font-bold text-yellow-700 dark:text-yellow-400'>
                                 Apache Kafka
                             </span>,
                             'Real-time analytics, event streaming',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Millions/sec
                             </span>,
-                            <span className='text-red-400'>High</span>,
+                            <span className='text-red-700 dark:text-red-400'>High</span>,
                             'Self-hosted / Confluent Cloud',
                         ],
                         [
-                            <span className='font-bold text-orange-400'>
+                            <span className='font-bold text-orange-700 dark:text-orange-400'>
                                 RabbitMQ
                             </span>,
                             'Task queues, complex routing',
                             'Thousands/sec',
-                            <span className='text-yellow-400'>Medium</span>,
+                            <span className='text-yellow-700 dark:text-yellow-400'>Medium</span>,
                             'Self-hosted',
                         ],
                         [
-                            <span className='font-bold text-blue-400'>
+                            <span className='font-bold text-blue-700 dark:text-blue-400'>
                                 AWS SQS
                             </span>,
                             'Simple task queue, decoupling',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 High
                             </span>,
-                            <span className='text-emerald-400'>Low</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>Low</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Fully managed ✓
                             </span>,
                         ],
                         [
-                            <span className='font-bold text-purple-400'>
+                            <span className='font-bold text-purple-700 dark:text-purple-400'>
                                 AWS SNS
                             </span>,
                             'Pub/Sub fan-out notifications',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 High
                             </span>,
-                            <span className='text-emerald-400'>Low</span>,
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400'>Low</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 Fully managed ✓
                             </span>,
                         ],
                         [
-                            <span className='font-bold text-red-400'>
+                            <span className='font-bold text-red-700 dark:text-red-400'>
                                 Redis Streams
                             </span>,
                             'Lightweight streaming, low latency',
-                            <span className='text-emerald-400 font-bold'>
+                            <span className='text-emerald-700 dark:text-emerald-400 font-bold'>
                                 High
                             </span>,
-                            <span className='text-emerald-400'>Low</span>,
+                            <span className='text-emerald-700 dark:text-emerald-400'>Low</span>,
                             'Self-hosted',
                         ],
                     ],

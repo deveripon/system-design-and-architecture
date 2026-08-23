@@ -17,6 +17,13 @@ export const INFO_BOX_VARIANTS = {
     IMPORTANT: 'important',
 } as const;
 
+/** One step of a StepFlow. `number` is optional — some content pre-labels its steps. */
+export interface FlowStep {
+    title: ReactNode;
+    description: ReactNode;
+    number?: string;
+}
+
 export type ContentBlock =
     | { type: typeof CONTENT_TYPES.HTML; content: ReactNode }
     | {
@@ -39,7 +46,7 @@ export type ContentBlock =
     | {
           type: typeof CONTENT_TYPES.STEP_FLOW;
           stepName?: string;
-          steps: { title: ReactNode; description: ReactNode }[];
+          steps: FlowStep[];
       }
     | { type: typeof CONTENT_TYPES.CUSTOM; component: ReactNode };
 
@@ -85,7 +92,7 @@ export interface TopicData {
     practicalLab?: {
         title: string;
         subtitle: string;
-        steps: { title: ReactNode; description: ReactNode }[];
+        steps: FlowStep[];
         stepName?: string;
         codeBlock?: { language: string; filename: string; code: string };
         codeBlocks?: { language: string; filename: string; code: string }[];
