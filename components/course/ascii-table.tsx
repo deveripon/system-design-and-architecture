@@ -31,8 +31,8 @@ export function AsciiTable() {
                     <input
                         value={query}
                         onChange={e => setQuery(e.target.value)}
-                        placeholder='অক্ষর, সংখ্যা, Hex বা নাম লিখে খোঁজো'
-                        aria-label='ASCII টেবিলে খোঁজো'
+                        placeholder='অক্ষর, সংখ্যা, Hex বা নাম লিখে খুঁজুন'
+                        aria-label='ASCII টেবিলে খুঁজুন'
                         className='w-full pl-11 pr-11 py-3 bg-card border border-border text-sm outline-none focus:border-primary/60 transition-colors placeholder:text-muted-foreground/70'
                     />
                     {query && (
@@ -60,7 +60,7 @@ export function AsciiTable() {
             {/* quick jumps */}
             <div className='flex flex-wrap items-center gap-2 mb-6'>
                 <span className='font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mr-1'>
-                    চটপট দেখো
+                    চটপট দেখুন
                 </span>
                 {EXAMPLES.map(ex => (
                     <button

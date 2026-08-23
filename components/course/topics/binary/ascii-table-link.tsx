@@ -17,7 +17,7 @@ export function AsciiTableLink({
                 className='group my-8 flex items-center gap-4 p-4 border border-border bg-muted/20 hover:bg-primary/5 dark:hover:bg-white/2 transition-colors'>
                 <Table2 className='w-4 h-4 text-primary shrink-0' />
                 <span className='flex-1 text-sm text-muted-foreground'>
-                    কোন অক্ষরের কোড কত, পুরো তালিকাটা এক জায়গায় দেখো।
+                    কোন অক্ষরের কোড কত, পুরো তালিকাটা এক জায়গায় দেখুন।
                 </span>
                 <ArrowRight className='w-3.5 h-3.5 text-primary shrink-0 group-hover:translate-x-0.5 transition-transform' />
             </Link>
@@ -40,7 +40,7 @@ export function AsciiTableLink({
                 </span>
                 <span className='block text-sm text-muted-foreground leading-relaxed max-w-2xl'>
                     ১২৮টা কোডের প্রতিটার Decimal, Hex, Binary আর অক্ষর একসাথে।
-                    সার্চ করে যেকোনো অক্ষর খুঁজে নিতে পারবে, আর Control Code
+                    সার্চ করে যেকোনো অক্ষর খুঁজে নিতে পারবেন, আর Control Code
                     গুলো কী কাজ করে সেটাও লেখা আছে।
                 </span>
             </span>

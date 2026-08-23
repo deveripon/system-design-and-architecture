@@ -32,15 +32,15 @@ export const binaryAndDataContent: TopicData = {
         description: (
             <div className='space-y-4'>
                 <ContentParagraph>
-                    রাতে ঘরে ঢুকে তুমি সুইচ টিপে বাতি জ্বালাও। ওই সুইচটা মাত্র
+                    রাতে ঘরে ঢুকে আপনি সুইচ টিপে বাতি জ্বালান। ওই সুইচটা মাত্র
                     দুইটা জিনিস জানে: চালু আর বন্ধ। এর মাঝখানে কিছু নেই।
-                    সুইচকে যদি জিজ্ঞেস করো আজকের তারিখ কত, সে বলতে পারবে না।
+                    সুইচকে যদি জিজ্ঞেস করেন আজকের তারিখ কত, সে বলতে পারবে না।
                     কারণ তার ভাষায় মাত্র দুইটা শব্দ আছে।
                 </ContentParagraph>
                 <ContentParagraph>
-                    এখন একটা অদ্ভুত কথা বলি। তোমার হাতের ফোনটার ভেতরে এমন সুইচ
+                    এখন একটা অদ্ভুত কথা বলি। আপনার হাতের ফোনটার ভেতরে এমন সুইচ
                     আছে কয়েক <strong>বিলিয়ন</strong>। প্রতিটার ভাষায় ওই একই
-                    দুইটা শব্দ, চালু আর বন্ধ। এই বিলিয়ন সুইচ মিলে তোমার
+                    দুইটা শব্দ, চালু আর বন্ধ। এই বিলিয়ন সুইচ মিলে আপনার
                     ছবি রাখে, গান বাজায়, ভিডিও কলে বন্ধুর মুখ দেখায়।
                 </ContentParagraph>
                 <ContentParagraph>
@@ -69,7 +69,7 @@ export const binaryAndDataContent: TopicData = {
                     content: (
                         <div className='space-y-6'>
                             <ContentParagraph>
-                                একটা কথা ভেবে দেখো। আমরা মানুষ ১০টা সংখ্যা
+                                একটা কথা ভেবে দেখুন। আমরা মানুষ ১০টা সংখ্যা
                                 ব্যবহার করি, ০ থেকে ৯। কেন ১০টা? কারণ আমাদের
                                 হাতে ১০টা আঙুল। ছোটবেলায় আঙুল গুনে যোগ শেখা,
                                 সেখান থেকেই আমাদের গোটা সংখ্যাব্যবস্থা।
@@ -91,7 +91,7 @@ export const binaryAndDataContent: TopicData = {
                                 একটু ওঠানামা করে, পাশের তার থেকে সামান্য
                                 হস্তক্ষেপ আসে। তখন ৩ নম্বর মাত্রা আর ৪ নম্বর
                                 মাত্রার তফাত বোঝা কঠিন হয়ে যায়, একটা ভুল পড়া
-                                মানে তোমার ব্যাংক ব্যালেন্স বদলে যাওয়া। কিন্তু{' '}
+                                মানে আপনার ব্যাংক ব্যালেন্স বদলে যাওয়া। কিন্তু{' '}
                                 <strong>আছে</strong> আর <strong>নেই</strong> এর
                                 মধ্যে গুলিয়ে ফেলা প্রায় অসম্ভব। ভোল্টেজ একটু
                                 কমে গেলেও শূন্য আর অশূন্যের পার্থক্য স্পষ্ট
@@ -179,9 +179,9 @@ export const binaryAndDataContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <ContentParagraph>
-                            উপরের সুইচগুলো নিয়ে একটু খেলো। সব চালু করে দেখো
+                            উপরের সুইচগুলো নিয়ে একটু খেলুন। সব চালু করে দেখুন
                             সংখ্যাটা ২৫৫ হয়, এর চেয়ে বড় সংখ্যা এক Byte-এ
-                            রাখা যায় না। এবার নিচের গল্পটা চালিয়ে দেখো, তুমি
+                            রাখা যায় না। এবার নিচের গল্পটা চালিয়ে দেখুন, আপনি
                             Keyboard-এ একটা অক্ষর চাপলে ভেতরে ঠিক কী ঘটে।
                         </ContentParagraph>
                     ),
@@ -197,8 +197,8 @@ export const binaryAndDataContent: TopicData = {
                     content: (
                         <p>
                             Binary থেকে দশমিকে যেতে চাইলে হিসাব করতে হয় না, শুধু
-                            চালু ঘরগুলোর দাম যোগ করো। আর দশমিক থেকে Binary-তে
-                            যেতে চাইলে উল্টো দিক থেকে ভাবো: ১২৮ কি নেওয়া যায়?
+                            চালু ঘরগুলোর দাম যোগ করুন। আর দশমিক থেকে Binary-তে
+                            যেতে চাইলে উল্টো দিক থেকে ভাবুন: ১২৮ কি নেওয়া যায়?
                             না গেলে ০, গেলে ১ লিখে বাকিটা নিয়ে এগোও।
                         </p>
                     ),
@@ -216,12 +216,12 @@ export const binaryAndDataContent: TopicData = {
                     content: (
                         <div className='space-y-6'>
                             <ContentParagraph>
-                                তিনটা ঘটনা বলি, যেগুলো তুমি হয়তো আগেও খেয়াল
-                                করেছ কিন্তু কারণটা জানতে না।
+                                তিনটা ঘটনা বলি, যেগুলো আপনি হয়তো আগেও খেয়াল
+                                করেছেন কিন্তু কারণটা জানতে না।
                             </ContentParagraph>
                             <ContentParagraph>
                                 <strong>এক।</strong> বন্ধুকে SMS পাঠাতে গিয়ে
-                                দেখেছ, ইংরেজিতে লিখলে ১৬০ অক্ষর যায়, কিন্তু
+                                দেখেছেন, ইংরেজিতে লিখলে ১৬০ অক্ষর যায়, কিন্তু
                                 বাংলায় লিখলে অনেক কম অক্ষরেই একটা SMS শেষ হয়ে
                                 যায়। কারণ ইংরেজি একটা অক্ষর সাধারণত ১ Byte, আর
                                 বাংলা একটা অক্ষর UTF-8 এ ৩ Byte। জায়গা তিন গুণ
@@ -229,13 +229,13 @@ export const binaryAndDataContent: TopicData = {
                             </ContentParagraph>
                             <ContentParagraph>
                                 <strong>দুই।</strong> মোবাইলে ১ GB ডেটা প্যাক
-                                কিনে সারা মাস চালাতে পারো, কিন্তু একটা HD সিনেমা
+                                কিনে সারা মাস চালাতে পারেন, কিন্তু একটা HD সিনেমা
                                 নামাতে গেলেই শেষ। কারণ অক্ষর সস্তা আর ছবি-ভিডিও
                                 দামি। এক পাতা লেখা মোটে কয়েক হাজার Byte, আর এক
                                 সেকেন্ডের HD ভিডিও কয়েক লাখ Byte।
                             </ContentParagraph>
                             <ContentParagraph>
-                                <strong>তিন।</strong> পুরনো গেমে দেখেছ স্কোর
+                                <strong>তিন।</strong> পুরনো গেমে দেখেছেন স্কোর
                                 ২৫৫ ছাড়ায় না, বা টাকা ৬৫,৫৩৫-এ আটকে যায়?
                                 কারণ প্রোগ্রামার ওই সংখ্যার জন্য ১ Byte (২৫৬টা
                                 সম্ভাবনা) বা ২ Byte (৬৫,৫৩৬টা সম্ভাবনা) বরাদ্দ
@@ -290,13 +290,13 @@ export const binaryAndDataContent: TopicData = {
                                 </ListItem>
                                 <ListItem>
                                     <strong>Database column:</strong> ট্যুরের
-                                    নামের জন্য যদি ৫০ অক্ষরের জায়গা রাখো, বাংলা
+                                    নামের জন্য যদি ৫০ অক্ষরের জায়গা রাখেন, বাংলা
                                     নাম দিলে ১৬-১৭ অক্ষরেই সেটা ভরে যাবে। এই ভুলে
                                     Production-এ নাম কেটে যাওয়া খুব সাধারণ ঘটনা।
                                 </ListItem>
                                 <ListItem>
                                     <strong>Booking ID:</strong> ID যদি ১ Byte
-                                    রাখো, ২৫৫টার পর আর নতুন Booking নেওয়া যাবে
+                                    রাখেন, ২৫৫টার পর আর নতুন Booking নেওয়া যাবে
                                     না। তাই ID সাধারণত ৪ বা ৮ Byte হয়।
                                 </ListItem>
                             </ContentList>
@@ -335,8 +335,8 @@ export const binaryAndDataContent: TopicData = {
                     title: 'এই লেসনের আসল দাম এখানেই',
                     content: (
                         <p>
-                            Byte বোঝা মানে মুখস্থ করা নয়। Byte বোঝা মানে তুমি
-                            এখন থেকে প্রশ্ন করতে পারবে: এই Response টা কত বড়,
+                            Byte বোঝা মানে মুখস্থ করা নয়। Byte বোঝা মানে আপনি
+                            এখন থেকে প্রশ্ন করতে পারবেন: এই Response টা কত বড়,
                             এটা কি ছোট করা যায়, এই Column-এ বাংলা লেখা ধরবে
                             তো? পরের প্রতিটা লেসনে এই প্রশ্নগুলোই ফিরে আসবে।
                         </p>
@@ -358,7 +358,7 @@ export const binaryAndDataContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <ContentParagraph>
-                            Island Tours-এর Search Box-এ তুমি লিখলে{' '}
+                            Island Tours-এর Search Box-এ আপনি লিখলে{' '}
                             <strong>ঢাকা</strong>। চার অক্ষরের এই শব্দটা সার্ভার
                             পর্যন্ত পৌঁছাতে যে ধাপগুলো পার হয়, সেটাই নিচে।
                             এখন সবটা না বুঝলেও অসুবিধা নেই, পরের লেসনগুলোতে
@@ -408,7 +408,7 @@ export const binaryAndDataContent: TopicData = {
                     title: 'যে ভুলটা সবার হয়',
                     content: (
                         <p>
-                            কখনো Website-এ বাংলা লেখার জায়গায় উদ্ভট চিহ্ন দেখেছ?
+                            কখনো Website-এ বাংলা লেখার জায়গায় উদ্ভট চিহ্ন দেখেছেন?
                             ওটা হয় যখন এক পক্ষ UTF-8 নিয়মে Byte লিখেছে আর অন্য
                             পক্ষ অন্য নিয়মে পড়ার চেষ্টা করেছে। Byte গুলো ঠিকই
                             আছে, শুধু পড়ার নিয়ম মেলেনি। এই কারণেই Database,
@@ -449,7 +449,7 @@ export const binaryAndDataContent: TopicData = {
                 },
                 {
                     type: CONTENT_TYPES.COMPARE_TABLE,
-                    headers: ['যেটা দেখো', 'আসলে কী', 'কত Byte'],
+                    headers: ['যেটা দেখুন', 'আসলে কী', 'কত Byte'],
                     rows: [
                         [
                             <span className='font-mono font-bold'>#FF5733</span>,
@@ -526,7 +526,7 @@ export const binaryAndDataContent: TopicData = {
                                     </a>
                                 </ListItem>
                                 <ListItem>
-                                    <strong>Computerphile</strong>, Search করো:
+                                    <strong>Computerphile</strong>, Search করুন:
                                     Characters, Symbols and the Unicode Miracle।
                                     UTF-8 কেন এত সুন্দর একটা ডিজাইন, সেটা এই
                                     ভিডিওর চেয়ে ভালো কেউ বলেনি।{' '}
@@ -814,24 +814,24 @@ export const binaryAndDataContent: TopicData = {
         stepName: 'LAB',
         steps: [
             {
-                title: 'নিজের নাম Byte-এ দেখো',
+                title: 'নিজের নাম Byte-এ দেখুন',
                 description:
-                    'Terminal খুলে নিচের প্রথম কমান্ডটা চালাও। নিজের নাম ইংরেজিতে আর বাংলায় লিখে সাইজের তফাত দেখো।',
+                    'Terminal খুলে নিচের প্রথম কমান্ডটা চালান। নিজের নাম ইংরেজিতে আর বাংলায় লিখে সাইজের তফাত দেখুন।',
             },
             {
-                title: 'অক্ষরের নম্বর বের করো',
+                title: 'অক্ষরের নম্বর বের করুন',
                 description:
-                    'Node.js দিয়ে যেকোনো অক্ষরের ASCII বা Unicode নম্বর আর তার Binary রূপ বের করো।',
+                    'Node.js দিয়ে যেকোনো অক্ষরের ASCII বা Unicode নম্বর আর তার Binary রূপ বের করুন।',
             },
             {
-                title: 'উল্টো কাজটা করো',
+                title: 'উল্টো কাজটা করুন',
                 description:
-                    'একটা Binary স্ট্রিং থেকে আবার অক্ষরে ফিরে যাও। মিলে গেলে বুঝবে নিয়মটা ধরতে পেরেছ।',
+                    'একটা Binary স্ট্রিং থেকে আবার অক্ষরে ফিরে যান। মিলে গেলে বুঝবেন নিয়মটা ধরতে পেরেছেন।',
             },
             {
-                title: 'ফাইলের ভেতর উঁকি দাও',
+                title: 'ফাইলের ভেতর উঁকি দিন',
                 description:
-                    'একটা ছোট Text File বানিয়ে xxd দিয়ে তার Byte গুলো নিজের চোখে দেখো।',
+                    'একটা ছোট Text File বানিয়ে xxd দিয়ে তার Byte গুলো নিজের চোখে দেখুন।',
             },
         ],
         codeBlocks: [
@@ -868,7 +868,7 @@ for (const ch of 'Hi!') {
   console.log(ch, n, n.toString(2).padStart(8, '0'), '0x' + n.toString(16));
 }
 
-// বাংলা অক্ষর আসলে কয় Byte, নিজে দেখো
+// বাংলা অক্ষর আসলে কয় Byte, নিজে দেখুন
 console.log([...Buffer.from('অ')]);       // [ 224, 166, 133 ]  → ৩ Byte
 console.log(Buffer.from('A').length);     // 1
 console.log(Buffer.from('অ').length);     // 3`,
@@ -886,16 +886,16 @@ const text = bits
 
 console.log(text);   // Hello
 
-// নিজে চেষ্টা করো: এটা কী লেখা আছে?
+// নিজে চেষ্টা করুন: এটা কী লেখা আছে?
 // 01000010 01111001 01110100 01100101`,
             },
             {
                 filename: '4-inside-a-file.sh',
                 language: 'bash',
-                code: `# একটা ছোট ফাইল বানাও
+                code: `# একটা ছোট ফাইল বানান
 printf 'Hi' > tiny.txt
 
-# ফাইলের ভেতরের Byte গুলো দেখো
+# ফাইলের ভেতরের Byte গুলো দেখুন
 xxd tiny.txt
 # আউটপুট:  00000000: 4869    Hi
 # 48 হলো Hex, মানে 72, মানে অক্ষর H
@@ -905,13 +905,13 @@ xxd tiny.txt
 xxd -b tiny.txt
 # 00000000: 01001000 01101001
 
-# এবার বাংলা লিখে একই কাজ করো, Byte কত বাড়ল দেখো
+# এবার বাংলা লিখে একই কাজ করুন, Byte কত বাড়ল দেখুন
 printf 'হাই' > tiny-bn.txt
 xxd tiny-bn.txt
 wc -c tiny-bn.txt`,
             },
         ],
-        tip: 'xxd না থাকলে od -A x -t x1z tiny.txt ব্যবহার করো, একই কাজ করবে। Windows-এ WSL বা Git Bash হলে সবগুলোই চলবে।',
+        tip: 'xxd না থাকলে od -A x -t x1z tiny.txt ব্যবহার করুন, একই কাজ করবে। Windows-এ WSL বা Git Bash হলে সবগুলোই চলবে।',
     },
     assignment: {
         title: 'Mini Project, Binary Translator',
@@ -919,23 +919,23 @@ wc -c tiny-bn.txt`,
         difficulty: 'Beginner Friendly',
         tasks: [
             <span key='1'>
-                <strong>Encoder:</strong> একটা ছোট Script লেখো যেটা যেকোনো
+                <strong>Encoder:</strong> একটা ছোট Script লিখুন যেটা যেকোনো
                 লেখা নিয়ে প্রতিটা অক্ষরের পাশে তার নম্বর, ৮ Bit Binary আর Hex
                 দেখাবে, টেবিলের মতো সাজিয়ে।
             </span>,
             <span key='2'>
-                <strong>Decoder:</strong> উল্টোটাও লেখো, Binary স্ট্রিং দিলে
+                <strong>Decoder:</strong> উল্টোটাও লিখুন, Binary স্ট্রিং দিলে
                 আবার লেখা ফিরিয়ে দেবে। নিজের নাম Encode করে, সেটাই Decode করে
-                মিলিয়ে দেখো।
+                মিলিয়ে দেখুন।
             </span>,
             <span key='3'>
                 <strong>Size Report:</strong> Script-টা শেষে বলবে লেখাটা কত
                 Byte আর কত Bit হলো। একই বাক্য ইংরেজি আর বাংলায় লিখে দুইটা
-                রিপোর্ট তুলনা করো।
+                রিপোর্ট তুলনা করুন।
             </span>,
             <span key='4'>
-                <strong>ভেবে লেখো (৫ লাইন):</strong> Island Tours-এর Database-এ
-                ট্যুরের নামের জন্য কত জায়গা রাখবে, আর কেন? বাংলা নাম ধরলে হিসাব
+                <strong>ভেবে লিখুন (৫ লাইন):</strong> Island Tours-এর Database-এ
+                ট্যুরের নামের জন্য কত জায়গা রাখবেন, আর কেন? বাংলা নাম ধরলে হিসাব
                 কীভাবে বদলায়?
             </span>,
         ],

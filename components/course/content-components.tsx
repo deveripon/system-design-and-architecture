@@ -17,7 +17,7 @@ export function SectionTitle({ children, className }: { children: React.ReactNod
  */
 export function ContentParagraph({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <p className={cn("text-muted-foreground leading-relaxed text-lg", className)}>
+    <p className={cn("text-muted-foreground leading-relaxed text-base md:text-lg", className)}>
       {children}
     </p>
   );
@@ -172,7 +172,7 @@ export function ContentList({ children, className }: { children: React.ReactNode
  */
 export function ListItem({ children, icon = "✓", iconColor = "text-primary", className }: { children: React.ReactNode; icon?: string | React.ReactNode; iconColor?: string; className?: string }) {
     return (
-        <li className={cn("flex gap-4 text-muted-foreground text-lg leading-relaxed", className)}>
+        <li className={cn("flex gap-4 text-muted-foreground text-base md:text-lg leading-relaxed", className)}>
             <span className={cn("shrink-0 font-bold", iconColor)}>{icon}</span>
             <span>{children}</span>
         </li>

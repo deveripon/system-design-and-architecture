@@ -323,7 +323,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Theory & Lab',
                 summary:
-                    'তোমার Operating System-এর ভেতরে Network Stack, Socket আর Port কীভাবে কাজ করে।',
+                    'আপনার Operating System-এর ভেতরে Network Stack, Socket আর Port কীভাবে কাজ করে।',
             },
             {
                 id: 'packet-latency-bandwidth',
@@ -430,7 +430,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Networking',
                 summary:
-                    'তোমার Laptop-এর IP আর Internet-এ দেখানো IP আলাদা হয় কেন।',
+                    'আপনার Laptop-এর IP আর Internet-এ দেখানো IP আলাদা হয় কেন।',
             },
             {
                 id: 'subnet-mask',
@@ -485,7 +485,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Case Walkthrough',
                 summary:
-                    'Mobile Data আর WiFi, তোমার ফোন আসলে কীভাবে Internet-এ যুক্ত হয়।',
+                    'Mobile Data আর WiFi, আপনার ফোন আসলে কীভাবে Internet-এ যুক্ত হয়।',
             },
         ],
     },
@@ -537,7 +537,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Theory',
                 summary:
-                    'Resolver কীভাবে তোমার হয়ে পুরো DNS Chain ঘুরে উত্তর নিয়ে আসে।',
+                    'Resolver কীভাবে আপনার হয়ে পুরো DNS Chain ঘুরে উত্তর নিয়ে আসে।',
             },
             {
                 id: 'dns-cache-ttl',
@@ -1061,7 +1061,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Hands-on Lab',
                 summary:
-                    'কে কী করতে পারবে। Role, Permission আর Guard দিয়ে নিয়ন্ত্রণ।',
+                    'কে কী করতে পারবেন। Role, Permission আর Guard দিয়ে নিয়ন্ত্রণ।',
             },
             {
                 id: 'backend-caching',
@@ -1349,7 +1349,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Trade-off Analysis',
                 summary:
-                    'Managed Database নেবে নাকি নিজে Host করবে, খরচ আর ঝুঁকির হিসাব।',
+                    'Managed Database নেবেন নাকি নিজে Host করবেন, খরচ আর ঝুঁকির হিসাব।',
             },
             {
                 id: 'serverless-architecture',
@@ -1423,7 +1423,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'বড় Server নেবে নাকি বেশি Server নেবে, কখন কোনটা সঠিক।',
+                    'বড় Server নেবেন নাকি বেশি Server নেবেন, কখন কোনটা সঠিক।',
             },
             {
                 id: 'health-checks-circuit-breakers',
@@ -1519,7 +1519,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Hands-on Lab',
                 summary:
-                    'Redis কী, কোন Data Structure আছে আর কোথায় ব্যবহার করবে।',
+                    'Redis কী, কোন Data Structure আছে আর কোথায় ব্যবহার করবেন।',
             },
             {
                 id: 'caching-strategies',
@@ -1530,7 +1530,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Deep Dive',
                 summary:
-                    'Cache Aside, Write Through, Write Back। কোনটা কখন বেছে নেবে।',
+                    'Cache Aside, Write Through, Write Back। কোনটা কখন বেছে নেবেন।',
             },
             {
                 id: 'read-replicas-lag',
@@ -2281,7 +2281,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Expert',
                 type: 'System Design Case',
                 summary:
-                    'কোন অংশ আগে আলাদা করবে আর Migration-এর সময় সব কিছু চালু রাখা।',
+                    'কোন অংশ আগে আলাদা করবেন আর Migration-এর সময় সব কিছু চালু রাখা।',
             },
             {
                 id: 'design-event-driven-system',

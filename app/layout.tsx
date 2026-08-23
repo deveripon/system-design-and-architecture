@@ -2,7 +2,7 @@ import { GoogleAnalytics } from '@/components/google-analytics';
 import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, JetBrains_Mono, Noto_Sans_Bengali } from 'next/font/google';
+import { Fraunces, Hind_Siliguri, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -15,9 +15,14 @@ const jetbrainsMono = JetBrains_Mono({
     variable: '--font-mono',
 });
 
-const notoSansBengali = Noto_Sans_Bengali({
+// Hind Siliguri is the workhorse for Bangla body text: it holds up at 14 to
+// 16px, which is where most of this curriculum is read, and its Latin stays
+// neutral inside mixed sentences.
+const hindSiliguri = Hind_Siliguri({
     subsets: ['bengali', 'latin'],
+    weight: ['400', '500', '600', '700'],
     variable: '--font-sans',
+    display: 'swap',
 });
 
 let siteUrl =
@@ -118,7 +123,7 @@ export default function RootLayout({
                     'min-h-screen bg-background font-sans antialiased',
                     fraunces.variable,
                     jetbrainsMono.variable,
-                    notoSansBengali.variable
+                    hindSiliguri.variable
                 )}>
                 <ThemeProvider
                     attribute='class'

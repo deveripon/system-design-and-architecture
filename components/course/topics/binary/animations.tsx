@@ -172,7 +172,7 @@ function Readout({
 
 const STORY = [
     {
-        caption: 'তুমি Keyboard-এ A চাপলে।',
+        caption: 'আপনি Keyboard-এ A চাপলে।',
         detail: 'Keyboard শুধু জানে কোন Key চাপা হয়েছে। এখনো কোনো অক্ষর নেই।',
     },
     {
@@ -218,7 +218,7 @@ export function KeypressToBitsStory() {
         <Panel
             label='Animation story'
             title='একটা Keypress কীভাবে বিদ্যুৎ হয়'
-            footer='নিজের গতিতে দেখো। Play চাপলে নিজে চলবে, Step চাপলে এক ধাপ করে এগোবে।'>
+            footer='নিজের গতিতে দেখুন। Play চাপলে নিজে চলবে, Step চাপলে এক ধাপ করে এগোবেন।'>
             <div className='flex items-center gap-2 mb-8'>
                 <button
                     onClick={() => setPlaying(p => !p)}

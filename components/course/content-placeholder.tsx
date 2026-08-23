@@ -37,7 +37,7 @@ export function ContentPlaceholder({
                 <p className='max-w-md text-muted-foreground leading-relaxed mb-8'>
                     <strong className='text-foreground'>{title}</strong> এর
                     জন্য Diagram, Code Example আর Quiz সহ পূর্ণ Lesson তৈরি
-                    হচ্ছে। কিছুদিন পর আবার দেখো।
+                    হচ্ছে। কিছুদিন পর আবার দেখুন।
                 </p>
 
                 <div className='flex flex-col sm:flex-row gap-4'>
