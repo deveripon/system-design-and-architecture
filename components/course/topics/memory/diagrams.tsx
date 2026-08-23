@@ -1,4 +1,4 @@
-import { Sketch, SketchBox, SketchText as T } from '../../sketch';
+import { Sketch, SketchBox, SketchSplit, SketchText as T } from '../../sketch';
 
 /* ------------------------------------------------------------------ 1 */
 
@@ -137,52 +137,69 @@ export function StackFramesDiagram() {
 /** The copy versus share difference that bites every JS developer once. */
 export function ValueVsReferenceDiagram() {
     return (
-        <Sketch
+        <SketchSplit
             label='Diagram: কপি হয় নাকি ভাগ হয়'
-            height={300}
-            viewBox='0 0 760 300'
-            caption='সংখ্যা কপি হয়, তাই একটা বদলালে অন্যটা ঠিক থাকে। Object কপি হয় না, দুইটা নাম একই জিনিসকে দেখায়, তাই একটা দিয়ে বদলালে অন্যটাতেও বদলে যায়।'>
-            <defs>
-                <marker id='ref-a' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'>
-                    <path d='M0,0 L0,6 L8,3 z' fill='var(--primary)' />
-                </marker>
-            </defs>
+            caption='সংখ্যা কপি হয়, তাই একটা বদলালে অন্যটা ঠিক থাকে। Object কপি হয় না, দুইটা নাম একই জিনিসকে দেখায়, তাই একটা দিয়ে বদলালে অন্যটাতেও বদলে যায়।'
+            panels={[
+                {
+                    title: 'সংখ্যা',
+                    sub: 'কপি হয়',
+                    viewBox: '0 0 320 230',
+                    height: 230,
+                    children: (
+                        <>
+                            <T x={10} y={20} size={9} anchor='start' opacity={0.7}>STACK</T>
+                            <SketchBox x={10} y={32} w={140} h={44} title='a = 5' />
+                            <SketchBox x={170} y={32} w={140} h={44} title='b = 5' />
+                            <T x={160} y={104} size={9} body opacity={0.8}>
+                                b তে আলাদা একটা ৫ বসে
+                            </T>
+                            <path d='M 10 132 L 310 132' stroke='currentColor'
+                                strokeOpacity={0.2} strokeWidth='1' />
+                            <T x={10} y={158} size={9} anchor='start' body opacity={0.85}>
+                                b বদলালে a এর কিছুই হয় না,
+                            </T>
+                            <T x={10} y={178} size={9} anchor='start' body opacity={0.85}>
+                                কারণ দুইজনের কাছে নিজের কপি আছে।
+                            </T>
+                        </>
+                    ),
+                },
+                {
+                    title: 'OBJECT',
+                    sub: 'ভাগ হয়',
+                    viewBox: '0 0 320 230',
+                    height: 230,
+                    children: (
+                        <>
+                            <defs>
+                                <marker id='ref-a' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'>
+                                    <path d='M0,0 L0,6 L8,3 z' fill='var(--primary)' />
+                                </marker>
+                            </defs>
+                            <T x={10} y={20} size={9} anchor='start' opacity={0.7}>STACK</T>
+                            <SketchBox x={10} y={32} w={140} h={44} title='x' sub='ঠিকানা' />
+                            <SketchBox x={170} y={32} w={140} h={44} title='y' sub='একই ঠিকানা' />
 
-            {/* left: primitives */}
-            <T x={14} y={22} size={9} anchor='start' bold accent>সংখ্যা: কপি হয়</T>
-            <rect x={14} y={34} width={340} height={110} fill='transparent'
-                stroke='currentColor' strokeOpacity={0.3} strokeWidth='1' strokeDasharray='5 4' />
-            <T x={30} y={52} size={9} anchor='start' opacity={0.7}>STACK</T>
-            <SketchBox x={30} y={62} w={140} h={40} title='a = 5' />
-            <SketchBox x={196} y={62} w={140} h={40} title='b = 5' />
-            <T x={184} y={128} size={9} body opacity={0.8}>
-                b তে আলাদা একটা ৫ বসে
-            </T>
-            <T x={14} y={166} size={9} anchor='start' body opacity={0.85}>
-                b বদলালে a এর কিছুই হয় না, কারণ দুইজনের কাছে নিজের কপি আছে।
-            </T>
+                            <path d='M 80 80 L 140 122' stroke='var(--primary)'
+                                strokeWidth='1.2' markerEnd='url(#ref-a)' />
+                            <path d='M 240 80 L 180 122' stroke='var(--primary)'
+                                strokeWidth='1.2' markerEnd='url(#ref-a)' />
 
-            {/* right: objects */}
-            <T x={406} y={22} size={9} anchor='start' bold accent>OBJECT: ভাগ হয়</T>
-            <rect x={406} y={34} width={340} height={110} fill='transparent'
-                stroke='currentColor' strokeOpacity={0.3} strokeWidth='1' strokeDasharray='5 4' />
-            <T x={422} y={52} size={9} anchor='start' opacity={0.7}>STACK</T>
-            <SketchBox x={422} y={62} w={140} h={40} title='x' sub='ঠিকানা' />
-            <SketchBox x={588} y={62} w={140} h={40} title='y' sub='একই ঠিকানা' />
+                            <T x={160} y={142} size={9} opacity={0.7}>HEAP</T>
+                            <rect x={54} y={150} width={212} height={48}
+                                fill='var(--primary)' fillOpacity={0.12}
+                                stroke='var(--primary)' strokeWidth='1.2' />
+                            <T x={160} y={172} size={11} bold accent>{'{ name: "Ripon" }'}</T>
+                            <T x={160} y={190} size={9} opacity={0.75}>একটাই Object</T>
 
-            <path d='M 492 106 L 560 176' stroke='var(--primary)' strokeWidth='1.2' markerEnd='url(#ref-a)' />
-            <path d='M 658 106 L 596 176' stroke='var(--primary)' strokeWidth='1.2' markerEnd='url(#ref-a)' />
-
-            <T x={578} y={198} size={9} anchor='middle' opacity={0.7}>HEAP</T>
-            <rect x={470} y={204} width={216} height={52}
-                fill='var(--primary)' fillOpacity={0.12}
-                stroke='var(--primary)' strokeWidth='1.2' />
-            <T x={578} y={226} size={11} bold accent>{'{ name: "Ripon" }'}</T>
-            <T x={578} y={244} size={9} opacity={0.75}>একটাই Object</T>
-
-            <T x={406} y={282} size={9} anchor='start' body opacity={0.85}>
-                y দিয়ে name বদলালে x দিয়ে দেখলেও নতুন নামটাই দেখা যাবে।
-            </T>
-        </Sketch>
+                            <T x={160} y={220} size={9} body opacity={0.85}>
+                                y দিয়ে বদলালে x ও বদলে যায়
+                            </T>
+                        </>
+                    ),
+                },
+            ]}
+        />
     );
 }

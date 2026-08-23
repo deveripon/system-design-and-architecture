@@ -61,6 +61,73 @@ export function Sketch({
     );
 }
 
+/**
+ * Two panels that sit side by side on a wide screen and stack into two rows on
+ * a phone. Better than one wide drawing for anything that is a comparison: a
+ * single SVG can only scroll sideways, and a comparison you have to scroll is
+ * not much of a comparison.
+ */
+export function SketchSplit({
+    label,
+    caption,
+    panels,
+}: {
+    label: string;
+    caption?: React.ReactNode;
+    panels: {
+        title: string;
+        sub?: string;
+        viewBox: string;
+        height: number;
+        minWidth?: number;
+        children: React.ReactNode;
+    }[];
+}) {
+    return (
+        <figure className='my-10 border border-border bg-card'>
+            <figcaption className='px-5 py-3 border-b border-border bg-muted/30'>
+                <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
+                    {label}
+                </span>
+            </figcaption>
+            <div className='grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border'>
+                {panels.map(panel => (
+                    <div key={panel.title} className='p-5 md:p-6'>
+                        <div className='flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-4'>
+                            <span className='font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary'>
+                                {panel.title}
+                            </span>
+                            {panel.sub && (
+                                <span className='font-mono text-[9px] text-muted-foreground'>
+                                    {panel.sub}
+                                </span>
+                            )}
+                        </div>
+                        <div className='overflow-x-auto'>
+                            <svg
+                                viewBox={panel.viewBox}
+                                style={{
+                                    minWidth: panel.minWidth ?? 260,
+                                    height: panel.height,
+                                }}
+                                className='w-full text-muted-foreground'
+                                role='img'
+                                aria-label={`${label}: ${panel.title}`}>
+                                {panel.children}
+                            </svg>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            {caption && (
+                <div className='px-5 py-3 border-t border-border bg-muted/20 text-xs text-muted-foreground leading-relaxed'>
+                    {caption}
+                </div>
+            )}
+        </figure>
+    );
+}
+
 /** A label inside a sketch. Mono by default, `body` for Bengali prose. */
 export function SketchText({
     x,
