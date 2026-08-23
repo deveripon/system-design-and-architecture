@@ -1,7 +1,6 @@
-import { MobileNav } from '@/components/course/mobile-nav';
-import { Sidebar } from '@/components/course/sidebar';
+import { DevopsMobileNav, DevopsSidebar } from '@/components/course/devops-nav';
 
-export default function TopicLayout({
+export default function DevopsTopicLayout({
     children,
 }: {
     children: React.ReactNode;
@@ -9,10 +8,10 @@ export default function TopicLayout({
     return (
         <div className='min-h-screen flex overflow-hidden'>
             {/* Desktop sidebar — hidden on mobile */}
-            <Sidebar />
+            <DevopsSidebar />
 
             {/* Mobile top bar + drawer */}
-            <MobileNav />
+            <DevopsMobileNav />
 
             {/* Main Content */}
             <main className='flex-1 lg:ml-84 bg-background pt-14 lg:pt-0'>
@@ -23,4 +22,3 @@ export default function TopicLayout({
         </div>
     );
 }
-

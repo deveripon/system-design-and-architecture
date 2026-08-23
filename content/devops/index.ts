@@ -1,0 +1,18 @@
+import { TopicData } from '../../types/content';
+
+/**
+ * Lesson content for the DevOps & Internet track.
+ *
+ * Every lesson page already exists and renders its header, metadata and
+ * prev/next navigation from `lib/devops-course-data.ts`. A lesson shows the
+ * "Content Coming Soon" placeholder until it gets an entry here.
+ *
+ * To write a lesson:
+ *   1. create `content/devops/<module-folder>/<nn>-<lesson-id>.tsx`
+ *      exporting a `TopicData` object (see `content/foundations/topics` for the
+ *      house style: 8 sections — Theory, Visual, Real Example, Project Example,
+ *      Hands-on, Quiz, Assignment, Recap),
+ *   2. import it below and map it to the lesson id used in
+ *      `lib/devops-course-data.ts`.
+ */
+export const devopsContentMap: Record<string, TopicData> = {};

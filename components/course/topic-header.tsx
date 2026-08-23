@@ -23,7 +23,7 @@ export function TopicHeader({
       <div className="flex flex-col gap-4 md:gap-6">
         <SubHeader index={topicNum} title={phase} />
         
-        <h1 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+        <h1 className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black uppercase tracking-tighter leading-[1.05] break-words hyphens-auto">
           {title}
         </h1>
 

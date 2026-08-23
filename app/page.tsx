@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { BorderCross } from '@/components/course/border-cross';
 import { Roadmap } from '@/components/course/roadmap';
 import { SubHeader } from '@/components/course/sub-header';
+import { TrackGrid } from '@/components/course/track-grid';
 import { ExploreButton } from '@/components/explore-button';
 import { ModeToggle } from '@/components/mode-toggle';
 
@@ -41,14 +42,14 @@ export default function Home() {
         <div className='min-h-screen bg-background relative overflow-clip'>
             {/* Grid background */}
             <div
-                className='fixed inset-0 pointer-events-none opacity-[0.05] dark:opacity-[0.03]'
+                className='fixed inset-0 pointer-events-none opacity-30 dark:opacity-20'
                 style={{
-                    backgroundImage: `linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px',
+                    backgroundImage: `linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)`,
+                    backgroundSize: '48px 48px',
                 }}
             />
 
-            <main className='max-w-6xl mx-auto px-4 md:px-6 pt-16 md:pt-24 pb-10 relative z-10'>
+            <main className='max-w-6xl xl:max-w-7xl mx-auto px-4 md:px-6 xl:px-10 pt-16 md:pt-24 pb-10 relative z-10'>
                 {/* Cool Hero Section with Stars */}
                 <BorderCross className='bg-primary/5 dark:bg-black/60 py-16 md:py-32 overflow-hidden'>
                     <div className='absolute inset-0 animate-stars' />
@@ -82,11 +83,28 @@ export default function Home() {
                     </div>
                 </BorderCross>
 
+                {/* Tracks */}
+                <section className='mt-24 md:mt-40'>
+                    <div className='mb-10 md:mb-16 px-2 md:px-5'>
+                        <SubHeader
+                            index='002'
+                            title='Curriculum Tracks'
+                            className='mb-4'
+                        />
+                        <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
+                            Pick Your Path
+                        </h2>
+                    </div>
+                    <BorderCross>
+                        <TrackGrid />
+                    </BorderCross>
+                </section>
+
                 {/* Curriculum Section */}
                 <section id='roadmap' className='mb-24 md:mb-40 mt-24 md:mt-40'>
                     <div className='mb-10 md:mb-16 px-2 md:px-5'>
                         <SubHeader
-                            index='002'
+                            index='003'
                             title='Full Curriculum'
                             className='mb-4'
                         />
@@ -103,7 +121,7 @@ export default function Home() {
                 <section className='mb-24 md:mb-40'>
                     <div className='mb-10 md:mb-16 px-2 md:px-5'>
                         <SubHeader
-                            index='003'
+                            index='004'
                             title='Interview Framework'
                             className='mb-4'
                         />
