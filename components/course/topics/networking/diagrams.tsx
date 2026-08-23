@@ -5,31 +5,31 @@ export const OSIModeDiagram = () => (
         <svg width="580" height="295" viewBox="0 0 580 295" className="mx-auto max-w-full">
             {/* Layer 7 */}
             <rect x="60" y="10" width="380" height="32" rx="3" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.5)" strokeWidth="1"/>
-            <text x="250" y="31" textAnchor="middle" fill="#fca5a5" fontFamily="inherit" fontSize="11" fontWeight="700">7 — APPLICATION</text>
+            <text x="250" y="31" textAnchor="middle" fill="#fca5a5" fontFamily="inherit" fontSize="11" fontWeight="700">7. APPLICATION</text>
             <text x="460" y="31" fill="#64748b" fontFamily="inherit" fontSize="10">HTTP, DNS, SMTP</text>
             {/* Layer 6 */}
             <rect x="60" y="47" width="380" height="32" rx="3" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.4)" strokeWidth="1"/>
-            <text x="250" y="68" textAnchor="middle" fill="#fdba74" fontFamily="inherit" fontSize="11" fontWeight="700">6 — PRESENTATION</text>
+            <text x="250" y="68" textAnchor="middle" fill="#fdba74" fontFamily="inherit" fontSize="11" fontWeight="700">6. PRESENTATION</text>
             <text x="460" y="68" fill="#64748b" fontFamily="inherit" fontSize="10">TLS, SSL, JSON</text>
             {/* Layer 5 */}
             <rect x="60" y="84" width="380" height="32" rx="3" fill="rgba(234,179,8,0.08)" stroke="rgba(234,179,8,0.4)" strokeWidth="1"/>
-            <text x="250" y="105" textAnchor="middle" fill="#fde047" fontFamily="inherit" fontSize="11" fontWeight="700">5 — SESSION</text>
+            <text x="250" y="105" textAnchor="middle" fill="#fde047" fontFamily="inherit" fontSize="11" fontWeight="700">5. SESSION</text>
             <text x="460" y="105" fill="#64748b" fontFamily="inherit" fontSize="10">NetBIOS, PPTP</text>
-            {/* Layer 4 — highlighted */}
+            {/* Layer 4, highlighted */}
             <rect x="55" y="121" width="390" height="36" rx="3" fill="rgba(204,107,69,0.12)" stroke="#cc6b45" strokeWidth="2"/>
-            <text x="250" y="144" textAnchor="middle" fill="#93c5fd" fontFamily="inherit" fontSize="12" fontWeight="700">4 — TRANSPORT  ★  Key Layer</text>
+            <text x="250" y="144" textAnchor="middle" fill="#93c5fd" fontFamily="inherit" fontSize="12" fontWeight="700">4. TRANSPORT  ★  Key Layer</text>
             <text x="460" y="144" fill="#cc6b45" fontFamily="inherit" fontSize="10">TCP, UDP</text>
-            {/* Layer 3 — highlighted */}
+            {/* Layer 3, highlighted */}
             <rect x="55" y="162" width="390" height="36" rx="3" fill="rgba(139,92,246,0.1)" stroke="#8b5cf6" strokeWidth="1.5"/>
-            <text x="250" y="185" textAnchor="middle" fill="#c4b5fd" fontFamily="inherit" fontSize="12" fontWeight="700">3 — NETWORK  ★  Key Layer</text>
+            <text x="250" y="185" textAnchor="middle" fill="#c4b5fd" fontFamily="inherit" fontSize="12" fontWeight="700">3. NETWORK  ★  Key Layer</text>
             <text x="460" y="185" fill="#8b5cf6" fontFamily="inherit" fontSize="10">IP, ICMP, ARP</text>
             {/* Layer 2 */}
             <rect x="60" y="203" width="380" height="32" rx="3" fill="rgba(16,185,129,0.07)" stroke="rgba(16,185,129,0.3)" strokeWidth="1"/>
-            <text x="250" y="224" textAnchor="middle" fill="#6ee7b7" fontFamily="inherit" fontSize="11" fontWeight="700">2 — DATA LINK</text>
+            <text x="250" y="224" textAnchor="middle" fill="#6ee7b7" fontFamily="inherit" fontSize="11" fontWeight="700">2. DATA LINK</text>
             <text x="460" y="224" fill="#64748b" fontFamily="inherit" fontSize="10">Ethernet, MAC</text>
             {/* Layer 1 */}
             <rect x="60" y="240" width="380" height="32" rx="3" fill="rgba(100,116,139,0.08)" stroke="rgba(100,116,139,0.3)" strokeWidth="1"/>
-            <text x="250" y="261" textAnchor="middle" fill="#94a3b8" fontFamily="inherit" fontSize="11" fontWeight="700">1 — PHYSICAL</text>
+            <text x="250" y="261" textAnchor="middle" fill="#94a3b8" fontFamily="inherit" fontSize="11" fontWeight="700">1. PHYSICAL</text>
             <text x="460" y="261" fill="#64748b" fontFamily="inherit" fontSize="10">Cables, Fiber</text>
             {/* Arrow label */}
             <text x="25" y="30" fill="#cc6b45" fontFamily="inherit" fontSize="9">USER</text>
@@ -64,7 +64,7 @@ export const TCPHandshakeDiagram = () => (
             {/* Data */}
             <path d="M 65 168 L 435 178" stroke="#eab308" strokeWidth="2" strokeDasharray="6,2" markerEnd="url(#ar3)"/>
             <text x="250" y="165" textAnchor="middle" fill="#fde047" fontFamily="inherit" fontSize="10">DATA TRANSFER শুরু</text>
-            <text x="250" y="200" textAnchor="middle" fill="#475569" fontFamily="inherit" fontSize="9">— Connection Established — এর পরেই data যায় —</text>
+            <text x="250" y="200" textAnchor="middle" fill="#475569" fontFamily="inherit" fontSize="9">Connection Established, এর পরেই data যায়</text>
         </svg>
     </div>
 );

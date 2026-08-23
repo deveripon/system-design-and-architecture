@@ -54,13 +54,13 @@ export const IndexingDiagram = () => (
             </defs>
             {/* Without index left panel */}
             <text x="120" y="18" textAnchor="middle" fill="#ef4444" className="font-mono text-[11px] font-bold">❌ WITHOUT INDEX</text>
-            <text x="120" y="33" textAnchor="middle" fill="#64748b" className="font-mono text-[9px]">O(n) — Full Table Scan</text>
+            <text x="120" y="33" textAnchor="middle" fill="#64748b" className="font-mono text-[9px]">O(n): Full Table Scan</text>
             <rect x="20" y="40" width="200" height="16" rx="2" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" />
-            <text x="120" y="52" textAnchor="middle" fill="#94a3b8" className="font-mono text-[9px]">Row 1: a@x.com — check... ✗</text>
+            <text x="120" y="52" textAnchor="middle" fill="#94a3b8" className="font-mono text-[9px]">Row 1: a@x.com, check... ✗</text>
             <rect x="20" y="60" width="200" height="16" rx="2" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" />
-            <text x="120" y="72" textAnchor="middle" fill="#94a3b8" className="font-mono text-[9px]">Row 2: b@x.com — check... ✗</text>
+            <text x="120" y="72" textAnchor="middle" fill="#94a3b8" className="font-mono text-[9px]">Row 2: b@x.com, check... ✗</text>
             <rect x="20" y="80" width="200" height="16" rx="2" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" />
-            <text x="120" y="92" textAnchor="middle" fill="#94a3b8" className="font-mono text-[9px]">Row 3: c@x.com — check... ✗</text>
+            <text x="120" y="92" textAnchor="middle" fill="#94a3b8" className="font-mono text-[9px]">Row 3: c@x.com, check... ✗</text>
             <text x="120" y="114" textAnchor="middle" fill="#475569" className="font-mono text-[10px]">· · · 1,000,000 rows · · ·</text>
             <text x="120" y="140" textAnchor="middle" fill="#ef4444" className="font-mono text-sm font-bold">~1 second 😱</text>
 
@@ -69,7 +69,7 @@ export const IndexingDiagram = () => (
 
             {/* With index right panel */}
             <text x="400" y="18" textAnchor="middle" fill="#10b981" className="font-mono text-[11px] font-bold">✅ WITH B-TREE INDEX</text>
-            <text x="400" y="33" textAnchor="middle" fill="#64748b" className="font-mono text-[9px]">O(log n) — Binary Search</text>
+            <text x="400" y="33" textAnchor="middle" fill="#64748b" className="font-mono text-[9px]">O(log n): Binary Search</text>
             <rect x="348" y="40" width="104" height="24" rx="3" fill="rgba(16,185,129,0.1)" stroke="#10b981" />
             <text x="400" y="56" textAnchor="middle" fill="#6ee7b7" className="font-mono text-[9px]">B-Tree Root</text>
             <path d="M 375 64 L 348 88" stroke="#10b981" strokeWidth="1" markerEnd="url(#ga)" />

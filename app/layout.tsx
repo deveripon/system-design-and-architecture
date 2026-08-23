@@ -31,7 +31,7 @@ if (!siteUrl.startsWith('http')) {
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
     title: {
-        default: 'System Design Mastery — Build for Scale',
+        default: 'System Design Mastery: Build for Scale',
         template: '%s | System Design Mastery',
     },
     description:
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
         alternateLocale: 'en_US',
         url: siteUrl,
         siteName: 'System Design Mastery',
-        title: 'System Design Mastery — Build for Scale',
+        title: 'System Design Mastery: Build for Scale',
         description:
             'A battle-tested curriculum for engineers to master distributed systems, cloud architecture, and system design interviews.',
         images: [
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'System Design Mastery — Build for Scale',
+        title: 'System Design Mastery: Build for Scale',
         description:
             'A battle-tested curriculum for engineers to master distributed systems and crack system design interviews.',
         creator: '@devripon',

@@ -123,6 +123,8 @@ export interface DevOpsLesson {
 export interface DevOpsModule {
     id: string;
     title: string;
+    /** Bengali name, kept separate so no dash is needed to join them. */
+    subtitle?: string;
     duration: string;
     topics: DevOpsLesson[];
 }
@@ -134,7 +136,7 @@ export const devopsTrack = {
     title: 'DevOps & Internet From Scratch',
     subtitle: 'From Browser to Production Infrastructure',
     description:
-        'এই Curriculum-এর লক্ষ্য শুধু DevOps শেখানো না। Docker command মুখস্থ করা নয় — যেকোনো Architecture Diagram দেখে বোঝা যে কেন এই Component এখানে আছে, Request কোথা দিয়ে যায়, এবং Production-এ সবকিছু কীভাবে একসাথে কাজ করে।',
+        'এই Curriculum-এর লক্ষ্য শুধু DevOps শেখানো না। Docker command মুখস্থ করা নয়। যেকোনো Architecture Diagram দেখে বোঝা যে কেন এই Component এখানে আছে, Request কোথা দিয়ে যায়, এবং Production-এ সবকিছু কীভাবে একসাথে কাজ করে।',
     goals: [
         'Internet কীভাবে কাজ করে সেটা ভিতর থেকে বোঝা',
         'Browser থেকে Request Database পর্যন্ত পুরো Journey ব্যাখ্যা করা',
@@ -149,7 +151,7 @@ export const devopsTrack = {
     lessonSteps: [
         {
             title: 'Theory',
-            description: 'কেন এই জিনিসটা দরকার — সমস্যাটা আগে, সমাধান পরে।',
+            description: 'কেন এই জিনিসটা দরকার। সমস্যাটা আগে, সমাধান পরে।',
         },
         {
             title: 'Visual Explanation',
@@ -182,18 +184,18 @@ export const devopsTrack = {
     ],
     /** What every lesson document must ship with, beyond the 8 steps above. */
     lessonDeliverables: [
-        'Real-life Example — গল্পের মতো বাস্তব উদাহরণ',
-        'Animation-style ASCII Diagram',
-        'Step-by-step Request Flow',
-        'Animation Story — Request এর চোখে পুরো যাত্রা',
-        'Hands-on Lab — নিজে হাতে করে দেখা',
-        'Mini Project — ছোট কিন্তু সম্পূর্ণ কাজ',
-        'Best Video Resources — বাছাই করা ভিডিও ও আর্টিকেল',
+        'Real-life Example: গল্পের মতো বাস্তব উদাহরণ',
+        'Sketch Diagram: হাতে আঁকা ছবির মতো পরিষ্কার',
+        'Step-by-step Request Flow: ধাপে ধাপে পুরো যাত্রা',
+        'Animation Story: চোখের সামনে চলতে দেখা',
+        'Hands-on Lab: নিজে হাতে করে দেখা',
+        'Mini Project: ছোট কিন্তু সম্পূর্ণ কাজ',
+        'Best Video Resources: বাছাই করা ভিডিও আর আর্টিকেল',
     ],
     outcomes: [
         'Architecture Diagram নিখুঁতভাবে পড়তে ও ডিজাইন করতে পারা',
         'Production System আত্মবিশ্বাসের সাথে Debug করা',
-        'VPS থেকে Cloud Infrastructure — ইনস অ্যান্ড আউটস জানা',
+        'VPS থেকে Cloud Infrastructure, ইনস অ্যান্ড আউটস জানা',
         'যেকোনো High-end Interview Board-এ Networking ও DevOps-এ লিড নেওয়া',
     ],
 };
@@ -201,7 +203,8 @@ export const devopsTrack = {
 export const devopsCourseData: DevOpsModule[] = [
     {
         id: 'computer-fundamentals',
-        title: 'Computer Fundamentals — কম্পিউটার বেসিক',
+        title: 'Computer Fundamentals',
+        subtitle: 'কম্পিউটার বেসিক',
         duration: '৫-৭ দিন',
         topics: [
             {
@@ -213,18 +216,18 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'কম্পিউটার সব কিছু ০ আর ১ দিয়ে রাখে — Bit, Byte আর Data আসলে কী।',
+                    'কম্পিউটার সব কিছু ০ আর ১ দিয়ে রাখে। Bit, Byte আর Data আসলে কী।',
             },
             {
                 id: 'cpu-basics',
-                title: 'CPU — How a Processor Thinks',
+                title: 'CPU: How a Processor Thinks',
                 icon: Microchip,
                 tag: 'FOUNDATION',
                 time: '২০-৩০ মিনিট',
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'CPU একটার পর একটা Instruction চালায় — Clock, Core আর Cache এর ভূমিকা।',
+                    'CPU একটার পর একটা Instruction চালায়। Clock, Core আর Cache এর ভূমিকা।',
             },
             {
                 id: 'memory-and-ram',
@@ -235,11 +238,11 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'Program চলার সময় Data কোথায় থাকে — RAM, Stack আর Heap এর পার্থক্য।',
+                    'Program চলার সময় Data কোথায় থাকে। RAM, Stack আর Heap এর পার্থক্য।',
             },
             {
                 id: 'storage-basics',
-                title: 'Storage — HDD, SSD and Filesystem',
+                title: 'Storage: HDD, SSD and Filesystem',
                 icon: HardDrive,
                 tag: 'FOUNDATION',
                 time: '২০-৩০ মিনিট',
@@ -257,7 +260,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'Kernel, User Space আর System Call — OS আসলে কী কাজ করে।',
+                    'Kernel, User Space আর System Call। OS আসলে কী কাজ করে।',
             },
             {
                 id: 'process-vs-thread',
@@ -285,7 +288,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'internet-fundamentals',
-        title: 'Internet Fundamentals — ইন্টারনেটের ভিত্তি',
+        title: 'Internet Fundamentals',
+        subtitle: 'ইন্টারনেটের ভিত্তি',
         duration: '৫-৭ দিন',
         topics: [
             {
@@ -297,7 +301,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'Internet আসলে কী — Cable, ISP আর Protocol-এর একটা বিশাল নেটওয়ার্ক কীভাবে এক হলো।',
+                    'Internet আসলে কী। Cable, ISP আর Protocol-এর একটা বিশাল নেটওয়ার্ক কীভাবে এক হলো।',
             },
             {
                 id: 'client-server-isp',
@@ -330,7 +334,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'Data ছোট ছোট Packet-এ ভাগ হয় — আর Latency আর Bandwidth কখনোই এক জিনিস না।',
+                    'Data ছোট ছোট Packet-এ ভাগ হয়, আর Latency আর Bandwidth কখনোই এক জিনিস না।',
             },
             {
                 id: 'how-data-travels',
@@ -341,7 +345,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'Submarine Cable থেকে Router Hop — Data আসলে কোন পথ ধরে গন্তব্যে পৌঁছায়।',
+                    'Submarine Cable থেকে Router Hop, Data আসলে কোন পথ ধরে গন্তব্যে পৌঁছায়।',
             },
             {
                 id: 'end-to-end-request-journey',
@@ -352,13 +356,14 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Deep Dive',
                 summary:
-                    'Browser-এ URL লেখা থেকে Database পর্যন্ত — পুরো Request Journey একসাথে।',
+                    'Browser-এ URL লেখা থেকে Database পর্যন্ত, পুরো Request Journey একসাথে।',
             },
         ],
     },
     {
         id: 'computer-networking',
-        title: 'Computer Networking — কম্পিউটার নেটওয়ার্কিং',
+        title: 'Computer Networking',
+        subtitle: 'কম্পিউটার নেটওয়ার্কিং',
         duration: '১-২ সপ্তাহ',
         topics: [
             {
@@ -370,7 +375,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Networking',
                 summary:
-                    'LAN, WAN, MAN — কোন Network কতটুকু এলাকা জুড়ে থাকে আর কেন।',
+                    'LAN, WAN, MAN। কোন Network কতটুকু এলাকা জুড়ে থাকে আর কেন।',
             },
             {
                 id: 'router-switch-hub',
@@ -381,7 +386,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Networking',
                 summary:
-                    'Router, Switch আর Hub — তিনটার কাজ আলাদা, কোনটা কোথায় লাগে।',
+                    'Router, Switch আর Hub। তিনটার কাজ আলাদা, কোনটা কোথায় লাগে।',
             },
             {
                 id: 'mac-address',
@@ -396,14 +401,14 @@ export const devopsCourseData: DevOpsModule[] = [
             },
             {
                 id: 'arp-protocol',
-                title: 'ARP — IP to MAC Resolution',
+                title: 'ARP: IP to MAC Resolution',
                 icon: Cable,
                 tag: 'CORE',
                 time: '২০-৩০ মিনিট',
                 level: 'Intermediate',
                 type: 'Networking',
                 summary:
-                    'IP জানা আছে, কিন্তু Frame পাঠাতে MAC দরকার — ARP সেই অনুবাদটা করে।',
+                    'IP জানা আছে, কিন্তু Frame পাঠাতে MAC দরকার। ARP সেই অনুবাদটা করে।',
             },
             {
                 id: 'ip-address',
@@ -447,7 +452,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Networking',
                 summary:
-                    'Local Network থেকে বাইরে বেরোনোর দরজা — Default Gateway এর কাজ।',
+                    'Local Network থেকে বাইরে বেরোনোর দরজা, Default Gateway এর কাজ।',
             },
             {
                 id: 'dhcp',
@@ -480,13 +485,14 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Case Walkthrough',
                 summary:
-                    'Mobile Data আর WiFi — তোমার ফোন আসলে কীভাবে Internet-এ যুক্ত হয়।',
+                    'Mobile Data আর WiFi, তোমার ফোন আসলে কীভাবে Internet-এ যুক্ত হয়।',
             },
         ],
     },
     {
         id: 'dns',
-        title: 'DNS — ডোমেইন নেম সিস্টেম',
+        title: 'DNS',
+        subtitle: 'ডোমেইন নেম সিস্টেম',
         duration: '১ সপ্তাহ',
         topics: [
             {
@@ -498,7 +504,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'Domain Name থেকে IP Address — Internet-এর Phonebook কীভাবে কাজ করে।',
+                    'Domain Name থেকে IP Address, Internet-এর Phonebook কীভাবে কাজ করে।',
             },
             {
                 id: 'domain-registrar-registry',
@@ -520,7 +526,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Theory',
                 summary:
-                    'Root Server থেকে TLD হয়ে Authoritative Server — DNS এর ধাপগুলো।',
+                    'Root Server থেকে TLD হয়ে Authoritative Server, DNS এর ধাপগুলো।',
             },
             {
                 id: 'recursive-resolver',
@@ -553,7 +559,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Hands-on Lab',
                 summary:
-                    'A, AAAA, CNAME, MX, TXT, NS, SRV — কোন Record ঠিক কী কাজ করে।',
+                    'A, AAAA, CNAME, MX, TXT, NS, SRV। কোন Record ঠিক কী কাজ করে।',
             },
             {
                 id: 'cloudflare-dns',
@@ -592,7 +598,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'tcp-ip',
-        title: 'TCP/IP & Transport Layer — ট্রান্সপোর্ট লেয়ার',
+        title: 'TCP/IP & Transport Layer',
+        subtitle: 'ট্রান্সপোর্ট লেয়ার',
         duration: '১ সপ্তাহ',
         topics: [
             {
@@ -604,7 +611,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'সাত Layer-এর OSI Model — প্রতিটা Layer আসলে কী দায়িত্ব নেয়।',
+                    'সাত Layer-এর OSI Model, প্রতিটা Layer আসলে কী দায়িত্ব নেয়।',
             },
             {
                 id: 'tcp-ip-model',
@@ -637,7 +644,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Deep Dive',
                 summary:
-                    'Connectionless, দ্রুত কিন্তু Unreliable — UDP ঠিক কোথায় ব্যবহার হয়।',
+                    'Connectionless, দ্রুত কিন্তু Unreliable। UDP ঠিক কোথায় ব্যবহার হয়।',
             },
             {
                 id: 'three-way-handshake',
@@ -648,7 +655,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Theory & Lab',
                 summary:
-                    'SYN, SYN-ACK, ACK — একটা Connection তৈরি হওয়ার তিন ধাপ।',
+                    'SYN, SYN-ACK, ACK। একটা Connection তৈরি হওয়ার তিন ধাপ।',
             },
             {
                 id: 'packet-segment-frame',
@@ -681,13 +688,14 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Theory',
                 summary:
-                    'FIN, ACK আর TIME_WAIT — Connection ভদ্রভাবে বন্ধ করার নিয়ম।',
+                    'FIN, ACK আর TIME_WAIT। Connection ভদ্রভাবে বন্ধ করার নিয়ম।',
             },
         ],
     },
     {
         id: 'http-https',
-        title: 'HTTP & HTTPS — ওয়েব প্রোটোকল',
+        title: 'HTTP & HTTPS',
+        subtitle: 'ওয়েব প্রোটোকল',
         duration: '১ সপ্তাহ',
         topics: [
             {
@@ -699,7 +707,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'URL, URI আর URN — Scheme, Host, Path, Query কীভাবে সাজানো থাকে।',
+                    'URL, URI আর URN। Scheme, Host, Path, Query কীভাবে সাজানো থাকে।',
             },
             {
                 id: 'http-basics',
@@ -754,7 +762,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Deep Dive',
                 summary:
-                    'Server Session আর JWT — কোনটা কখন, আর Trade-off ঠিক কোথায়।',
+                    'Server Session আর JWT। কোনটা কখন, আর Trade-off ঠিক কোথায়।',
             },
             {
                 id: 'https-tls-ssl',
@@ -787,7 +795,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Deep Dive',
                 summary:
-                    'একটা HTTPS Request-এর পুরো Journey — DNS থেকে Encrypted Response।',
+                    'একটা HTTPS Request-এর পুরো Journey, DNS থেকে Encrypted Response।',
             },
             {
                 id: 'websocket-realtime',
@@ -798,13 +806,14 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Deep Dive',
                 summary:
-                    'HTTP Upgrade থেকে WebSocket — Server নিজে থেকে Message পাঠায় কীভাবে।',
+                    'HTTP Upgrade থেকে WebSocket, Server নিজে থেকে Message পাঠায় কীভাবে।',
             },
         ],
     },
     {
         id: 'linux-vps',
-        title: 'Linux & VPS Fundamentals — লিনাক্স ও ভিপিএস',
+        title: 'Linux & VPS Fundamentals',
+        subtitle: 'লিনাক্স ও ভিপিএস',
         duration: '১-২ সপ্তাহ',
         topics: [
             {
@@ -816,7 +825,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Hands-on Lab',
                 summary:
-                    '/etc, /var, /usr, /home — Linux Filesystem-এর গঠন আর কোথায় কী থাকে।',
+                    '/etc, /var, /usr, /home। Linux Filesystem-এর গঠন আর কোথায় কী থাকে।',
             },
             {
                 id: 'process-management-systemd',
@@ -849,7 +858,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Hands-on Lab',
                 summary:
-                    'chmod, chown, User আর Group — Permission ঠিকভাবে সাজানো।',
+                    'chmod, chown, User আর Group। Permission ঠিকভাবে সাজানো।',
             },
             {
                 id: 'environment-variables',
@@ -893,7 +902,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Hands-on Lab',
                 summary:
-                    'top, htop, df, free — Server-এর CPU, RAM, Disk এর অবস্থা পড়া।',
+                    'top, htop, df, free। Server-এর CPU, RAM, Disk এর অবস্থা পড়া।',
             },
             {
                 id: 'network-debugging',
@@ -921,7 +930,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'backend-runtime',
-        title: 'Backend Runtime — Node.js ভেতর থেকে',
+        title: 'Backend Runtime',
+        subtitle: 'Node.js ভেতর থেকে',
         duration: '১-২ সপ্তাহ',
         topics: [
             {
@@ -933,7 +943,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Deep Dive',
                 summary:
-                    'Node.js আসলে V8 আর libuv এর জোড়া — ভেতরে কে কী করে।',
+                    'Node.js আসলে V8 আর libuv এর জোড়া, ভেতরে কে কী করে।',
             },
             {
                 id: 'event-loop',
@@ -944,7 +954,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Deep Dive',
                 summary:
-                    'Timer, Poll, Check, Microtask — Event Loop প্রতিটা ধাপে কী করে।',
+                    'Timer, Poll, Check, Microtask। Event Loop প্রতিটা ধাপে কী করে।',
             },
             {
                 id: 'libuv-threadpool',
@@ -1005,7 +1015,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'backend-architecture',
-        title: 'Backend Architecture — NestJS ও API Layer',
+        title: 'Backend Architecture',
+        subtitle: 'NestJS ও API Layer',
         duration: '১-২ সপ্তাহ',
         topics: [
             {
@@ -1039,7 +1050,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Hands-on Lab',
                 summary:
-                    'Login থেকে Token Refresh — নিরাপদ Authentication বাস্তবায়ন।',
+                    'Login থেকে Token Refresh, নিরাপদ Authentication বাস্তবায়ন।',
             },
             {
                 id: 'authorization-rbac',
@@ -1050,7 +1061,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Hands-on Lab',
                 summary:
-                    'কে কী করতে পারবে — Role, Permission আর Guard দিয়ে নিয়ন্ত্রণ।',
+                    'কে কী করতে পারবে। Role, Permission আর Guard দিয়ে নিয়ন্ত্রণ।',
             },
             {
                 id: 'backend-caching',
@@ -1083,7 +1094,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Hands-on Lab',
                 summary:
-                    'ভারী কাজ Queue-তে পাঠিয়ে Worker দিয়ে করানো — Retry আর DLQ।',
+                    'ভারী কাজ Queue-তে পাঠিয়ে Worker দিয়ে করানো, Retry আর DLQ।',
             },
             {
                 id: 'background-jobs-scheduling',
@@ -1100,7 +1111,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'docker',
-        title: 'Docker & Containerization — কন্টেইনারাইজেশন',
+        title: 'Docker & Containerization',
+        subtitle: 'কন্টেইনারাইজেশন',
         duration: '১-২ সপ্তাহ',
         topics: [
             {
@@ -1112,7 +1124,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'Container আর Virtual Machine — একইরকম দেখতে, ভেতরে সম্পূর্ণ আলাদা।',
+                    'Container আর Virtual Machine। একইরকম দেখতে, ভেতরে সম্পূর্ণ আলাদা।',
             },
             {
                 id: 'docker-images-layers',
@@ -1134,7 +1146,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Hands-on Lab',
                 summary:
-                    'Container বন্ধ হলে Data কোথায় যায় — Volume আর Bind Mount এর পার্থক্য।',
+                    'Container বন্ধ হলে Data কোথায় যায়, Volume আর Bind Mount এর পার্থক্য।',
             },
             {
                 id: 'docker-networking',
@@ -1145,7 +1157,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Deep Dive',
                 summary:
-                    'Bridge, Host আর Overlay Network — Container-রা কীভাবে কথা বলে।',
+                    'Bridge, Host আর Overlay Network। Container-রা কীভাবে কথা বলে।',
             },
             {
                 id: 'docker-dns',
@@ -1167,7 +1179,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Hands-on Lab',
                 summary:
-                    'একাধিক Container একসাথে চালানো — Compose File-এর গঠন আর নিয়ম।',
+                    'একাধিক Container একসাথে চালানো, Compose File-এর গঠন আর নিয়ম।',
             },
             {
                 id: 'multi-stage-builds',
@@ -1184,7 +1196,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'reverse-proxy',
-        title: 'Reverse Proxy & Web Servers — রিভার্স প্রক্সি',
+        title: 'Reverse Proxy & Web Servers',
+        subtitle: 'রিভার্স প্রক্সি',
         duration: '১ সপ্তাহ',
         topics: [
             {
@@ -1196,7 +1209,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'Forward Proxy আর Reverse Proxy — কে আসলে কার হয়ে কথা বলে।',
+                    'Forward Proxy আর Reverse Proxy, কে আসলে কার হয়ে কথা বলে।',
             },
             {
                 id: 'nginx-deep-dive',
@@ -1207,7 +1220,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Hands-on Lab',
                 summary:
-                    'Nginx Config এর গঠন — Server Block, Location আর Upstream।',
+                    'Nginx Config এর গঠন। Server Block, Location আর Upstream।',
             },
             {
                 id: 'caddy-server',
@@ -1268,7 +1281,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'cloud-infrastructure',
-        title: 'Cloud Infrastructure Concepts — ক্লাউড ইনফ্রাস্ট্রাকচার',
+        title: 'Cloud Infrastructure Concepts',
+        subtitle: 'ক্লাউড ইনফ্রাস্ট্রাকচার',
         duration: '১ সপ্তাহ',
         topics: [
             {
@@ -1280,7 +1294,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'VPS, Dedicated Server আর VM — কোনটা কখন দরকার আর খরচ কেমন।',
+                    'VPS, Dedicated Server আর VM। কোনটা কখন দরকার আর খরচ কেমন।',
             },
             {
                 id: 'hypervisors',
@@ -1291,7 +1305,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Theory',
                 summary:
-                    'একটা Physical Machine থেকে অনেক Server — Hypervisor এর কাজ।',
+                    'একটা Physical Machine থেকে অনেক Server, Hypervisor এর কাজ।',
             },
             {
                 id: 'cdn-edge-computing',
@@ -1313,7 +1327,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Theory & Lab',
                 summary:
-                    'Edge-এ Code চালানো — Latency কমানোর সবচেয়ে নতুন উপায়।',
+                    'Edge-এ Code চালানো, Latency কমানোর সবচেয়ে নতুন উপায়।',
             },
             {
                 id: 'object-vs-block-storage',
@@ -1335,7 +1349,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Trade-off Analysis',
                 summary:
-                    'Managed Database নেবে নাকি নিজে Host করবে — খরচ আর ঝুঁকির হিসাব।',
+                    'Managed Database নেবে নাকি নিজে Host করবে, খরচ আর ঝুঁকির হিসাব।',
             },
             {
                 id: 'serverless-architecture',
@@ -1374,7 +1388,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'scaling-ha',
-        title: 'Scaling & High Availability — স্কেলিং ও এইচএ',
+        title: 'Scaling & High Availability',
+        subtitle: 'স্কেলিং ও এইচএ',
         duration: '১ সপ্তাহ',
         topics: [
             {
@@ -1386,7 +1401,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Deep Dive',
                 summary:
-                    'Layer 4 আর Layer 7 Load Balancer — কোনটা কী দেখে সিদ্ধান্ত নেয়।',
+                    'Layer 4 আর Layer 7 Load Balancer, কোনটা কী দেখে সিদ্ধান্ত নেয়।',
             },
             {
                 id: 'sticky-sessions',
@@ -1397,7 +1412,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Theory',
                 summary:
-                    'একই User বারবার একই Server-এ পাঠানো — কখন দরকার, কী সমস্যা।',
+                    'একই User বারবার একই Server-এ পাঠানো। কখন দরকার, কী সমস্যা।',
             },
             {
                 id: 'horizontal-vs-vertical-scaling',
@@ -1408,7 +1423,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Beginner',
                 type: 'Theory',
                 summary:
-                    'বড় Server নেবে নাকি বেশি Server নেবে — কখন কোনটা সঠিক।',
+                    'বড় Server নেবে নাকি বেশি Server নেবে, কখন কোনটা সঠিক।',
             },
             {
                 id: 'health-checks-circuit-breakers',
@@ -1430,7 +1445,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Theory',
                 summary:
-                    'Traffic বাড়লে Server নিজে নিজে বাড়ে — ভেতরের হিসাবটা কী।',
+                    'Traffic বাড়লে Server নিজে নিজে বাড়ে, ভেতরের হিসাবটা কী।',
             },
             {
                 id: 'high-availability',
@@ -1452,13 +1467,14 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Architecture',
                 summary:
-                    'Primary পড়ে গেলে কে দায়িত্ব নেবে — Failover Plan সাজানো।',
+                    'Primary পড়ে গেলে কে দায়িত্ব নেবে, Failover Plan সাজানো।',
             },
         ],
     },
     {
         id: 'databases-caching',
-        title: 'Advanced Databases & Caching — ডেটাবেস ও ক্যাশিং',
+        title: 'Advanced Databases & Caching',
+        subtitle: 'ডেটাবেস ও ক্যাশিং',
         duration: '১ সপ্তাহ',
         topics: [
             {
@@ -1481,7 +1497,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Deep Dive',
                 summary:
-                    'PostgreSQL একই Row-এর অনেক Version রাখে কেন — MVCC, Vacuum আর Table Bloat।',
+                    'PostgreSQL একই Row-এর অনেক Version রাখে কেন। MVCC, Vacuum আর Table Bloat।',
             },
             {
                 id: 'connection-pooling-pgbouncer',
@@ -1514,7 +1530,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Deep Dive',
                 summary:
-                    'Cache Aside, Write Through, Write Back — কোনটা কখন বেছে নেবে।',
+                    'Cache Aside, Write Through, Write Back। কোনটা কখন বেছে নেবে।',
             },
             {
                 id: 'read-replicas-lag',
@@ -1542,7 +1558,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'cicd',
-        title: 'CI/CD & Production Deployment — সিআই/সিডি',
+        title: 'CI/CD & Production Deployment',
+        subtitle: 'সিআই/সিডি',
         duration: '১-২ সপ্তাহ',
         topics: [
             {
@@ -1554,7 +1571,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Theory',
                 summary:
-                    'Git Flow আর Trunk-Based Development — Team-এ আসলে কোনটা কাজ করে।',
+                    'Git Flow আর Trunk-Based Development, Team-এ আসলে কোনটা কাজ করে।',
             },
             {
                 id: 'github-actions',
@@ -1631,7 +1648,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Reliability',
                 summary:
-                    'Deploy ভেঙে গেলে দ্রুত পিছিয়ে আসা — Rollback Plan আর Database এর ফাঁদ।',
+                    'Deploy ভেঙে গেলে দ্রুত পিছিয়ে আসা, Rollback Plan আর Database এর ফাঁদ।',
             },
             {
                 id: 'pipeline-secrets-management',
@@ -1648,7 +1665,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'observability',
-        title: 'Observability — Monitoring ও Debugging',
+        title: 'Observability',
+        subtitle: 'Monitoring ও Debugging',
         duration: '১ সপ্তাহ',
         topics: [
             {
@@ -1660,7 +1678,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Intermediate',
                 type: 'Ops & Monitoring',
                 summary:
-                    'Log, Metric আর Trace — Production-এ কী হচ্ছে বোঝার তিন স্তম্ভ।',
+                    'Log, Metric আর Trace। Production-এ কী হচ্ছে বোঝার তিন স্তম্ভ।',
             },
             {
                 id: 'structured-logging',
@@ -1704,7 +1722,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Hands-on Lab',
                 summary:
-                    'একটা Request কোন Service-এ কত সময় নিল — Trace করে বের করা।',
+                    'একটা Request কোন Service-এ কত সময় নিল, Trace করে বের করা।',
             },
             {
                 id: 'alerting-systems',
@@ -1721,7 +1739,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'island-tours-case-study',
-        title: 'Case Study: Island Tours Production — কেস স্টাডি',
+        title: 'Case Study: Island Tours Production',
+        subtitle: 'কেস স্টাডি',
         duration: '১ সপ্তাহ',
         topics: [
             {
@@ -1832,13 +1851,14 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Architecture Review',
                 summary:
-                    'পুরো Architecture আবার পড়া — এখানে Request কেন গেল, এই Component কেন দরকার।',
+                    'পুরো Architecture আবার পড়া। এখানে Request কেন গেল, এই Component কেন দরকার।',
             },
         ],
     },
     {
         id: 'advanced-infrastructure',
-        title: 'Advanced Infrastructure & Distributed Systems — অ্যাডভান্সড ইনফ্রা',
+        title: 'Advanced Infrastructure & Distributed Systems',
+        subtitle: 'অ্যাডভান্সড ইনফ্রা',
         duration: '৩-৪ সপ্তাহ',
         topics: [
             {
@@ -1911,7 +1931,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 type: 'Architecture',
                 group: 'Advanced Database Architecture',
                 summary:
-                    'Vertical আর Horizontal Partitioning — কখন সত্যিই দরকার হয়।',
+                    'Vertical আর Horizontal Partitioning, কখন সত্যিই দরকার হয়।',
             },
             {
                 id: 'database-sharding-consistent-hashing',
@@ -1935,7 +1955,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 type: 'Deep Dive',
                 group: 'Distributed Systems',
                 summary:
-                    'Consistency, Availability, Partition Tolerance — বাস্তব Trade-off।',
+                    'Consistency, Availability, Partition Tolerance। বাস্তব Trade-off।',
             },
             {
                 id: 'consistency-models',
@@ -1947,7 +1967,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 type: 'Deep Dive',
                 group: 'Distributed Systems',
                 summary:
-                    'Strong আর Eventual Consistency — User আসলে কী অনুভব করে।',
+                    'Strong আর Eventual Consistency, User আসলে কী অনুভব করে।',
             },
             {
                 id: 'distributed-caching',
@@ -1959,7 +1979,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 type: 'Architecture',
                 group: 'Distributed Systems',
                 summary:
-                    'একাধিক Node জুড়ে Cache — Invalidation আর Hot Key সমস্যা।',
+                    'একাধিক Node জুড়ে Cache, Invalidation আর Hot Key সমস্যা।',
             },
             {
                 id: 'message-queues-basics',
@@ -1971,7 +1991,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 type: 'Async Systems',
                 group: 'Distributed Systems',
                 summary:
-                    'RabbitMQ আর Kafka — Queue আর Stream এর মৌলিক পার্থক্য।',
+                    'RabbitMQ আর Kafka, Queue আর Stream এর মৌলিক পার্থক্য।',
             },
             {
                 id: 'event-driven-architecture',
@@ -1983,7 +2003,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 type: 'Architecture',
                 group: 'Distributed Systems',
                 summary:
-                    'Event দিয়ে Service আলাদা রাখা — সুবিধা আর লুকানো জটিলতা।',
+                    'Event দিয়ে Service আলাদা রাখা, সুবিধা আর লুকানো জটিলতা।',
             },
             {
                 id: 'network-vs-object-storage',
@@ -2019,7 +2039,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 type: 'Security',
                 group: 'Storage & Security',
                 summary:
-                    'OAuth 2.0, OIDC আর API Key — কে আসলে কী প্রমাণ করে।',
+                    'OAuth 2.0, OIDC আর API Key। কে আসলে কী প্রমাণ করে।',
             },
             {
                 id: 'web-security-practices',
@@ -2097,7 +2117,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'kubernetes',
-        title: 'Kubernetes — Container Orchestration',
+        title: 'Kubernetes',
+        subtitle: 'Container Orchestration',
         duration: '২ সপ্তাহ',
         topics: [
             {
@@ -2142,7 +2163,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'Hands-on Lab',
                 summary:
-                    'Pod বদলে গেলেও একটা স্থির ঠিকানা — Service কীভাবে দেয়।',
+                    'Pod বদলে গেলেও একটা স্থির ঠিকানা, Service কীভাবে দেয়।',
             },
             {
                 id: 'k8s-ingress',
@@ -2181,7 +2202,8 @@ export const devopsCourseData: DevOpsModule[] = [
     },
     {
         id: 'applied-system-design',
-        title: 'Applied System Design — বাস্তব Feature Design',
+        title: 'Applied System Design',
+        subtitle: 'বাস্তব Feature Design',
         duration: '২-৩ সপ্তাহ',
         topics: [
             {
@@ -2193,7 +2215,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'System Design Case',
                 summary:
-                    'Signup থেকে Session, Refresh আর Device Logout — পুরো Auth Flow ডিজাইন।',
+                    'Signup থেকে Session, Refresh আর Device Logout। পুরো Auth Flow ডিজাইন।',
             },
             {
                 id: 'design-file-upload',
@@ -2226,7 +2248,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Advanced',
                 type: 'System Design Case',
                 summary:
-                    'Email, Push, SMS আর In-app — একটা Notification Service ডিজাইন।',
+                    'Email, Push, SMS আর In-app। একটা Notification Service ডিজাইন।',
             },
             {
                 id: 'design-booking-system',
@@ -2248,7 +2270,7 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Expert',
                 type: 'System Design Case',
                 summary:
-                    'একই App-এ অনেক Client — Data আলাদা রাখার তিনটা কৌশল।',
+                    'একই App-এ অনেক Client, Data আলাদা রাখার তিনটা কৌশল।',
             },
             {
                 id: 'design-microservices-migration',
@@ -2270,13 +2292,13 @@ export const devopsCourseData: DevOpsModule[] = [
                 level: 'Expert',
                 type: 'System Design Case',
                 summary:
-                    'Event, Consumer আর Replay — বাস্তব Event-driven Architecture ডিজাইন।',
+                    'Event, Consumer আর Replay। বাস্তব Event-driven Architecture ডিজাইন।',
             },
         ],
     },
 ];
 
-/** Every lesson in track order — used for prev/next, sitemap and static params. */
+/** Every lesson in track order, for prev/next, sitemap and static params. */
 export const devopsLessons: DevOpsLesson[] = devopsCourseData.flatMap(
     section => section.topics
 );

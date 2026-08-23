@@ -10,7 +10,7 @@ const TRACKS = [
         eyebrow: 'Track 01',
         title: 'System Design Mastery',
         description:
-            'Scalability, Databases, Distributed Systems আর Real-world Case Study — Interview আর Architecture দুটোর জন্যই।',
+            'Scalability, Databases, Distributed Systems আর Real-world Case Study। Interview আর Architecture দুটোর জন্যই।',
         href: '#roadmap',
         cta: 'View Roadmap',
         sections: courseData.length,
@@ -23,7 +23,7 @@ const TRACKS = [
         eyebrow: 'Track 02',
         title: 'DevOps & Internet From Scratch',
         description:
-            'Browser থেকে Production Infrastructure — Internet, DNS, TCP/IP, Linux, Docker, Reverse Proxy, CI/CD আর Cloud।',
+            'Browser থেকে Production Infrastructure পর্যন্ত। Internet, DNS, TCP/IP, Linux, Docker, Reverse Proxy, CI/CD আর Cloud।',
         href: '/devops',
         cta: 'Open Track',
         sections: devopsCourseData.length,

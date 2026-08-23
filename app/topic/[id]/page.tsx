@@ -21,7 +21,7 @@ export async function generateMetadata({
 
   const title = topic.title;
   const description = topic.summary
-    ? `${topic.summary} — Part of "${phase?.title}" in System Design Mastery.`
+    ? `${topic.summary} Part of ${phase?.title} in System Design Mastery.`
     : `Deep dive into ${topic.title}. Part of the System Design Mastery curriculum.`;
   const url = `/topic/${topicId}`;
 

@@ -50,6 +50,8 @@ export interface Topic {
 export interface CoursePhase {
     id: string;
     title: string;
+    /** Bengali name, kept separate so no dash is needed to join them. */
+    subtitle?: string;
     duration: string;
     topics: Topic[];
 }
@@ -57,7 +59,8 @@ export interface CoursePhase {
 export const courseData: CoursePhase[] = [
     {
         id: 'phase-0',
-        title: 'Introduction - ভূমিকা ',
+        title: 'Introduction',
+        subtitle: 'ভূমিকা',
         duration: '10 মিনিট',
         topics: [
             {
@@ -87,7 +90,8 @@ export const courseData: CoursePhase[] = [
     },
     {
         id: 'phase-1',
-        title: 'Foundations — ভিত্তি তৈরি',
+        title: 'Foundations',
+        subtitle: 'ভিত্তি তৈরি',
         duration: '৪-৬ সপ্তাহ',
         topics: [
             {
@@ -122,7 +126,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Intermediate',
                 type: 'Traffic Management',
                 summary:
-                    'Traffic কীভাবে distribute করবেন — algorithms, health checks, sticky sessions।',
+                    'Traffic কীভাবে distribute করবেন: algorithms, health checks, sticky sessions।',
                 details:
                     'Round Robin, Least Connections algorithms। L4 vs L7 balancing। Health checks এবং SSL termination।',
                 tools: ['Nginx', 'HAProxy', 'AWS ALB'],
@@ -141,7 +145,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Beginner',
                 type: 'Foundations',
                 summary:
-                    'TCP/IP, DNS, HTTP/HTTPS, WebSocket — সিস্টেম ডিজাইনের জন্য যা জানা মাস্ট।',
+                    'TCP/IP, DNS, HTTP/HTTPS, WebSocket। সিস্টেম ডিজাইনের জন্য যা জানা মাস্ট।',
                 details:
                     'DNS resolution কীভাবে কাজ করে। TCP vs UDP কখন কোনটা। HTTP/2 vs HTTP/3 সুবিধা। WebSocket দিয়ে real-time communication।',
                 tools: ['Wireshark', 'curl', 'Postman'],
@@ -174,7 +178,8 @@ export const courseData: CoursePhase[] = [
     },
     {
         id: 'phase-2',
-        title: 'Databases & Storage — ডেটাবেস এবং স্টোরেজ',
+        title: 'Databases & Storage',
+        subtitle: 'ডেটাবেস এবং স্টোরেজ',
         duration: '৬-৮ সপ্তাহ',
         topics: [
             {
@@ -186,7 +191,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Intermediate',
                 type: 'Theory & Labs',
                 summary:
-                    'SQL vs NoSQL, ACID properties, indexes, transactions — সবকিছু ক্লিয়ার করুন।',
+                    'SQL vs NoSQL, ACID properties, indexes, transactions। সবকিছু ক্লিয়ার করুন।',
                 details:
                     'Relational vs Unstructured data। PostgreSQL, MongoDB, Redis এর পার্থক্য। Indexing এবং Query optimization এর গুরুত্ব।',
                 tools: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch'],
@@ -224,7 +229,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'Database Scaling',
                 summary:
-                    'Large-scale database management — horizontal partitioning এবং data redundancy।',
+                    'Large-scale database management, horizontal partitioning এবং data redundancy।',
                 details:
                     'Range-based, Hash-based, Consistent hashing strategies। Master-Slave এবং Multi-region replication।',
                 useCases: [
@@ -242,7 +247,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'Architectural Theory',
                 summary:
-                    'Consistency, Availability, Partition Tolerance — distributed system এর মূল ত্রিভুজ।',
+                    'Consistency, Availability, Partition Tolerance: distributed system এর মূল ত্রিভুজ।',
                 details:
                     'তিনটার মধ্যে দুটো choose করতে হয়। CA vs CP vs AP। Eventual vs Strong consistency। Distributed systems এ trade-offs বোঝার মূল মন্ত্র।',
                 useCases: [
@@ -255,7 +260,8 @@ export const courseData: CoursePhase[] = [
     },
     {
         id: 'phase-3',
-        title: 'Distributed Systems — ডিস্ট্রিবিউটেড সিস্টেম',
+        title: 'Distributed Systems',
+        subtitle: 'ডিস্ট্রিবিউটেড সিস্টেম',
         duration: '৬-৮ সপ্তাহ',
         topics: [
             {
@@ -267,7 +273,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Intermediate',
                 type: 'Async Systems',
                 summary:
-                    'Async communication, decoupling services — modern distributed system এর মেরুদণ্ড।',
+                    'Async communication, decoupling services: modern distributed system এর মেরুদণ্ড।',
                 details:
                     'Queue vs Stream। RabbitMQ vs Kafka। Event sourcing and Pub/Sub patterns। Dead letter queues (DLQ)।',
                 tools: ['Kafka', 'RabbitMQ', 'AWS SQS'],
@@ -324,7 +330,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'Deep Theory',
                 summary:
-                    'Raft, Paxos, leader election — distributed system এ agreement কীভাবে হয়।',
+                    'Raft, Paxos, leader election: distributed system এ agreement কীভাবে হয়।',
                 details:
                     'Leader election algorithms, distributed locking, and coordination in distributed clusters।',
                 tools: ['Zookeeper', 'etcd', 'Consul'],
@@ -343,7 +349,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Intermediate',
                 type: 'System Reliability',
                 summary:
-                    'Cascading failures থামানো — Circuit Breaker, Retry, Timeout patterns।',
+                    'Cascading failures থামানো। Circuit Breaker, Retry, Timeout patterns।',
                 details:
                     'Implementing fault tolerance to prevent one service failure from bringing down the entire system।',
                 tools: ['Resilience4j', 'Hystrix', 'Polly'],
@@ -362,7 +368,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Intermediate',
                 type: 'Resource Protection',
                 summary:
-                    'DDoS protection, fair usage — Token Bucket, Sliding Window algorithms।',
+                    'DDoS protection, fair usage। Token Bucket, Sliding Window algorithms।',
                 details:
                     'Implementing global and per-user limits to protect system resources and prevent abuse।',
                 tools: ['Redis', 'Kong', 'Cloudflare WAF'],
@@ -381,7 +387,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Intermediate',
                 type: 'Service Mesh',
                 summary:
-                    'Microservices এ services কীভাবে একে অপরকে খুঁজে পায় — Client-side, Server-side discovery।',
+                    'Microservices এ services কীভাবে একে অপরকে খুঁজে পায়। Client-side, Server-side discovery।',
                 details:
                     'Service registry patterns, health checking, DNS-based vs API-based discovery। Consul, etcd, Eureka তুলনা।',
                 tools: ['Consul', 'Eureka', 'etcd', 'Kubernetes DNS'],
@@ -400,7 +406,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'Transaction Management',
                 summary:
-                    'Distributed transaction সমস্যার সমাধান — Choreography vs Orchestration Saga।',
+                    'Distributed transaction সমস্যার সমাধান, Choreography vs Orchestration Saga।',
                 details:
                     'Long-running transactions across services, compensating transactions, and eventual consistency patterns।',
                 tools: ['Kafka', 'Temporal', 'Axon Framework'],
@@ -414,7 +420,8 @@ export const courseData: CoursePhase[] = [
     },
     {
         id: 'phase-4',
-        title: 'Real-World Systems — বাস্তব সিস্টেম ডিজাইন',
+        title: 'Real-World Systems',
+        subtitle: 'বাস্তব সিস্টেম ডিজাইন',
         duration: '৬-৮ সপ্তাহ',
         topics: [
             {
@@ -426,7 +433,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'System Design Case',
                 summary:
-                    '১০০M+ user, tweets, timeline, notifications — popular interview question।',
+                    '১০০M+ user, tweets, timeline, notifications: popular interview question।',
                 details:
                     'Timeline generation, Fanout models, Celebrity problems, and Real-time notifications architecture।',
                 tools: ['Cassandra', 'Redis', 'Kafka'],
@@ -445,7 +452,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'System Design Case',
                 summary:
-                    'Video upload, encoding, streaming, CDN — media system এর জটিলতা।',
+                    'Video upload, encoding, streaming, CDN: media system এর জটিলতা।',
                 details:
                     'Video processing pipelines, Adaptive bitrate streaming (ABR), and global CDN distribution strategies।',
                 tools: ['FFmpeg', 'S3', 'CloudFront'],
@@ -464,7 +471,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Beginner',
                 type: 'System Design Case',
                 summary:
-                    'Simple কিন্তু tricky — hash collision, redirect latency, analytics।',
+                    'Simple কিন্তু tricky: hash collision, redirect latency, analytics।',
                 details:
                     'Key generation service (KGS), Base62 encoding, and designing for extremely high read traffic।',
                 useCases: [
@@ -501,7 +508,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'System Design Case',
                 summary:
-                    'Product catalog, inventory, orders, payment — পুরো e-commerce।',
+                    'Product catalog, inventory, orders, payment। পুরো e-commerce।',
                 details:
                     'Distributed transactions, Inventory management during flash sales, and Search/Recommendation systems।',
                 useCases: [
@@ -519,7 +526,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'System Design Case',
                 summary:
-                    'Auto-complete, search ranking, indexing — Google Search এর পেছনে।',
+                    'Auto-complete, search ranking, indexing। Google Search এর পেছনে।',
                 details:
                     'Trie data structure for suggestions, Crawling, Indexing, and Search ranking algorithms at scale।',
                 tools: ['Elasticsearch', 'Redis', 'Trie'],
@@ -538,7 +545,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'System Design Case',
                 summary:
-                    'Real-time location tracking, driver matching, surge pricing — geo-distributed system।',
+                    'Real-time location tracking, driver matching, surge pricing: geo-distributed system।',
                 details:
                     'Geospatial indexing, Driver-Rider matching algorithms, Real-time tracking with WebSockets, and dynamic pricing।',
                 tools: ['Kafka', 'Redis', 'PostGIS'],
@@ -552,7 +559,8 @@ export const courseData: CoursePhase[] = [
     },
     {
         id: 'phase-5',
-        title: 'Advanced Topics — Expert Level',
+        title: 'Advanced Topics',
+        subtitle: 'Expert Level',
         duration: '৪-৬ সপ্তাহ',
         topics: [
             {
@@ -564,7 +572,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'System Security',
                 summary:
-                    'Authentication, Authorization, Encryption, OWASP — secure system design।',
+                    'Authentication, Authorization, Encryption, OWASP: secure system design।',
                 details:
                     'Zero Trust architecture, JWT/OAuth2, mTLS, Secret management, and DDoS mitigation strategies।',
                 tools: ['Vault', 'Keycloak', 'IAM'],
@@ -583,7 +591,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'Ops & Monitoring',
                 summary:
-                    'Distributed system এ কী হচ্ছে বোঝার জন্য — 3 pillars of observability।',
+                    'Distributed system এ কী হচ্ছে বোঝার জন্য, 3 pillars of observability।',
                 details:
                     'Centralized logging, Infrastructure/Application metrics, and Distributed request tracing across services।',
                 tools: ['Prometheus', 'Grafana', 'Jaeger', 'ELK Stack'],
@@ -602,7 +610,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Advanced',
                 type: 'Cloud Engineering',
                 summary:
-                    'AWS/GCP/Azure, serverless, Infrastructure as Code — modern deployment।',
+                    'AWS/GCP/Azure, serverless, Infrastructure as Code: modern deployment।',
                 details:
                     'Cloud-native design patterns, Serverless vs Containers, and Automating infrastructure with code।',
                 tools: ['Terraform', 'CDK', 'AWS'],
@@ -621,7 +629,7 @@ export const courseData: CoursePhase[] = [
                 level: 'Expert',
                 type: 'Enterprise Patterns',
                 summary:
-                    'CQRS, Event Sourcing — enterprise pattern for complex domains।',
+                    'CQRS, Event Sourcing: enterprise pattern for complex domains।',
                 details:
                     'Decoupling Read and Write models, Event sourcing for audit trails, and designing complex domain state machines।',
                 useCases: [
