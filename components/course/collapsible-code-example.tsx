@@ -3,6 +3,7 @@
 import { cn } from '@/lib/utils';
 import { BookOpen, ChevronDown, Code2 } from 'lucide-react';
 import { useState } from 'react';
+import { Collapse } from '@/components/motion/collapse';
 import { CodeBlock } from './code-block';
 
 interface CodeExample {
@@ -58,8 +59,8 @@ export function CollapsibleCodeExample({
                 </button>
             </div>
 
-            {isExpanded && (
-                <div className='p-6 md:p-8 border-t border-border animate-in fade-in slide-in-from-top-2 duration-300'>
+            <Collapse open={isExpanded}>
+                <div className='p-6 md:p-8 border-t border-border'>
                     <div className='space-y-10'>
                         {examples.map((example, index) => (
                             <div key={index} className='space-y-4'>
@@ -83,7 +84,7 @@ export function CollapsibleCodeExample({
                         ))}
                     </div>
                 </div>
-            )}
+            </Collapse>
         </div>
     );
 }

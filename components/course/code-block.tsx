@@ -2,7 +2,8 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Copy, Terminal } from "lucide-react";
+import { Check, Copy, Terminal } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
@@ -40,8 +41,29 @@ export function CodeBlock({ code, language, filename }: CodeBlockProps) {
               </div>
               <button
                   onClick={copyToClipboard}
-                  className='text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors whitespace-nowrap'>
-                  {copied ? 'Copied!' : 'Copy'}
+                  aria-label={copied ? 'Copied' : 'Copy code'}
+                  className='flex items-center gap-1.5 text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors whitespace-nowrap'>
+                  <AnimatePresence mode='wait' initial={false}>
+                      <motion.span
+                          key={copied ? 'yes' : 'no'}
+                          initial={{ scale: 0.6, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0.6, opacity: 0 }}
+                          transition={{ duration: 0.18 }}
+                          className='flex items-center gap-1.5'>
+                          {copied ? (
+                              <>
+                                  <Check className='w-3 h-3 text-accent' />
+                                  Copied
+                              </>
+                          ) : (
+                              <>
+                                  <Copy className='w-3 h-3' />
+                                  Copy
+                              </>
+                          )}
+                      </motion.span>
+                  </AnimatePresence>
               </button>
           </div>
           <div className='relative text-xs md:text-[13px] leading-relaxed overflow-x-auto  p-4 '>

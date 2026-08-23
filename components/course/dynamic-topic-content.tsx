@@ -1,5 +1,6 @@
 'use client';
 
+import { Reveal } from '@/components/motion/reveal';
 import { ContentBlock, TopicData, CONTENT_TYPES } from '../../types/content';
 import {
     AssignmentSection,
@@ -48,7 +49,8 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
 
             {/* Dynamic Sections */}
             {data.sections.map(section => (
-                <BorderCross key={section.id} className='p-4 md:p-10'>
+                <Reveal key={section.id}>
+                <BorderCross className='p-4 md:p-10'>
                     <section id={section.id} className='scroll-mt-20'>
                         <SubHeader
                             index={section.subHeader.index}
@@ -64,6 +66,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
                         ))}
                     </section>
                 </BorderCross>
+                </Reveal>
             ))}
 
             {/* Summary */}

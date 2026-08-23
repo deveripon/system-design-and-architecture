@@ -69,7 +69,18 @@ Never manually build a section header. Always use the `<SubHeader>` component.
 - **Scrollbar**: A custom, ultra-thin (`4px`) scrollbar is defined at the bottom of `globals.css`. It uses sharp edges (`border-radius: 0px`) and the primary color for the thumb.
 - **Button Reset**: All native buttons have browser outlines and focus rings completely removed (`outline: none; box-shadow: none;`) and `cursor: pointer` explicitly enforced globally.
 
-## 8. Responsive Rules
+## 8. Motion System
+Every animation goes through one of two primitives so the whole app feels like one thing.
+
+- **`<Reveal>` / `<RevealGroup>` + `<RevealChild>`** (`components/motion/reveal.tsx`): fades a block up as it enters the viewport, once. Use it to wrap page sections and card grids. Never nest one inside another.
+- **`<Collapse open={...}>`** (`components/motion/collapse.tsx`): the single height animation for every collapsible: quiz, assignment, lab, code example, project brief. Do not hand roll `{open && <div>}` with `animate-in` classes; the heights will not match.
+- **Page transitions** live in `app/template.tsx`, which the App Router remounts on every navigation.
+- **Easing** is always `EASE` exported from `components/motion/reveal.tsx`, which is `[0.16, 1, 0.3, 1]`. Programmatic scrolling is the one exception and uses a gentler in-out curve.
+- **Press feedback**: interactive elements use `whileTap={{ scale: 0.97 }}` (buttons) or a 2 to 3px lift on hover (cards). Arrows inside links translate on `group-hover`.
+- **Reduced motion**: every primitive checks `useReducedMotion()` and renders the plain element instead. New animations must do the same.
+- **Programmatic scroll** must pass `behavior: 'instant'` per frame, otherwise the stylesheet's `scroll-behavior: smooth` animates against it and the result stutters.
+
+## 9. Responsive Rules
 - **Desktop width**: a topic/lesson container is centred (`mx-auto`) and grows with the viewport:
   `md:max-w-3xl lg:max-w-5xl xl:max-w-[80rem] 2xl:max-w-[90rem]`. Never leave the content
   left-aligned with a fixed cap — on a wide screen all the slack collects on the right.
@@ -90,3 +101,5 @@ Never manually build a section header. Always use the `<SubHeader>` component.
 - [ ] Does it use the extra width at `xl`/`2xl` instead of leaving a dead gutter?
 - [ ] Are interactive elements using subtle micro-animations (e.g. `translate-x-0.5`) rather than aggressive color fills?
 - [ ] Are complex animations (accordions, scroll jumps) utilizing Framer Motion with the standard `ease: [0.16, 1, 0.3, 1]`?
+- [ ] Is a new collapsible using `<Collapse>` and a new section using `<Reveal>` rather than a bespoke animation?
+- [ ] Does it fall back gracefully under `prefers-reduced-motion`?

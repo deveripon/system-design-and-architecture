@@ -1,4 +1,5 @@
 import { BorderCross } from '@/components/course/border-cross';
+import { Reveal } from '@/components/motion/reveal';
 import { SubHeader } from '@/components/course/sub-header';
 import { IslandToursArchitecture } from '@/components/course/topics/island-tours/architecture';
 import { ModeToggle } from '@/components/mode-toggle';
@@ -9,7 +10,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: 'The Project: Island Tours',
     description:
-        'পুরো DevOps ট্র্যাকে যে প্রজেক্টটাকে উদাহরণ হিসেবে ব্যবহার করা হয়। Island Tours কী, তার Architecture কেমন, আর তুমি নিজের ভার্সন কীভাবে বানাবে।',
+        'পুরো DevOps ট্র্যাকে যে প্রজেক্টটাকে উদাহরণ হিসেবে ব্যবহার করা হয়। Island Tours কী, তার Architecture কেমন, আর আপনি নিজের ভার্সন কীভাবে বানাবেন।',
     alternates: { canonical: '/devops/project' },
     openGraph: {
         title: 'The Project: Island Tours',
@@ -72,31 +73,31 @@ const COMPONENTS = [
 const MILESTONES = [
     {
         module: 'Module 01 থেকে 05',
-        build: 'কিছু বানানোর দরকার নেই। শুধু Browser এর Network tab খুলে দেখো তোমার প্রিয় সাইটে কী কী Request যায়।',
+        build: 'কিছু বানানোর দরকার নেই। শুধু Browser এর Network tab খুলে দেখুন আপনার প্রিয় সাইটে কী কী Request যায়।',
     },
     {
         module: 'Module 06',
-        build: 'একটা VPS নাও (সবচেয়ে ছোটটাই যথেষ্ট)। SSH Key দিয়ে ঢোকো, Firewall চালু করো, একটা নতুন User বানাও।',
+        build: 'একটা VPS নিন (সবচেয়ে ছোটটাই যথেষ্ট)। SSH Key দিয়ে ঢুকুন, Firewall চালু করুন, একটা নতুন User বানান।',
     },
     {
         module: 'Module 07',
-        build: 'তোমার my-tours API টা Docker-এ চালাও। সাথে PostgreSQL আর Redis Container যোগ করো।',
+        build: 'আপনার my-tours API টা Docker-এ চালান। সাথে PostgreSQL আর Redis Container যোগ করুন।',
     },
     {
         module: 'Module 08',
-        build: 'Caddy বসাও, নিজের একটা Domain কিনে HTTPS চালু করো। এখন তোমার API ইন্টারনেটে লাইভ।',
+        build: 'Caddy বসান, নিজের একটা Domain কিনে HTTPS চালু করুন। এখন আপনার API ইন্টারনেটে লাইভ।',
     },
     {
         module: 'Module 09 থেকে 11',
-        build: 'Frontend Vercel-এ Deploy করো, ছবি Object Storage-এ রাখো, Auth আর Booking Endpoint লেখো।',
+        build: 'Frontend Vercel-এ Deploy করুন, ছবি Object Storage-এ রাখুন, Auth আর Booking Endpoint লিখুন।',
     },
     {
         module: 'Module 15, 16',
-        build: 'GitHub Actions দিয়ে Deploy অটোমেট করো, তারপর Log আর Metric বসাও।',
+        build: 'GitHub Actions দিয়ে Deploy অটোমেট করুন, তারপর Log আর Metric বসান।',
     },
     {
         module: 'Module 17',
-        build: 'Island Tours-এর পুরো Architecture এর সাথে নিজের বানানো ভার্সন মিলিয়ে দেখো, কোথায় কী আলাদা করেছ আর কেন।',
+        build: 'Island Tours-এর পুরো Architecture এর সাথে নিজের বানানো ভার্সন মিলিয়ে দেখুন, কোথায় কী আলাদা করেছেন আর কেন।',
     },
 ];
 
@@ -147,15 +148,16 @@ export default function IslandToursProjectPage() {
                         </p>
                         <p className='text-foreground'>
                             গুরুত্বপূর্ণ কথা: এটা আমাদের নিজেদের একটা লাইভ
-                            প্রজেক্ট, তাই এর Code তোমার হাতে থাকবে না। আমরা এর
-                            Architecture পড়ব, সিদ্ধান্তগুলো বুঝব, আর তুমি একই
-                            জিনিসের নিজের একটা ভার্সন বানাবে। নাম দাও{' '}
+                            প্রজেক্ট, তাই এর Code আপনার হাতে থাকবে না। আমরা এর
+                            Architecture পড়ব, সিদ্ধান্তগুলো বুঝব, আর আপনি একই
+                            জিনিসের নিজের একটা ভার্সন বানাবেন। নাম দিন{' '}
                             <strong className='font-mono'>my-tours</strong>।
                         </p>
                     </div>
                 </BorderCross>
 
                 {/* Architecture */}
+                <Reveal>
                 <section className='mt-20 md:mt-28'>
                     <div className='mb-8 px-2 md:px-5'>
                         <SubHeader index='001' title='Architecture' className='mb-4' />
@@ -167,8 +169,10 @@ export default function IslandToursProjectPage() {
                         <IslandToursArchitecture />
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* Why each box */}
+                <Reveal>
                 <section className='mt-20 md:mt-28'>
                     <div className='mb-8 px-2 md:px-5'>
                         <SubHeader index='002' title='Every Component' className='mb-4' />
@@ -201,18 +205,20 @@ export default function IslandToursProjectPage() {
                         </div>
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* Your version */}
+                <Reveal>
                 <section className='mt-20 md:mt-28'>
                     <div className='mb-8 px-2 md:px-5'>
                         <SubHeader index='003' title='Your Version' className='mb-4' />
                         <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
-                            my-tours: তুমি যেটা বানাবে
+                            my-tours: আপনি যেটা বানাবেন
                         </h2>
                         <p className='mt-4 max-w-3xl text-sm md:text-base text-muted-foreground leading-relaxed'>
                             পড়া আর করা এক জিনিস না। তাই ট্র্যাক জুড়ে প্রতিটা
-                            Assignment তোমার নিজের প্রজেক্টের একটা অংশ বানাবে।
-                            শেষে তোমার হাতে একটা সত্যিকারের Deploy করা System
+                            Assignment আপনার নিজের প্রজেক্টের একটা অংশ বানাবেন।
+                            শেষে আপনার হাতে একটা সত্যিকারের Deploy করা System
                             থাকবে, শুধু কিছু নোট নয়।
                         </p>
                     </div>
@@ -239,8 +245,10 @@ export default function IslandToursProjectPage() {
                         </div>
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* Data model */}
+                <Reveal>
                 <section className='mt-20 md:mt-28'>
                     <div className='mb-8 px-2 md:px-5'>
                         <SubHeader index='004' title='The Spec' className='mb-4' />
@@ -271,9 +279,10 @@ export default function IslandToursProjectPage() {
                     <p className='mt-6 px-2 md:px-5 text-sm text-muted-foreground leading-relaxed max-w-3xl'>
                         এর বেশি কিছু শুরুতে দরকার নেই। Review, Coupon, Wishlist
                         সব পরে যোগ করা যাবে। আগে এই চারটা দিয়ে একটা Booking
-                        সম্পূর্ণ করে দেখাও।
+                        সম্পূর্ণ করে দেখান।
                     </p>
                 </section>
+                </Reveal>
 
                 <BorderCross>
                     <footer className='py-10 border-t border-border mt-20'>

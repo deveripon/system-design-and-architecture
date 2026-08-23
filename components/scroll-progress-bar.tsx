@@ -13,7 +13,7 @@ export function ScrollProgressBar() {
     });
 
     return (
-        <div className="fixed top-0 left-0 md:left-84 right-0 h-1 bg-border z-50 overflow-hidden origin-left">
+        <div className="fixed top-0 left-0 lg:left-84 right-0 h-0.5 bg-border/60 z-50 overflow-hidden origin-left">
             <motion.div
                 className="h-full bg-primary"
                 style={{ scaleX, transformOrigin: 'left' }}

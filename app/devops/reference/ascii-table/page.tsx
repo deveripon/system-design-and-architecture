@@ -1,5 +1,6 @@
 import { AsciiTable } from '@/components/course/ascii-table';
 import { BorderCross } from '@/components/course/border-cross';
+import { Reveal } from '@/components/motion/reveal';
 import { InfoBox } from '@/components/course/info-box';
 import { SubHeader } from '@/components/course/sub-header';
 import { ModeToggle } from '@/components/mode-toggle';
@@ -54,13 +55,14 @@ export default function AsciiTablePage() {
                         </p>
                         <p>
                             নিচে পুরো তালিকাটা আছে। উপরের ঘরে অক্ষর লিখে, বা
-                            সংখ্যা লিখে, বা Hex লিখে খুঁজতে পারো। যেমন{' '}
+                            সংখ্যা লিখে, বা Hex লিখে খুঁজতে পারেন। যেমন{' '}
                             <strong className='font-mono text-foreground'>A</strong>{' '}
-                            লিখলেই দেখবে তার নম্বর ৬৫।
+                            লিখলেই দেখবেন তার নম্বর ৬৫।
                         </p>
                     </div>
                 </BorderCross>
 
+                <Reveal>
                 <section className='mt-16'>
                     <div className='mb-6 px-2 md:px-5'>
                         <SubHeader index='001' title='The Table' className='mb-4' />
@@ -72,7 +74,9 @@ export default function AsciiTablePage() {
                         <AsciiTable />
                     </BorderCross>
                 </section>
+                </Reveal>
 
+                <Reveal>
                 <section className='mt-16'>
                     <div className='mb-6 px-2 md:px-5'>
                         <SubHeader index='002' title='Reading It' className='mb-4' />
@@ -123,6 +127,7 @@ export default function AsciiTablePage() {
                         </InfoBox>
                     </div>
                 </section>
+                </Reveal>
 
                 <BorderCross>
                     <div className='mt-16 border border-border bg-card'>

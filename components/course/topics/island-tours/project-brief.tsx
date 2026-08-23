@@ -1,5 +1,6 @@
 'use client';
 
+import { Collapse } from '@/components/motion/collapse';
 import { cn } from '@/lib/utils';
 import { ArrowRight, ChevronDown, Compass } from 'lucide-react';
 import Link from 'next/link';
@@ -53,8 +54,8 @@ export function IslandToursBrief() {
                 />
             </button>
 
-            {open && (
-                <div className='px-5 pb-5 pt-1 md:pl-18 space-y-4 animate-in fade-in duration-200'>
+            <Collapse open={open}>
+                <div className='px-5 pb-5 pt-1 md:pl-18 space-y-4'>
                     <p className='text-sm text-muted-foreground leading-relaxed'>
                         ইউজার সাইটে ঢুকে ট্যুর খোঁজে, একটা ট্যুর বেছে নেয়, তারিখ
                         দিয়ে বুক করে আর পেমেন্ট করে। পেছনে Frontend চলে Vercel-এ,
@@ -77,7 +78,7 @@ export function IslandToursBrief() {
                         <ArrowRight className='w-3 h-3' />
                     </Link>
                 </div>
-            )}
+            </Collapse>
         </div>
     );
 }

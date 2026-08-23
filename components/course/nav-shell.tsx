@@ -94,6 +94,18 @@ export function NavList({
     onNavigate?: () => void;
 }) {
     const { pathname, activeId } = useActiveSection(sections, basePath);
+    const currentId = pathname.startsWith(`${basePath}/`)
+        ? pathname.slice(basePath.length + 1)
+        : null;
+    // The highlight moves on click instead of waiting for the route to commit,
+    // so tapping a lesson feels instant while the page is still loading. It is
+    // remembered with the pathname it was clicked from, so it stops applying
+    // the moment any navigation lands, including prev/next at the page bottom.
+    const [pending, setPending] = useState<{ id: string; from: string } | null>(
+        null
+    );
+    const highlightId =
+        pending && pending.from === pathname ? pending.id : currentId;
     // Only user toggles are stored; the section holding the current lesson is
     // open by default, so navigating to another module opens it on its own.
     const [overrides, setOverrides] = useState<Record<string, boolean>>({});
@@ -162,8 +174,7 @@ export function NavList({
                                     <div className='space-y-0.5 pb-2'>
                                         {section.topics.map((topic, idx) => {
                                             const isActive =
-                                                pathname ===
-                                                `${basePath}/${topic.id}`;
+                                                highlightId === topic.id;
                                             const showGroup =
                                                 topic.group &&
                                                 topic.group !==
@@ -180,11 +191,17 @@ export function NavList({
                                                     )}
                                                     <Link
                                                         href={`${basePath}/${topic.id}`}
-                                                        onClick={onNavigate}
+                                                        onClick={() => {
+                                                            setPending({
+                                                                id: topic.id,
+                                                                from: pathname,
+                                                            });
+                                                            onNavigate?.();
+                                                        }}
                                                         className={cn(
-                                                            'flex items-start gap-3 pl-6 pr-3 py-2 text-[13px] leading-snug transition-all duration-200 group border-l-2',
+                                                            'flex items-start gap-3 pl-6 pr-3 py-2 text-[13px] font-medium leading-snug transition-colors duration-150 group border-l-2',
                                                             isActive
-                                                                ? 'border-primary bg-primary/10 text-primary font-semibold'
+                                                                ? 'border-primary bg-primary/10 text-primary'
                                                                 : 'border-transparent text-muted-foreground hover:bg-card hover:text-foreground'
                                                         )}>
                                                         {Icon && (

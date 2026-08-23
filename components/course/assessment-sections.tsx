@@ -9,6 +9,7 @@ import { CodeBlock } from './code-block';
 import { InfoBox } from './info-box';
 import { MCQ } from './mcq';
 import { StepFlow } from './step-flow';
+import { Collapse } from '@/components/motion/collapse';
 import { SubHeader } from './sub-header';
 
 export const KnowledgeCheckSection = React.memo(
@@ -36,11 +37,11 @@ export const KnowledgeCheckSection = React.memo(
                         </button>
                     </div>
 
-                    {isExpanded && (
-                        <div className='animate-in fade-in slide-in-from-top-4 duration-300'>
+                    <Collapse open={isExpanded}>
+                        <div>
                             <MCQ questions={questions} />
                         </div>
-                    )}
+                    </Collapse>
                 </section>
             </BorderCross>
         );
@@ -66,8 +67,8 @@ export const AssignmentSection = React.memo(
                         </button>
                     </div>
 
-                    {isExpanded && (
-                        <div className='mt-12 animate-in fade-in slide-in-from-top-4 duration-300'>
+                    <Collapse open={isExpanded}>
+                        <div className='mt-12'>
                             <Assignment
                                 title={data.title}
                                 time={data.time}
@@ -76,7 +77,7 @@ export const AssignmentSection = React.memo(
                                 deliverables={data.deliverables}
                             />
                         </div>
-                    )}
+                    </Collapse>
                 </section>
             </BorderCross>
         );
@@ -102,8 +103,8 @@ export const PracticalLabSection = React.memo(
                         </button>
                     </div>
 
-                    {isExpanded && (
-                        <div className='mt-12 animate-in fade-in slide-in-from-top-4 duration-300'>
+                    <Collapse open={isExpanded}>
+                        <div className='mt-12'>
                             <div className='border border-border bg-card overflow-hidden'>
                                 <div className='p-6 md:p-10 border-b border-border bg-accent/10 flex items-center gap-4'>
                                     <span className='text-3xl'>🚀</span>
@@ -148,7 +149,7 @@ export const PracticalLabSection = React.memo(
                                 </div>
                             </div>
                         </div>
-                    )}
+                    </Collapse>
                 </section>
             </BorderCross>
         );

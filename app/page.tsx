@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { BorderCross } from '@/components/course/border-cross';
+import { Reveal } from '@/components/motion/reveal';
 import { Roadmap } from '@/components/course/roadmap';
 import { SubHeader } from '@/components/course/sub-header';
 import { TrackGrid } from '@/components/course/track-grid';
@@ -72,7 +73,7 @@ export default function Home() {
                             of Scale
                         </h1>
 
-                        <p className='text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-medium'>
+                        <p className='text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-medium'>
                             A battle-tested curriculum designed for engineers to
                             build distributed systems that never fail.
                         </p>
@@ -84,6 +85,7 @@ export default function Home() {
                 </BorderCross>
 
                 {/* Tracks */}
+                <Reveal>
                 <section className='mt-24 md:mt-40'>
                     <div className='mb-10 md:mb-16 px-2 md:px-5'>
                         <SubHeader
@@ -99,8 +101,10 @@ export default function Home() {
                         <TrackGrid />
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* Curriculum Section */}
+                <Reveal>
                 <section id='roadmap' className='mb-24 md:mb-40 mt-24 md:mt-40'>
                     <div className='mb-10 md:mb-16 px-2 md:px-5'>
                         <SubHeader
@@ -116,8 +120,10 @@ export default function Home() {
                         <Roadmap />
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* Interview Section */}
+                <Reveal>
                 <section className='mb-24 md:mb-40'>
                     <div className='mb-10 md:mb-16 px-2 md:px-5'>
                         <SubHeader
@@ -162,6 +168,7 @@ export default function Home() {
                         </div>
                     </BorderCross>
                 </section>
+                </Reveal>
                 <BorderCross>
                     <footer className='py-10 border-t border-border mt-10'>
                         <div className='flex items-center'>

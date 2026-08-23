@@ -2,7 +2,8 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import { CheckCircle2, ChevronRight, PlayCircle } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { EASE } from "@/components/motion/reveal";
 
 import { SubHeader } from "./sub-header";
 
@@ -25,6 +26,7 @@ interface MCQProps {
 
 export function MCQ({ questions = [] }: MCQProps) {
   const [selectedOptions, setSelectedOptions] = React.useState<Record<number, string>>({});
+  const reduce = useReducedMotion();
   const [showResults, setShowResults] = React.useState(false);
 
   const handleSelect = (qId: number, key: string) => {
@@ -67,9 +69,11 @@ export function MCQ({ questions = [] }: MCQProps) {
                 const showFeedback = showResults;
 
                 return (
-                  <button
+                  <motion.button
                     key={option.key}
                     disabled={showFeedback}
+                    whileTap={reduce || showFeedback ? undefined : { scale: 0.985 }}
+                    transition={{ duration: 0.15, ease: EASE }}
                     onClick={() => handleSelect(q.id, option.key)}
                     className={cn(
                       "flex items-start gap-4 md:gap-8 p-6 md:p-8 border-r border-b border-border text-left transition-all group",
@@ -90,16 +94,22 @@ export function MCQ({ questions = [] }: MCQProps) {
                     </div>
                     <div className="space-y-2 md:space-y-3">
                       <p className="text-sm md:text-base font-bold leading-snug md:leading-none">{option.text}</p>
-                      {showFeedback && (isSelected || isCorrect) && (
-                        <p className={cn(
-                          "text-xs md:text-sm leading-relaxed font-medium max-w-2xl",
-                          isCorrect ? "text-accent" : "text-red-700 dark:text-red-400"
-                        )}>
-                          {option.explanation}
-                        </p>
-                      )}
+                      <AnimatePresence initial={false}>
+                        {showFeedback && (isSelected || isCorrect) && option.explanation && (
+                          <motion.p
+                            initial={reduce ? false : { opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            transition={{ duration: 0.35, ease: EASE }}
+                            className={cn(
+                              "text-xs md:text-sm leading-relaxed font-medium max-w-2xl overflow-hidden",
+                              isCorrect ? "text-accent" : "text-red-700 dark:text-red-400"
+                            )}>
+                            {option.explanation}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
                     </div>
-                  </button>
+                  </motion.button>
                 );
               })}
             </div>
@@ -109,13 +119,15 @@ export function MCQ({ questions = [] }: MCQProps) {
 
       <div className="p-6 md:p-10 border-t border-border bg-muted/20">
         {!showResults ? (
-          <button
+          <motion.button
+            whileTap={reduce ? undefined : { scale: 0.99 }}
+            transition={{ duration: 0.15, ease: EASE }}
             onClick={() => setShowResults(true)}
             disabled={Object.keys(selectedOptions).length < questions.length}
             className="w-full py-3 md:py-4 border border-primary bg-primary/10 text-primary font-black uppercase tracking-[0.2em] hover:bg-primary hover:text-primary-foreground transition-all disabled:opacity-50 disabled:cursor-not-allowed text-xs md:text-sm"
           >
             Check Answers
-          </button>
+          </motion.button>
         ) : (
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex flex-col items-center sm:items-start">

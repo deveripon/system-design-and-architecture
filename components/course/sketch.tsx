@@ -1,3 +1,5 @@
+import { MoveHorizontal } from 'lucide-react';
+
 /**
  * Shared frame and text helpers for sketch diagrams.
  *
@@ -29,9 +31,15 @@ export function Sketch({
 }) {
     return (
         <figure className='my-10 border border-border bg-card'>
-            <figcaption className='px-5 py-3 border-b border-border bg-muted/30'>
+            <figcaption className='flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30'>
                 <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
                     {label}
+                </span>
+                {/* On a phone the drawing is wider than the screen, so say so
+                    rather than leaving the reader to discover it. */}
+                <span className='sm:hidden inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground'>
+                    <MoveHorizontal className='w-3 h-3' />
+                    টেনে দেখুন
                 </span>
             </figcaption>
             <div className='overflow-x-auto p-5 md:p-8'>

@@ -1,4 +1,5 @@
 import { BorderCross } from '@/components/course/border-cross';
+import { Reveal } from '@/components/motion/reveal';
 import { DevopsRoadmap } from '@/components/course/devops-roadmap';
 import { SubHeader } from '@/components/course/sub-header';
 import { ExploreButton } from '@/components/explore-button';
@@ -80,7 +81,7 @@ export default function DevopsTrackPage() {
                             From Scratch
                         </h1>
 
-                        <p className='text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-medium'>
+                        <p className='text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-medium'>
                             {devopsTrack.subtitle}। {toBn(lessonCount)}টি
                             লেসন, {toBn(moduleCount)}টি মডিউল।
                         </p>
@@ -92,6 +93,7 @@ export default function DevopsTrackPage() {
                 </BorderCross>
 
                 {/* The project this track is built around */}
+                <Reveal>
                 <section className='mt-16 md:mt-24'>
                     <BorderCross>
                         <Link
@@ -109,17 +111,19 @@ export default function DevopsTrackPage() {
                                 </span>
                                 <span className='block text-sm text-muted-foreground leading-relaxed max-w-2xl'>
                                     পুরো ট্র্যাকে উদাহরণ হিসেবে একটা সত্যিকারের
-                                    ট্যুর বুকিং অ্যাপ ব্যবহার করা হয়। এখানে দেখো
-                                    সেটা কী, তার Architecture কেমন, আর তুমি
-                                    নিজের ভার্সন কীভাবে বানাবে।
+                                    ট্যুর বুকিং অ্যাপ ব্যবহার করা হয়। এখানে দেখুন
+                                    সেটা কী, তার Architecture কেমন, আর আপনি
+                                    নিজের ভার্সন কীভাবে বানাবেন।
                                 </span>
                             </span>
                             <ArrowRight className='w-4 h-4 text-primary shrink-0 group-hover:translate-x-0.5 transition-transform' />
                         </Link>
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* Why this track */}
+                <Reveal>
                 <section className='mt-20 md:mt-32'>
                     <div className='mb-10 md:mb-14 px-2 md:px-5'>
                         <SubHeader
@@ -128,7 +132,7 @@ export default function DevopsTrackPage() {
                             className='mb-4'
                         />
                         <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
-                            শেষ করলে কী পারবে
+                            শেষ করলে কী পারবেন
                         </h2>
                     </div>
 
@@ -152,8 +156,10 @@ export default function DevopsTrackPage() {
                         </div>
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* How a lesson is structured */}
+                <Reveal>
                 <section className='mt-20 md:mt-32'>
                     <div className='mb-10 md:mb-14 px-2 md:px-5'>
                         <SubHeader
@@ -186,8 +192,10 @@ export default function DevopsTrackPage() {
                         </div>
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* What every lesson ships with */}
+                <Reveal>
                 <section className='mt-20 md:mt-32'>
                     <div className='mb-10 md:mb-14 px-2 md:px-5'>
                         <SubHeader
@@ -220,8 +228,10 @@ export default function DevopsTrackPage() {
                         </div>
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* Curriculum */}
+                <Reveal>
                 <section id='roadmap' className='mt-20 md:mt-32'>
                     <div className='mb-10 md:mb-14 px-2 md:px-5'>
                         <SubHeader
@@ -238,8 +248,10 @@ export default function DevopsTrackPage() {
                         <DevopsRoadmap />
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 {/* Outcome */}
+                <Reveal>
                 <section className='mt-20 md:mt-32'>
                     <div className='mb-10 md:mb-14 px-2 md:px-5'>
                         <SubHeader
@@ -248,7 +260,7 @@ export default function DevopsTrackPage() {
                             className='mb-4'
                         />
                         <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
-                            যেখানে গিয়ে দাঁড়াবে
+                            যেখানে গিয়ে দাঁড়াবেন
                         </h2>
                     </div>
                     <BorderCross>
@@ -268,6 +280,7 @@ export default function DevopsTrackPage() {
                         </div>
                     </BorderCross>
                 </section>
+                </Reveal>
 
                 <BorderCross>
                     <footer className='py-10 border-t border-border mt-20'>
