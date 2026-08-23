@@ -16,8 +16,10 @@ import { TopicData } from '../../types/content';
  *      `lib/devops-course-data.ts`.
  */
 import { binaryAndDataContent } from './01-computer-fundamentals/01-binary-and-data';
+import { cpuBasicsContent } from './01-computer-fundamentals/02-cpu-basics';
 
 export const devopsContentMap: Record<string, TopicData> = {
     // Module 01, Computer Fundamentals
     'binary-and-data': binaryAndDataContent,
+    'cpu-basics': cpuBasicsContent,
 };
