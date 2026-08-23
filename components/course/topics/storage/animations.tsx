@@ -78,8 +78,8 @@ export function SeekRaceLab() {
     return (
         <Panel
             label='Animation story'
-            title='একই চারটা পড়া, দুই রকম Disk'
-            footer='HDD এর হাতটা প্রতিবার নতুন জায়গায় যেতে হয়, আর সেই নড়াচড়াটাই সময় খায়। SSD এর কিছু নড়ে না, তাই চারটা পড়া প্রায় একসাথেই শেষ হয়ে যায়।'>
+            title='একই চারটা Read, দুই রকম Disk'
+            footer='HDD এর Head কে প্রতিবার নতুন জায়গায় যেতে হয়, আর সেই নড়াচড়াটাই সময় খায়। SSD এর কিছু নড়ে না, তাই চারটা Read প্রায় একসাথেই শেষ হয়ে যায়।'>
             <div className='flex flex-wrap items-center gap-2 mb-8'>
                 <button
                     onClick={() => {
@@ -109,7 +109,7 @@ export function SeekRaceLab() {
                     <RotateCcw className='w-3 h-3' />
                 </button>
                 <span className='ml-auto font-mono text-[10px] text-muted-foreground tabular-nums'>
-                    {toBn(done)} / {toBn(TRACKS.length)} পড়া শেষ
+                    {toBn(done)} / {toBn(TRACKS.length)} Read শেষ
                 </span>
             </div>
 
@@ -186,11 +186,11 @@ export function SeekRaceLab() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, ease: EASE }}
                     className='mt-6 border-l-2 border-primary pl-4 text-sm leading-relaxed'>
-                    চারটা ছড়ানো পড়ায় HDD নিল{' '}
+                    চারটা Random Read এ HDD নিল{' '}
                     <strong>{(TRACKS.length * HDD_MS).toFixed(1)} ms</strong>, আর
                     SSD নিল{' '}
                     <strong>{(TRACKS.length * SSD_MS).toFixed(2)} ms</strong>।
-                    একটা Page লোড করতে যদি এমন হাজারটা পড়া লাগে, তাহলে তফাতটা
+                    একটা Page লোড করতে যদি এমন হাজারটা Read লাগে, তাহলে তফাতটা
                     সেকেন্ডের হিসাবে চলে আসে।
                 </motion.p>
             )}
@@ -230,7 +230,7 @@ const LOOKUP = [
     },
     {
         title: 'Block থেকে ডেটা',
-        detail: 'inode এর তালিকা ধরে Block গুলো পড়া হলো। এবার আসল ছবিটা হাতে এলো।',
+        detail: 'inode এর তালিকা ধরে Block গুলো Read করা হলো। এবার আসল ছবিটা হাতে এলো।',
         show: 'Block 1204, 1211, 1218, 1225',
     },
 ];
@@ -244,7 +244,7 @@ export function FileLookupLab() {
         <Panel
             label='Try it'
             title='একটা ফাইল খুঁজে পাওয়ার পথ'
-            footer='খেয়াল করুন, পথের প্রতিটা অংশের জন্য আলাদা একটা খোঁজ লাগে। এই কারণেই খুব গভীরে লুকানো ফাইল পড়া তুলনামূলক ধীর, আর এই কারণেই Filesystem এই খোঁজগুলো RAM এ Cache করে রাখে।'>
+            footer='খেয়াল করুন, পথের প্রতিটা অংশের জন্য আলাদা একটা Lookup লাগে। এই কারণেই খুব গভীরে লুকানো ফাইল Read করা তুলনামূলক ধীর, আর এই কারণেই Filesystem এই Lookup গুলো RAM এ Cache করে রাখে।'>
             <div className='flex flex-wrap items-center gap-2 mb-6'>
                 {LOOKUP.map((s, idx) => (
                     <button

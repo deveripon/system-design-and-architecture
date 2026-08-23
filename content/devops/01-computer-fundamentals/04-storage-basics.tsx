@@ -72,14 +72,15 @@ export const storageBasicsContent: TopicData = {
                         <div className='space-y-6'>
                             <ContentParagraph>
                                 HDD এর পুরো নাম Hard Disk Drive। এর ভেতরে সত্যিই
-                                একটা ধাতুর থালা ঘোরে, মিনিটে পাঁচ হাজার থেকে সাত
-                                হাজার বার। থালার উপরে একটা সরু হাত থাকে, যার নাম
-                                Head। ওই হাতটা ঠিক জায়গায় সরে যায়, তারপর অপেক্ষা
-                                করে কখন দরকারি অংশটা ঘুরে তার নিচে আসবে।
+                                একটা ধাতুর থালা ঘোরে, যাকে বলে Platter, আর সেটা
+                                মিনিটে পাঁচ হাজার থেকে সাত হাজার বার ঘোরে। Platter
+                                এর উপরে একটা সরু হাত থাকে, যার নাম Head। ওই Head
+                                টা ঠিক জায়গায় সরে যায়, তারপর অপেক্ষা করে কখন
+                                দরকারি অংশটা ঘুরে তার নিচে আসবে।
                             </ContentParagraph>
                             <ContentParagraph>
-                                এই দুইটা অপেক্ষার নাম আছে। হাত সরতে যে সময় লাগে
-                                তার নাম <strong>Seek Time</strong>, আর থালা ঘুরে
+                                এই দুইটা অপেক্ষার নাম আছে। Head সরতে যে সময় লাগে
+                                তার নাম <strong>Seek Time</strong>, আর Platter ঘুরে
                                 সঠিক জায়গা আসতে যে সময় লাগে তার নাম{' '}
                                 <strong>Rotational Latency</strong>। দুইটা মিলে
                                 সাধারণত ৮ থেকে ১২ মিলিসেকেন্ড। CPU এর হিসাবে এটা
@@ -89,8 +90,8 @@ export const storageBasicsContent: TopicData = {
                             <ContentParagraph>
                                 SSD এর পুরো নাম Solid State Drive। Solid State
                                 মানে এখানে কোনো নড়া অংশ নেই। ডেটা থাকে বিদ্যুতের
-                                ছোট ছোট খোপে, আর যেকোনো খোপে সরাসরি পৌঁছানো যায়।
-                                তাই ছড়ানো ডেটা পড়াতেও SSD প্রায় একই গতিতে চলে।
+                                ছোট ছোট Cell এ, আর যেকোনো Cell এ সরাসরি পৌঁছানো
+                                যায়। তাই Random Read এও SSD প্রায় একই গতিতে চলে।
                             </ContentParagraph>
                         </div>
                     ),
@@ -103,11 +104,11 @@ export const storageBasicsContent: TopicData = {
                     title: 'SSD এর নিজের দুর্বলতা',
                     content: (
                         <p>
-                            SSD এর খোপগুলো বারবার লিখলে ক্ষয়ে যায়। প্রতিটা খোপে
-                            নির্দিষ্ট সংখ্যক বার লেখা যায়, তারপর সেটা আর ধরে
-                            রাখতে পারে না। আরেকটা কথা, SSD এ পুরনো লেখার উপরে
-                            সরাসরি নতুন লেখা যায় না, আগে পুরো একটা Block মুছতে
-                            হয়। এই কারণেই SSD ভরে গেলে ধীর হয়ে যায়, আর এই
+                            SSD এর Cell গুলোতে বারবার Write করলে সেগুলো ক্ষয়ে যায়।
+                            প্রতিটা Cell এ নির্দিষ্ট সংখ্যক বার Write করা যায়,
+                            তারপর সেটা আর ধরে রাখতে পারে না। আরেকটা কথা, SSD এ
+                            পুরনো ডেটার উপরে সরাসরি নতুন Write করা যায় না, আগে
+                            পুরো একটা Block Erase করতে হয়। এই কারণেই SSD ভরে গেলে ধীর হয়ে যায়, আর এই
                             কারণেই Database এর মতো যে কাজ অবিরাম লেখে, তার জন্য
                             ভালো মানের SSD দরকার হয়।
                         </p>
@@ -120,7 +121,7 @@ export const storageBasicsContent: TopicData = {
             id: 'sequential',
             subHeader: { index: '002', title: 'The Big Idea' },
             title: (
-                <SectionTitle>একটানা পড়া আর ছড়ানো পড়া</SectionTitle>
+                <SectionTitle>Sequential Read আর Random Read</SectionTitle>
             ),
             blocks: [
                 {
@@ -129,19 +130,19 @@ export const storageBasicsContent: TopicData = {
                         <div className='space-y-6'>
                             <ContentParagraph>
                                 এই লেসনের সবচেয়ে দামি কথাটা এখানে। Disk এর গতি
-                                একটা সংখ্যা নয়, দুইটা। কারণ Disk থেকে পড়ার দুইটা
-                                ধরন আছে।
+                                একটা সংখ্যা নয়, দুইটা। কারণ Disk থেকে Read করার
+                                দুইটা ধরন আছে।
                             </ContentParagraph>
                             <ContentParagraph>
                                 একটা বই সামনের পাতা থেকে পেছনের দিকে পড়ে যাওয়া
-                                সহজ। এটা <strong>Sequential</strong> পড়া। আর
+                                সহজ। এটাকে বলে <strong>Sequential Read</strong>। আর
                                 অভিধান থেকে এলোমেলোভাবে দশটা শব্দ খোঁজা কঠিন,
-                                কারণ প্রতিবার নতুন জায়গায় যেতে হয়। এটা{' '}
-                                <strong>Random</strong> পড়া।
+                                কারণ প্রতিবার নতুন জায়গায় যেতে হয়। এটাকে বলে{' '}
+                                <strong>Random Read</strong>।
                             </ContentParagraph>
                             <ContentParagraph>
                                 HDD এর ক্ষেত্রে এই তফাতটা ভয়ংকর, কারণ প্রতিটা
-                                Random পড়ায় হাতটাকে নতুন করে সরতে হয়। SSD এর
+                                Random Read এ Head টাকে নতুন করে সরতে হয়। SSD এর
                                 ক্ষেত্রেও তফাত আছে, তবে অনেক কম।
                             </ContentParagraph>
                         </div>
@@ -155,11 +156,11 @@ export const storageBasicsContent: TopicData = {
                     content: (
                         <p>
                             Log ফাইল কেন এত দ্রুত লেখা যায়? কারণ Log শুধু শেষে
-                            যোগ হয়, তাই সেটা একটানা লেখা। Database কেন Index
-                            বানায়? কারণ Index ছাড়া তাকে পুরো Table এলোমেলোভাবে
-                            পড়তে হয়। Backup কেন এক বড় ফাইলে নেওয়া হয়? কারণ
-                            হাজারটা ছোট ফাইলের চেয়ে একটা বড় ফাইল অনেক দ্রুত
-                            লেখা যায়। পরের মডিউলগুলোতে এই তিনটা কথাই আবার আসবে।
+                            যোগ হয়, তাই সেটা Sequential Write। Database কেন Index
+                            বানায়? কারণ Index ছাড়া তাকে পুরো Table এ Random Read
+                            করতে হয়। Backup কেন এক বড় ফাইলে নেওয়া হয়? কারণ
+                            হাজারটা ছোট ফাইলের চেয়ে একটা বড় ফাইলে Write করা
+                            অনেক দ্রুত। পরের মডিউলগুলোতে এই তিনটা কথাই আবার আসবে।
                         </p>
                     ),
                 },
@@ -236,9 +237,9 @@ export const storageBasicsContent: TopicData = {
                     title: 'Save করা মানেই Disk এ পৌঁছে যাওয়া নয়',
                     content: (
                         <p>
-                            আপনার প্রোগ্রাম যখন লেখে, তখন সাধারণত ডেটা প্রথমে RAM
+                            আপনার প্রোগ্রাম যখন Write করে, তখন সাধারণত ডেটা প্রথমে RAM
                             এর একটা Cache এ বসে, আর OS পরে সুযোগ মতো সেটা Disk এ
-                            পাঠায়। এতে লেখা অনেক দ্রুত হয়, কিন্তু ঠিক ওই সময়ে
+                            পাঠায়। এতে Write অনেক দ্রুত হয়, কিন্তু ঠিক ওই সময়ে
                             বিদ্যুৎ গেলে ডেটা হারায়। তাই Database যখন বলে লেনদেন
                             নিশ্চিত হয়েছে, তার আগে সে আলাদা করে Disk কে বলে
                             সবকিছু এখনই লিখে ফেলো। এই আদেশটার নাম{' '}
@@ -268,14 +269,14 @@ export const storageBasicsContent: TopicData = {
                             <ContentList>
                                 <ListItem>
                                     <strong>PostgreSQL কেন SSD চায়:</strong>{' '}
-                                    Database এর কাজ পুরোটাই ছড়ানো পড়া আর লেখা।
+                                    Database এর কাজ পুরোটাই Random Read আর Random Write।
                                     HDD তে এই কাজ করতে গেলে প্রতিটা Query তে ওই
-                                    হাতটার নড়াচড়া যোগ হতো।
+                                    Head এর নড়াচড়া যোগ হতো।
                                 </ListItem>
                                 <ListItem>
                                     <strong>Log ফাইল সবচেয়ে বড় ফাঁদ:</strong>{' '}
-                                    Log একটানা লেখা হয়, তাই লেখা দ্রুত হয় আর কেউ
-                                    টের পায় না। তারপর একদিন দেখা যায় ৪০ GB Log
+                                    Log সবসময় Sequential Write, তাই সেটা দ্রুত হয়
+                                    আর কেউ টের পায় না। তারপর একদিন দেখা যায় ৪০ GB Log
                                     জমে Disk ভরে গেছে, আর Database আর কিছু লিখতে
                                     পারছে না। এই কারণেই Log Rotation লাগে।
                                 </ListItem>
@@ -293,7 +294,7 @@ export const storageBasicsContent: TopicData = {
                                     মানে পুরো সার্ভার বদলানো।
                                 </ListItem>
                                 <ListItem>
-                                    <strong>Backup:</strong> Backup একটানা লেখা,
+                                    <strong>Backup:</strong> Backup ও Sequential Write,
                                     তাই এটা দ্রুত হয়। কিন্তু Backup যদি একই
                                     Disk এ থাকে, তাহলে Disk নষ্ট হলে Backup ও
                                     যায়। তাই সেটা অন্য জায়গায় পাঠাতে হয়।
@@ -304,26 +305,26 @@ export const storageBasicsContent: TopicData = {
                 },
                 {
                     type: CONTENT_TYPES.COMPARE_TABLE,
-                    headers: ['কী লেখা হচ্ছে', 'ধরন', 'কোথায় রাখা ভালো'],
+                    headers: ['কী Write হচ্ছে', 'ধরন', 'কোথায় রাখা ভালো'],
                     rows: [
                         [
                             <span className='font-bold'>Database</span>,
-                            'ছড়ানো পড়া আর লেখা',
+                            'Random Read আর Random Write',
                             'SSD, আর Docker Volume এ',
                         ],
                         [
                             <span className='font-bold'>Log</span>,
-                            'একটানা লেখা',
+                            'Sequential Write',
                             'আলাদা জায়গা, সাথে Rotation আর মেয়াদ',
                         ],
                         [
                             <span className='font-bold'>ট্যুরের ছবি</span>,
-                            'একবার লেখা, বহুবার পড়া',
+                            'একবার Write, বহুবার Read',
                             'Object Storage, সামনে CDN',
                         ],
                         [
                             <span className='font-bold'>Backup</span>,
-                            'একটানা লেখা, বড় ফাইল',
+                            'Sequential Write, বড় ফাইল',
                             'অন্য সার্ভার বা অন্য জায়গা',
                         ],
                     ],
@@ -357,7 +358,7 @@ export const storageBasicsContent: TopicData = {
                         {
                             title: 'প্রোগ্রাম OS কে বলল',
                             description:
-                                'আপনার কোড সরাসরি Disk এ লেখে না। সে OS কে একটা System Call দিয়ে অনুরোধ করে, কারণ Disk এর দায়িত্ব OS এর।',
+                                'আপনার কোড সরাসরি Disk এ Write করে না। সে OS কে একটা System Call দিয়ে অনুরোধ করে, কারণ Disk এর দায়িত্ব OS এর।',
                         },
                         {
                             title: 'নাম আর inode তৈরি হলো',
@@ -367,7 +368,7 @@ export const storageBasicsContent: TopicData = {
                         {
                             title: 'ডেটা গেল RAM এর Cache এ',
                             description:
-                                'লেখা এখনো Disk এ যায়নি, RAM এর Page Cache এ বসে আছে। এই কারণেই লেখা এত দ্রুত মনে হয়।',
+                                'Write এখনো Disk এ যায়নি, RAM এর Page Cache এ বসে আছে। এই কারণেই Write এত দ্রুত মনে হয়।',
                         },
                         {
                             title: 'OS সুযোগ মতো Disk এ পাঠাল',
@@ -377,7 +378,7 @@ export const storageBasicsContent: TopicData = {
                         {
                             title: 'fsync চাইলে এখনই',
                             description:
-                                'প্রোগ্রাম যদি নিশ্চয়তা চায়, সে fsync ডাকে। তখন OS অপেক্ষা করে যতক্ষণ Disk সত্যিই লেখা শেষ না করে।',
+                                'প্রোগ্রাম যদি নিশ্চয়তা চায়, সে fsync ডাকে। তখন OS অপেক্ষা করে যতক্ষণ Disk সত্যিই Write শেষ না করে।',
                         },
                         {
                             title: 'এখন এটা টিকে থাকবে',
@@ -454,17 +455,17 @@ export const storageBasicsContent: TopicData = {
                     content: (
                         <ContentList>
                             <ListItem>
-                                HDD তে থালা ঘোরে আর হাত সরে, তাই প্রতিটা ছড়ানো
-                                পড়ায় ৮ থেকে ১২ মিলিসেকেন্ড যায়। SSD তে কিছুই
+                                HDD তে Platter ঘোরে আর Head সরে, তাই প্রতিটা Random
+                                Read এ ৮ থেকে ১২ মিলিসেকেন্ড যায়। SSD তে কিছুই
                                 নড়ে না, তাই সেটা প্রায় ১০০ গুণ দ্রুত।
                             </ListItem>
                             <ListItem>
-                                Disk এর গতি একটা সংখ্যা নয়। একটানা পড়া দ্রুত,
-                                ছড়ানো পড়া ধীর, আর HDD তে এই তফাতটা ভয়ংকর।
+                                Disk এর গতি একটা সংখ্যা নয়। Sequential Read দ্রুত,
+                                Random Read ধীর, আর HDD তে এই তফাতটা ভয়ংকর।
                             </ListItem>
                             <ListItem>
-                                SSD এর খোপ ক্ষয়ে যায়, আর পুরনো লেখার উপরে
-                                সরাসরি লেখা যায় না, আগে Block মুছতে হয়।
+                                SSD এর Cell ক্ষয়ে যায়, আর পুরনো ডেটার উপরে সরাসরি
+                                Write করা যায় না, আগে Block Erase করতে হয়।
                             </ListItem>
                             <ListItem>
                                 Disk শুধু নম্বর দেওয়া Block চেনে। ফাইল আর ফোল্ডার
@@ -501,23 +502,23 @@ export const storageBasicsContent: TopicData = {
         rows: [
             [
                 <span className='font-bold text-primary'>HDD</span>,
-                'ঘুরন্ত থালা আর নড়া হাত, তাই ছড়ানো পড়া ধীর',
+                'ঘুরন্ত Platter আর নড়া Head, তাই Random Read ধীর',
             ],
             [
                 <span className='font-bold text-primary'>SSD</span>,
-                'নড়ার কিছু নেই, যেকোনো ঘরে সরাসরি পৌঁছানো যায়',
+                'নড়ার কিছু নেই, যেকোনো Cell এ সরাসরি পৌঁছানো যায়',
             ],
             [
                 <span className='font-bold text-primary'>Seek Time</span>,
-                'HDD এর হাত সঠিক জায়গায় সরতে যে সময় নেয়',
+                'HDD এর Head সঠিক জায়গায় সরতে যে সময় নেয়',
             ],
             [
                 <span className='font-bold text-primary'>Sequential I/O</span>,
-                'একটানা পড়া বা লেখা, যেমন Log আর Backup',
+                'পরপর Read বা Write, যেমন Log আর Backup',
             ],
             [
                 <span className='font-bold text-primary'>Random I/O</span>,
-                'ছড়ানো পড়া, যেমন Database এর Query',
+                'এলোমেলো জায়গা থেকে Read, যেমন Database এর Query',
             ],
             [
                 <span className='font-bold text-primary'>Block</span>,
@@ -562,21 +563,21 @@ export const storageBasicsContent: TopicData = {
             },
             {
                 id: 2,
-                text: 'একই ডেটা HDD থেকে পড়ার দুইটা উপায়। কোনটা অনেক দ্রুত?',
+                text: 'একই ডেটা HDD থেকে Read করার দুইটা উপায়। কোনটা অনেক দ্রুত?',
                 options: [
                     {
                         key: 'A',
-                        text: 'ছড়ানো ছোট ছোট টুকরো করে পড়া',
+                        text: 'ছোট ছোট টুকরো করে Random Read',
                         isCorrect: false,
                         explanation:
-                            'প্রতিটা টুকরোর জন্য হাত সরাতে হয়, তাই এটাই সবচেয়ে ধীর।',
+                            'প্রতিটা টুকরোর জন্য Head সরাতে হয়, তাই এটাই সবচেয়ে ধীর।',
                     },
                     {
                         key: 'B',
-                        text: 'একটানা পড়া',
+                        text: 'Sequential Read',
                         isCorrect: true,
                         explanation:
-                            'হাত একবার জায়গায় গেলে বাকিটা সহজে পড়া যায়। এই কারণেই Log আর Backup HDD তেও ভালো চলে।',
+                            'Head একবার জায়গায় গেলে বাকিটা সহজে Read করা যায়। এই কারণেই Log আর Backup HDD তেও ভালো চলে।',
                     },
                     {
                         key: 'C',
@@ -665,7 +666,7 @@ export const storageBasicsContent: TopicData = {
                         text: 'জমে থাকা Log ফাইল',
                         isCorrect: true,
                         explanation:
-                            'Log একটানা লেখা হয় তাই কেউ টের পায় না, আর Rotation না থাকলে সেটা মাসের পর মাস বাড়ে।',
+                            'Log Sequential Write, তাই কেউ টের পায় না, আর Rotation না থাকলে সেটা মাসের পর মাস বাড়ে।',
                     },
                     {
                         key: 'B',
@@ -706,7 +707,7 @@ export const storageBasicsContent: TopicData = {
                     'একটা ফাইল বানিয়ে তার inode নম্বর দেখুন, তারপর একটা Hard Link বানিয়ে দেখুন দুইটা নামের inode একই।',
             },
             {
-                title: 'একটানা আর ছড়ানো লেখার তফাত মাপুন',
+                title: 'Sequential আর Random Write এর তফাত মাপুন',
                 description:
                     'একই পরিমাণ ডেটা একবার এক ফাইলে, আরেকবার হাজারটা ছোট ফাইলে লিখে সময় মিলিয়ে দেখুন।',
             },
@@ -775,16 +776,16 @@ rm second-name.txt         # এবার গোনা শূন্য, এখ�
                 language: 'bash',
                 code: `mkdir -p /tmp/io-test && cd /tmp/io-test
 
-# ১০০ MB একটানা এক ফাইলে
+# ১০০ MB Sequential Write, এক ফাইলে
 time dd if=/dev/zero of=big.bin bs=1M count=100 2>/dev/null
 
 # একই ১০০ MB, কিন্তু ১০০০ টুকরায়
 time sh -c 'for i in $(seq 1 1000); do dd if=/dev/zero of=small-$i.bin bs=100K count=1 2>/dev/null; done'
 
-# একটানা পড়া
+# Sequential Read
 time cat big.bin > /dev/null
 
-# ছড়ানো পড়া
+# Random Read
 time cat small-*.bin > /dev/null
 
 # পরিষ্কার করে ফেলুন
@@ -812,8 +813,8 @@ cd /tmp && rm -rf io-test
             </span>,
             <span key='3'>
                 <strong>গতি মাপুন:</strong> Lab এর চার নম্বর পরীক্ষাটা চালিয়ে
-                একটানা আর ছড়ানো লেখার সময় লিখে রাখুন। কত গুণ তফাত হলো সেটা হিসাব
-                করুন।
+                Sequential আর Random Write এর সময় লিখে রাখুন। কত গুণ তফাত হলো
+                সেটা হিসাব করুন।
             </span>,
             <span key='4'>
                 <strong>পরিকল্পনা লিখুন (৫ লাইন):</strong> আপনার my-tours এর জন্য
@@ -824,7 +825,7 @@ cd /tmp && rm -rf io-test
         deliverables: [
             <span key='1'>জায়গা আর inode এর বর্তমান হিসাব</span>,
             <span key='2'>সবচেয়ে বড় দশটা ফোল্ডারের তালিকা আর মন্তব্য</span>,
-            <span key='3'>একটানা আর ছড়ানো লেখার সময়ের তুলনা</span>,
+            <span key='3'>Sequential আর Random Write এর সময়ের তুলনা</span>,
             <span key='4'>Log, Database আর ছবির জন্য ৫ লাইনের পরিকল্পনা</span>,
         ],
     },

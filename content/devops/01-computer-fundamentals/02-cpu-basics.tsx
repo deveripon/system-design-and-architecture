@@ -718,7 +718,7 @@ export const cpuBasicsContent: TopicData = {
             {
                 title: 'Cache এর প্রভাব মেপে দেখুন',
                 description:
-                    'একই পরিমাণ ডেটা কাছাকাছি পড়া আর ছড়িয়ে ছিটিয়ে পড়া, সময়ের তফাতটা দেখুন।',
+                    'একই পরিমাণ ডেটা Sequential Read আর Random Read করে সময়ের তফাতটা দেখুন।',
             },
         ],
         codeBlocks: [
@@ -782,19 +782,19 @@ async function waiting() {           // CPU শুধু বসে আছে
             {
                 filename: '4-cache-matters.js',
                 language: 'javascript',
-                code: `// একই সংখ্যক পড়া, কিন্তু একবার পাশে পাশে আর একবার ছড়িয়ে
+                code: `// একই সংখ্যক Read, কিন্তু একবার Sequential আর একবার Random
 
 const SIZE = 20_000_000;
 const data = new Int32Array(SIZE).fill(1);
 
-function sequential() {            // পাশাপাশি, Cache খুশি
+function sequential() {            // Sequential, Cache খুশি
   const t = Date.now();
   let sum = 0;
   for (let i = 0; i < SIZE; i++) sum += data[i];
   return Date.now() - t;
 }
 
-function scattered() {             // ছড়ানো, Cache প্রতিবার মিস
+function scattered() {             // Random, Cache প্রতিবার মিস
   const t = Date.now();
   let sum = 0;
   for (let i = 0; i < SIZE; i += 16) sum += data[i];
@@ -802,9 +802,9 @@ function scattered() {             // ছড়ানো, Cache প্রতি�
   return Date.now() - t;
 }
 
-console.log('পাশাপাশি পড়া:', sequential(), 'ms');
-console.log('ছড়িয়ে পড়া:  ', scattered(), 'ms');
-// একই সংখ্যক যোগ, কিন্তু সময় আলাদা। পার্থক্যটা Cache এর।`,
+console.log('Sequential Read:', sequential(), 'ms');
+console.log('Random Read:    ', scattered(), 'ms');
+// একই সংখ্যক যোগ, কিন্তু সময় আলাদা। তফাতটা Cache এর।`,
             },
         ],
         tip: 'htop এ প্রতিটা Core আলাদা বার হিসেবে দেখা যায়। ২ নম্বর Script চালিয়ে দেখুন ঠিক একটা বার ভরে যায়, বাকিগুলো শান্ত। এই একটা দৃশ্য দেখলে Core আর Thread এর পার্থক্য আর ভুলবেন না।',
