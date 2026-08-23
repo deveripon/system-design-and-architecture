@@ -24,8 +24,8 @@ export async function generateMetadata({
     const { module: section, lesson } = found;
     const title = lesson.title;
     const description = lesson.summary
-        ? `${lesson.summary} — ${section.title} · ${devopsTrack.title}.`
-        : `${lesson.title} — ${section.title} · ${devopsTrack.title}.`;
+        ? `${lesson.summary}, ${section.title} · ${devopsTrack.title}.`
+        : `${lesson.title}, ${section.title} · ${devopsTrack.title}.`;
     const url = `/devops/topic/${id}`;
 
     return {

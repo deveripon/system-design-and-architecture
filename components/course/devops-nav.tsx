@@ -9,7 +9,7 @@ const NAV = {
     homeHref: '/devops',
     eyebrow: 'DevOps & Internet',
     title: 'From Scratch',
-    // 126 lessons across 14 modules — the list only stays usable collapsed.
+    // 174 lessons across 20 modules, so the list only stays usable collapsed.
     collapsible: true,
 } as const;
 

@@ -8,7 +8,7 @@ export default function TopicLayout({
 }) {
     return (
         <div className='min-h-screen flex overflow-hidden'>
-            {/* Desktop sidebar — hidden on mobile */}
+            {/* Desktop sidebar, hidden on mobile */}
             <Sidebar />
 
             {/* Mobile top bar + drawer */}

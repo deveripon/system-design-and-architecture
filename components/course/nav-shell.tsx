@@ -19,6 +19,8 @@ export interface NavTopic {
 export interface NavSection {
     id: string;
     title: string;
+    /** Bengali name, rendered on its own line. */
+    subtitle?: string;
     duration?: string;
     topics: NavTopic[];
 }
@@ -31,26 +33,24 @@ export interface NavProps {
     homeHref: string;
     eyebrow: string;
     title: string;
-    /** Collapse sections into accordions — worth it once a track has many lessons. */
+    /** Collapse sections into accordions, worth it once a track has many lessons. */
     collapsible?: boolean;
 }
 
 /**
- * Section titles are bilingual ("Docker & Containerization — কন্টেইনারাইজেশন").
- * Uppercase + wide tracking mangles Bengali conjuncts, so the two halves are
- * rendered as separate lines with their own type treatment.
+ * A section label. The English name is set in mono uppercase; the Bengali name
+ * sits on its own line in normal case, because uppercase with wide tracking
+ * mangles Bengali conjuncts.
  */
-function splitTitle(title: string) {
-    const parts = title.split(/\s+[—–-]\s+/);
-    return {
-        name: parts[0].trim(),
-        native: parts.slice(1).join(' — ').trim(),
-    };
-}
-
-function SectionLabel({ index, title }: { index: string; title: string }) {
-    const { name, native } = splitTitle(title);
-
+function SectionLabel({
+    index,
+    title,
+    subtitle,
+}: {
+    index: string;
+    title: string;
+    subtitle?: string;
+}) {
     return (
         <>
             <span className='font-mono text-[10px] font-bold tabular-nums pt-px shrink-0 text-muted-foreground/60'>
@@ -58,11 +58,11 @@ function SectionLabel({ index, title }: { index: string; title: string }) {
             </span>
             <span className='flex-1 min-w-0'>
                 <span className='block font-mono text-[11px] font-bold uppercase tracking-[0.06em] leading-snug text-foreground/85 group-hover:text-foreground'>
-                    {name}
+                    {title}
                 </span>
-                {native && (
+                {subtitle && (
                     <span className='block text-[11px] leading-snug mt-1 text-muted-foreground'>
-                        {native}
+                        {subtitle}
                     </span>
                 )}
             </span>
@@ -122,6 +122,7 @@ export function NavList({
                                         '0'
                                     )}
                                     title={section.title}
+                                    subtitle={section.subtitle}
                                 />
                                 <ChevronDown
                                     className={cn(
@@ -138,6 +139,7 @@ export function NavList({
                                         '0'
                                     )}
                                     title={section.title}
+                                    subtitle={section.subtitle}
                                 />
                             </div>
                         )}

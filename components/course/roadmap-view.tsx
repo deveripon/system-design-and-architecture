@@ -10,6 +10,7 @@ import { Fragment, useState } from 'react';
 export interface RoadmapSection {
     id: string;
     title: string;
+    subtitle?: string;
     duration: string;
     topics: any[];
 }
@@ -18,7 +19,7 @@ interface RoadmapViewProps {
     sections: RoadmapSection[];
     /** Route prefix for a topic page, e.g. `/topic` or `/devops/topic`. */
     basePath: string;
-    /** Label above a section title — "Phase" for the course, "Module" for the track. */
+    /** Label above a section title, "Phase" for the course, "Module" for the track. */
     sectionLabel?: string;
     /** Section ids expanded on first render. */
     defaultExpanded?: string[];
@@ -71,6 +72,11 @@ export function RoadmapView({
                                 <h2 className='text-base md:text-xl font-black uppercase tracking-tighter truncate'>
                                     {section.title}
                                 </h2>
+                                {section.subtitle && (
+                                    <span className='text-[11px] text-muted-foreground truncate'>
+                                        {section.subtitle}
+                                    </span>
+                                )}
                             </div>
                             <div className='flex-1' />
                             <span className='hidden sm:block text-[10px] md:text-xs text-muted-foreground font-mono font-bold whitespace-nowrap'>

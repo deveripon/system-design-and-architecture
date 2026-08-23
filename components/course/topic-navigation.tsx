@@ -12,7 +12,7 @@ interface TopicNavigationProps {
     next: TopicInfo | null;
     /** Route prefix for the sibling pages, e.g. `/topic` or `/devops/topic`. */
     basePath?: string;
-    /** What a sibling is called — "Topic" for the course, "Lesson" for the track. */
+    /** What a sibling is called: Topic for the course, Lesson for the track. */
     label?: string;
 }
 

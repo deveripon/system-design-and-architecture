@@ -7,7 +7,7 @@ export default function DevopsTopicLayout({
 }) {
     return (
         <div className='min-h-screen flex overflow-hidden'>
-            {/* Desktop sidebar — hidden on mobile */}
+            {/* Desktop sidebar, hidden on mobile */}
             <DevopsSidebar />
 
             {/* Mobile top bar + drawer */}

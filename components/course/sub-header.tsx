@@ -14,7 +14,7 @@ export function SubHeader({ index, title, className }: SubHeaderProps) {
         className
       )}
     >
-      {/* Square dot — inline for precise vertical centering */}
+      {/* Square dot, inline for precise vertical centering */}
       <span className="inline-block w-[6px] h-[6px] bg-primary shrink-0" />
       <span className="text-muted-foreground/50">{index}</span>
       <span className="text-foreground">{title}</span>

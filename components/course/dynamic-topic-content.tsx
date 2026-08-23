@@ -37,7 +37,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
                             &quot;{data.introduction.quote.text}&quot;
                         </div>
                         <div className='mt-4 text-xs md:text-sm font-mono text-muted-foreground'>
-                            — {data.introduction.quote.author},{' '}
+                            {data.introduction.quote.author},{' '}
                             <span className='text-accent'>
                                 {data.introduction.quote.role}
                             </span>
@@ -78,7 +78,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
                             className='mb-8'
                         />
                         <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter mb-6 md:mb-8 leading-none'>
-                            SUMMARY — আজকে যা শিখলাম
+                            SUMMARY: আজকে যা শিখলাম
                         </h2>
                         <CompareTable
                             headers={data.summary.headers}

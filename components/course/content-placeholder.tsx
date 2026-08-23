@@ -7,7 +7,7 @@ interface ContentPlaceholderProps {
     title: string;
     details?: string;
     tools?: string[];
-    /** Where "back" goes — the roadmap this lesson belongs to. */
+    /** Where "back" goes, the roadmap this lesson belongs to. */
     homeHref: string;
     homeLabel?: string;
     /** A finished page to look at in the meantime. */
