@@ -10,6 +10,7 @@ import {
     ByteScaleVisual,
     KeypressToBitsStory,
 } from '../../../components/course/topics/binary/animations';
+import { AsciiTableLink } from '../../../components/course/topics/binary/ascii-table-link';
 import { IslandToursBrief } from '../../../components/course/topics/island-tours/project-brief';
 import {
     ByteAnatomyDiagram,
@@ -165,6 +166,10 @@ export const binaryAndDataContent: TopicData = {
                 {
                     type: CONTENT_TYPES.CUSTOM,
                     component: <ByteAnatomyDiagram />,
+                },
+                {
+                    type: CONTENT_TYPES.CUSTOM,
+                    component: <AsciiTableLink />,
                 },
                 {
                     type: CONTENT_TYPES.CUSTOM,
@@ -473,6 +478,10 @@ export const binaryAndDataContent: TopicData = {
                             '১ Byte',
                         ],
                     ],
+                },
+                {
+                    type: CONTENT_TYPES.CUSTOM,
+                    component: <AsciiTableLink variant='compact' />,
                 },
                 {
                     type: CONTENT_TYPES.INFO_BOX,

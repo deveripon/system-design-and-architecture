@@ -37,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
         },
         {
+            url: `${siteUrl}/devops/reference/ascii-table`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        },
+        {
             url: `${siteUrl}/devops/project`,
             lastModified: new Date(),
             changeFrequency: 'monthly',

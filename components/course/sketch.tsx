@@ -19,7 +19,8 @@ export function Sketch({
     children,
 }: {
     label: string;
-    caption?: string;
+    /** Sits under the drawing. Takes nodes so a caption can carry a link. */
+    caption?: React.ReactNode;
     /** Below this width the frame scrolls instead of squashing the drawing. */
     minWidth?: number;
     height: number;

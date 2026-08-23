@@ -1,3 +1,5 @@
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import { Sketch, SketchText as T } from '../../sketch';
 
 /**
@@ -19,7 +21,20 @@ export function ByteAnatomyDiagram() {
             label='Diagram: একটা Byte এর ভেতর'
             height={300}
             viewBox='0 0 740 300'
-            caption='আটটা ঘর, প্রতিটার নিজের দাম। চালু ঘরগুলোর দাম যোগ করলেই Byte-এর মান। এখানে ৬৪ + ১ = ৬৫, আর ৬৫ মানে A।'>
+            caption={
+                <span className='flex flex-col sm:flex-row sm:items-center gap-3'>
+                    <span className='flex-1'>
+                        আটটা ঘর, প্রতিটার নিজের দাম। চালু ঘরগুলোর দাম যোগ করলেই
+                        Byte-এর মান। এখানে ৬৪ + ১ = ৬৫, আর ৬৫ মানে A।
+                    </span>
+                    <Link
+                        href='/devops/reference/ascii-table'
+                        className='inline-flex items-center gap-2 shrink-0 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary hover:text-foreground transition-colors'>
+                        পুরো ASCII টেবিল
+                        <ArrowRight className='w-3 h-3' />
+                    </Link>
+                </span>
+            }>
             <defs>
                 <marker
                     id='ba-arrow'
