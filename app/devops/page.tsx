@@ -6,18 +6,18 @@ import { ModeToggle } from '@/components/mode-toggle';
 import { devopsCourseData, devopsLessons, devopsTrack } from '@/lib/devops-course-data';
 import { toBn } from '@/lib/utils';
 import type { Metadata } from 'next';
-import { ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, Compass } from 'lucide-react';
 import Link from 'next/link';
 
 const lessonCount = devopsLessons.length;
 const moduleCount = devopsCourseData.length;
 
 export const metadata: Metadata = {
-    title: `${devopsTrack.title} — ${devopsTrack.subtitle}`,
-    description: `Browser থেকে Production Infrastructure — ${lessonCount}টি লেসনে DNS, TCP/IP, HTTP, Linux, Docker, Reverse Proxy, CI/CD আর Cloud Infrastructure। বাংলায় সম্পূর্ণ DevOps কারিকুলাম।`,
+    title: `${devopsTrack.title}: ${devopsTrack.subtitle}`,
+    description: `Browser থেকে Production Infrastructure পর্যন্ত। ${lessonCount}টি লেসনে DNS, TCP/IP, HTTP, Linux, Docker, Reverse Proxy, CI/CD আর Cloud Infrastructure। বাংলায় সম্পূর্ণ DevOps কারিকুলাম।`,
     alternates: { canonical: '/devops' },
     openGraph: {
-        title: `${devopsTrack.title} — ${devopsTrack.subtitle}`,
+        title: `${devopsTrack.title}: ${devopsTrack.subtitle}`,
         description: `${lessonCount} lessons covering the internet, networking, Linux, Docker, reverse proxies, CI/CD and production infrastructure.`,
         url: '/devops',
         type: 'website',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: `${devopsTrack.title} — ${devopsTrack.subtitle}`,
+        title: `${devopsTrack.title}: ${devopsTrack.subtitle}`,
         description: `${lessonCount} lessons from browser to production infrastructure.`,
         images: ['/og-default.png'],
     },
@@ -81,7 +81,7 @@ export default function DevopsTrackPage() {
                         </h1>
 
                         <p className='text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-medium'>
-                            {devopsTrack.subtitle} — {toBn(lessonCount)}টি
+                            {devopsTrack.subtitle}। {toBn(lessonCount)}টি
                             লেসন, {toBn(moduleCount)}টি মডিউল।
                         </p>
 
@@ -90,6 +90,34 @@ export default function DevopsTrackPage() {
                         </div>
                     </div>
                 </BorderCross>
+
+                {/* The project this track is built around */}
+                <section className='mt-16 md:mt-24'>
+                    <BorderCross>
+                        <Link
+                            href='/devops/project'
+                            className='group flex flex-col md:flex-row md:items-center gap-5 md:gap-8 p-6 md:p-10 border border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors'>
+                            <span className='w-12 h-12 border border-border bg-background flex items-center justify-center shrink-0'>
+                                <Compass className='w-6 h-6 text-primary' />
+                            </span>
+                            <span className='flex-1'>
+                                <span className='block font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary mb-2'>
+                                    The Project
+                                </span>
+                                <span className='block text-lg md:text-xl font-black uppercase tracking-tighter mb-2 group-hover:text-primary transition-colors'>
+                                    Island Tours
+                                </span>
+                                <span className='block text-sm text-muted-foreground leading-relaxed max-w-2xl'>
+                                    পুরো ট্র্যাকে উদাহরণ হিসেবে একটা সত্যিকারের
+                                    ট্যুর বুকিং অ্যাপ ব্যবহার করা হয়। এখানে দেখো
+                                    সেটা কী, তার Architecture কেমন, আর তুমি
+                                    নিজের ভার্সন কীভাবে বানাবে।
+                                </span>
+                            </span>
+                            <ArrowRight className='w-4 h-4 text-primary shrink-0 group-hover:translate-x-0.5 transition-transform' />
+                        </Link>
+                    </BorderCross>
+                </section>
 
                 {/* Why this track */}
                 <section className='mt-20 md:mt-32'>

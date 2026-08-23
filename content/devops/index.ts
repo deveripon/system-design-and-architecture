@@ -10,9 +10,14 @@ import { TopicData } from '../../types/content';
  * To write a lesson:
  *   1. create `content/devops/<module-folder>/<nn>-<lesson-id>.tsx`
  *      exporting a `TopicData` object (see `content/foundations/topics` for the
- *      house style: 8 sections — Theory, Visual, Real Example, Project Example,
+ *      house style: 8 sections, Theory, Visual, Real Example, Project Example,
  *      Hands-on, Quiz, Assignment, Recap),
  *   2. import it below and map it to the lesson id used in
  *      `lib/devops-course-data.ts`.
  */
-export const devopsContentMap: Record<string, TopicData> = {};
+import { binaryAndDataContent } from './01-computer-fundamentals/01-binary-and-data';
+
+export const devopsContentMap: Record<string, TopicData> = {
+    // Module 01, Computer Fundamentals
+    'binary-and-data': binaryAndDataContent,
+};
