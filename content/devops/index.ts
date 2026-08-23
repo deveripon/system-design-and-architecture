@@ -17,9 +17,11 @@ import { TopicData } from '../../types/content';
  */
 import { binaryAndDataContent } from './01-computer-fundamentals/01-binary-and-data';
 import { cpuBasicsContent } from './01-computer-fundamentals/02-cpu-basics';
+import { memoryAndRamContent } from './01-computer-fundamentals/03-memory-and-ram';
 
 export const devopsContentMap: Record<string, TopicData> = {
     // Module 01, Computer Fundamentals
     'binary-and-data': binaryAndDataContent,
     'cpu-basics': cpuBasicsContent,
+    'memory-and-ram': memoryAndRamContent,
 };
