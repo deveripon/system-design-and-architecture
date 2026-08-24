@@ -7,7 +7,7 @@ import {
 } from '../../../components/course/content-components';
 import { IslandToursBrief } from '../../../components/course/topics/island-tours/project-brief';
 import {
-    BlockingVsAsyncLab,
+    ConcurrencyVsParallelismLab,
     RaceConditionLab,
 } from '../../../components/course/topics/process/animations';
 import {
@@ -163,7 +163,7 @@ export const processVsThreadContent: TopicData = {
                     ),
                 },
                 { type: CONTENT_TYPES.CUSTOM, component: <ConcurrencyVsParallelismDiagram /> },
-                { type: CONTENT_TYPES.CUSTOM, component: <BlockingVsAsyncLab /> },
+                { type: CONTENT_TYPES.CUSTOM, component: <ConcurrencyVsParallelismLab /> },
                 {
                     type: CONTENT_TYPES.INFO_BOX,
                     variant: INFO_BOX_VARIANTS.TIP,
