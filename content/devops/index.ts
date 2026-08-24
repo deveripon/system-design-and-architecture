@@ -18,6 +18,7 @@ import { TopicData } from '../../types/content';
 import { binaryAndDataContent } from './01-computer-fundamentals/01-binary-and-data';
 import { cpuBasicsContent } from './01-computer-fundamentals/02-cpu-basics';
 import { memoryAndRamContent } from './01-computer-fundamentals/03-memory-and-ram';
+import { operatingSystemBasicsContent } from './01-computer-fundamentals/05-operating-system-basics';
 import { storageBasicsContent } from './01-computer-fundamentals/04-storage-basics';
 
 export const devopsContentMap: Record<string, TopicData> = {
@@ -26,4 +27,5 @@ export const devopsContentMap: Record<string, TopicData> = {
     'cpu-basics': cpuBasicsContent,
     'memory-and-ram': memoryAndRamContent,
     'storage-basics': storageBasicsContent,
+    'operating-system-basics': operatingSystemBasicsContent,
 };
