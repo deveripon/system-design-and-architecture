@@ -20,6 +20,7 @@ import { cpuBasicsContent } from './01-computer-fundamentals/02-cpu-basics';
 import { memoryAndRamContent } from './01-computer-fundamentals/03-memory-and-ram';
 import { operatingSystemBasicsContent } from './01-computer-fundamentals/05-operating-system-basics';
 import { processVsThreadContent } from './01-computer-fundamentals/06-process-vs-thread';
+import { howAProgramRunsContent } from './01-computer-fundamentals/07-how-a-program-runs';
 import { storageBasicsContent } from './01-computer-fundamentals/04-storage-basics';
 
 export const devopsContentMap: Record<string, TopicData> = {
@@ -30,4 +31,5 @@ export const devopsContentMap: Record<string, TopicData> = {
     'storage-basics': storageBasicsContent,
     'operating-system-basics': operatingSystemBasicsContent,
     'process-vs-thread': processVsThreadContent,
+    'how-a-program-runs': howAProgramRunsContent,
 };
