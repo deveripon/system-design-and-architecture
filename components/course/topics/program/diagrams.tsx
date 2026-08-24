@@ -64,7 +64,7 @@ export function SourceToProcessDiagram() {
         Kernel এখানে হাত দেয়
       </SketchText>
       <path
-        d="M 586 67 L 620 67 L 620 150 L 596 150"
+        d="M 586 67 L 620 67 L 620 179 L 586 179"
         fill="none"
         stroke="var(--primary)"
         strokeWidth="1.4"
@@ -107,34 +107,25 @@ export function SourceToProcessDiagram() {
       <defs>
         <marker
           id="program-arrow"
-          markerWidth="7"
-          markerHeight="7"
-          refX="6"
-          refY="3"
+          markerWidth={8}
+          markerHeight={8}
+          refX={7}
+          refY={3.5}
           orient="auto"
+          markerUnits="userSpaceOnUse"
         >
-          <path
-            d="M0,0 L6,3 L0,6"
-            fill="none"
-            stroke="currentColor"
-            strokeOpacity={0.5}
-            strokeWidth="1.2"
-          />
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor" fillOpacity={0.55} />
         </marker>
         <marker
           id="program-arrow-accent"
-          markerWidth="7"
-          markerHeight="7"
-          refX="6"
-          refY="3"
+          markerWidth={8}
+          markerHeight={8}
+          refX={7}
+          refY={3.5}
           orient="auto"
+          markerUnits="userSpaceOnUse"
         >
-          <path
-            d="M0,0 L6,3 L0,6"
-            fill="none"
-            stroke="var(--primary)"
-            strokeWidth="1.4"
-          />
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="var(--primary)" />
         </marker>
       </defs>
     </Sketch>
@@ -231,18 +222,17 @@ export function CompileVsInterpretDiagram() {
               <defs>
                 <marker
                   id="pd-down"
-                  markerWidth="7"
-                  markerHeight="7"
-                  refX="3"
-                  refY="6"
+                  markerWidth={8}
+                  markerHeight={8}
+                  refX={7}
+                  refY={3.5}
                   orient="auto"
+                  markerUnits="userSpaceOnUse"
                 >
                   <path
-                    d="M0,0 L3,6 L6,0"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeOpacity={0.5}
-                    strokeWidth="1.2"
+                    d="M0,0 L7,3.5 L0,7 Z"
+                    fill="currentColor"
+                    fillOpacity={0.55}
                   />
                 </marker>
               </defs>
@@ -421,14 +411,14 @@ export function ProcessMemoryDiagram() {
 
       {/* growth arrows in the gap */}
       <path
-        d="M 96 52 L 96 96"
+        d="M 96 60 L 96 93"
         fill="none"
         stroke="var(--primary)"
         strokeWidth="1.4"
         markerEnd="url(#pm-arrow)"
       />
       <path
-        d="M 96 176 L 96 132"
+        d="M 96 138 L 96 105"
         fill="none"
         stroke="var(--primary)"
         strokeWidth="1.4"
@@ -437,18 +427,269 @@ export function ProcessMemoryDiagram() {
       <defs>
         <marker
           id="pm-arrow"
-          markerWidth="7"
-          markerHeight="7"
-          refX="3"
-          refY="5"
+          markerWidth={8}
+          markerHeight={8}
+          refX={7}
+          refY={3.5}
           orient="auto"
+          markerUnits="userSpaceOnUse"
         >
-          <path
-            d="M0,0 L3,5 L6,0"
-            fill="none"
-            stroke="var(--primary)"
-            strokeWidth="1.4"
-          />
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="var(--primary)" />
+        </marker>
+      </defs>
+    </Sketch>
+  );
+}
+
+/* ------------------------------------------------------------------------- */
+/* 4. ফাইলটার ভেতরে উঁকি                                                      */
+/* ------------------------------------------------------------------------- */
+
+const FILE_PARTS = [
+  {
+    title: "শুরুর ৪ Byte",
+    sub: "7f 45 4c 46",
+    note: "নাম লেখা আছে, ELF. এটুকু দেখেই Kernel বোঝে ফাইলটা চালানো যাবে",
+    accent: true,
+  },
+  {
+    title: "Entry Point",
+    sub: "যেমন 0x401040",
+    note: "শুরু কোন ঠিকানা থেকে, সেটা এখানে লেখা থাকে",
+    accent: true,
+  },
+  {
+    title: "সূচিপত্র",
+    sub: "Program Header",
+    note: "কোন অংশ Memory র কোথায় গিয়ে বসবে, তার তালিকা",
+  },
+  {
+    title: ".text",
+    sub: "Machine Code",
+    note: "আপনার লেখা কোড, অনুবাদ হওয়ার পরে",
+  },
+  {
+    title: ".rodata",
+    sub: "না বদলানো লেখা",
+    note: "যেমন আপনার console.log এর ভেতরের কথাগুলো",
+  },
+  {
+    title: ".data",
+    sub: "Global Variable",
+    note: "যাদের শুরুর মান আগেই বসানো আছে",
+  },
+  {
+    title: ".bss",
+    sub: "শুধু একটা সংখ্যা",
+    note: "কতটুকু ফাঁকা জায়গা লাগবে তার হিসাব, ফাইলে জায়গা নেয় না",
+  },
+];
+
+export function ExecutableFileDiagram() {
+  const rowH = 40;
+  const top = 36;
+  const h = top + FILE_PARTS.length * rowH + 24;
+  return (
+    <Sketch
+      label="Diagram: চালানোর ফাইলটার ভেতরে কী আছে"
+      height={h}
+      minWidth={760}
+      viewBox={`0 0 760 ${h}`}
+      caption="ফাইলটা শুধু কোডের স্তূপ নয়। উপরে নাম লেখা আছে, তারপর একটা সূচিপত্র আছে, আর তারপর ভাগ করা খোপগুলো আছে। Kernel প্রথমে নাম দেখে, তারপর সূচিপত্র পড়ে, তারপর খোপগুলো Memory তে বসিয়ে দেয়। শেষ খোপটা মজার, .bss শুধু বলে রাখে কতটুকু ফাঁকা জায়গা লাগবে, তাই দশ লক্ষ শূন্যের জন্যও ফাইলটা এক Byte ও বড় হয় না।"
+    >
+      <SketchText x={16} y={22} size={9} anchor="start" opacity={0.55}>
+        ফাইলের শুরু
+      </SketchText>
+      {FILE_PARTS.map((part, i) => {
+        const y = top + i * rowH;
+        return (
+          <g key={part.title}>
+            <SketchBox
+              x={16}
+              y={y}
+              w={230}
+              h={rowH - 8}
+              title={part.title}
+              sub={part.sub}
+              accent={part.accent}
+            />
+            <line
+              x1={246}
+              y1={y + (rowH - 8) / 2}
+              x2={272}
+              y2={y + (rowH - 8) / 2}
+              stroke="currentColor"
+              strokeOpacity={0.3}
+              strokeWidth="1"
+            />
+            <SketchText
+              x={280}
+              y={y + (rowH - 8) / 2 + 4}
+              size={10}
+              anchor="start"
+              opacity={0.75}
+              body
+            >
+              {part.note}
+            </SketchText>
+          </g>
+        );
+      })}
+    </Sketch>
+  );
+}
+
+/* ------------------------------------------------------------------------- */
+/* 5. প্রত্যেকে ভাবে পুরো Memory তার একার                                     */
+/* ------------------------------------------------------------------------- */
+
+export function VirtualMemoryDiagram() {
+  const frame = (x: number, on: boolean, label: string) => (
+    <g key={x}>
+      <rect
+        x={x}
+        y={244}
+        width={86}
+        height={44}
+        fill={on ? "var(--primary)" : "transparent"}
+        fillOpacity={on ? 0.12 : 0}
+        stroke={on ? "var(--primary)" : "currentColor"}
+        strokeOpacity={on ? 1 : 0.25}
+        strokeWidth="1.2"
+      />
+      <SketchText
+        x={x + 43}
+        y={270}
+        size={9}
+        accent={on}
+        opacity={on ? 1 : 0.4}
+      >
+        {label}
+      </SketchText>
+    </g>
+  );
+
+  return (
+    <Sketch
+      label="Diagram: একই ঠিকানা, আসলে আলাদা জায়গা"
+      height={320}
+      minWidth={860}
+      viewBox="0 0 860 320"
+      caption="দুইটা Process ই বিশ্বাস করে তাদের কোড আছে 0x400000 ঠিকানায়। দুইজনের কেউই মিথ্যা বলছে না, আর দুইজনের কেউই একে অন্যের জায়গায় হাত দিতে পারছে না। মাঝখানে বসে Kernel প্রতিবার ঠিকানাটা চুপচাপ বদলে দেয়, আর কেউ টেরও পায় না।"
+    >
+      {/* two processes */}
+      <SketchText x={40} y={22} size={9} anchor="start" opacity={0.55}>
+        PROCESS A, যা সে দেখে
+      </SketchText>
+      <SketchText x={480} y={22} size={9} anchor="start" opacity={0.55}>
+        PROCESS B, যা সে দেখে
+      </SketchText>
+
+      <SketchBox
+        x={40}
+        y={34}
+        w={300}
+        h={40}
+        title="0x400000"
+        sub="আমার কোড"
+        accent
+      />
+      <SketchBox
+        x={40}
+        y={82}
+        w={300}
+        h={40}
+        title="0x700000"
+        sub="আমার Heap"
+      />
+      <SketchBox
+        x={480}
+        y={34}
+        w={300}
+        h={40}
+        title="0x400000"
+        sub="আমার কোড"
+        accent
+      />
+      <SketchBox
+        x={480}
+        y={82}
+        w={300}
+        h={40}
+        title="0x700000"
+        sub="আমার Heap"
+      />
+
+      {/* translator */}
+      <rect
+        x={40}
+        y={152}
+        width={740}
+        height={40}
+        fill="transparent"
+        stroke="currentColor"
+        strokeOpacity={0.35}
+        strokeWidth="1.2"
+        strokeDasharray="5 4"
+      />
+      <SketchText x={410} y={170} size={11} bold accent>
+        KERNEL, ঠিকানা বদলে দেয়
+      </SketchText>
+      <SketchText x={410} y={184} size={9} opacity={0.65} body>
+        প্রতিটা Process এর জন্য আলাদা একটা তালিকা রাখা থাকে
+      </SketchText>
+
+      {/* crossing arrows */}
+      <path
+        d="M 190 122 L 190 152"
+        stroke="currentColor"
+        strokeOpacity={0.4}
+        strokeWidth="1.1"
+      />
+      <path
+        d="M 630 122 L 630 152"
+        stroke="currentColor"
+        strokeOpacity={0.4}
+        strokeWidth="1.1"
+      />
+      <path
+        d="M 190 192 L 91 244"
+        stroke="var(--primary)"
+        strokeWidth="1.3"
+        fill="none"
+        markerEnd="url(#vm-arrow)"
+      />
+      <path
+        d="M 630 192 L 591 244"
+        stroke="var(--primary)"
+        strokeWidth="1.3"
+        fill="none"
+        markerEnd="url(#vm-arrow)"
+      />
+
+      <SketchText x={40} y={232} size={9} anchor="start" opacity={0.55}>
+        আসল RAM, যা সত্যি
+      </SketchText>
+      {frame(48, true, "A এর কোড")}
+      {frame(148, false, "")}
+      {frame(248, false, "")}
+      {frame(348, false, "B এর Heap")}
+      {frame(448, false, "")}
+      {frame(548, true, "B এর কোড")}
+      {frame(648, false, "")}
+      {frame(748, false, "A এর Heap")}
+
+      <defs>
+        <marker
+          id="vm-arrow"
+          markerWidth={8}
+          markerHeight={8}
+          refX={7}
+          refY={3.5}
+          orient="auto"
+          markerUnits="userSpaceOnUse"
+        >
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="var(--primary)" />
         </marker>
       </defs>
     </Sketch>
