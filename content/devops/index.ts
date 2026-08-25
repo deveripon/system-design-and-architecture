@@ -1,4 +1,4 @@
-import { TopicData } from '../../types/content';
+import { TopicData } from "../../types/content";
 
 /**
  * Lesson content for the DevOps & Internet track.
@@ -15,21 +15,25 @@ import { TopicData } from '../../types/content';
  *   2. import it below and map it to the lesson id used in
  *      `lib/devops-course-data.ts`.
  */
-import { binaryAndDataContent } from './01-computer-fundamentals/01-binary-and-data';
-import { cpuBasicsContent } from './01-computer-fundamentals/02-cpu-basics';
-import { memoryAndRamContent } from './01-computer-fundamentals/03-memory-and-ram';
-import { operatingSystemBasicsContent } from './01-computer-fundamentals/05-operating-system-basics';
-import { processVsThreadContent } from './01-computer-fundamentals/06-process-vs-thread';
-import { howAProgramRunsContent } from './01-computer-fundamentals/07-how-a-program-runs';
-import { storageBasicsContent } from './01-computer-fundamentals/04-storage-basics';
+import { binaryAndDataContent } from "./01-computer-fundamentals/01-binary-and-data";
+import { cpuBasicsContent } from "./01-computer-fundamentals/02-cpu-basics";
+import { memoryAndRamContent } from "./01-computer-fundamentals/03-memory-and-ram";
+import { operatingSystemBasicsContent } from "./01-computer-fundamentals/05-operating-system-basics";
+import { processVsThreadContent } from "./01-computer-fundamentals/06-process-vs-thread";
+import { howAProgramRunsContent } from "./01-computer-fundamentals/07-how-a-program-runs";
+import { storageBasicsContent } from "./01-computer-fundamentals/04-storage-basics";
+import { whatIsInternetContent } from "./02-internet-fundamentals/01-what-is-internet";
 
 export const devopsContentMap: Record<string, TopicData> = {
-    // Module 01, Computer Fundamentals
-    'binary-and-data': binaryAndDataContent,
-    'cpu-basics': cpuBasicsContent,
-    'memory-and-ram': memoryAndRamContent,
-    'storage-basics': storageBasicsContent,
-    'operating-system-basics': operatingSystemBasicsContent,
-    'process-vs-thread': processVsThreadContent,
-    'how-a-program-runs': howAProgramRunsContent,
+  // Module 01, Computer Fundamentals
+  "binary-and-data": binaryAndDataContent,
+  "cpu-basics": cpuBasicsContent,
+  "memory-and-ram": memoryAndRamContent,
+  "storage-basics": storageBasicsContent,
+  "operating-system-basics": operatingSystemBasicsContent,
+  "process-vs-thread": processVsThreadContent,
+  "how-a-program-runs": howAProgramRunsContent,
+
+  // Module 02, Internet Fundamentals
+  "what-is-internet": whatIsInternetContent,
 };
