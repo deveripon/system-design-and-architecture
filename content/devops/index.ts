@@ -23,6 +23,7 @@ import { processVsThreadContent } from "./01-computer-fundamentals/06-process-vs
 import { howAProgramRunsContent } from "./01-computer-fundamentals/07-how-a-program-runs";
 import { storageBasicsContent } from "./01-computer-fundamentals/04-storage-basics";
 import { clientServerIspContent } from "./02-internet-fundamentals/02-client-server-isp";
+import { osNetworkingContent } from "./02-internet-fundamentals/03-os-networking";
 import { whatIsInternetContent } from "./02-internet-fundamentals/01-what-is-internet";
 
 export const devopsContentMap: Record<string, TopicData> = {
@@ -38,4 +39,5 @@ export const devopsContentMap: Record<string, TopicData> = {
   // Module 02, Internet Fundamentals
   "what-is-internet": whatIsInternetContent,
   "client-server-isp": clientServerIspContent,
+  "os-networking": osNetworkingContent,
 };
