@@ -651,3 +651,381 @@ export function NoCenterLab() {
     </Panel>
   );
 }
+
+/* ------------------------------------------------------------------------- */
+/* 3. কে Client, কে Server, নিজে ঠিক করুন                                       */
+/* ------------------------------------------------------------------------- */
+
+type RoleScene = {
+  a: { name: string; sub: string };
+  b: { name: string; sub: string };
+  setting: string;
+  answer: "a" | "b" | "both";
+  why: string;
+};
+
+const ROLE_SCENES: RoleScene[] = [
+  {
+    a: { name: "আপনার Laptop", sub: "Browser খোলা" },
+    b: { name: "YouTube", sub: "তাদের মেশিন" },
+    setting: "আপনি একটা ভিডিওতে চাপ দিলেন।",
+    answer: "a",
+    why: "আপনার Laptop আগে বলল, ভিডিওটা দাও। YouTube অপেক্ষায় ছিল, আর উত্তর দিল। যে আগে জিজ্ঞেস করে সে Client।",
+  },
+  {
+    a: { name: "পর্যটকের Phone", sub: "Island Tours App" },
+    b: { name: "Island Tours API", sub: "Singapore এর সার্ভার" },
+    setting: "পর্যটক Tour এর তালিকা খুললেন।",
+    answer: "a",
+    why: "Phone জিজ্ঞেস করল, তালিকা দাও। API অপেক্ষায় ছিল, উত্তর দিল। এখানে API টা Server।",
+  },
+  {
+    a: { name: "Island Tours API", sub: "Singapore এর সার্ভার" },
+    b: { name: "PostgreSQL", sub: "Database" },
+    setting: "API কে তালিকা বানাতে Database এ Tour গুলো খুঁজতে হলো।",
+    answer: "a",
+    why: "এইবার API আগে জিজ্ঞেস করল, Tour গুলো দাও। Database অপেক্ষায় ছিল, উত্তর দিল। এক মুহূর্ত আগে যে Server ছিল, সে এখন Client। ভূমিকা কথা ধরে বদলায়, মেশিন ধরে না।",
+  },
+  {
+    a: { name: "Island Tours API", sub: "Singapore এর সার্ভার" },
+    b: { name: "bKash", sub: "Payment এর সার্ভার" },
+    setting: "API পেমেন্ট নিতে bKash কে বলল।",
+    answer: "a",
+    why: "API জিজ্ঞেস করল, এই টাকাটা কাটো। bKash উত্তর দিল। আপনার Backend অন্য কারো Backend এর Client হয়ে যায়, প্রতিদিন, অনেকবার।",
+  },
+  {
+    a: { name: "আপনার Laptop", sub: "node server.js চলছে" },
+    b: { name: "বন্ধুর Phone", sub: "একই Wi-Fi এ" },
+    setting: "বন্ধু আপনার Laptop এর ঠিকানাটা Browser এ লিখলেন।",
+    answer: "b",
+    why: "বন্ধুর Phone আগে বলল, পাতাটা দাও। আপনার Laptop অপেক্ষায় ছিল, তাই এবার Laptop টা Server। সকালে যে Laptop YouTube এর Client ছিল, রাতে সে Server।",
+  },
+  {
+    a: { name: "আপনার Phone", sub: "Video Call এ" },
+    b: { name: "বন্ধুর Phone", sub: "Video Call এ" },
+    setting: "দুইজন Video Call এ কথা বলছেন।",
+    answer: "both",
+    why: "দুইজনই একে অন্যকে ছবি পাঠাচ্ছেন আর নিচ্ছেন, কেউ শুধু অপেক্ষা করছে না। এটাকে বলে Peer to Peer। Internet এ এটা কম হয়, বেশিরভাগ কথাই Client আর Server এর।",
+  },
+];
+
+export function WhoIsClientLab() {
+  const reduce = useReducedMotion();
+  const [i, setI] = useState(0);
+  const [picks, setPicks] = useState<Record<number, "a" | "b" | "both">>({});
+
+  const scene = ROLE_SCENES[i];
+  const pick = picks[i];
+  const correct = pick === scene.answer;
+  const score = Object.entries(picks).filter(
+    ([k, v]) => ROLE_SCENES[Number(k)].answer === v,
+  ).length;
+  const answered = Object.keys(picks).length;
+
+  const choose = (v: "a" | "b" | "both") => {
+    if (pick) return;
+    setPicks((p) => ({ ...p, [i]: v }));
+  };
+
+  const roleLabel = (side: "a" | "b") => {
+    if (!pick) return null;
+    if (scene.answer === "both") return "দুইটাই";
+    return scene.answer === side ? "CLIENT" : "SERVER";
+  };
+
+  const renderSide = (side: "a" | "b") => {
+    const who = scene[side];
+    const isPick = pick === side;
+    const isAns = pick && (scene.answer === side || scene.answer === "both");
+    return (
+      <button
+        onClick={() => choose(side)}
+        disabled={!!pick}
+        data-side={side}
+        className={cn(
+          "flex-1 min-w-[200px] text-left p-4 border transition-colors duration-200",
+          !pick && "hover:border-primary/60 hover:bg-primary/5 cursor-pointer",
+          pick && isAns && "border-accent bg-accent/10",
+          pick && !isAns && isPick && "border-primary bg-primary/10",
+          pick && !isAns && !isPick && "border-border opacity-60",
+        )}
+      >
+        <div className="font-mono text-[11px] font-bold text-foreground">
+          {who.name}
+        </div>
+        <div className="font-mono text-[9px] text-muted-foreground mt-0.5">
+          {who.sub}
+        </div>
+        {pick && (
+          <div
+            className={cn(
+              "mt-3 font-mono text-[9px] font-bold uppercase tracking-[0.15em]",
+              isAns ? "text-accent" : "text-muted-foreground",
+            )}
+          >
+            {roleLabel(side)}
+          </div>
+        )}
+      </button>
+    );
+  };
+
+  return (
+    <Panel
+      label="Interactive"
+      title="কে Client? চেপে বলুন"
+      footer="ছয়টা দৃশ্যে যদি একটা জিনিস চোখে পড়ে থাকে, সেটা হলো একই মেশিন একবার Client, পরের মুহূর্তে Server। তাই কেউ যদি বলেন এটা একটা Server, প্রশ্ন করুন, কোন কথায়? Island Tours এর API পর্যটকের কাছে Server, আর Database এর কাছে Client, একই সেকেন্ডে।"
+    >
+      <div className="flex items-baseline justify-between mb-4">
+        <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+          দৃশ্য {toBn(i + 1)} / {toBn(ROLE_SCENES.length)}
+        </span>
+        <span
+          className="font-mono text-[10px] text-muted-foreground"
+          data-score={score}
+        >
+          ঠিক হয়েছে{" "}
+          <span className="text-primary font-bold">{toBn(score)}</span> /{" "}
+          {toBn(answered)}
+        </span>
+      </div>
+
+      <motion.p
+        key={`setting-${i}`}
+        initial={reduce ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.25, ease: EASE }}
+        className="text-sm text-foreground mb-4"
+      >
+        {scene.setting}
+      </motion.p>
+      <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-primary mb-3">
+        কে আগে জিজ্ঞেস করল? সেই Client।
+      </p>
+
+      <div className="flex flex-wrap gap-3">
+        {renderSide("a")}
+        {renderSide("b")}
+      </div>
+      <button
+        onClick={() => choose("both")}
+        disabled={!!pick}
+        data-side="both"
+        className={cn(
+          "mt-3 w-full px-4 py-2 border font-mono text-[10px] uppercase tracking-[0.15em] transition-colors",
+          !pick &&
+            "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
+          pick &&
+            scene.answer === "both" &&
+            "border-accent bg-accent/10 text-accent",
+          pick &&
+            scene.answer !== "both" &&
+            "border-border text-muted-foreground/50",
+        )}
+      >
+        দুইজনই দুইজনকে জিজ্ঞেস করছে
+      </button>
+
+      {pick && (
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 4 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: EASE }}
+          data-result={correct ? "correct" : "wrong"}
+          className={cn(
+            "mt-4 p-4 border text-sm leading-relaxed",
+            correct
+              ? "border-accent/50 bg-accent/5 text-foreground"
+              : "border-primary/50 bg-primary/5 text-foreground",
+          )}
+        >
+          <span
+            className={cn(
+              "font-mono text-[9px] font-bold uppercase tracking-[0.15em] block mb-1",
+              correct ? "text-accent" : "text-primary",
+            )}
+          >
+            {correct ? "ঠিক" : "না, আবার ভাবুন"}
+          </span>
+          {scene.why}
+        </motion.div>
+      )}
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        <button
+          onClick={() => setI((v) => (v + 1) % ROLE_SCENES.length)}
+          disabled={!pick}
+          className={cn(
+            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-colors",
+            pick
+              ? "border-primary/40 bg-primary/5 text-primary hover:bg-primary/10"
+              : "border-border text-muted-foreground/40",
+          )}
+        >
+          <SkipForward className="w-3 h-3" />
+          {i === ROLE_SCENES.length - 1 ? "প্রথম থেকে" : "পরের দৃশ্য"}
+        </button>
+        <button
+          onClick={() => {
+            setPicks({});
+            setI(0);
+          }}
+          aria-label="Reset"
+          className="inline-flex items-center justify-center w-9 h-9 border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+        >
+          <RotateCcw className="w-3 h-3" />
+        </button>
+      </div>
+    </Panel>
+  );
+}
+
+/* ------------------------------------------------------------------------- */
+/* 4. এক দোকানদার, অনেক খদ্দের                                                 */
+/* ------------------------------------------------------------------------- */
+
+const SERVICE_MS = 100;
+
+export function ManyClientsLab() {
+  const [clients, setClients] = useState(5);
+  const [servers, setServers] = useState<1 | 2>(1);
+
+  const rounds = Math.ceil(clients / servers);
+  const lastWait = rounds * SERVICE_MS;
+  const slow = lastWait > 1000;
+
+  return (
+    <Panel
+      label="Interactive"
+      title="এক Server, কয়জন Client, শেষজন কতক্ষণ দাঁড়ায়"
+      footer="Server একটা মেশিন মাত্র, তার হাত একটাই। প্রতিটা উত্তর দিতে তার একটু সময় লাগে, এখানে ১০০ মিলিসেকেন্ড ধরা হয়েছে। খদ্দের বাড়লে লাইন বাড়ে, আর শেষের খদ্দেরের অপেক্ষা লাফিয়ে লাফিয়ে বাড়ে। এই একটা ছবি থেকেই পরে Module 13 এর পুরোটা জন্ম নেবে, মানে কীভাবে একটার বদলে দশটা Server বসিয়ে লাইন ছোট রাখা হয়। আপাতত শুধু দেখুন, দুইটা Server দিলে অপেক্ষা অর্ধেক হয়।"
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+        <label className="block">
+          <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
+            একসাথে কয়জন Client:{" "}
+            <span className="text-primary font-bold" data-clients={clients}>
+              {toBn(clients)}
+            </span>
+          </span>
+          <input
+            type="range"
+            min={1}
+            max={40}
+            value={clients}
+            onChange={(e) => setClients(Number(e.target.value))}
+            className="w-full accent-[var(--primary)]"
+            aria-label="কয়জন Client"
+          />
+        </label>
+        <div>
+          <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
+            কয়টা Server
+          </span>
+          <div className="flex gap-2">
+            {([1, 2] as const).map((n) => (
+              <button
+                key={n}
+                onClick={() => setServers(n)}
+                data-servers={n}
+                className={cn(
+                  "px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.15em] transition-colors",
+                  servers === n
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {toBn(n)} টা
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* the queue */}
+      <div className="border border-border bg-background p-4">
+        <div className="flex items-start gap-6">
+          <div className="flex flex-col gap-2 shrink-0">
+            {Array.from({ length: servers }).map((_, k) => (
+              <div
+                key={k}
+                className="w-20 px-2 py-3 border border-primary bg-primary/10 text-center"
+              >
+                <div className="font-mono text-[10px] font-bold text-primary">
+                  Server
+                </div>
+                <div className="font-mono text-[8px] text-muted-foreground">
+                  {toBn(SERVICE_MS)} ms / জন
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+              লাইন, রঙ যত গাঢ় অপেক্ষা তত বেশি
+            </div>
+            <div className="flex flex-wrap gap-1">
+              {Array.from({ length: clients }).map((_, k) => {
+                const round = Math.floor(k / servers);
+                const t = rounds > 1 ? round / (rounds - 1) : 0;
+                return (
+                  <div
+                    key={k}
+                    title={`${(round + 1) * SERVICE_MS} ms`}
+                    className="w-5 h-5 border border-border transition-colors duration-200"
+                    style={{
+                      backgroundColor: "var(--primary)",
+                      opacity: 0.15 + t * 0.85,
+                    }}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div>
+          <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+            প্রথমজন পায়
+          </div>
+          <div className="font-mono text-xl font-bold text-foreground">
+            {toBn(SERVICE_MS)}{" "}
+            <span className="text-xs text-muted-foreground">ms</span>
+          </div>
+        </div>
+        <div>
+          <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+            শেষজন পায়
+          </div>
+          <div
+            className={cn(
+              "font-mono text-xl font-bold",
+              slow ? "text-primary" : "text-accent",
+            )}
+            data-last-wait={lastWait}
+          >
+            {lastWait >= 1000
+              ? `${toBn((lastWait / 1000).toFixed(1))} s`
+              : `${toBn(lastWait)} ms`}
+          </div>
+        </div>
+        <div className="col-span-2 sm:col-span-1">
+          <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+            অনুভূতি
+          </div>
+          <div className={cn("text-sm", slow ? "text-primary" : "text-accent")}>
+            {lastWait <= 300
+              ? "সাথে সাথেই"
+              : lastWait <= 1000
+                ? "একটু দেরি, চলে"
+                : lastWait <= 2500
+                  ? "ধীর লাগে"
+                  : "মানুষ চলে যায়"}
+          </div>
+        </div>
+      </div>
+    </Panel>
+  );
+}

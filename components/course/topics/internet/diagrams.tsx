@@ -401,3 +401,370 @@ export function InternetVsWebDiagram() {
     </Sketch>
   );
 }
+
+/* ------------------------------------------------------------------------- */
+/* 4. Client আর Server ভূমিকা, মেশিন নয়                                       */
+/* ------------------------------------------------------------------------- */
+
+function Ask({
+  x1,
+  x2,
+  y,
+  label,
+  back,
+  id,
+}: {
+  x1: number;
+  x2: number;
+  y: number;
+  label: string;
+  back?: boolean;
+  id: string;
+}) {
+  return (
+    <g>
+      <line
+        x1={back ? x2 : x1}
+        y1={y}
+        x2={back ? x1 : x2}
+        y2={y}
+        stroke={back ? "currentColor" : "var(--primary)"}
+        strokeOpacity={back ? 0.55 : 1}
+        strokeWidth="1.4"
+        markerEnd={`url(#${id})`}
+      />
+      <SketchText
+        x={(x1 + x2) / 2}
+        y={y - 7}
+        size={8}
+        opacity={0.75}
+        accent={!back}
+      >
+        {label}
+      </SketchText>
+    </g>
+  );
+}
+
+export function RolesSplitDiagram() {
+  return (
+    <SketchSplit
+      label="Diagram: একই Laptop, দুই ভূমিকা"
+      caption="বাম পাশে আপনার Laptop জিজ্ঞেস করছে, তাই সে Client। ডান পাশে একই Laptop এ node server.js চলছে, আর বন্ধুর Phone জিজ্ঞেস করছে, তাই এবার Laptop টা Server। মেশিন বদলায়নি, ভূমিকা বদলেছে। Client মানে যে আগে জিজ্ঞেস করে, Server মানে যে অপেক্ষা করে আর উত্তর দেয়।"
+      panels={[
+        {
+          title: "সকালে: Client",
+          sub: "আপনি YouTube দেখছেন",
+          viewBox: "0 0 320 150",
+          height: 150,
+          children: (
+            <g>
+              <SketchBox
+                x={10}
+                y={45}
+                w={100}
+                h={44}
+                title="Laptop"
+                sub="আপনার"
+                accent
+              />
+              <SketchBox
+                x={210}
+                y={45}
+                w={100}
+                h={44}
+                title="YouTube"
+                sub="তাদের সার্ভার"
+              />
+              <Ask x1={110} x2={210} y={58} label="ভিডিওটা দাও" id="rs-a" />
+              <Ask x1={110} x2={210} y={82} label="এই নাও" back id="rs-b" />
+              <SketchText x={60} y={112} size={9} accent bold>
+                CLIENT
+              </SketchText>
+              <SketchText x={260} y={112} size={9} opacity={0.7} bold>
+                SERVER
+              </SketchText>
+              <SketchText x={160} y={138} size={9} opacity={0.6} body>
+                Laptop আগে বলল, তাই Laptop Client
+              </SketchText>
+              <Defs id="rs-a" accent />
+              <Defs id="rs-b" />
+            </g>
+          ),
+        },
+        {
+          title: "রাতে: Server",
+          sub: "আপনার Laptop এ node চলছে",
+          viewBox: "0 0 320 150",
+          height: 150,
+          children: (
+            <g>
+              <SketchBox
+                x={10}
+                y={45}
+                w={100}
+                h={44}
+                title="Phone"
+                sub="বন্ধুর, একই Wi-Fi"
+              />
+              <SketchBox
+                x={210}
+                y={45}
+                w={100}
+                h={44}
+                title="Laptop"
+                sub="আপনার, node চলছে"
+                accent
+              />
+              <Ask x1={110} x2={210} y={58} label="Tour list দাও" id="rs-c" />
+              <Ask
+                x1={110}
+                x2={210}
+                y={82}
+                label="এই নাও, ১২টা"
+                back
+                id="rs-d"
+              />
+              <SketchText x={60} y={112} size={9} opacity={0.7} bold>
+                CLIENT
+              </SketchText>
+              <SketchText x={260} y={112} size={9} accent bold>
+                SERVER
+              </SketchText>
+              <SketchText x={160} y={138} size={9} opacity={0.6} body>
+                Phone আগে বলল, তাই Laptop এবার Server
+              </SketchText>
+              <Defs id="rs-c" accent />
+              <Defs id="rs-d" />
+            </g>
+          ),
+        },
+      ]}
+    />
+  );
+}
+
+/* ------------------------------------------------------------------------- */
+/* 5. প্রতিটা কথার একটাই আকার                                                  */
+/* ------------------------------------------------------------------------- */
+
+export function RequestResponseDiagram() {
+  return (
+    <Sketch
+      label="Diagram: Request যায়, Response ফেরে"
+      height={250}
+      minWidth={760}
+      viewBox="0 0 760 250"
+      caption="Internet এর প্রতিটা কথার আকার এই একটাই। Client একটা Request পাঠায়, Server সেটা পড়ে, কাজটা করে, আর একটা Response ফেরত দেয়। তিনটা জিনিস খেয়াল করুন। Server আগে থেকেই দরজা খুলে অপেক্ষায় বসে ছিল, তাকে বলে Listening। Client ই সবসময় আগে বলে। আর Server কোনোদিন নিজে থেকে কাউকে কিছু বলে না, যেমন দোকানদার আপনার বাসায় এসে জিনিস দিয়ে যান না, আপনাকেই দোকানে যেতে হয়।"
+    >
+      <SketchBox
+        x={30}
+        y={80}
+        w={150}
+        h={60}
+        title="Client"
+        sub="যে জিজ্ঞেস করে"
+        accent
+      />
+      <SketchBox
+        x={580}
+        y={80}
+        w={150}
+        h={60}
+        title="Server"
+        sub="যে অপেক্ষা করে"
+      />
+
+      {/* the open door */}
+      <rect
+        x={560}
+        y={88}
+        width={14}
+        height={44}
+        fill="var(--primary)"
+        fillOpacity={0.15}
+        stroke="var(--primary)"
+        strokeWidth="1"
+      />
+      <SketchText x={567} y={150} size={8} accent>
+        দরজা
+      </SketchText>
+      <SketchText x={567} y={161} size={8} accent>
+        খোলা
+      </SketchText>
+
+      {/* step 0 */}
+      <SketchText x={655} y={40} size={9} opacity={0.7} body>
+        ০. Server আগে থেকেই অপেক্ষায়, Listening
+      </SketchText>
+
+      {/* request */}
+      <line
+        x1={180}
+        y1={98}
+        x2={560}
+        y2={98}
+        stroke="var(--primary)"
+        strokeWidth="1.6"
+        markerEnd="url(#rr-a)"
+      />
+      <SketchText x={370} y={90} size={10} accent bold>
+        ১. REQUEST
+      </SketchText>
+      <SketchText x={370} y={76} size={9} opacity={0.75} body>
+        Tour নম্বর ৭ এ দুইটা Seat বুক করো
+      </SketchText>
+
+      {/* processing */}
+      <SketchText x={655} y={190} size={9} opacity={0.7} body>
+        ২. Server কাজটা করে
+      </SketchText>
+      <SketchText x={655} y={204} size={8} opacity={0.55} body>
+        Database দেখে, Seat কমায়
+      </SketchText>
+
+      {/* response */}
+      <line
+        x1={560}
+        y1={124}
+        x2={180}
+        y2={124}
+        stroke="currentColor"
+        strokeOpacity={0.6}
+        strokeWidth="1.4"
+        markerEnd="url(#rr-b)"
+      />
+      <SketchText x={370} y={143} size={10} opacity={0.85} bold>
+        ৩. RESPONSE
+      </SketchText>
+      <SketchText x={370} y={158} size={9} opacity={0.75} body>
+        হয়ে গেছে, Booking নম্বর ৪৪১২
+      </SketchText>
+
+      <SketchText x={105} y={165} size={9} opacity={0.6} body>
+        Client সবসময় আগে বলে
+      </SketchText>
+      <SketchText x={380} y={228} size={9} opacity={0.5}>
+        REQUEST → RESPONSE, এই জোড়াটাই Internet এর একক
+      </SketchText>
+      <Defs id="rr-a" accent />
+      <Defs id="rr-b" />
+    </Sketch>
+  );
+}
+
+/* ------------------------------------------------------------------------- */
+/* 6. ISP এর সিঁড়ি                                                             */
+/* ------------------------------------------------------------------------- */
+
+const ISP_STEPS = [
+  {
+    title: "আপনার বাসা",
+    sub: "Router",
+    does: "আপনার যন্ত্রগুলো জোড়া লাগায়",
+    pays: "আপনি ISP কে টাকা দেন",
+  },
+  {
+    title: "Local ISP",
+    sub: "Link3, Amber IT",
+    does: "এলাকার তার, আপনাকে ঠিকানা দেয়",
+    pays: "তারা IIG কে টাকা দেয়",
+  },
+  {
+    title: "IIG",
+    sub: "দেশের গেট",
+    does: "দেশের সব ISP কে বাইরের সাথে জোড়ে",
+    pays: "সমুদ্রের তারের ভাড়া দেয়",
+  },
+  {
+    title: "Submarine Cable",
+    sub: "Cox’s Bazar, Kuakata",
+    does: "দেশ থেকে দেশ, সমুদ্রের নিচে",
+    pays: "অনেক দেশ মিলে বসিয়েছে",
+  },
+  {
+    title: "Foreign Carrier",
+    sub: "Singtel, NTT",
+    does: "ওই দেশের রাস্তা",
+    pays: "Datacenter তাদের টাকা দেয়",
+  },
+  {
+    title: "Datacenter",
+    sub: "Island Tours এর সার্ভার",
+    does: "শেষ মাথা, Server এখানে",
+    pays: "Island Tours ভাড়া দেয়",
+  },
+];
+
+export function IspChainDiagram() {
+  const w = 128,
+    gap = 22,
+    startX = 24;
+  return (
+    <Sketch
+      label="Diagram: বাসা থেকে সার্ভার, কয়টা কোম্পানির রাস্তা"
+      height={260}
+      minWidth={940}
+      viewBox="0 0 940 260"
+      caption="ISP মানে Internet Service Provider, যে আপনাকে রাস্তা ভাড়া দেয়। কিন্তু আপনার ISP নিজেও আরেকজনের কাছ থেকে রাস্তা ভাড়া নেয়, আর সেও আরেকজনের কাছ থেকে। প্রতিটা ধাপে টাকা যায় উপরের দিকে, আর বার্তা যায় দুই দিকেই। খেয়াল করুন, এই ছয়টার কেউই Client নয়, কেউই Server নয়। তারা শুধু রাস্তা। Client আর Server বসে আছে দুই মাথায়, এই ছবির বাইরে।"
+    >
+      {ISP_STEPS.map((s, i) => {
+        const x = startX + i * (w + gap);
+        const accent = i === 2 || i === 3;
+        return (
+          <g key={s.title}>
+            <SketchBox
+              x={x}
+              y={60}
+              w={w}
+              h={54}
+              title={s.title}
+              sub={s.sub}
+              accent={accent}
+            />
+            <SketchText x={x + w / 2} y={138} size={8.5} opacity={0.8} body>
+              {s.does}
+            </SketchText>
+            <SketchText x={x + w / 2} y={170} size={8} opacity={0.55} body>
+              {s.pays}
+            </SketchText>
+            {i < ISP_STEPS.length - 1 && (
+              <line
+                x1={x + w}
+                y1={87}
+                x2={x + w + gap}
+                y2={87}
+                stroke="currentColor"
+                strokeOpacity={0.45}
+                strokeWidth="1.4"
+                markerEnd="url(#isp-a)"
+              />
+            )}
+          </g>
+        );
+      })}
+      <SketchText x={470} y={30} size={9} opacity={0.55}>
+        বার্তা দুই দিকেই যায়, টাকা যায় ডান দিকে
+      </SketchText>
+      <line
+        x1={90}
+        y1={215}
+        x2={860}
+        y2={215}
+        stroke="var(--primary)"
+        strokeOpacity={0.5}
+        strokeWidth="1"
+        strokeDasharray="4 4"
+        markerEnd="url(#isp-b)"
+      />
+      <SketchText x={475} y={208} size={8} accent opacity={0.8}>
+        টাকার দিক
+      </SketchText>
+      <SketchText x={470} y={245} size={9} opacity={0.5} body>
+        মাঝের ছয়জনের কেউ কথাটা বলছে না, তারা শুধু বয়ে নিয়ে যাচ্ছে
+      </SketchText>
+      <Defs id="isp-a" />
+      <Defs id="isp-b" accent />
+    </Sketch>
+  );
+}
