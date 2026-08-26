@@ -24,6 +24,7 @@ import { howAProgramRunsContent } from "./01-computer-fundamentals/07-how-a-prog
 import { storageBasicsContent } from "./01-computer-fundamentals/04-storage-basics";
 import { clientServerIspContent } from "./02-internet-fundamentals/02-client-server-isp";
 import { osNetworkingContent } from "./02-internet-fundamentals/03-os-networking";
+import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
 import { packetLatencyBandwidthContent } from "./02-internet-fundamentals/04-packet-latency-bandwidth";
 import { whatIsInternetContent } from "./02-internet-fundamentals/01-what-is-internet";
 
@@ -42,4 +43,5 @@ export const devopsContentMap: Record<string, TopicData> = {
   "client-server-isp": clientServerIspContent,
   "os-networking": osNetworkingContent,
   "packet-latency-bandwidth": packetLatencyBandwidthContent,
+  "how-data-travels": howDataTravelsContent,
 };
