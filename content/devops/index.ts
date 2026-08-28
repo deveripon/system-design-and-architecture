@@ -26,6 +26,7 @@ import { clientServerIspContent } from "./02-internet-fundamentals/02-client-ser
 import { osNetworkingContent } from "./02-internet-fundamentals/03-os-networking";
 import { endToEndRequestJourneyContent } from "./02-internet-fundamentals/06-end-to-end-request-journey";
 import { networkBasicsContent } from "./03-computer-networking/01-network-basics";
+import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
 import { packetLatencyBandwidthContent } from "./02-internet-fundamentals/04-packet-latency-bandwidth";
@@ -52,4 +53,5 @@ export const devopsContentMap: Record<string, TopicData> = {
   // Module 03, Computer Networking
   "network-basics": networkBasicsContent,
   "router-switch-hub": routerSwitchHubContent,
+  "mac-address": macAddressContent,
 };
