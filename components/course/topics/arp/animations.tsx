@@ -3,8 +3,8 @@
 import { EASE } from "@/components/motion/reveal";
 import { cn, toBn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
-import { RotateCcw, Send } from "lucide-react";
-import { useState } from "react";
+import { Pause, Play, RotateCcw, Send, SkipForward } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
 function Panel({
   label,
@@ -357,6 +357,395 @@ export function CacheLab() {
           <RotateCcw className="w-3 h-3" />
         </button>
       </div>
+    </Panel>
+  );
+}
+
+/* ------------------------------------------------------------------------- */
+/* 3. পুরো Round Trip, প্রতি Hop এ IP, MAC, ARP                                */
+/* ------------------------------------------------------------------------- */
+
+const LAPTOP_IP = "192.168.0.5";
+const SERVER_IP = "103.94.135.2";
+
+type Hop = {
+  name: string;
+  role: string;
+  ipSrc: string;
+  ipDst: string;
+  macSrc: string;
+  macDst: string;
+  arpTarget: string;
+  arpFires: boolean; // এই দিকে, এই Packet এ
+  edgeArp: boolean; // চূড়ান্ত যন্ত্রকে ARP (Server বা Laptop নিজে)
+  note: string;
+};
+
+// অনুরোধ: Laptop -> Server, প্রথম Packet, তাই প্রতি হাতে Cache Miss, ARP হয়
+const REQUEST: Hop[] = [
+  {
+    name: "Laptop",
+    role: "শুরু",
+    ipSrc: LAPTOP_IP,
+    ipDst: SERVER_IP,
+    macSrc: "Laptop",
+    macDst: "গেটওয়ে",
+    arpTarget: "গেটওয়ে",
+    arpFires: true,
+    edgeArp: false,
+    note: "গন্তব্য Server আমার LAN এ নেই, তাই তাকে ARP করা যায় না। Laptop গেটওয়ের MAC ARP করে। IP জোড়া: উৎস Laptop, গন্তব্য Server, পুরো পথে এক। MAC জোড়া: উৎস Laptop, গন্তব্য গেটওয়ে।",
+  },
+  {
+    name: "বাসার Router",
+    role: "গেটওয়ে",
+    ipSrc: LAPTOP_IP,
+    ipDst: SERVER_IP,
+    macSrc: "Router",
+    macDst: "ISP রাউটার",
+    arpTarget: "ISP রাউটার",
+    arpFires: true,
+    edgeArp: false,
+    note: "Router পুরনো MAC জোড়া ফেলে নতুন বসাল। IP এক থাকল (Laptop থেকে Server), কিন্তু MAC হলো Router থেকে ISP রাউটার। পরের হাতের MAC এর জন্য ARP।",
+  },
+  {
+    name: "ISP Router",
+    role: "GP",
+    ipSrc: LAPTOP_IP,
+    ipDst: SERVER_IP,
+    macSrc: "ISP রাউটার",
+    macDst: "IIG রাউটার",
+    arpTarget: "IIG রাউটার",
+    arpFires: true,
+    edgeArp: false,
+    note: "একই নিয়ম। IP জোড়া অটুট, MAC আবার নতুন, পরের রাউটারের। প্রতিটা হাত শুধু পরের হাত চেনে।",
+  },
+  {
+    name: "IIG",
+    role: "দেশের গেট",
+    ipSrc: LAPTOP_IP,
+    ipDst: SERVER_IP,
+    macSrc: "IIG রাউটার",
+    macDst: "সমুদ্র রাউটার",
+    arpTarget: "সমুদ্র রাউটার",
+    arpFires: true,
+    edgeArp: false,
+    note: "সমুদ্রের তারের মুখের রাউটারের MAC ARP করে সেখানে পাঠাল। IP এখনো Laptop থেকে Server।",
+  },
+  {
+    name: "Singapore ISP",
+    role: "বিদেশি",
+    ipSrc: LAPTOP_IP,
+    ipDst: SERVER_IP,
+    macSrc: "SG রাউটার",
+    macDst: "DC রাউটার",
+    arpTarget: "DC রাউটার",
+    arpFires: true,
+    edgeArp: false,
+    note: "সমুদ্র পার। DC রাউটারের MAC ARP করে সেদিকে পাঠাল। এখনো Server নয়, শুধু আরেক রাউটার।",
+  },
+  {
+    name: "DC Router",
+    role: "শেষ রাউটার",
+    ipSrc: LAPTOP_IP,
+    ipDst: SERVER_IP,
+    macSrc: "DC রাউটার",
+    macDst: "Server",
+    arpTarget: "Server নিজে",
+    arpFires: true,
+    edgeArp: true,
+    note: "এইবার তফাত। Server এখন এই রাউটারের নিজের LAN এ। তাই এবার সরাসরি Server কেই ARP, পুরো পথে একমাত্র এখানেই। MAC জোড়া: DC রাউটার থেকে Server। চিঠি পৌঁছাল।",
+  },
+];
+
+// উত্তর: Server -> Laptop, Cache request এই গরম হয়ে গেছে, তাই ARP প্রায় হয় না
+const RESPONSE: Hop[] = [
+  {
+    name: "Server",
+    role: "উত্তর শুরু",
+    ipSrc: SERVER_IP,
+    ipDst: LAPTOP_IP,
+    macSrc: "Server",
+    macDst: "DC রাউটার",
+    arpTarget: "DC রাউটার",
+    arpFires: false,
+    edgeArp: false,
+    note: "Server উত্তর দিল। IP জোড়া এবার উল্টো, উৎস Server, গন্তব্য Laptop, আবার পুরো পথে এক। Server তার গেটওয়ে DC রাউটারের MAC আগেই জানে (request এর সময় শেখা), তাই ARP লাগল না, সোজা Cache থেকে।",
+  },
+  {
+    name: "DC Router",
+    role: "শেষ রাউটার",
+    ipSrc: SERVER_IP,
+    ipDst: LAPTOP_IP,
+    macSrc: "DC রাউটার",
+    macDst: "SG রাউটার",
+    arpTarget: "SG রাউটার",
+    arpFires: false,
+    edgeArp: false,
+    note: "উত্তর পিছন দিকে চলল। প্রতিটা রাউটার Laptop এর দিকে পরের হাত ঠিক করে। SG রাউটারের MAC request এই জানা ছিল, তাই Cache Hit, ARP নেই।",
+  },
+  {
+    name: "Singapore ISP",
+    role: "বিদেশি",
+    ipSrc: SERVER_IP,
+    ipDst: LAPTOP_IP,
+    macSrc: "SG রাউটার",
+    macDst: "IIG রাউটার",
+    arpTarget: "IIG রাউটার",
+    arpFires: false,
+    edgeArp: false,
+    note: "IP এখনো Server থেকে Laptop, MAC আবার নতুন পরের হাতের। Cache গরম, তাই চেঁচানো লাগল না।",
+  },
+  {
+    name: "IIG",
+    role: "দেশের গেট",
+    ipSrc: SERVER_IP,
+    ipDst: LAPTOP_IP,
+    macSrc: "IIG রাউটার",
+    macDst: "ISP রাউটার",
+    arpTarget: "ISP রাউটার",
+    arpFires: false,
+    edgeArp: false,
+    note: "দেশে ফিরল। ISP রাউটারের MAC জানা ছিল। উত্তরের পথে ARP প্রায় হয় না, কারণ যাওয়ার সময় সব শিখে রাখা হয়েছে।",
+  },
+  {
+    name: "ISP Router",
+    role: "GP",
+    ipSrc: SERVER_IP,
+    ipDst: LAPTOP_IP,
+    macSrc: "ISP রাউটার",
+    macDst: "Router",
+    arpTarget: "বাসার Router",
+    arpFires: false,
+    edgeArp: false,
+    note: "ISP আপনার বাসার Router এর দিকে পাঠাল। তার MAC ও জানা। IP এখনো Server থেকে Laptop, MAC হলো ISP থেকে বাসার Router।",
+  },
+  {
+    name: "বাসার Router",
+    role: "গেটওয়ে",
+    ipSrc: SERVER_IP,
+    ipDst: LAPTOP_IP,
+    macSrc: "Router",
+    macDst: "Laptop",
+    arpTarget: "Laptop নিজে",
+    arpFires: false,
+    edgeArp: true,
+    note: "শেষ হাত। Laptop এই Router এর নিজের LAN এ, তাই এখানে সরাসরি Laptop কেই দেওয়া। আর Laptop এর MAC request এর সময়ই শেখা হয়েছিল, তাই এখানেও ARP লাগল না। MAC জোড়া: Router থেকে Laptop। উত্তর পৌঁছাল।",
+  },
+];
+
+export function FullPathArpLab() {
+  const reduce = useReducedMotion();
+  const [dir, setDir] = useState<"req" | "res">("req");
+  const [i, setI] = useState(0);
+  const [playing, setPlaying] = useState(false);
+
+  const hops = dir === "req" ? REQUEST : RESPONSE;
+  const finished = i >= hops.length - 1;
+  const running = playing && !finished;
+  const advance = useCallback(
+    () => setI((v) => Math.min(v + 1, hops.length - 1)),
+    [hops.length],
+  );
+
+  useEffect(() => {
+    if (!running) return;
+    const id = setTimeout(advance, 3200);
+    return () => clearTimeout(id);
+  }, [running, i, advance]);
+
+  const h = hops[i];
+  const arpSoFar = hops.slice(0, i + 1).filter((x) => x.arpFires).length;
+
+  return (
+    <Panel
+      label="Interactive"
+      title="Laptop আর Server, পুরো যাত্রা, প্রতি Hop এ IP MAC ARP"
+      footer="এই এক লাবে পুরো গল্প। অনুরোধ আর উত্তর, দুই দিকেই খেয়াল করুন তিনটা জিনিস। এক, IP জোড়া এক দিকে পুরো পথে এক থাকে, শুধু উত্তরে উৎস আর গন্তব্য উল্টে যায়। দুই, MAC জোড়া প্রতিটা Hop এ নতুন, কারণ MAC মানে শুধু পরের হাত। তিন, ARP হয় শুধু পরের হাতের MAC অজানা থাকলে, মানে অনুরোধের প্রথম Packet এ প্রতি হাতে একবার। উত্তরের সময় সেই Cache গরম, তাই ARP প্রায় হয়ই না। আর ARP কখনো Router পার হয় না, তাই Laptop কখনো Server কে ARP করে না, শুধু একদম শেষ রাউটার চূড়ান্ত যন্ত্রকে ARP করে।"
+    >
+      <div className="flex flex-wrap items-center gap-2 mb-6">
+        <div className="flex gap-1.5">
+          {(["req", "res"] as const).map((d) => (
+            <button
+              key={d}
+              onClick={() => {
+                setDir(d);
+                setI(0);
+                setPlaying(false);
+              }}
+              data-dir={d}
+              data-active={dir === d ? "true" : "false"}
+              className={cn(
+                "px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.12em] transition-colors",
+                dir === d
+                  ? "border-primary bg-primary/10 text-primary"
+                  : "border-border text-muted-foreground hover:text-foreground",
+              )}
+            >
+              {d === "req"
+                ? "অনুরোধ, Laptop → Server"
+                : "উত্তর, Server → Laptop"}
+            </button>
+          ))}
+        </div>
+        <button
+          onClick={() => {
+            if (finished) setI(0);
+            setPlaying((p) => !p);
+          }}
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+        >
+          {running ? (
+            <Pause className="w-3 h-3" />
+          ) : (
+            <Play className="w-3 h-3" />
+          )}
+          {running ? "Pause" : finished ? "আবার" : "Play"}
+        </button>
+        <button
+          onClick={() => {
+            setPlaying(false);
+            setI((v) => (v >= hops.length - 1 ? 0 : v + 1));
+          }}
+          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+        >
+          <SkipForward className="w-3 h-3" /> Step
+        </button>
+        <span className="ml-auto font-mono text-[11px] text-muted-foreground">
+          এই দিকে ARP{" "}
+          <span
+            className={cn(
+              "font-bold text-base",
+              arpSoFar === 0 ? "text-accent" : "text-primary",
+            )}
+            data-arp-count={arpSoFar}
+          >
+            {toBn(arpSoFar)}
+          </span>
+        </span>
+      </div>
+
+      {/* station rail */}
+      <div className="flex items-center gap-1 mb-5 overflow-x-auto pb-1">
+        {hops.map((st, idx) => (
+          <div key={st.name + idx} className="flex items-center gap-1 shrink-0">
+            <div
+              data-station={idx}
+              data-active={idx === i ? "true" : "false"}
+              className={cn(
+                "px-2.5 py-1.5 border font-mono text-[8.5px] transition-colors whitespace-nowrap",
+                idx === i
+                  ? st.edgeArp
+                    ? "border-accent bg-accent/10 text-accent"
+                    : "border-primary bg-primary/10 text-primary"
+                  : idx < i
+                    ? "border-border text-muted-foreground"
+                    : "border-dashed border-border/50 text-muted-foreground/40",
+              )}
+            >
+              {st.name}
+            </div>
+            {idx < hops.length - 1 && (
+              <span className="text-muted-foreground/40 font-mono text-[9px]">
+                {dir === "req" ? ">" : "<"}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* the per-hop card */}
+      <div className="border border-border bg-background p-5">
+        <div className="flex flex-wrap items-baseline gap-2 mb-4">
+          <span className="font-mono text-[11px] font-bold text-primary">
+            {h.name}
+          </span>
+          <span className="font-mono text-[9px] text-muted-foreground">
+            {h.role}
+          </span>
+          <span className="ml-auto font-mono text-[8.5px] uppercase tracking-[0.12em] text-muted-foreground">
+            {dir === "req" ? "অনুরোধ" : "উত্তর"}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          <div className="border border-accent/40 bg-accent/5 px-3 py-2">
+            <div className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground mb-1">
+              IP জোড়া (এই দিকে এক থাকে)
+            </div>
+            <div
+              className="font-mono text-[11px] text-accent font-bold"
+              data-ip={`${h.ipSrc}->${h.ipDst}`}
+            >
+              {h.ipSrc} {"->"} {h.ipDst}
+            </div>
+          </div>
+          <div className="border border-primary/40 bg-primary/5 px-3 py-2">
+            <div className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground mb-1">
+              MAC জোড়া (প্রতি Hop এ নতুন)
+            </div>
+            <div
+              className="font-mono text-[11px] text-primary font-bold"
+              data-mac={`${h.macSrc}->${h.macDst}`}
+            >
+              {h.macSrc} {"->"} {h.macDst}
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={cn(
+            "border p-3",
+            h.edgeArp
+              ? "border-accent/50 bg-accent/5"
+              : h.arpFires
+                ? "border-primary/40 bg-primary/5"
+                : "border-border",
+          )}
+        >
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+              ARP খোঁজে
+            </span>
+            <span
+              className={cn(
+                "font-mono text-[12px] font-bold",
+                h.edgeArp ? "text-accent" : "text-primary",
+              )}
+              data-arp-target={h.arpTarget}
+            >
+              {h.arpTarget}
+            </span>
+            <span
+              data-fires={h.arpFires ? "true" : "false"}
+              className={cn(
+                "ml-auto px-2 py-0.5 border font-mono text-[8.5px] font-bold uppercase tracking-[0.1em]",
+                h.arpFires
+                  ? "border-primary text-primary"
+                  : "border-accent text-accent",
+              )}
+            >
+              {h.arpFires ? "Cache Miss, ARP হলো" : "Cache Hit, ARP লাগল না"}
+            </span>
+          </div>
+          {h.edgeArp && (
+            <div className="mt-2 font-mono text-[9px] text-accent">
+              {dir === "req"
+                ? "পুরো পথে একমাত্র এখানেই সত্যিকারের Server কে ARP"
+                : "শেষ হাত, Laptop এই LAN এ, তবু MAC আগেই জানা ছিল"}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <motion.p
+        key={`${dir}-${i}`}
+        initial={reduce ? false : { opacity: 0, y: 4 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: EASE }}
+        className="mt-6 text-sm text-muted-foreground leading-relaxed"
+      >
+        {h.note}
+      </motion.p>
     </Panel>
   );
 }

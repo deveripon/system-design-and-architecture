@@ -308,3 +308,335 @@ export function ArpCacheDiagram() {
     </Sketch>
   );
 }
+
+/* ------------------------------------------------------------------------- */
+/* 4. প্রতি Hop এ ARP, পরের হাতের জন্য                                          */
+/* ------------------------------------------------------------------------- */
+
+const PATH = [
+  { x: 40, name: "Laptop", sub: "আপনি", arp: "গেটওয়ে", warn: true },
+  { x: 175, name: "বাসার Router", sub: "গেটওয়ে", arp: "ISP রাউটার" },
+  { x: 320, name: "ISP Router", sub: "GP", arp: "পরের রাউটার" },
+  { x: 460, name: "IIG", sub: "দেশের গেট", arp: "সমুদ্র লিংক" },
+  { x: 590, name: "সমুদ্রের তার", sub: "Sea", arp: "SG রাউটার" },
+  { x: 720, name: "SG ISP", sub: "Singapore", arp: "DC রাউটার" },
+  {
+    x: 850,
+    name: "DC Router",
+    sub: "শেষ রাউটার",
+    arp: "Server নিজে",
+    last: true,
+  },
+  { x: 980, name: "Server", sub: "পৌঁছে গেছি", dest: true },
+];
+
+export function HopByHopArpDiagram() {
+  return (
+    <Sketch
+      label="Diagram: প্রতি Hop এ ARP শুধু পরের হাতের জন্য"
+      height={260}
+      minWidth={1060}
+      viewBox="0 0 1060 260"
+      caption="পুরো পথে চূড়ান্ত গন্তব্য IP এক, 103.94.135.2, উপরের সবুজ লাইন। কিন্তু ARP কখনো ওই চূড়ান্ত Server কে খোঁজে না, প্রতিটা হাত শুধু তার ঠিক পরের হাতের MAC খোঁজে। আপনার Laptop ARP করে গেটওয়ের MAC, Server এর নয়, কারণ Server তার LAN এ নেই। প্রতিটা রাউটার একই কাজ করে, শুধু পরের রাউটার খোঁজে। একমাত্র শেষ রাউটার, যে Server এর সাথে একই LAN এ, সে ARP করে সত্যিকারের Server এর MAC। তাই পুরো পথে Server কে ARP হয় ঠিক একবার, একদম শেষে।"
+    >
+      {/* the constant IP banner */}
+      <rect
+        x={40}
+        y={20}
+        width={1000}
+        height={24}
+        fill="var(--accent, var(--primary))"
+        fillOpacity={0.06}
+        stroke="var(--primary)"
+        strokeOpacity={0.4}
+        strokeWidth="1"
+        strokeDasharray="5 4"
+      />
+      <SketchText x={540} y={36} size={9} accent>
+        চূড়ান্ত গন্তব্য IP 103.94.135.2, পুরো পথে এক, বদলায় না
+      </SketchText>
+
+      {/* nodes */}
+      {PATH.map((n, i) => {
+        const next = PATH[i + 1];
+        return (
+          <g key={n.name}>
+            <rect
+              x={n.x - 4}
+              y={90}
+              width={96}
+              height={44}
+              fill={
+                n.dest
+                  ? "var(--primary)"
+                  : n.warn
+                    ? "var(--primary)"
+                    : "transparent"
+              }
+              fillOpacity={n.dest || n.warn ? 0.12 : 0}
+              stroke={
+                n.dest || n.warn || n.last ? "var(--primary)" : "currentColor"
+              }
+              strokeOpacity={n.dest || n.warn || n.last ? 1 : 0.45}
+              strokeWidth="1.2"
+            />
+            <SketchText
+              x={n.x + 44}
+              y={110}
+              size={9}
+              bold
+              accent={n.dest || n.warn || n.last}
+            >
+              {n.name}
+            </SketchText>
+            <SketchText x={n.x + 44} y={124} size={7.5} opacity={0.6}>
+              {n.sub}
+            </SketchText>
+            {next && (
+              <line
+                x1={n.x + 92}
+                y1={112}
+                x2={next.x - 6}
+                y2={112}
+                stroke="currentColor"
+                strokeOpacity={0.4}
+                strokeWidth="1.2"
+                markerEnd="url(#hh-a)"
+              />
+            )}
+            {n.arp && (
+              <g>
+                <line
+                  x1={n.x + 44}
+                  y1={134}
+                  x2={n.x + 44}
+                  y2={168}
+                  stroke={n.warn || n.last ? "var(--primary)" : "currentColor"}
+                  strokeOpacity={n.warn || n.last ? 0.8 : 0.3}
+                  strokeWidth="1"
+                  strokeDasharray="2 2"
+                />
+                <SketchText
+                  x={n.x + 44}
+                  y={184}
+                  size={7.5}
+                  accent={n.warn || n.last}
+                  opacity={n.warn || n.last ? 1 : 0.6}
+                  body
+                >
+                  ARP খোঁজে
+                </SketchText>
+                <SketchText
+                  x={n.x + 44}
+                  y={196}
+                  size={8}
+                  bold
+                  accent={n.warn || n.last}
+                  opacity={n.warn || n.last ? 1 : 0.7}
+                >
+                  {n.arp}
+                </SketchText>
+              </g>
+            )}
+          </g>
+        );
+      })}
+      <SketchText x={84} y={220} size={8} accent anchor="start" opacity={0.85}>
+        Laptop Server কে ARP করে না, গেটওয়েকে করে
+      </SketchText>
+      <SketchText
+        x={894}
+        y={220}
+        size={8}
+        accent
+        anchor="middle"
+        opacity={0.85}
+      >
+        এখানেই একমাত্র Server ARP
+      </SketchText>
+      <SketchText x={540} y={244} size={8.5} opacity={0.55} body>
+        প্রতিটা হাত শুধু পরের হাতের MAC খোঁজে, চূড়ান্ত গন্তব্য কখনো নয় (শেষ
+        রাউটার ছাড়া)
+      </SketchText>
+      <Defs id="hh-a" />
+    </Sketch>
+  );
+}
+
+/* ------------------------------------------------------------------------- */
+/* 5. পুরো Round Trip, এক ছবিতে                                                */
+/* ------------------------------------------------------------------------- */
+
+const LOOP = [
+  { name: "Laptop", edge: true },
+  { name: "বাসার Router", edge: false },
+  { name: "ISP", edge: false },
+  { name: "IIG", edge: false },
+  { name: "SG ISP", edge: false },
+  { name: "DC Router", edge: false },
+  { name: "Server", edge: true },
+];
+
+export function RoundTripFlowDiagram() {
+  const w = 130;
+  const gap = 20;
+  const startX = 30;
+  const totalW = LOOP.length * w + (LOOP.length - 1) * gap;
+  const midY = 150;
+  return (
+    <Sketch
+      label="Diagram: পুরো Round Trip, IP MAC ARP এক সাথে"
+      height={290}
+      minWidth={totalW + 60}
+      viewBox={`0 0 ${totalW + 60} 290`}
+      caption="উপরের অর্ধেক অনুরোধ, Laptop থেকে Server, নিচের অর্ধেক উত্তর, Server থেকে Laptop। তিনটা প্যাটার্ন এক ছবিতে। এক, IP জোড়া এক দিকে পুরো পথে এক, ব্যানারে লেখা, শুধু উত্তরে উৎস গন্তব্য উল্টে যায়। দুই, প্রতিটা তীরের উপর MAC নতুন, কারণ MAC মানে শুধু পরের হাত। তিন, ARP এর বিন্দু শুধু অনুরোধের দিকে, প্রতি হাতে একবার, কারণ তখন পরের হাতের MAC অজানা। উত্তরের দিকে ARP নেই, কারণ যাওয়ার সময় সব Cache এ শেখা হয়ে গেছে। আর ARP এর বিন্দু কখনো Router পার হয় না, শুধু শেষ রাউটার চূড়ান্ত যন্ত্রকে ARP করে, বাকিরা পরের রাউটারকে।"
+    >
+      {/* request IP banner */}
+      <rect
+        x={startX}
+        y={16}
+        width={totalW}
+        height={20}
+        fill="var(--primary)"
+        fillOpacity={0.05}
+        stroke="var(--primary)"
+        strokeOpacity={0.35}
+        strokeWidth="1"
+        strokeDasharray="5 4"
+      />
+      <SketchText x={startX + totalW / 2} y={30} size={8.5} accent>
+        অনুরোধ IP: Laptop {"->"} Server, পুরো পথে এক
+      </SketchText>
+
+      {/* nodes */}
+      {LOOP.map((n, i) => {
+        const x = startX + i * (w + gap);
+        const next = LOOP[i + 1];
+        const cx = x + w / 2;
+        return (
+          <g key={n.name}>
+            <rect
+              x={x}
+              y={midY - 20}
+              width={w}
+              height={40}
+              fill={n.edge ? "var(--primary)" : "transparent"}
+              fillOpacity={n.edge ? 0.12 : 0}
+              stroke={n.edge ? "var(--primary)" : "currentColor"}
+              strokeOpacity={n.edge ? 1 : 0.45}
+              strokeWidth="1.2"
+            />
+            <SketchText x={cx} y={midY + 4} size={10} bold accent={n.edge}>
+              {n.name}
+            </SketchText>
+            {next && (
+              <g>
+                {/* request arc above */}
+                <path
+                  d={`M ${cx + 20} ${midY - 20} Q ${cx + (w + gap) / 2} ${midY - 58} ${cx + w + gap - 20} ${midY - 20}`}
+                  fill="none"
+                  stroke="var(--primary)"
+                  strokeOpacity={0.6}
+                  strokeWidth="1.3"
+                  markerEnd="url(#rt-req)"
+                />
+                <SketchText
+                  x={cx + (w + gap) / 2}
+                  y={midY - 48}
+                  size={7}
+                  accent
+                  opacity={0.8}
+                >
+                  MAC নতুন
+                </SketchText>
+                {/* ARP dot on request (per hop) */}
+                <circle
+                  cx={cx}
+                  cy={midY + 34}
+                  r={4}
+                  fill={
+                    i === LOOP.length - 2 ? "var(--primary)" : "var(--primary)"
+                  }
+                  fillOpacity={i === LOOP.length - 2 ? 1 : 0.55}
+                />
+                <SketchText
+                  x={cx}
+                  y={midY + 52}
+                  size={6.5}
+                  accent={i === LOOP.length - 2}
+                  opacity={i === LOOP.length - 2 ? 1 : 0.6}
+                >
+                  {i === LOOP.length - 2 ? "ARP Server" : "ARP পরের"}
+                </SketchText>
+                {/* response arc below */}
+                <path
+                  d={`M ${cx + w + gap - 20} ${midY + 20} Q ${cx + (w + gap) / 2} ${midY + 92} ${cx + 20} ${midY + 20}`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeOpacity={0.4}
+                  strokeWidth="1.2"
+                  strokeDasharray="4 3"
+                  markerEnd="url(#rt-res)"
+                />
+                <SketchText
+                  x={cx + (w + gap) / 2}
+                  y={midY + 84}
+                  size={7}
+                  opacity={0.55}
+                >
+                  MAC নতুন, ARP নেই
+                </SketchText>
+              </g>
+            )}
+          </g>
+        );
+      })}
+
+      {/* response IP banner */}
+      <rect
+        x={startX}
+        y={254}
+        width={totalW}
+        height={20}
+        fill="currentColor"
+        fillOpacity={0.03}
+        stroke="currentColor"
+        strokeOpacity={0.35}
+        strokeWidth="1"
+        strokeDasharray="5 4"
+      />
+      <SketchText x={startX + totalW / 2} y={268} size={8.5} opacity={0.7}>
+        উত্তর IP: Server {"->"} Laptop, পুরো পথে এক (উৎস গন্তব্য উল্টানো)
+      </SketchText>
+
+      <defs>
+        <marker
+          id="rt-req"
+          markerWidth={7}
+          markerHeight={7}
+          refX={6}
+          refY={3.5}
+          orient="auto"
+          markerUnits="userSpaceOnUse"
+        >
+          <path
+            d="M0,0 L6,3.5 L0,7 Z"
+            fill="var(--primary)"
+            fillOpacity={0.7}
+          />
+        </marker>
+        <marker
+          id="rt-res"
+          markerWidth={7}
+          markerHeight={7}
+          refX={6}
+          refY={3.5}
+          orient="auto"
+          markerUnits="userSpaceOnUse"
+        >
+          <path d="M0,0 L6,3.5 L0,7 Z" fill="currentColor" fillOpacity={0.5} />
+        </marker>
+      </defs>
+    </Sketch>
+  );
+}

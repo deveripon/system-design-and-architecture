@@ -8,12 +8,15 @@ import {
 import { IslandToursBrief } from "../../../components/course/topics/island-tours/project-brief";
 import {
   CacheLab,
+  FullPathArpLab,
   WhoHasIpLab,
 } from "../../../components/course/topics/arp/animations";
 import {
   ArpCacheDiagram,
   ArpFlowDiagram,
   BroadcastVsUnicastSplit,
+  HopByHopArpDiagram,
+  RoundTripFlowDiagram,
 } from "../../../components/course/topics/arp/diagrams";
 import {
   CONTENT_TYPES,
@@ -221,10 +224,159 @@ export const arpProtocolContent: TopicData = {
         },
       ],
     },
+    /* ------------------------------- next hop only ----------------- */
+    {
+      id: "next-hop-only",
+      subHeader: { index: "004", title: "The Next Hop" },
+      title: <SectionTitle>ARP শুধু পরের হাত খোঁজে, Server নয়</SectionTitle>,
+      blocks: [
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                এবার একটা কথা যেটা প্রায় সবাই প্রথমে ভুল বোঝে, অথচ এটাই ARP এর
+                আসল মজা। আপনি ভাবতে পারেন, Laptop যখন Island Tours এর Server কে
+                চিঠি পাঠায়, তখন সে বুঝি Server এর MAC খোঁজে। কিন্তু না। Laptop
+                কখনোই Server কে ARP করে না, করতেও পারে না।
+              </ContentParagraph>
+              <ContentParagraph>
+                কেন পারে না? মনে করুন গত সেকশনের কথাটা, ARP এর চেঁচানো প্রশ্ন
+                LAN ছাড়ে না, Router সেটা বাইরে যেতে দেয় না। Server তো
+                Singapore এ, আপনার LAN এ নেই। তাই Laptop যদি চেঁচিয়ে জিজ্ঞেস
+                করে এই 103.94.135.2 টা কার, সেই প্রশ্ন Singapore পর্যন্ত
+                পৌঁছাবেই না, বাসার Router এই থেমে যাবে। Server শুনবেই না, উত্তর
+                দেবে কী করে।
+              </ContentParagraph>
+              <ContentParagraph>
+                তাহলে দূরের Server কে চিঠি যায় কীভাবে? এখানেই আসল কৌশল। Laptop
+                প্রথমে দেখে, চূড়ান্ত গন্তব্য কি আমার নিজের LAN এ? যদি হ্যাঁ,
+                তাহলে সরাসরি তাকেই ARP করে চিঠি দেয়। যদি না, মানে গন্তব্য দূরে,
+                তাহলে সে চিঠিটা তুলে দেয় গেটওয়ের হাতে, আর ARP করে গেটওয়ের
+                MAC, Server এর নয়। খামের ভেতরে চূড়ান্ত গন্তব্য থাকে Server এর
+                IP, কিন্তু পরের হাতে দেওয়ার MAC থাকে গেটওয়ের।
+              </ContentParagraph>
+            </div>
+          ),
+        },
+        { type: CONTENT_TYPES.CUSTOM, component: <HopByHopArpDiagram /> },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.IMPORTANT,
+          title: "এক লাইনের নিয়ম, যেটা পুরো পথ ব্যাখ্যা করে",
+          content: (
+            <p>
+              ARP সবসময় শুধু পরের এক হাতের MAC খোঁজে, চূড়ান্ত গন্তব্যের নয়।
+              গন্তব্য যদি একই LAN এ হয়, পরের হাত মানেই গন্তব্য, তাই তাকেই ARP।
+              গন্তব্য যদি দূরে হয়, পরের হাত মানে গেটওয়ে, তাই গেটওয়েকে ARP। এই
+              কারণেই আপনার Laptop এর ARP Cache এ Facebook বা Island Tours এর
+              Server এর MAC কখনো থাকে না, থাকে শুধু গেটওয়ের। কারণ বাইরের সব
+              চিঠি ওই এক গেটওয়ে দিয়েই যায়, তাই Laptop এর দরকার শুধু ওই একটা
+              MAC।
+            </p>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentParagraph>
+              আর প্রতিটা Router ঠিক এই একই সিদ্ধান্ত নেয়। চিঠি পেয়ে সে দেখে,
+              চূড়ান্ত গন্তব্য কি আমার সাথে সরাসরি জোড়া কোনো Network এ? না হলে,
+              রাউটিং টেবিল দেখে ঠিক করে পরের Router কে, আর তার MAC এর জন্য ARP
+              করে। হ্যাঁ হলে, মানে গন্তব্য এখন হাতের নাগালে, তখনই সরাসরি সেই
+              যন্ত্রকে ARP করে। তাই পুরো পথে সত্যিকারের Server কে ARP হয় ঠিক
+              একবার, একদম শেষে, সেই Router থেকে যে Server এর সাথে একই LAN এ বসা।
+            </ContentParagraph>
+          ),
+        },
+      ],
+    },
+    /* ------------------------------- full round trip --------------- */
+    {
+      id: "full-path",
+      subHeader: { index: "005", title: "Round Trip" },
+      title: (
+        <SectionTitle>পুরো যাত্রা, অনুরোধ আর উত্তর, প্রতি Hop এ</SectionTitle>
+      ),
+      blocks: [
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentParagraph>
+              এবার সব একসাথে জোড়া লাগাই, পুরো round trip, Laptop থেকে Server আর
+              আবার Server থেকে Laptop। নিচের ছবিতে উপরের অর্ধেক অনুরোধ, নিচের
+              অর্ধেক উত্তর। তিনটা জিনিস একসাথে দেখুন, IP জোড়া এক দিকে এক থাকে,
+              MAC প্রতি Hop এ নতুন হয়, আর ARP এর বিন্দু শুধু অনুরোধের দিকে।
+            </ContentParagraph>
+          ),
+        },
+        { type: CONTENT_TYPES.CUSTOM, component: <RoundTripFlowDiagram /> },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentParagraph>
+              এবার ধাপে ধাপে হেঁটে দেখুন। উপরের বোতামে অনুরোধ আর উত্তর বদলে,
+              তারপর Step চেপে প্রতিটা হাতে থামুন। প্রতিটা হাতে দেখবেন সেই দিকের
+              IP জোড়া, ওই হাতের নতুন MAC জোড়া, আর ARP কার MAC খুঁজল, নাকি
+              Cache থেকেই পেল।
+            </ContentParagraph>
+          ),
+        },
+        { type: CONTENT_TYPES.CUSTOM, component: <FullPathArpLab /> },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentList>
+              <ListItem>
+                <strong>IP এক দিকে এক:</strong> অনুরোধে পুরো পথে উৎস Laptop,
+                গন্তব্য Server। উত্তরে ঠিক উল্টো, উৎস Server, গন্তব্য Laptop। এক
+                দিকে IP জোড়া বদলায় না, শুধু দিক ঘুরলে উৎস আর গন্তব্য জায়গা
+                বদলায়।
+              </ListItem>
+              <ListItem>
+                <strong>MAC প্রতি Hop এ নতুন:</strong> দুই দিকেই, প্রতিটা হাত
+                পুরনো MAC জোড়া ফেলে নিজের আর পরের হাতের MAC বসায়। MAC মানে
+                শুধু পরের হাত, তাই প্রতি Hop এ বদলাবেই।
+              </ListItem>
+              <ListItem>
+                <strong>ARP শুধু অনুরোধের প্রথম Packet এ:</strong> অনুরোধের সময়
+                প্রতিটা হাত পরের হাতের MAC জানত না, তাই প্রতি হাতে একবার ARP।
+                উত্তরের সময় সেই সব MAC Cache এ শেখা হয়ে গেছে, তাই উত্তরের পথে
+                ARP প্রায় হয়ই না। Round trip এ ARP এর ভার প্রায় পুরোটা প্রথম
+                দিকে।
+              </ListItem>
+              <ListItem>
+                <strong>ARP কখনো Router পার হয় না:</strong> তাই Laptop কখনো
+                Server কে ARP করে না, আর Server কখনো Laptop কে করে না। চূড়ান্ত
+                যন্ত্রকে ARP করে শুধু সেই শেষ Router, যে তার সাথে একই LAN এ।
+                অনুরোধে সেটা DC Router, উত্তরে বাসার Router।
+              </ListItem>
+            </ContentList>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.CONCEPT,
+          title: "তাহলে কখন কখন ARP হয়, এক জায়গায়",
+          content: (
+            <p>
+              একটা হাতে ARP হয় ঠিক তখনই, যখন তার সেই পরের হাতের MAC তার Cache এ
+              নেই। মানে সেই হাত জীবনে প্রথমবার ওই পরের হাতে চিঠি পাঠাচ্ছে, বা
+              আগের জানা MAC টা Cache থেকে মুছে গেছে। এর বাইরে ARP হয় না। তাই
+              একটা ব্যস্ত পথে, যেখানে প্রতি সেকেন্ডে হাজার Packet যায়, ARP
+              প্রায় হয়ই না, শুধু একদম শুরুতে একবার করে প্রতি হাতে। আর যেহেতু
+              আপনার সব বাইরের চিঠি এক গেটওয়ে দিয়েই যায়, আপনার Laptop জীবনে ওই
+              গেটওয়েকে হাতে গোনা কয়েকবার ARP করে, তারপর দিনের পর দিন সেই Cache
+              থেকেই চলে।
+            </p>
+          ),
+        },
+      ],
+    },
     /* ---------------------------------------------------------------- 4 */
     {
       id: "security",
-      subHeader: { index: "004", title: "The Risk" },
+      subHeader: { index: "006", title: "The Risk" },
       title: <SectionTitle>চেঁচিয়ে বিশ্বাস করার বিপদ</SectionTitle>,
       blocks: [
         {
@@ -268,7 +420,7 @@ export const arpProtocolContent: TopicData = {
     /* ---------------------------------------------------------------- 5 */
     {
       id: "project",
-      subHeader: { index: "005", title: "Project Example" },
+      subHeader: { index: "007", title: "Project Example" },
       title: <SectionTitle>ARP আর Island Tours</SectionTitle>,
       blocks: [
         { type: CONTENT_TYPES.CUSTOM, component: <IslandToursBrief /> },
@@ -333,7 +485,7 @@ export const arpProtocolContent: TopicData = {
     /* ---------------------------------------------------------------- 6 */
     {
       id: "request-flow",
-      subHeader: { index: "006", title: "Step-by-step Flow" },
+      subHeader: { index: "008", title: "Step-by-step Flow" },
       title: <SectionTitle>IP থেকে MAC, তারপর চিঠি</SectionTitle>,
       blocks: [
         {
@@ -386,7 +538,7 @@ export const arpProtocolContent: TopicData = {
     /* ---------------------------------------------------------------- 7 */
     {
       id: "resources",
-      subHeader: { index: "007", title: "Best Resources" },
+      subHeader: { index: "009", title: "Best Resources" },
       title: <SectionTitle>আরও দেখতে চাইলে</SectionTitle>,
       blocks: [
         {
@@ -431,7 +583,7 @@ export const arpProtocolContent: TopicData = {
     /* ---------------------------------------------------------------- 8 */
     {
       id: "recap",
-      subHeader: { index: "008", title: "Recap" },
+      subHeader: { index: "010", title: "Recap" },
       title: <SectionTitle>৫ মিনিটে পুরো লেসন</SectionTitle>,
       blocks: [
         {
@@ -453,6 +605,16 @@ export const arpProtocolContent: TopicData = {
               <ListItem>
                 Broadcast LAN ছাড়ে না, Router বাইরে যেতে দেয় না। তাই ARP শুধু
                 কাছের হাতবদলের জন্য।
+              </ListItem>
+              <ListItem>
+                ARP সবসময় শুধু পরের হাতের MAC খোঁজে, চূড়ান্ত গন্তব্যের নয়।
+                তাই Laptop কখনো Server কে ARP করে না, গেটওয়েকে করে। সত্যিকারের
+                Server কে ARP হয় ঠিক একবার, একদম শেষ Router থেকে।
+              </ListItem>
+              <ListItem>
+                অনুরোধ আর উত্তর, দুই দিকেই IP জোড়া এক দিকে এক থাকে (উত্তরে
+                উল্টো), MAC প্রতি Hop এ নতুন। ARP হয় শুধু অনুরোধের প্রথম Packet
+                এ, উত্তরের সময় সেই Cache গরম বলে প্রায় হয়ই না।
               </ListItem>
               <ListItem>
                 উত্তরটা ARP Cache এ জমা থাকে, তাই প্রতিবার জিজ্ঞেস করতে হয় না।
