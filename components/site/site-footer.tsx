@@ -7,6 +7,7 @@ import { OtherTrackCta } from "./other-track-cta";
 
 const REPO_URL = "https://github.com/Deveripon/system-design-and-architecture";
 const AUTHOR_URL = "https://github.com/Deveripon";
+const PORTFOLIO_URL = "https://devripon.vercel.app";
 const FB_URL = "https://www.facebook.com/devripon.io/";
 const LI_URL = "https://www.linkedin.com/in/deveripon";
 
@@ -153,7 +154,7 @@ export function SiteFooter() {
           <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
             © 2026{" "}
             <a
-              href={AUTHOR_URL}
+              href={PORTFOLIO_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:text-foreground transition-colors"
