@@ -3,15 +3,51 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useRef } from "react";
+import { flushSync } from "react-dom";
 
 export function ModeToggle() {
     const { resolvedTheme, setTheme } = useTheme();
     const reduce = useReducedMotion();
+    const ref = useRef<HTMLButtonElement>(null);
     const isDark = resolvedTheme === "dark";
+
+    const toggle = () => {
+        const next = isDark ? "light" : "dark";
+        const doc = document as Document & {
+            startViewTransition?: (cb: () => void) => unknown;
+        };
+        const btn = ref.current;
+
+        // The new theme is revealed as a circle expanding from the toggle
+        // button, so measure the button and hand the origin plus a radius large
+        // enough to reach the farthest corner to the CSS keyframes. `flushSync`
+        // applies the theme class inside the callback so the snapshot captures
+        // the new colours. No API or reduced motion means a plain flip.
+        if (reduce || typeof doc.startViewTransition !== "function" || !btn) {
+            setTheme(next);
+            return;
+        }
+
+        const rect = btn.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        const radius = Math.hypot(
+            Math.max(x, window.innerWidth - x),
+            Math.max(y, window.innerHeight - y),
+        );
+        const root = document.documentElement;
+        root.style.setProperty("--vt-x", `${x}px`);
+        root.style.setProperty("--vt-y", `${y}px`);
+        root.style.setProperty("--vt-r", `${radius}px`);
+
+        doc.startViewTransition(() => flushSync(() => setTheme(next)));
+    };
 
     return (
         <motion.button
-            onClick={() => setTheme(isDark ? "light" : "dark")}
+            ref={ref}
+            onClick={toggle}
             aria-label="Toggle theme"
             whileTap={reduce ? undefined : { scale: 0.88, rotate: -20 }}
             whileHover={reduce ? undefined : { rotate: 12 }}

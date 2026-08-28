@@ -2,7 +2,8 @@ import { BorderCross } from '@/components/course/border-cross';
 import { Reveal } from '@/components/motion/reveal';
 import { SubHeader } from '@/components/course/sub-header';
 import { IslandToursArchitecture } from '@/components/course/topics/island-tours/architecture';
-import { ModeToggle } from '@/components/mode-toggle';
+import { SiteHeader } from '@/components/site/site-header';
+import { SiteFooter } from '@/components/site/site-footer';
 import type { Metadata } from 'next';
 import { ArrowLeft, Check } from 'lucide-react';
 import Link from 'next/link';
@@ -118,6 +119,8 @@ export default function IslandToursProjectPage() {
                     backgroundSize: '48px 48px',
                 }}
             />
+
+            <SiteHeader />
 
             <main className='max-w-6xl xl:max-w-7xl mx-auto px-4 md:px-6 xl:px-10 pt-10 md:pt-16 pb-10 relative z-10'>
                 <Link
@@ -284,22 +287,9 @@ export default function IslandToursProjectPage() {
                 </section>
                 </Reveal>
 
-                <BorderCross>
-                    <footer className='py-10 border-t border-border mt-20'>
-                        <div className='flex items-center'>
-                            <ModeToggle />
-                            <p className='flex-1 text-center font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]'>
-                                <Link
-                                    href='/devops'
-                                    className='text-primary hover:text-foreground transition-colors'>
-                                    Back to the track
-                                </Link>
-                            </p>
-                            <div className='w-8' />
-                        </div>
-                    </footer>
-                </BorderCross>
             </main>
+
+            <SiteFooter />
         </div>
     );
 }

@@ -5,7 +5,8 @@ import { Roadmap } from '@/components/course/roadmap';
 import { SubHeader } from '@/components/course/sub-header';
 import { TrackGrid } from '@/components/course/track-grid';
 import { ExploreButton } from '@/components/explore-button';
-import { ModeToggle } from '@/components/mode-toggle';
+import { SiteHeader } from '@/components/site/site-header';
+import { SiteFooter } from '@/components/site/site-footer';
 
 export const metadata: Metadata = {
     title: 'System Design Mastery: Master the Architecture of Scale',
@@ -49,6 +50,8 @@ export default function Home() {
                     backgroundSize: '48px 48px',
                 }}
             />
+
+            <SiteHeader />
 
             <main className='max-w-6xl xl:max-w-7xl mx-auto px-4 md:px-6 xl:px-10 pt-16 md:pt-24 pb-10 relative z-10'>
                 {/* Cool Hero Section with Stars */}
@@ -169,26 +172,9 @@ export default function Home() {
                     </BorderCross>
                 </section>
                 </Reveal>
-                <BorderCross>
-                    <footer className='py-10 border-t border-border mt-10'>
-                        <div className='flex items-center'>
-                            <ModeToggle />
-                            <p className='flex-1 text-center font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]'>
-                                © 2026{' '}
-                                <a
-                                    href='https://github.com/Deveripon'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-primary hover:text-foreground dark:hover:text-white transition-colors'>
-                                    devripon
-                                </a>{' '}
-                                · Build for Scale
-                            </p>
-                            <div className='w-8' />
-                        </div>
-                    </footer>
-                </BorderCross>
             </main>
+
+            <SiteFooter />
         </div>
     );
 }

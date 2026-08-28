@@ -49,72 +49,78 @@
 }
 
 :root {
-  /* Warm ivory base — Anthropic-inspired, easier on the eyes than pure white */
-  --background: #faf9f5;
-  --foreground: #1a1915;
+  /* White ground, Vercel-light. Neutral surfaces; the warm accent is the only
+     colour. Description text stays dark for high-contrast readability. */
+  --background: #ffffff;
+  --foreground: #0a0a0a;
 
   --card: #ffffff;
-  --card-foreground: #1a1915;
+  --card-foreground: #0a0a0a;
 
   --popover: #ffffff;
-  --popover-foreground: #1a1915;
+  --popover-foreground: #0a0a0a;
 
-  /* Burnt clay — 5.4:1 on the ivory background, safe for 10px mono labels */
+  /* Burnt clay — primary accent, kept from the original palette */
   --primary: #b3441e;
   --primary-foreground: #ffffff;
 
-  --secondary: #f0eee7;
-  --secondary-foreground: #2b2a24;
+  --secondary: #f4f4f4;
+  --secondary-foreground: #171717;
 
-  --muted: #f4f2ec;
-  --muted-foreground: #5c5a52;
+  --muted: #f5f5f5;
+  /* Description / body text: mostly dark, ~10:1 on white */
+  --muted-foreground: #404040;
 
-  /* Deep olive-lime — the second accent, 5.9:1 on ivory */
+  /* Deep olive-lime — the second accent, kept */
   --accent: #4d6b1f;
   --accent-foreground: #ffffff;
 
   --destructive: #b3261e;
   --destructive-foreground: #ffffff;
 
-  /* Neutral grey hairlines — no blue cast */
-  --border: #d8d7d2;
-  --input: #d8d7d2;
-  --grid-line: #d8d7d2;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --grid-line: #efefef;
   --ring: #b3441e;
 
   --radius: 0px;
 }
 
 .dark {
-  --background: #12110e;
-  --foreground: #f0efe9;
+  /* Pure black ground, Vercel-dark. Neutral surfaces; the warm accent is the
+     only colour. Description text stays near-white for readability. */
+  --background: #000000;
+  --foreground: #fafafa;
 
-  --card: #1a1915;
-  --card-foreground: #f0efe9;
+  --card: #0a0a0a;
+  --card-foreground: #fafafa;
 
-  --popover: #171612;
-  --popover-foreground: #f0efe9;
+  --popover: #0a0a0a;
+  --popover-foreground: #fafafa;
 
-  /* Warm orange — 7.3:1 on the near-black background */
+  /* Warm orange — primary accent, kept from the original palette */
   --primary: #e08a5e;
   --primary-foreground: #1a1005;
 
-  --secondary: #26241f;
-  --secondary-foreground: #f0efe9;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #fafafa;
 
-  --muted: #171612;
-  --muted-foreground: #b5b1a6;
+  --muted: #0f0f0f;
+  /* Description / body text: mostly white, ~13:1 on black */
+  --muted-foreground: #d4d4d4;
 
-  /* Lime — 10:1, used for badges and secondary emphasis */
+  /* Lime — the second accent, kept */
   --accent: #b8d96a;
   --accent-foreground: #1a1d0c;
 
   --destructive: #e5675c;
   --destructive-foreground: #1a1005;
 
-  --border: #2b2a25;
-  --input: #2b2a25;
-  --grid-line: #2b2a25;
+  /* Structural hairlines readable; the decorative grid sits fainter so the
+     black ground reads clean at the edges. */
+  --border: #2a2a2a;
+  --input: #2a2a2a;
+  --grid-line: #171717;
   --ring: #e08a5e;
 
   --radius: 0px;
@@ -306,4 +312,29 @@
 
 ::-webkit-scrollbar-corner {
   background: var(--background);
+}
+
+/* Theme switch (View Transitions): the new theme ripples out as a circle from
+   the toggle button, sweeping over the old one. The toggle in
+   components/mode-toggle.tsx measures the button and sets --vt-x/--vt-y/--vt-r.
+   Browsers without the API just flip. */
+@media (prefers-reduced-motion: no-preference) {
+  /* The old snapshot holds still underneath while the new one is revealed. */
+  ::view-transition-old(root) {
+    animation: none;
+  }
+  ::view-transition-new(root) {
+    animation: theme-reveal 620ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    mix-blend-mode: normal;
+  }
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+  to {
+    clip-path: circle(var(--vt-r, 150%) at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
 }
