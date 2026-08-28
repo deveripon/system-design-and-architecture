@@ -478,23 +478,60 @@ const LOOP = [
 ];
 
 export function RoundTripFlowDiagram() {
-  const w = 130;
-  const gap = 20;
-  const startX = 30;
-  const totalW = LOOP.length * w + (LOOP.length - 1) * gap;
-  const midY = 150;
+  const w = 120;
+  const gap = 30;
+  const startX = 60;
+  const n = LOOP.length;
+  const totalW = n * w + (n - 1) * gap;
+  const topY = 84;
+  const botY = 250;
+  const cx = (i: number) => startX + i * (w + gap) + w / 2;
+
+  const node = (i: number, y: number, arpText: string, arpHot: boolean) => {
+    const nd = LOOP[i];
+    return (
+      <g key={`${y}-${i}`}>
+        <rect
+          x={startX + i * (w + gap)}
+          y={y - 17}
+          width={w}
+          height={34}
+          fill={nd.edge ? "var(--primary)" : "transparent"}
+          fillOpacity={nd.edge ? 0.12 : 0}
+          stroke={nd.edge ? "var(--primary)" : "currentColor"}
+          strokeOpacity={nd.edge ? 1 : 0.45}
+          strokeWidth="1.2"
+        />
+        <SketchText x={cx(i)} y={y + 3} size={9} bold accent={nd.edge}>
+          {nd.name}
+        </SketchText>
+        {arpText && (
+          <SketchText
+            x={cx(i)}
+            y={y === topY ? y + 30 : y - 24}
+            size={7}
+            accent={arpHot}
+            opacity={arpHot ? 1 : 0.55}
+          >
+            {arpText}
+          </SketchText>
+        )}
+      </g>
+    );
+  };
+
   return (
     <Sketch
-      label="Diagram: পুরো Round Trip, IP MAC ARP এক সাথে"
-      height={290}
-      minWidth={totalW + 60}
-      viewBox={`0 0 ${totalW + 60} 290`}
-      caption="উপরের অর্ধেক অনুরোধ, Laptop থেকে Server, নিচের অর্ধেক উত্তর, Server থেকে Laptop। তিনটা প্যাটার্ন এক ছবিতে। এক, IP জোড়া এক দিকে পুরো পথে এক, ব্যানারে লেখা, শুধু উত্তরে উৎস গন্তব্য উল্টে যায়। দুই, প্রতিটা তীরের উপর MAC নতুন, কারণ MAC মানে শুধু পরের হাত। তিন, ARP এর বিন্দু শুধু অনুরোধের দিকে, প্রতি হাতে একবার, কারণ তখন পরের হাতের MAC অজানা। উত্তরের দিকে ARP নেই, কারণ যাওয়ার সময় সব Cache এ শেখা হয়ে গেছে। আর ARP এর বিন্দু কখনো Router পার হয় না, শুধু শেষ রাউটার চূড়ান্ত যন্ত্রকে ARP করে, বাকিরা পরের রাউটারকে।"
+      label="Diagram: পুরো Round Trip, একটা লুপ"
+      height={330}
+      minWidth={totalW + 120}
+      viewBox={`0 0 ${totalW + 120} 330`}
+      caption="পুরো যাত্রাটা একটা লুপ। উপরের সারি অনুরোধ, Laptop থেকে ডানে গিয়ে Server, ডান পাশে Server নিচে নেমে উত্তর তৈরি করে, নিচের সারি সেই উত্তর বাঁয়ে ফিরে Laptop এ, আর বাঁ পাশে চক্র শেষ। উপরের সারিতে IP জোড়া Laptop থেকে Server, নিচের সারিতে উল্টো, Server থেকে Laptop, দুইটাই সেই সারিতে পুরো পথে এক। প্রতিটা তীরে MAC নতুন, কারণ MAC শুধু পরের হাত। ARP এর লেবেল শুধু উপরের সারিতে, প্রতি হাতে একবার, কারণ অনুরোধেই সব MAC শেখা হয়। নিচের সারিতে ARP নেই, সব Cache থেকে। আর সত্যিকারের Server কে ARP হয় শুধু একবার, DC Router থেকে, ঠিক তেমনি Laptop কে ARP হয় শুধু একবার, বাসার Router থেকে।"
     >
-      {/* request IP banner */}
+      {/* top IP banner */}
       <rect
         x={startX}
-        y={16}
+        y={20}
         width={totalW}
         height={20}
         fill="var(--primary)"
@@ -504,87 +541,45 @@ export function RoundTripFlowDiagram() {
         strokeWidth="1"
         strokeDasharray="5 4"
       />
-      <SketchText x={startX + totalW / 2} y={30} size={8.5} accent>
-        অনুরোধ IP: Laptop {"->"} Server, পুরো পথে এক
+      <SketchText x={startX + totalW / 2} y={34} size={8.5} accent>
+        অনুরোধ IP: Laptop {"->"} Server, উপরের পুরো সারিতে এক
       </SketchText>
 
-      {/* nodes */}
-      {LOOP.map((n, i) => {
-        const x = startX + i * (w + gap);
-        const next = LOOP[i + 1];
-        const cx = x + w / 2;
+      {/* top row: request, arrows right */}
+      {LOOP.map((_, i) => {
+        const last = i === n - 1;
+        const arp =
+          i === n - 2 ? "ARP: Server" : last ? "" : "ARP: পরের রাউটার";
         return (
-          <g key={n.name}>
-            <rect
-              x={x}
-              y={midY - 20}
-              width={w}
-              height={40}
-              fill={n.edge ? "var(--primary)" : "transparent"}
-              fillOpacity={n.edge ? 0.12 : 0}
-              stroke={n.edge ? "var(--primary)" : "currentColor"}
-              strokeOpacity={n.edge ? 1 : 0.45}
-              strokeWidth="1.2"
-            />
-            <SketchText x={cx} y={midY + 4} size={10} bold accent={n.edge}>
-              {n.name}
-            </SketchText>
-            {next && (
+          <g key={`t-${i}`}>
+            {node(i, topY, arp, i === n - 2)}
+            {i < n - 1 && (
               <g>
-                {/* request arc above */}
-                <path
-                  d={`M ${cx + 20} ${midY - 20} Q ${cx + (w + gap) / 2} ${midY - 58} ${cx + w + gap - 20} ${midY - 20}`}
-                  fill="none"
+                <line
+                  x1={startX + i * (w + gap) + w}
+                  y1={topY}
+                  x2={startX + (i + 1) * (w + gap)}
+                  y2={topY}
                   stroke="var(--primary)"
                   strokeOpacity={0.6}
-                  strokeWidth="1.3"
-                  markerEnd="url(#rt-req)"
+                  strokeWidth="1.4"
+                  markerEnd="url(#lp-req)"
                 />
                 <SketchText
-                  x={cx + (w + gap) / 2}
-                  y={midY - 48}
-                  size={7}
+                  x={
+                    (startX +
+                      i * (w + gap) +
+                      w +
+                      startX +
+                      (i + 1) * (w + gap)) /
+                    2
+                  }
+                  y={topY - 9}
+                  size={6.5}
                   accent
-                  opacity={0.8}
+                  opacity={0.75}
                 >
                   MAC নতুন
-                </SketchText>
-                {/* ARP dot on request (per hop) */}
-                <circle
-                  cx={cx}
-                  cy={midY + 34}
-                  r={4}
-                  fill={
-                    i === LOOP.length - 2 ? "var(--primary)" : "var(--primary)"
-                  }
-                  fillOpacity={i === LOOP.length - 2 ? 1 : 0.55}
-                />
-                <SketchText
-                  x={cx}
-                  y={midY + 52}
-                  size={6.5}
-                  accent={i === LOOP.length - 2}
-                  opacity={i === LOOP.length - 2 ? 1 : 0.6}
-                >
-                  {i === LOOP.length - 2 ? "ARP Server" : "ARP পরের"}
-                </SketchText>
-                {/* response arc below */}
-                <path
-                  d={`M ${cx + w + gap - 20} ${midY + 20} Q ${cx + (w + gap) / 2} ${midY + 92} ${cx + 20} ${midY + 20}`}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeOpacity={0.4}
-                  strokeWidth="1.2"
-                  strokeDasharray="4 3"
-                  markerEnd="url(#rt-res)"
-                />
-                <SketchText
-                  x={cx + (w + gap) / 2}
-                  y={midY + 84}
-                  size={7}
-                  opacity={0.55}
-                >
-                  MAC নতুন, ARP নেই
                 </SketchText>
               </g>
             )}
@@ -592,10 +587,87 @@ export function RoundTripFlowDiagram() {
         );
       })}
 
-      {/* response IP banner */}
+      {/* right turn: Server down */}
+      <path
+        d={`M ${cx(n - 1)} ${topY + 17} L ${cx(n - 1)} ${botY - 17}`}
+        fill="none"
+        stroke="var(--primary)"
+        strokeOpacity={0.6}
+        strokeWidth="1.4"
+        markerEnd="url(#lp-req)"
+      />
+      <SketchText
+        x={cx(n - 1) + 4}
+        y={(topY + botY) / 2}
+        size={7.5}
+        accent
+        anchor="start"
+      >
+        Server উত্তর দেয়
+      </SketchText>
+
+      {/* bottom row: response, arrows left */}
+      {LOOP.map((_, i) => {
+        const arp = i === 0 ? "" : "Cache, ARP নেই";
+        return (
+          <g key={`b-${i}`}>
+            {node(i, botY, i === 0 ? "Laptop কে, Cache" : arp, i === 0)}
+            {i < n - 1 && (
+              <g>
+                <line
+                  x1={startX + (i + 1) * (w + gap)}
+                  y1={botY}
+                  x2={startX + i * (w + gap) + w}
+                  y2={botY}
+                  stroke="currentColor"
+                  strokeOpacity={0.45}
+                  strokeWidth="1.3"
+                  markerEnd="url(#lp-res)"
+                />
+                <SketchText
+                  x={
+                    (startX +
+                      i * (w + gap) +
+                      w +
+                      startX +
+                      (i + 1) * (w + gap)) /
+                    2
+                  }
+                  y={botY + 13}
+                  size={6.5}
+                  opacity={0.55}
+                >
+                  MAC নতুন
+                </SketchText>
+              </g>
+            )}
+          </g>
+        );
+      })}
+
+      {/* left turn: Laptop up, loop closes */}
+      <path
+        d={`M ${cx(0)} ${botY - 17} L ${cx(0)} ${topY + 17}`}
+        fill="none"
+        stroke="currentColor"
+        strokeOpacity={0.45}
+        strokeWidth="1.3"
+        markerEnd="url(#lp-res)"
+      />
+      <SketchText
+        x={cx(0) - 4}
+        y={(topY + botY) / 2}
+        size={7.5}
+        anchor="end"
+        opacity={0.7}
+      >
+        চক্র শেষ
+      </SketchText>
+
+      {/* bottom IP banner */}
       <rect
         x={startX}
-        y={254}
+        y={290}
         width={totalW}
         height={20}
         fill="currentColor"
@@ -605,36 +677,194 @@ export function RoundTripFlowDiagram() {
         strokeWidth="1"
         strokeDasharray="5 4"
       />
-      <SketchText x={startX + totalW / 2} y={268} size={8.5} opacity={0.7}>
-        উত্তর IP: Server {"->"} Laptop, পুরো পথে এক (উৎস গন্তব্য উল্টানো)
+      <SketchText x={startX + totalW / 2} y={304} size={8.5} opacity={0.7}>
+        উত্তর IP: Server {"->"} Laptop, নিচের পুরো সারিতে এক (উৎস গন্তব্য
+        উল্টানো)
       </SketchText>
 
       <defs>
         <marker
-          id="rt-req"
-          markerWidth={7}
-          markerHeight={7}
-          refX={6}
+          id="lp-req"
+          markerWidth={8}
+          markerHeight={8}
+          refX={7}
           refY={3.5}
           orient="auto"
           markerUnits="userSpaceOnUse"
         >
           <path
-            d="M0,0 L6,3.5 L0,7 Z"
+            d="M0,0 L7,3.5 L0,7 Z"
             fill="var(--primary)"
             fillOpacity={0.7}
           />
         </marker>
         <marker
-          id="rt-res"
-          markerWidth={7}
-          markerHeight={7}
-          refX={6}
+          id="lp-res"
+          markerWidth={8}
+          markerHeight={8}
+          refX={7}
           refY={3.5}
           orient="auto"
           markerUnits="userSpaceOnUse"
         >
-          <path d="M0,0 L6,3.5 L0,7 Z" fill="currentColor" fillOpacity={0.5} />
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor" fillOpacity={0.5} />
+        </marker>
+      </defs>
+    </Sketch>
+  );
+}
+
+/* ------------------------------------------------------------------------- */
+/* 6. এক Hop, তিন কাজ: IP ঠিক করে, ARP অনুবাদ করে, MAC পৌঁছে দেয়              */
+/* ------------------------------------------------------------------------- */
+
+export function OneHopThreeJobsDiagram() {
+  const jobs = [
+    {
+      x: 60,
+      tag: "IP",
+      title: "IP + Routing Table",
+      line: "পরের রাউটার কে?",
+      out: "X (100.64.0.1)",
+      cap: "কোন দিকে যাবে, IP ঠিক করে",
+    },
+    {
+      x: 350,
+      tag: "ARP",
+      title: "ARP",
+      line: "X এর IP অনুবাদ",
+      out: "X এর MAC",
+      cap: "IP কে MAC এ অনুবাদ, সেতু",
+    },
+    {
+      x: 640,
+      tag: "MAC",
+      title: "Frame বানাও",
+      line: "গন্তব্য MAC = X",
+      out: "এই লিংকে পাঠাও",
+      cap: "আসল বিলি, MAC দিয়ে",
+    },
+  ];
+  return (
+    <Sketch
+      label="Diagram: এক Hop এ তিন কাজ"
+      height={280}
+      minWidth={860}
+      viewBox="0 0 860 280"
+      caption="একটা রাউটার এক Hop এ ঠিক তিনটা কাজ করে, আর তিনটা তিন জিনিসের। প্রথমে IP ঠিক করে কোন দিকে যাবে, মানে চূড়ান্ত গন্তব্য IP দেখে রাউটিং টেবিল থেকে পরের রাউটার বেছে নেয়। তারপর ARP সেই পরের রাউটারের IP কে তার MAC এ অনুবাদ করে, দুইয়ের মাঝের সেতু। শেষে MAC দিয়ে আসল বিলি হয়, Frame এর গন্তব্যে ওই MAC বসিয়ে এই এক লিংকে পাঠানো হয়। তাই IP একা কখনো এক Hop পার করতে পারে না, IP শুধু দিক ঠিক করে, পৌঁছে দেয় MAC, আর ARP দুইটাকে জোড়ে।"
+    >
+      {/* the constant IP inside the packet */}
+      <rect
+        x={60}
+        y={18}
+        width={740}
+        height={22}
+        fill="var(--primary)"
+        fillOpacity={0.05}
+        stroke="var(--primary)"
+        strokeOpacity={0.35}
+        strokeWidth="1"
+        strokeDasharray="5 4"
+      />
+      <SketchText x={430} y={33} size={9} accent>
+        Packet এর ভেতরে চূড়ান্ত গন্তব্য IP 103.94.135.2, বদলায় না
+      </SketchText>
+
+      {jobs.map((j, i) => {
+        const next = jobs[i + 1];
+        return (
+          <g key={j.tag}>
+            <rect
+              x={j.x}
+              y={70}
+              width={180}
+              height={110}
+              fill={i === 1 ? "var(--primary)" : "transparent"}
+              fillOpacity={i === 1 ? 0.08 : 0}
+              stroke={i === 1 ? "var(--primary)" : "currentColor"}
+              strokeOpacity={i === 1 ? 1 : 0.5}
+              strokeWidth="1.3"
+            />
+            <rect
+              x={j.x + 12}
+              y={82}
+              width={44}
+              height={20}
+              fill={i === 1 ? "var(--primary)" : "currentColor"}
+              fillOpacity={i === 1 ? 0.2 : 0.08}
+              stroke={i === 1 ? "var(--primary)" : "currentColor"}
+              strokeOpacity={i === 1 ? 1 : 0.4}
+              strokeWidth="1"
+            />
+            <SketchText x={j.x + 34} y={96} size={10} bold accent={i === 1}>
+              {j.tag}
+            </SketchText>
+            <SketchText x={j.x + 90} y={122} size={10} anchor="middle" bold>
+              {j.title}
+            </SketchText>
+            <SketchText
+              x={j.x + 90}
+              y={140}
+              size={8.5}
+              anchor="middle"
+              opacity={0.65}
+              body
+            >
+              {j.line}
+            </SketchText>
+            <SketchText
+              x={j.x + 90}
+              y={162}
+              size={9.5}
+              anchor="middle"
+              accent={i === 1}
+              bold
+            >
+              {j.out}
+            </SketchText>
+            <SketchText
+              x={j.x + 90}
+              y={200}
+              size={8}
+              anchor="middle"
+              opacity={0.6}
+              body
+            >
+              {j.cap}
+            </SketchText>
+            {next && (
+              <line
+                x1={j.x + 180}
+                y1={125}
+                x2={next.x - 4}
+                y2={125}
+                stroke="currentColor"
+                strokeOpacity={0.5}
+                strokeWidth="1.4"
+                markerEnd="url(#oh-a)"
+              />
+            )}
+          </g>
+        );
+      })}
+      <SketchText x={430} y={240} size={9} bold accent>
+        IP ঠিক করে কোন দিকে, ARP অনুবাদ করে, MAC পৌঁছে দেয়
+      </SketchText>
+      <SketchText x={430} y={260} size={8} opacity={0.55} body>
+        IP একা এক Hop পার করতে পারে না, বিলির জন্য MAC লাগেই, আর সেই MAC আসে ARP
+        থেকে
+      </SketchText>
+      <defs>
+        <marker
+          id="oh-a"
+          markerWidth={8}
+          markerHeight={8}
+          refX={7}
+          refY={3.5}
+          orient="auto"
+          markerUnits="userSpaceOnUse"
+        >
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor" fillOpacity={0.55} />
         </marker>
       </defs>
     </Sketch>

@@ -16,6 +16,7 @@ import {
   ArpFlowDiagram,
   BroadcastVsUnicastSplit,
   HopByHopArpDiagram,
+  OneHopThreeJobsDiagram,
   RoundTripFlowDiagram,
 } from "../../../components/course/topics/arp/diagrams";
 import {
@@ -354,6 +355,20 @@ export const arpProtocolContent: TopicData = {
             </ContentList>
           ),
         },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentParagraph>
+              পুরো ব্যাপারটা এক লাইনে ধরলে এই দাঁড়ায়, IP একা কখনো এক Hop পার
+              করতে পারে না। প্রতিটা রাউটার তিনটা কাজ করে: IP ঠিক করে কোন দিকে
+              যাবে, মানে পরের রাউটার কে; ARP সেই পরের রাউটারের IP কে তার MAC এ
+              অনুবাদ করে; আর সেই MAC দিয়ে Frame টা আসল লিংকে পৌঁছে দেওয়া হয়।
+              IP দিক ঠিক করে, ARP অনুবাদ করে, MAC পৌঁছে দেয়, আর অনুরোধ উত্তর
+              দুই দিকেই এই একই তিন কাজ।
+            </ContentParagraph>
+          ),
+        },
+        { type: CONTENT_TYPES.CUSTOM, component: <OneHopThreeJobsDiagram /> },
         {
           type: CONTENT_TYPES.INFO_BOX,
           variant: INFO_BOX_VARIANTS.CONCEPT,
