@@ -34,6 +34,7 @@ import { gatewayContent } from "./03-computer-networking/08-gateway";
 import { dhcpContent } from "./03-computer-networking/09-dhcp";
 import { natPatContent } from "./03-computer-networking/10-nat-pat";
 import { phoneInternetConnectionContent } from "./03-computer-networking/11-phone-internet-connection";
+import { whatIsDnsContent } from "./04-dns/01-what-is-dns";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -70,4 +71,7 @@ export const devopsContentMap: Record<string, TopicData> = {
   "dhcp": dhcpContent,
   "nat-pat": natPatContent,
   "phone-internet-connection": phoneInternetConnectionContent,
+
+  // Module 04, DNS
+  "what-is-dns": whatIsDnsContent,
 };
