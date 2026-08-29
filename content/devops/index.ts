@@ -31,6 +31,7 @@ import { ipAddressContent } from "./03-computer-networking/05-ip-address";
 import { publicVsPrivateIpContent } from "./03-computer-networking/06-public-vs-private-ip";
 import { subnetMaskContent } from "./03-computer-networking/07-subnet-mask";
 import { gatewayContent } from "./03-computer-networking/08-gateway";
+import { dhcpContent } from "./03-computer-networking/09-dhcp";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -64,4 +65,5 @@ export const devopsContentMap: Record<string, TopicData> = {
   "public-vs-private-ip": publicVsPrivateIpContent,
   "subnet-mask": subnetMaskContent,
   "gateway": gatewayContent,
+  "dhcp": dhcpContent,
 };
