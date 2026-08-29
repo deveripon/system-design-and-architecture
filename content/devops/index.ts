@@ -33,6 +33,7 @@ import { subnetMaskContent } from "./03-computer-networking/07-subnet-mask";
 import { gatewayContent } from "./03-computer-networking/08-gateway";
 import { dhcpContent } from "./03-computer-networking/09-dhcp";
 import { natPatContent } from "./03-computer-networking/10-nat-pat";
+import { phoneInternetConnectionContent } from "./03-computer-networking/11-phone-internet-connection";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -68,4 +69,5 @@ export const devopsContentMap: Record<string, TopicData> = {
   "gateway": gatewayContent,
   "dhcp": dhcpContent,
   "nat-pat": natPatContent,
+  "phone-internet-connection": phoneInternetConnectionContent,
 };
