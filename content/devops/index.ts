@@ -29,6 +29,7 @@ import { networkBasicsContent } from "./03-computer-networking/01-network-basics
 import { arpProtocolContent } from "./03-computer-networking/04-arp-protocol";
 import { ipAddressContent } from "./03-computer-networking/05-ip-address";
 import { publicVsPrivateIpContent } from "./03-computer-networking/06-public-vs-private-ip";
+import { subnetMaskContent } from "./03-computer-networking/07-subnet-mask";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -60,4 +61,5 @@ export const devopsContentMap: Record<string, TopicData> = {
   "arp-protocol": arpProtocolContent,
   "ip-address": ipAddressContent,
   "public-vs-private-ip": publicVsPrivateIpContent,
+  "subnet-mask": subnetMaskContent,
 };
