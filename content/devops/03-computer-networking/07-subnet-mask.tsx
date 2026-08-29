@@ -11,6 +11,7 @@ import {
   SameSubnetLab,
 } from "../../../components/course/topics/subnet/animations";
 import {
+  BitSplitDiagram,
   CidrTableDiagram,
   MaskAnatomyDiagram,
   SplitDiagram,
@@ -137,6 +138,44 @@ export const subnetMaskContent: TopicData = {
         { type: CONTENT_TYPES.CUSTOM, component: <PrefixLab /> },
         { type: CONTENT_TYPES.CUSTOM, component: <CidrTableDiagram /> },
         {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                একটা খুব জরুরি ভুল ধারণা এখানে পরিষ্কার করে নিই। 192.168.1.10
+                ঠিকানাটা কিন্তু নিজে থেকে জানে না তার লাইন কোথায়, মানে কতটুকু
+                Network আর কতটুকু Host। শুধু IP টা দেখে কেউ বলতেই পারবে না এটা /24
+                নাকি /25 নাকি /16। ঠিকানাটা একা কোনো কথাই বলে না লাইন নিয়ে।
+              </ContentParagraph>
+              <ContentParagraph>
+                লাইনটা আসে সম্পূর্ণ আলাদা একটা তথ্য থেকে, সেই Subnet Mask। তাই IP
+                আর Mask সবসময় জোড়ায় চলে, আপনি লেখা দেখবেন 192.168.1.10/24, কখনো
+                শুধু IP একা নয়। Mask ছাড়া একটা IP অসম্পূর্ণ, তার পাড়া কোথায় শেষ
+                সেটা তখন কেউ জানে না। মানে Mask নিজে কিছু আবিষ্কার করে না, Mask
+                নিজেই হলো লাইনটা কোথায়, সেই লিখে রাখা সিদ্ধান্ত।
+              </ContentParagraph>
+            </div>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.CONCEPT,
+          title: "তাহলে এই Mask টা কে বসায়, আর কীভাবে ঠিক করে",
+          content: (
+            <p>
+              এটা মুখস্থ কোনো নিয়ম নয়, একজন মানুষ ঠিক করে দেয়, সাধারণত Network এর
+              ডিজাইনার। প্রশ্নটা সহজ, এই Network এ কতগুলো যন্ত্র লাগবে? ২৫৪টার মতো
+              লাগলে সে বেছে নেয় /24, মানে 255.255.255.0। মাত্র দুইটা যন্ত্রের একটা
+              লিংক হলে বেছে নেয় /30। মানে কত বড় জায়গা দরকার, সেই হিসাব করে সে
+              Mask টা বেছে নেয়, তারপর সেটাকে যন্ত্রে বসিয়ে দেয়। বসানোর দুইটা উপায়,
+              হয় হাতে টাইপ করে (Static), নয়তো Router প্রতিটা যন্ত্রকে IP এর সাথে
+              Mask টাও আপনাআপনি দিয়ে দেয় (DHCP, পরের কয়েক লেসন)। এক Network এর সব
+              যন্ত্র একই Mask পায়। তাই 255.255.255.0 লেখার এই ক্রমটা জাদু নয়, এটা
+              কেউ ইচ্ছে করে বেছে দেওয়া লাইন।
+            </p>
+          ),
+        },
+        {
           type: CONTENT_TYPES.INFO_BOX,
           variant: INFO_BOX_VARIANTS.TIP,
           title: "কেন প্রতিবার ২টা ঠিকানা বাদ যায়",
@@ -219,6 +258,36 @@ export const subnetMaskContent: TopicData = {
                 /24 আছে, যেটা ২৫৪টা যন্ত্র ধরে। Host এর দিক থেকে মাত্র একটা Bit ধার
                 করে যদি /25 বানাই, তাহলে সেই এক Network দুইটা আলাদা Network এ ভেঙে
                 যায়, প্রতিটা ১২৬টা যন্ত্র ধরে।
+              </ContentParagraph>
+              <ContentParagraph>
+                কিন্তু ভাগটা ঠিক কীভাবে ঘটে, একটু ভেঙে দেখি, কারণ এখানেই আসল
+                বুদ্ধিটা। পুরো খেলাটা হয় শেষ octet, মানে চতুর্থ সংখ্যাটার ভেতরে।
+                /24 এ ওই octet এর আটটা Bit ই Host, তাই সে 0 থেকে 255 পর্যন্ত
+                যেকোনো মান হতে পারে, এক বড় ঘর। এবার লাইনটা এক ঘর ডানে সরিয়ে /25
+                করলে ওই octet এর সবচেয়ে বাঁয়ের Bit টা আর Host থাকে না, সেটা
+                Network এর হয়ে যায়।
+              </ContentParagraph>
+            </div>
+          ),
+        },
+        { type: CONTENT_TYPES.CUSTOM, component: <BitSplitDiagram /> },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                এখন মজাটা দেখুন। ধার করা ওই একটা Bit হয় 0 নয় 1, দুইটাই সম্ভব।
+                তাই এক ঘর ভেঙে দুই ঘর হয়ে যায়। Bit টা 0 হলে সংখ্যা থাকে 0 থেকে
+                127 এর মধ্যে, এটা এক Network (192.168.1.0/25)। আর Bit টা 1 হলে
+                সংখ্যা হয় 128 থেকে 255, এটা আরেক Network (192.168.1.128/25)।
+              </ContentParagraph>
+              <ContentParagraph>
+                কেন ঠিক 128 এ ভাগ পড়ল, এলোমেলো কোনো সংখ্যায় নয়? কারণ একটা octet
+                এ সবচেয়ে বাঁয়ের Bit টার মান 128 (Binary লেসনে দেখেছিলেন, 128 64
+                32 ...)। তাই ওই Bit টা 1 হওয়া মানেই সংখ্যা অন্তত 128। এই কারণেই
+                লাইনটা এক ঘর সরালে ভাগ পড়ে ঠিক মাঝখানে, 128 এ। আরেকটা Bit ধার করে
+                /26 করলে একই নিয়মে চার ঘর হয়, প্রতিটা 64 করে (0, 64, 128, 192),
+                কারণ পরের Bit টার মান 64।
               </ContentParagraph>
             </div>
           ),

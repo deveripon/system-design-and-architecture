@@ -187,6 +187,147 @@ export function CidrTableDiagram() {
 /* 3. একটা /24 কে দুইটা /25 এ ভাগ                                             */
 /* ------------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------------- */
+/* 3b. Bit ধরে ধরে কীভাবে ভাগ হয়                                              */
+/* ------------------------------------------------------------------------- */
+
+const PLACES = [128, 64, 32, 16, 8, 4, 2, 1];
+
+function BitRow({
+  y,
+  firstBit,
+  borrowed,
+}: {
+  y: number;
+  firstBit: string | null;
+  borrowed: boolean;
+}) {
+  const cellW = 46;
+  const gap = 5;
+  const startX = 150;
+  return (
+    <g>
+      {PLACES.map((p, i) => {
+        const x = startX + i * (cellW + gap);
+        const isFirst = i === 0;
+        const highlight = borrowed && isFirst;
+        const label = isFirst && firstBit !== null ? firstBit : "H";
+        return (
+          <g key={p}>
+            <rect
+              x={x}
+              y={y}
+              width={cellW}
+              height={34}
+              fill={highlight ? "var(--primary)" : "currentColor"}
+              fillOpacity={highlight ? 0.16 : 0.04}
+              stroke={highlight ? "var(--primary)" : "currentColor"}
+              strokeOpacity={highlight ? 1 : 0.35}
+              strokeWidth="1.2"
+            />
+            <SketchText
+              x={x + cellW / 2}
+              y={y + 22}
+              size={13}
+              bold
+              accent={highlight}
+              opacity={highlight ? 1 : 0.5}
+            >
+              {label}
+            </SketchText>
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
+export function BitSplitDiagram() {
+  const cellW = 46;
+  const gap = 5;
+  const startX = 150;
+  return (
+    <Sketch
+      label="Diagram: ৪র্থ octet এর bit ধরে ভাগ"
+      height={310}
+      minWidth={740}
+      viewBox="0 0 740 310"
+      caption="ভাগটা আসলে ঘটে একটা Bit ধরে। /24 এ ৪র্থ octet এর আটটা Bit ই Host, তাই 0 থেকে 255, এক বড় ঘর। এবার লাইনটা এক ঘর ডানে সরিয়ে /25 করলে সবচেয়ে বাঁয়ের Bit টা Network এর হয়ে যায়। ওই Bit টা হয় 0 নয় 1, তাই ঘরটা দুই ভাগ হয়। Bit 0 হলে নিচের অর্ধেক (0 থেকে 127), Bit 1 হলে উপরের অর্ধেক (128 থেকে 255)। কেন ঠিক 128 এ ভাগ? কারণ সবচেয়ে বাঁয়ের Bit টার মান 128, তাই ওটা 1 হওয়া মানেই সংখ্যা 128 বা তার বেশি।"
+    >
+      {/* place values header */}
+      {PLACES.map((p, i) => (
+        <SketchText
+          key={p}
+          x={startX + i * (cellW + gap) + cellW / 2}
+          y={38}
+          size={9}
+          opacity={i === 0 ? 0.9 : 0.45}
+          accent={i === 0}
+        >
+          {p}
+        </SketchText>
+      ))}
+
+      {/* /24 row */}
+      <SketchText x={120} y={70} size={12} anchor="end" bold>
+        /24
+      </SketchText>
+      <BitRow y={52} firstBit={null} borrowed={false} />
+      <SketchText x={startX + 4 * (cellW + gap)} y={108} size={10} body opacity={0.7}>
+        আটটাই Host: 192.168.1.0 থেকে .255, এক ঘর (256টা)
+      </SketchText>
+
+      {/* divider */}
+      <line
+        x1={startX}
+        y1={124}
+        x2={startX + 8 * cellW + 7 * gap}
+        y2={124}
+        stroke="currentColor"
+        strokeOpacity={0.25}
+        strokeWidth="1"
+        strokeDasharray="4 4"
+      />
+      <SketchText x={startX + 4 * (cellW + gap)} y={142} size={10} accent bold>
+        ১ bit ধার, লাইন এক ঘর ডানে (/25)
+      </SketchText>
+
+      {/* /25 row A: first bit 0 */}
+      <SketchText x={120} y={176} size={12} anchor="end" bold accent>
+        /25
+      </SketchText>
+      <BitRow y={158} firstBit="0" borrowed />
+      <SketchText
+        x={startX + 8 * cellW + 7 * gap + 14}
+        y={180}
+        size={11}
+        anchor="start"
+        accent
+        bold
+      >
+        192.168.1.0 - .127
+      </SketchText>
+
+      {/* /25 row B: first bit 1 */}
+      <BitRow y={214} firstBit="1" borrowed />
+      <SketchText
+        x={startX + 8 * cellW + 7 * gap + 14}
+        y={236}
+        size={11}
+        anchor="start"
+        accent
+        bold
+      >
+        192.168.1.128 - .255
+      </SketchText>
+
+      <SketchText x={startX + 4 * (cellW + gap)} y={286} size={9} opacity={0.6} body>
+        H = Host bit (যেকোনো মান)। বাঁয়ের Bit টাই ঠিক করে কোন অর্ধেক।
+      </SketchText>
+    </Sketch>
+  );
+}
+
 export function SplitDiagram() {
   return (
     <Sketch
