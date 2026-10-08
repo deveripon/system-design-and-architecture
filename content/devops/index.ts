@@ -36,6 +36,7 @@ import { natPatContent } from "./03-computer-networking/10-nat-pat";
 import { phoneInternetConnectionContent } from "./03-computer-networking/11-phone-internet-connection";
 import { whatIsDnsContent } from "./04-dns/01-what-is-dns";
 import { domainRegistrarRegistryContent } from "./04-dns/02-domain-registrar-registry";
+import { rootTldAuthoritativeDnsContent } from "./04-dns/03-root-tld-authoritative-dns";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -76,4 +77,5 @@ export const devopsContentMap: Record<string, TopicData> = {
   // Module 04, DNS
   "what-is-dns": whatIsDnsContent,
   "domain-registrar-registry": domainRegistrarRegistryContent,
+  "root-tld-authoritative-dns": rootTldAuthoritativeDnsContent,
 };
