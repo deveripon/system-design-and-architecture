@@ -37,6 +37,12 @@ import { phoneInternetConnectionContent } from "./03-computer-networking/11-phon
 import { whatIsDnsContent } from "./04-dns/01-what-is-dns";
 import { domainRegistrarRegistryContent } from "./04-dns/02-domain-registrar-registry";
 import { rootTldAuthoritativeDnsContent } from "./04-dns/03-root-tld-authoritative-dns";
+import { recursiveResolverContent } from "./04-dns/04-recursive-resolver";
+import { dnsCacheTtlContent } from "./04-dns/05-dns-cache-ttl";
+import { dnsRecordsContent } from "./04-dns/06-dns-records";
+import { cloudflareDnsContent } from "./04-dns/07-cloudflare-dns";
+import { dnsPropagationContent } from "./04-dns/08-dns-propagation";
+import { dnsJourneyContent } from "./04-dns/09-dns-journey";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -78,4 +84,10 @@ export const devopsContentMap: Record<string, TopicData> = {
   "what-is-dns": whatIsDnsContent,
   "domain-registrar-registry": domainRegistrarRegistryContent,
   "root-tld-authoritative-dns": rootTldAuthoritativeDnsContent,
+  "recursive-resolver": recursiveResolverContent,
+  "dns-cache-ttl": dnsCacheTtlContent,
+  "dns-records": dnsRecordsContent,
+  "cloudflare-dns": cloudflareDnsContent,
+  "dns-propagation": dnsPropagationContent,
+  "dns-journey": dnsJourneyContent,
 };
