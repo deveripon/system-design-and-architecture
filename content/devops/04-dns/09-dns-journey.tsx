@@ -754,8 +754,7 @@ curl -sI https://$D | head -5      # সার্ভার সাড়া দ�
                 তিন দল, সাত ধাপ, আর প্রতিটা ধাপে একটা খাতা।
               </ListItem>
               <ListItem>
-                পরের মডিউল: Browser এর হাতে এখন একটা IP। সেই IP তে পৌঁছে একটা
-                নির্ভরযোগ্য সংযোগ কীভাবে তৈরি হয়, TCP/IP আর Transport Layer।
+                পরের দুই লেসন পুরোপুরি হাতে কলমে: যেকোনো সেবায় Domain জোড়ার সম্পূর্ণ নির্দেশিকা, আর নিজের App এ গ্রাহকদের Wildcard আর Custom Domain দেওয়া।
               </ListItem>
             </ContentList>
           ),

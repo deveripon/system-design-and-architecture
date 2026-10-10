@@ -43,6 +43,8 @@ import { dnsRecordsContent } from "./04-dns/06-dns-records";
 import { cloudflareDnsContent } from "./04-dns/07-cloudflare-dns";
 import { dnsPropagationContent } from "./04-dns/08-dns-propagation";
 import { dnsJourneyContent } from "./04-dns/09-dns-journey";
+import { domainSetupGuideContent } from "./04-dns/10-domain-setup-guide";
+import { wildcardMultiTenantDomainsContent } from "./04-dns/11-wildcard-multi-tenant-domains";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -90,4 +92,6 @@ export const devopsContentMap: Record<string, TopicData> = {
   "cloudflare-dns": cloudflareDnsContent,
   "dns-propagation": dnsPropagationContent,
   "dns-journey": dnsJourneyContent,
+  "domain-setup-guide": domainSetupGuideContent,
+  "wildcard-multi-tenant-domains": wildcardMultiTenantDomainsContent,
 };

@@ -594,6 +594,28 @@ export const devopsCourseData: DevOpsModule[] = [
                 summary:
                     'একটা Domain Request-এর সম্পূর্ণ DNS Journey ধাপে ধাপে।',
             },
+            {
+                id: 'domain-setup-guide',
+                title: 'Domain Setup, End to End',
+                icon: Compass,
+                tag: 'HANDS-ON',
+                time: '৬০-৯০ মিনিট',
+                level: 'Intermediate',
+                type: 'Hands-on Lab',
+                summary:
+                    'Domain কেনা থেকে চালু করা পর্যন্ত। Name Server আর প্রতিটা Record কোথা থেকে আসে, কোথায় বসে।',
+            },
+            {
+                id: 'wildcard-multi-tenant-domains',
+                title: 'Wildcard & Custom Domains for Multi-tenant Apps',
+                icon: Building2,
+                tag: 'ADVANCED',
+                time: '৬০-৯০ মিনিট',
+                level: 'Advanced',
+                type: 'Deep Dive',
+                summary:
+                    'Wildcard Subdomain আর গ্রাহকের নিজের Domain। আপনার App কীভাবে গ্রাহককে Record দেয় আর যাচাই করে।',
+            },
         ],
     },
     {
