@@ -82,6 +82,23 @@ export const rootTldAuthoritativeDnsContent: TopicData = {
         {
           type: CONTENT_TYPES.INFO_BOX,
           variant: INFO_BOX_VARIANTS.CONCEPT,
+          title: "Subdomain, মানে একটা Domain এর নিচের যেকোনো নাম",
+          content: (
+            <p>
+              এই গাছ থেকেই একটা শব্দের মানে পরিষ্কার হয়, যেটা সামনে বারবার আসবে।
+              আপনার কেনা নামটা (islandtours.example) হলো আপনার Domain। তার বাঁ
+              দিকে আরেকটা অংশ জুড়ে যে নাম হয়, যেমন www.islandtours.example বা
+              api.islandtours.example, সেটা একটা Subdomain। মানে গাছে আপনার Domain
+              এর এক স্তর নিচের একটা ডাল। এই কোর্সে আমরা Subdomain কে বাংলায় উপনাম
+              বলব, দুইটা একই জিনিস। Subdomain কিনতে হয় না। Domain আপনার হলে তার
+              নিচে যত খুশি Subdomain বানাতে পারেন, আর www নিজেও একটা সাধারণ
+              Subdomain, এর আলাদা কোনো বিশেষত্ব নেই।
+            </p>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.CONCEPT,
           title: "একটা লুকানো ফোঁটা, যেটা কেউ লেখে না",
           content: (
             <p>

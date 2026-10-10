@@ -12,6 +12,7 @@ import {
 } from "../../../components/course/topics/dns/setup-animations";
 import {
   FourAsksDiagram,
+  OneAccountManyNamesDiagram,
   TranslateRecordDiagram,
   TwoHandoffsDiagram,
 } from "../../../components/course/topics/dns/setup-diagrams";
@@ -782,8 +783,205 @@ CNAME  shop     shops.storeservice.example        ; অনলাইন দোক
     },
     /* --------------------------------------------------------------- 12 */
     {
+      id: "addon-alias",
+      subHeader: { index: "012", title: "Addon, Alias, Forwarding" },
+      title: <SectionTitle>Subdomain, Addon Domain, Alias Domain আর Forwarding</SectionTitle>,
+      blocks: [
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                এতক্ষণ আমরা DNS এর নিজের শব্দ ব্যবহার করেছি। কিন্তু সাধারণ Shared
+                Hosting এর পাতায় (সবচেয়ে চেনা cPanel) ঢুকলে আরও কয়েকটা শব্দ সামনে
+                আসে, Addon Domain, Alias বা Parked Domain, আর Registrar এর পাতায়
+                Domain Forwarding। এগুলো DNS এর Record এর ধরন নয়। এগুলো Hosting
+                আর Registrar এর নিজেদের দেওয়া নাম, একটা Hosting Account এ একাধিক
+                নাম চালানোর জন্য। নিচের ছবিতে চারটা এক জায়গায়।
+              </ContentParagraph>
+            </div>
+          ),
+        },
+        { type: CONTENT_TYPES.CUSTOM, component: <OneAccountManyNamesDiagram /> },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentList>
+              <ListItem>
+                <strong>মূল Domain (Primary বা Main Domain):</strong> যে Domain
+                দিয়ে Hosting Account খুলেছেন। এর সাইটের ফাইল থাকে Account এর মূল
+                ফোল্ডারে, সাধারণত public_html।
+              </ListItem>
+              <ListItem>
+                <strong>Subdomain:</strong> মূল Domain এর নিচের একটা নাম, যেমন
+                blog.islandtours.example। আলাদা করে কিনতে হয় না। Hosting এর পাতায়
+                বানালে সে এর জন্য একটা আলাদা ফোল্ডার তৈরি করে, আর সেখানে আলাদা
+                একটা সাইট রাখা যায়।
+              </ListItem>
+              <ListItem>
+                <strong>Addon Domain:</strong> সম্পূর্ণ আলাদা আরেকটা Domain, যেটা
+                আলাদা করে কেনা, কিন্তু একই Hosting Account এ চলে। এর নিজের ফোল্ডার,
+                নিজের সাইট, নিজের ইমেইল ঠিকানা। পর্যটকের চোখে এটা একটা সম্পূর্ণ
+                স্বাধীন Website, তিনি জানতেও পারেন না এটা আরেকটা সাইটের সাথে একই
+                Account ভাগ করছে। এক Hosting এর টাকায় কয়েকটা সাইট চালানোর উপায়
+                এটাই।
+              </ListItem>
+              <ListItem>
+                <strong>Alias Domain (পুরনো নাম Parked Domain):</strong> এটাও
+                আলাদা কেনা একটা Domain, কিন্তু এর নিজের কোনো সাইট নেই। এটা মূল
+                Domain এর সাইটটাই দেখায়। কাজে লাগে যখন একই ব্যবসার কয়েকটা নাম
+                কিনে রেখেছেন, যেমন ভুল বানানের রূপ, বা .com আর .net দুইটাই, আর চান
+                সবগুলো একই সাইটে পৌঁছাক।
+              </ListItem>
+            </ContentList>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.CONCEPT,
+          title: "DNS এর চোখে এই চারটার কোনো তফাত নেই",
+          content: (
+            <p>
+              এটাই বোঝার আসল জায়গা। Addon Domain বা Alias Domain নামে DNS এ কোনো
+              Record নেই। DNS এ প্রতিটা নাম শুধু একটা A Record (বা CNAME) দিয়ে
+              একই সার্ভারের IP তে যায়। চারটার তফাত তৈরি হয় সার্ভারের ভেতরে।
+              সার্ভার Browser এর বলা নামটা দেখে (সেই Host Header, যা পরের লেসনে
+              বিস্তারিত আসবে), আর নিজের একটা তালিকা মিলিয়ে ঠিক করে কোন ফোল্ডারের
+              সাইট দেখাবে। Hosting এর পাতায় Addon Domain যোগ করা মানে আসলে সেই
+              তালিকায় একটা লাইন যোগ করা, এই নাম এলে এই ফোল্ডার। তাই কাজ সবসময়
+              সেই দুই জায়গায়, Hosting এর পাতায় নামটা যোগ করা, আর DNS এ নামটাকে
+              সার্ভারের দিকে দেখানো।
+            </p>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentParagraph>
+              এবার হাতে কলমে। ধরুন আপনার Hosting Account এ islandtours.example
+              চলছে, আর আপনি নতুন কেনা seagulltours.example কে একই Account এ একটা
+              আলাদা সাইট হিসেবে চালাতে চান, মানে একটা Addon Domain।
+            </ContentParagraph>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.STEP_FLOW,
+          stepName: "STEP",
+          steps: [
+            {
+              title: "[Registrar] নতুন Domain টা কিনুন",
+              description:
+                "seagulltours.example একটা সাধারণ Domain এর মতোই কিনতে হয়। Addon Domain কোনো বিশেষ ধরনের Domain নয়, এটা শুধু Hosting এ তার ভূমিকার নাম।",
+            },
+            {
+              title: "[Hosting] নামটা Account এ যোগ করুন",
+              description:
+                "cPanel এ Domains পাতায় গিয়ে Create A New Domain চাপুন, আর নতুন Domain এর নাম লিখুন। Share document root নামের টিক চিহ্নটা তুলে দিন, তাহলে সে আলাদা একটা ফোল্ডার বানাবে, আর এটা হবে একটা Addon Domain। টিক রেখে দিলে নতুন নামটা মূল সাইটের ফোল্ডারই ব্যবহার করবে, মানে একটা Alias। পুরনো cPanel এ এর জন্য Addon Domains আর Aliases নামে দুইটা আলাদা পাতা ছিল।",
+            },
+            {
+              title: "[DNS] নামটাকে Hosting এর দিকে দেখান, দুই উপায়ের একটায়",
+              description:
+                "উপায় এক, Registrar এ নতুন Domain এর Name Server হিসেবে Hosting এর Name Server বসান (Hosting এর স্বাগত ইমেইলে বা পাতায় থাকে)। তখন Hosting নিজেই দরকারি Record বসিয়ে নেয়। উপায় দুই, DNS অন্য জায়গায় (যেমন Cloudflare) রাখলে সেখানে মূল নামে একটা A Record বসান Hosting এর সার্ভারের IP দিয়ে, আর www তে একটা CNAME। IP টা cPanel এর ডান পাশে Shared IP Address নামে লেখা থাকে।",
+            },
+            {
+              title: "[Hosting] ফাইল তুলুন আর সার্টিফিকেট নিন",
+              description:
+                "নতুন ফোল্ডারে সাইটের ফাইল তুলুন। তারপর SSL/TLS Status পাতায় গিয়ে নতুন Domain এর জন্য AutoSSL চালান। DNS ঠিক জায়গায় দেখালে সে নিজে বিনা খরচের সার্টিফিকেট নিয়ে নেয়।",
+            },
+            {
+              title: "[Terminal] যাচাই করুন",
+              description:
+                "dig +short A seagulltours.example চালিয়ে দেখুন Hosting এর IP আসছে, আর সেটা dig +short A islandtours.example এর সাথে একই। দুইটা আলাদা Domain, একই IP, অথচ Browser এ দুইটা আলাদা সাইট। এটাই Addon Domain।",
+            },
+          ],
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.WARNING,
+          title: "DNS অন্য জায়গায় থাকলে Hosting এর পাতায় বানানো Subdomain কাজ করে না",
+          content: (
+            <p>
+              এটা Shared Hosting এর সবচেয়ে চেনা ফাঁদ। আপনি cPanel এ blog নামে
+              একটা Subdomain বানালেন, ফোল্ডার তৈরি হলো, ফাইল তুললেন, কিন্তু
+              blog.islandtours.example খোলে না। কারণ cPanel শুধু নিজের DNS এ
+              Record টা বসায়। আপনার Name Server যদি Cloudflare বা Registrar এ হয়,
+              তাহলে cPanel এর DNS কেউ জিজ্ঞেসই করে না। সমাধান, যেখানে আপনার DNS
+              সত্যিই চলে সেখানে গিয়ে blog নামে একটা A Record নিজে বসান, Hosting
+              এর IP দিয়ে। dig +short NS চালালেই জানা যায় কোন পাতায় বসাতে হবে।
+              Addon Domain আর Alias এও একই কথা খাটে।
+            </p>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                শেষে আরেকটা শব্দ, যেটা Registrar এর পাতায় দেখা যায় আর Alias এর
+                সাথে গুলিয়ে যায়, Domain Forwarding বা URL Redirect।
+              </ContentParagraph>
+              <ContentList>
+                <ListItem>
+                  <strong>Forwarding কী:</strong> আপনি Registrar কে বলেন, কেউ
+                  island-tours.example এ এলে তাকে islandtours.example এ পাঠিয়ে
+                  দিন। Registrar তখন সেই Domain এর A Record নিজের একটা ছোট
+                  সার্ভারের দিকে দেখায়, আর সেই সার্ভার প্রতিটা Request এর উত্তরে
+                  Browser কে বলে নতুন ঠিকানায় যান। Browser এর ঠিকানার ঘরে নামটা
+                  বদলে যায়।
+                </ListItem>
+                <ListItem>
+                  <strong>এটা DNS এর কাজ নয়:</strong> DNS এ Redirect নামে কোনো
+                  Record নেই। DNS শুধু নাম থেকে IP বলতে পারে, এক Website থেকে
+                  আরেক Website এ পাঠাতে পারে না। পাঠানোর কাজটা সবসময় একটা Web
+                  server করে। Forwarding এ সেই server টা Registrar এর।
+                </ListItem>
+                <ListItem>
+                  <strong>CNAME দিয়ে Redirect হয় না:</strong> অনেকে ভাবেন পুরনো
+                  Domain থেকে নতুন Domain এ CNAME বসালেই মানুষ নতুন সাইটে চলে
+                  যাবে। CNAME শুধু বলে একই IP তে যান। Browser তখনও পুরনো নামটাই
+                  চায়, আর সার্ভার সেই নাম না চিনলে ভুলের পাতা দেখায়, সাথে
+                  সার্টিফিকেটের সতর্কবার্তা।
+                </ListItem>
+                <ListItem>
+                  <strong>Alias নাকি Forwarding:</strong> Alias এ দুই নামেই একই
+                  সাইট খোলে, আর ঠিকানার ঘরে যে নাম লিখেছেন সেটাই থাকে। Forwarding
+                  এ সবাই শেষে একটাই নামে পৌঁছায়। একই সাইট দুই নামে থাকা Search
+                  Engine এর জন্য খারাপ, তাই বাড়তি নামগুলোর জন্য Forwarding ই ভালো
+                  পছন্দ। স্থায়ী বদলের জন্য 301 ধরনের Redirect বাছুন।
+                </ListItem>
+              </ContentList>
+            </div>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.CODE_BLOCK,
+          language: "bash",
+          filename: "tell-them-apart.sh",
+          code: `# দুইটা Domain একই Hosting Account এ? IP মিলিয়ে দেখুন
+dig +short A islandtours.example
+dig +short A seagulltours.example
+#   একই IP, কিন্তু Browser এ আলাদা সাইট   ->  Addon Domain (বা আলাদা সাইট একই সার্ভারে)
+#   একই IP, আর হুবহু একই সাইট             ->  Alias (Parked) Domain
+
+# Forwarding? সার্ভার কি অন্য ঠিকানায় পাঠাচ্ছে?
+curl -sI http://island-tours.example | grep -i -E "^HTTP|^location"
+#   HTTP/1.1 301 Moved Permanently
+#   location: https://islandtours.example/     ->  Forwarding (Redirect)
+#
+#   301 স্থায়ী, 302 সাময়িক। location লাইনটাই বলে কোথায় পাঠানো হচ্ছে।
+
+# একটা আসল উদাহরণ: gmail.com নিজে একটা Redirect
+curl -sI http://gmail.com | grep -i -E "^HTTP|^location"
+
+# নিজের সার্ভারে একটা নাম কোন সাইট দেয়, DNS ছাড়াই পরীক্ষা
+curl -s -H "Host: seagulltours.example" http://103.94.135.2 | head -5`,
+        },
+      ],
+    },
+    /* --------------------------------------------------------------- 13 */
+    {
       id: "verification",
-      subHeader: { index: "012", title: "The Verify Button" },
+      subHeader: { index: "013", title: "The Verify Button" },
       title: <SectionTitle>Verify বোতামে চাপলে পেছনে কী ঘটে</SectionTitle>,
       blocks: [
         {
@@ -887,10 +1085,10 @@ curl -sI https://www.$D | head -3`,
         },
       ],
     },
-    /* --------------------------------------------------------------- 13 */
+    /* --------------------------------------------------------------- 14 */
     {
       id: "moving",
-      subHeader: { index: "013", title: "Moving Things" },
+      subHeader: { index: "014", title: "Moving Things" },
       title: <SectionTitle>সরানো: তিনটা আলাদা কাজ, যা প্রায়ই গুলিয়ে যায়</SectionTitle>,
       blocks: [
         {
@@ -947,10 +1145,10 @@ curl -sI https://www.$D | head -3`,
         },
       ],
     },
-    /* --------------------------------------------------------------- 14 */
+    /* --------------------------------------------------------------- 15 */
     {
       id: "recipe",
-      subHeader: { index: "014", title: "The Universal Recipe" },
+      subHeader: { index: "015", title: "The Universal Recipe" },
       title: <SectionTitle>যেকোনো সেবা, একই সাত ধাপ</SectionTitle>,
       blocks: [
         {
@@ -1006,10 +1204,10 @@ curl -sI https://www.$D | head -3`,
         },
       ],
     },
-    /* --------------------------------------------------------------- 15 */
+    /* --------------------------------------------------------------- 16 */
     {
       id: "project",
-      subHeader: { index: "015", title: "Project Example" },
+      subHeader: { index: "016", title: "Project Example" },
       title: <SectionTitle>Island Tours এর Domain এ সাতটা সেবা</SectionTitle>,
       blocks: [
         { type: CONTENT_TYPES.CUSTOM, component: <IslandToursBrief /> },
@@ -1079,10 +1277,10 @@ curl -sI https://www.$D | head -3`,
         },
       ],
     },
-    /* --------------------------------------------------------------- 16 */
+    /* --------------------------------------------------------------- 17 */
     {
       id: "request-flow",
-      subHeader: { index: "016", title: "Step-by-step Flow" },
+      subHeader: { index: "017", title: "Step-by-step Flow" },
       title: <SectionTitle>একটা মান, কার হাত থেকে কার হাতে</SectionTitle>,
       blocks: [
         {
@@ -1132,10 +1330,10 @@ curl -sI https://www.$D | head -3`,
         },
       ],
     },
-    /* --------------------------------------------------------------- 17 */
+    /* --------------------------------------------------------------- 18 */
     {
       id: "resources",
-      subHeader: { index: "017", title: "Best Resources" },
+      subHeader: { index: "018", title: "Best Resources" },
       title: <SectionTitle>আরও দেখতে চাইলে</SectionTitle>,
       blocks: [
         {
@@ -1188,10 +1386,10 @@ curl -sI https://www.$D | head -3`,
         },
       ],
     },
-    /* --------------------------------------------------------------- 18 */
+    /* --------------------------------------------------------------- 19 */
     {
       id: "recap",
-      subHeader: { index: "018", title: "Recap" },
+      subHeader: { index: "019", title: "Recap" },
       title: <SectionTitle>৫ মিনিটে পুরো লেসন</SectionTitle>,
       blocks: [
         {
@@ -1236,6 +1434,13 @@ curl -sI https://www.$D | head -3`,
               <ListItem>
                 সরানো তিন রকম: Hosting বদল (Record এর মান), DNS সেবা বদল (Name
                 Server), Registrar বদল (Transfer)। তিনটা আলাদা।
+              </ListItem>
+              <ListItem>
+                <strong>Subdomain</strong> কিনতে হয় না।{" "}
+                <strong>Addon Domain</strong> আলাদা কেনা Domain যা একই Hosting এ
+                আলাদা সাইট চালায়। <strong>Alias Domain</strong> আলাদা কেনা Domain
+                যা একই সাইট দেখায়। DNS এ তিনটাই একই IP তে যায়, তফাত করে সার্ভার।
+                Forwarding DNS নয়, একটা Web server এর Redirect।
               </ListItem>
               <ListItem>
                 সেবা বাদ দিলে আগে তার Record মুছুন, নাহলে Subdomain Takeover এর
@@ -1289,6 +1494,14 @@ curl -sI https://www.$D | head -3`,
       [
         <span className="font-bold text-primary">উপনামে কী</span>,
         "প্রায় সবসময় CNAME",
+      ],
+      [
+        <span className="font-bold text-primary">Addon আর Alias Domain</span>,
+        "আলাদা কেনা Domain, একই Hosting এ। Addon আলাদা সাইট, Alias একই সাইট",
+      ],
+      [
+        <span className="font-bold text-primary">Forwarding</span>,
+        "DNS নয়, একটা Web server এর Redirect, ঠিকানার ঘরে নাম বদলে যায়",
       ],
       [
         <span className="font-bold text-primary">Verify কী করে</span>,

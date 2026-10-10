@@ -258,8 +258,94 @@ shop      A       300     103.94.135.11`,
     },
     /* ---------------------------------------------------------------- 5 */
     {
+      id: "subdomain-vs-cname",
+      subHeader: { index: "005", title: "Subdomain vs CNAME" },
+      title: <SectionTitle>Subdomain আর CNAME এক জিনিস নয়</SectionTitle>,
+      blocks: [
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                এখানে একটা বিভ্রান্তি প্রায় সবার হয়, তাই থেমে পরিষ্কার করে নিই।
+                CNAME প্রায় সবসময় www বা blog এর মতো একটা Subdomain (উপনাম) এ বসে।
+                তাই মনে হতে পারে CNAME আর Subdomain বুঝি একই জিনিস। তা নয়। দুইটা
+                সম্পূর্ণ আলাদা প্রশ্নের উত্তর।
+              </ContentParagraph>
+              <ContentList>
+                <ListItem>
+                  <strong>Subdomain একটা নাম:</strong> এটা বলে নামটা কোথায় বসে
+                  আছে, আপনার Domain এর নিচে। Record এর ছকে এটা Name এর ঘর, মানে
+                  সারির বাঁ দিক।
+                </ListItem>
+                <ListItem>
+                  <strong>CNAME একটা উত্তরের ধরন:</strong> এটা বলে সেই নামটা
+                  জিজ্ঞেস করলে DNS কী উত্তর দেবে, এই নাম আসলে ওই আরেকটা নামের
+                  ডাকনাম। Record এর ছকে এটা Type এর ঘর।
+                </ListItem>
+              </ContentList>
+              <ContentParagraph>
+                একটা খামের কথা ভাবুন। Subdomain হলো খামের উপরে লেখা ঠিকানা। CNAME
+                হলো খামের ভেতরের একটা চিরকুট, যাতে লেখা এই চিঠি ওই আরেক ঠিকানায়
+                পাঠিয়ে দিন। ঠিকানা আর চিরকুট দুইটা আলাদা জিনিস। সব খামে চিরকুট
+                থাকে না।
+              </ContentParagraph>
+            </div>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.CODE_BLOCK,
+          language: "text",
+          filename: "subdomain-vs-cname.zone",
+          code: `; তিনটাই Subdomain (Name এর ঘর দেখুন)। কিন্তু CNAME শুধু দুইটায় (Type এর ঘর দেখুন)।
+
+; Name    Type     Value
+api       A        103.94.135.3                      ; Subdomain, কিন্তু CNAME নয়
+www       CNAME    islandtours.example               ; Subdomain, আর CNAME, নিজের Domain এর দিকে
+blog      CNAME    islandtours.blogservice.example   ; Subdomain, আর CNAME, অন্যের Domain এর দিকে
+
+; শিক্ষা ১: Subdomain এ A Record ও বসে। Subdomain মানেই CNAME নয়।
+; শিক্ষা ২: CNAME এর লক্ষ্য আপনার Subdomain হতেই হবে না,
+;           সম্পূর্ণ অন্য কারো Domain হতে পারে।`,
+        },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentList>
+              <ListItem>
+                <strong>তাহলে দুইটা এত একসাথে দেখা যায় কেন:</strong> কারণ মূল নামে
+                CNAME বসানো যায় না। তাই বাস্তবে আপনি যত CNAME দেখবেন, প্রায় সবই
+                কোনো না কোনো Subdomain এ। CNAME কোথায় বসে তার উত্তর Subdomain,
+                কিন্তু CNAME কী তার উত্তর Subdomain নয়।
+              </ListItem>
+              <ListItem>
+                <strong>Subdomain এর ভেতরে Subdomain:</strong> Name এ ফোঁটা দিয়ে
+                আরও গভীরে যাওয়া যায়, যেমন eu.api লিখলে হয়
+                eu.api.islandtours.example। প্রতিটা ফোঁটা গাছের আরেক স্তর।
+              </ListItem>
+              <ListItem>
+                <strong>Subdomain আর Subdirectory আলাদা:</strong>{" "}
+                blog.islandtours.example একটা Subdomain, এটা DNS এর ব্যাপার, আর
+                এটা সম্পূর্ণ আলাদা সার্ভারে যেতে পারে। islandtours.example/blog
+                একটা Subdirectory, মানে একই সাইটের ভেতরের একটা পথ। স্ল্যাশের পরের
+                অংশ DNS কখনো দেখেই না, সেটা ঠিক করে সার্ভার। তাই Blog টা আলাদা
+                সেবায় রাখতে চাইলে Subdomain লাগবে, Subdirectory দিয়ে DNS এ সেটা
+                করা যায় না।
+              </ListItem>
+              <ListItem>
+                <strong>প্রতিটা Subdomain এর নিজের Record:</strong> মূল নামের MX
+                বা TXT কোনো Subdomain এ নিজে থেকে খাটে না। blog এর জন্য ইমেইল
+                চাইলে blog নামে আলাদা MX লাগবে।
+              </ListItem>
+            </ContentList>
+          ),
+        },
+      ],
+    },
+    /* ---------------------------------------------------------------- 6 */
+    {
       id: "mx",
-      subHeader: { index: "005", title: "MX" },
+      subHeader: { index: "006", title: "MX" },
       title: <SectionTitle>MX, ইমেইল কোথায় যাবে</SectionTitle>,
       blocks: [
         {
@@ -307,10 +393,10 @@ shop      A       300     103.94.135.11`,
         },
       ],
     },
-    /* ---------------------------------------------------------------- 6 */
+    /* ---------------------------------------------------------------- 7 */
     {
       id: "txt",
-      subHeader: { index: "006", title: "TXT" },
+      subHeader: { index: "007", title: "TXT" },
       title: <SectionTitle>TXT, প্রমাণ আর ইমেইলের সুরক্ষা</SectionTitle>,
       blocks: [
         {
@@ -385,10 +471,10 @@ _dmarc                TXT   "v=DMARC1; p=none; rua=mailto:dmarc@islandtours.exam
         },
       ],
     },
-    /* ---------------------------------------------------------------- 7 */
+    /* ---------------------------------------------------------------- 8 */
     {
       id: "ns-soa",
-      subHeader: { index: "007", title: "NS and SOA" },
+      subHeader: { index: "008", title: "NS and SOA" },
       title: <SectionTitle>NS আর SOA, খাতার মালিকানা</SectionTitle>,
       blocks: [
         {
@@ -433,10 +519,10 @@ _dmarc                TXT   "v=DMARC1; p=none; rua=mailto:dmarc@islandtours.exam
         },
       ],
     },
-    /* ---------------------------------------------------------------- 8 */
+    /* ---------------------------------------------------------------- 9 */
     {
       id: "others",
-      subHeader: { index: "008", title: "SRV and Others" },
+      subHeader: { index: "009", title: "SRV and Others" },
       title: <SectionTitle>SRV, আর আরও তিনটা যা চিনে রাখা ভালো</SectionTitle>,
       blocks: [
         {
@@ -487,10 +573,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* ---------------------------------------------------------------- 9 */
+    /* --------------------------------------------------------------- 10 */
     {
       id: "name-field",
-      subHeader: { index: "009", title: "The Name Field" },
+      subHeader: { index: "010", title: "The Name Field" },
       title: <SectionTitle>Name ঘরের ছোট ছোট ফাঁদ</SectionTitle>,
       blocks: [
         {
@@ -544,10 +630,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 10 */
+    /* --------------------------------------------------------------- 11 */
     {
       id: "add-record",
-      subHeader: { index: "010", title: "Adding a Record" },
+      subHeader: { index: "011", title: "Adding a Record" },
       title: <SectionTitle>হাতে কলমে, একটা Record বসানো</SectionTitle>,
       blocks: [
         {
@@ -599,10 +685,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 11 */
+    /* --------------------------------------------------------------- 12 */
     {
       id: "email-setup",
-      subHeader: { index: "011", title: "Setting up Email" },
+      subHeader: { index: "012", title: "Setting up Email" },
       title: <SectionTitle>হাতে কলমে, নিজের Domain এ ইমেইল</SectionTitle>,
       blocks: [
         {
@@ -669,10 +755,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 12 */
+    /* --------------------------------------------------------------- 13 */
     {
       id: "mistakes",
-      subHeader: { index: "012", title: "Common Mistakes" },
+      subHeader: { index: "013", title: "Common Mistakes" },
       title: <SectionTitle>যে ভুলগুলো প্রায় সবাই একবার করে</SectionTitle>,
       blocks: [
         {
@@ -718,10 +804,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 13 */
+    /* --------------------------------------------------------------- 14 */
     {
       id: "project",
-      subHeader: { index: "013", title: "Project Example" },
+      subHeader: { index: "014", title: "Project Example" },
       title: <SectionTitle>Island Tours এর পুরো Zone</SectionTitle>,
       blocks: [
         { type: CONTENT_TYPES.CUSTOM, component: <IslandToursBrief /> },
@@ -761,10 +847,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 14 */
+    /* --------------------------------------------------------------- 15 */
     {
       id: "request-flow",
-      subHeader: { index: "014", title: "Step-by-step Flow" },
+      subHeader: { index: "015", title: "Step-by-step Flow" },
       title: <SectionTitle>www লিখলে Record গুলো যেভাবে কাজ করে</SectionTitle>,
       blocks: [
         {
@@ -809,10 +895,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 15 */
+    /* --------------------------------------------------------------- 16 */
     {
       id: "resources",
-      subHeader: { index: "015", title: "Best Resources" },
+      subHeader: { index: "016", title: "Best Resources" },
       title: <SectionTitle>আরও দেখতে চাইলে</SectionTitle>,
       blocks: [
         {
@@ -853,10 +939,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 16 */
+    /* --------------------------------------------------------------- 17 */
     {
       id: "recap",
-      subHeader: { index: "016", title: "Recap" },
+      subHeader: { index: "017", title: "Recap" },
       title: <SectionTitle>৫ মিনিটে পুরো লেসন</SectionTitle>,
       blocks: [
         {
@@ -874,6 +960,11 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
               <ListItem>
                 <strong>CNAME</strong> একটা নামের ডাকনাম, IP নয়। যে নামে CNAME,
                 সেখানে আর কিছু থাকে না, আর মূল নামে CNAME বসে না।
+              </ListItem>
+              <ListItem>
+                <strong>Subdomain</strong> একটা নাম (Name এর ঘর),{" "}
+                <strong>CNAME</strong> একটা উত্তরের ধরন (Type এর ঘর)। Subdomain এ
+                A ও বসে, আর CNAME অন্যের Domain এর দিকেও যায়।
               </ListItem>
               <ListItem>
                 <strong>MX</strong> ইমেইল কোথায় যাবে, অগ্রাধিকারের সংখ্যা সহ।

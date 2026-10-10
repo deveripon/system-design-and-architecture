@@ -282,3 +282,98 @@ export function TranslateRecordDiagram() {
     </Sketch>
   );
 }
+
+/* ------------------------------------------------------------------------- */
+/* 4. এক Hosting Account, চার রকম নাম                                          */
+/* ------------------------------------------------------------------------- */
+
+const KINDS = [
+  {
+    name: "islandtours.example",
+    kind: "মূল Domain",
+    folder: "/public_html",
+    note: "Account খোলার সময়ের Domain",
+    accent: false,
+  },
+  {
+    name: "blog.islandtours.example",
+    kind: "Subdomain",
+    folder: "/public_html/blog",
+    note: "কিনতে হয় না, নিজের ফোল্ডার",
+    accent: false,
+  },
+  {
+    name: "seagulltours.example",
+    kind: "Addon Domain",
+    folder: "/public_html/seagulltours",
+    note: "আলাদা কেনা Domain, আলাদা সাইট",
+    accent: true,
+  },
+  {
+    name: "island-tours.example",
+    kind: "Alias (Parked) Domain",
+    folder: "/public_html",
+    note: "আলাদা কেনা Domain, একই সাইট",
+    accent: false,
+  },
+];
+
+export function OneAccountManyNamesDiagram() {
+  const rowH = 56;
+  const top = 60;
+  const h = top + KINDS.length * rowH + 44;
+  return (
+    <Sketch
+      label="Diagram: এক Hosting Account, এক IP, চার রকম নাম"
+      height={h}
+      minWidth={880}
+      viewBox={`0 0 880 ${h}`}
+      caption="Hosting এর পাতায় (যেমন cPanel) চার রকম নামের কথা আসে, আর এগুলো প্রায়ই গুলিয়ে যায়। চারটাই একই Hosting Account এ, একই সার্ভারে, একই IP তে থাকে। তফাত শুধু দুই জায়গায়, নামটা আলাদা করে কিনতে হয়েছে কি না, আর সার্ভার সেই নামে কোন ফোল্ডারের সাইট দেখায়। মূল Domain হলো যেটা দিয়ে Account খুলেছেন। Subdomain মূল Domain এর নিচের একটা নাম, কিনতে হয় না, আর নিজের ফোল্ডার পায়। Addon Domain সম্পূর্ণ আলাদা একটা কেনা Domain, যা একই Account এ নিজের ফোল্ডারে আলাদা একটা সাইট চালায়। Alias বা Parked Domain ও আলাদা কেনা Domain, কিন্তু এটা কোনো নতুন সাইট নয়, মূল Domain এর সাইটটাই দেখায়। DNS এর চোখে চারটাই একই কাজ করে, নামটাকে একই IP তে পাঠায়। কোন নামে কোন ফোল্ডার, সেটা ঠিক করে সার্ভার, Browser এর বলা নামটা দেখে।"
+    >
+      <Arrow id="oa-a" />
+      <SketchText x={40} y={40} size={9} anchor="start" opacity={0.55}>
+        নাম
+      </SketchText>
+      <SketchText x={290} y={40} size={9} anchor="start" opacity={0.55}>
+        Hosting এর ভাষায়
+      </SketchText>
+      <SketchText x={560} y={40} size={9} anchor="start" opacity={0.55}>
+        সার্ভার যে ফোল্ডার দেখায়
+      </SketchText>
+      {KINDS.map((k, i) => {
+        const y = top + i * rowH;
+        return (
+          <g key={k.name}>
+            <rect
+              x={24}
+              y={y}
+              width={832}
+              height={rowH - 10}
+              fill={k.accent ? "var(--primary)" : "currentColor"}
+              fillOpacity={k.accent ? 0.07 : i % 2 === 0 ? 0.03 : 0}
+              stroke={k.accent ? "var(--primary)" : "currentColor"}
+              strokeOpacity={k.accent ? 0.8 : 0.25}
+              strokeWidth="1"
+            />
+            <SketchText x={40} y={y + 27} size={10} anchor="start" bold>
+              {k.name}
+            </SketchText>
+            <SketchText x={290} y={y + 20} size={10} anchor="start" body bold accent>
+              {k.kind}
+            </SketchText>
+            <SketchText x={290} y={y + 36} size={8.5} anchor="start" body opacity={0.7}>
+              {k.note}
+            </SketchText>
+            <line x1={500} y1={y + 23} x2={548} y2={y + 23} stroke="var(--primary)" strokeWidth="1.3" markerEnd="url(#oa-a)" />
+            <SketchText x={560} y={y + 27} size={10} anchor="start" bold>
+              {k.folder}
+            </SketchText>
+          </g>
+        );
+      })}
+      <SketchText x={440} y={h - 16} size={9} body accent>
+        DNS এ চারটাই একই IP তে যায়। কোন ফোল্ডার, সেটা সার্ভার ঠিক করে নাম দেখে।
+      </SketchText>
+    </Sketch>
+  );
+}
