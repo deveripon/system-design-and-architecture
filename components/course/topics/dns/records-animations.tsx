@@ -282,3 +282,152 @@ export function WhichRecordLab() {
     </Panel>
   );
 }
+
+/* ------------------------------------------------------------------------- */
+/* 3. তিন ধরনের ইমেইল সেবা, তিনটা আলাদা ছক                                     */
+/* ------------------------------------------------------------------------- */
+
+type MailRow = { type: string; name: string; value: string; own: boolean; job: string };
+
+type Provider = {
+  id: string;
+  label: string;
+  kind: string;
+  does: string;
+  page: string;
+  rootMx: string;
+  rows: MailRow[];
+};
+
+const PROVIDERS: Provider[] = [
+  {
+    id: "inbox",
+    label: "Google Workspace",
+    kind: "মানুষের ইমেইল, Inbox সহ",
+    does: "আপনি আর আপনার দল এখানে ইমেইল পড়েন আর লেখেন। hello@islandtours.example এ আসা চিঠি এখানে জমা হয়।",
+    page: "Admin console এ Domain যোগ করলে একটা ধাপে ধাপে নির্দেশিকা চলে। DKIM আলাদা জায়গায়, Apps, Google Workspace, Gmail, Authenticate email।",
+    rootMx: "হ্যাঁ। মূল নামের MX এই সেবার দিকে যায়, কারণ চিঠি এখানেই আসবে।",
+    rows: [
+      { type: "TXT", name: "@", value: "google-site-verification=AbC123...", own: true, job: "মালিকানার প্রমাণ" },
+      { type: "MX", name: "@", value: "1 smtp.google.com", own: false, job: "আসা চিঠি এখানে আসবে" },
+      { type: "TXT", name: "@", value: "v=spf1 include:_spf.google.com ~all", own: false, job: "SPF, Google পাঠাতে পারে" },
+      { type: "TXT", name: "google._domainkey", value: "v=DKIM1; k=rsa; p=MIIBIjAN...", own: true, job: "DKIM এর চাবি" },
+    ],
+  },
+  {
+    id: "resend",
+    label: "Resend",
+    kind: "App থেকে পাঠানো ইমেইল",
+    does: "আপনার কোড এর API ডেকে ইমেইল পাঠায়, যেমন বুকিং নিশ্চিতকরণ বা পাসওয়ার্ড বদলের লিংক। এখানে কোনো Inbox নেই, এটা শুধু পাঠায়।",
+    page: "Dashboard এ Domains, তারপর Add Domain। নাম আর অঞ্চল বাছলে Records নামের ট্যাবে ছকটা দেখায়, প্রতিটা সারির পাশে অবস্থা।",
+    rootMx: "না। সে মূল নামের MX ছোঁয় না। তার MX বসে send নামের উপনামে, শুধু ফেরত চিঠির জন্য।",
+    rows: [
+      { type: "TXT", name: "resend._domainkey", value: "p=MIGfMA0GCSqGSIb3DQEB...", own: true, job: "DKIM এর চাবি" },
+      { type: "MX", name: "send", value: "10 feedback-smtp.us-east-1.amazonses.com", own: false, job: "ফেরত চিঠি আর অভিযোগ এখানে যায়" },
+      { type: "TXT", name: "send", value: "v=spf1 include:amazonses.com ~all", own: false, job: "SPF, send উপনামের জন্য" },
+    ],
+  },
+  {
+    id: "mailerlite",
+    label: "MailerLite",
+    kind: "Newsletter আর প্রচারের ইমেইল",
+    does: "আপনি এর পাতায় বসে একটা ইমেইল বানান আর একসাথে হাজার গ্রাহককে পাঠান, যেমন নতুন ট্যুরের খবর বা ছাড়ের ঘোষণা।",
+    page: "Account settings এ Domains ট্যাব। Domain যোগ করে Authenticate চাপলে দুইটা Record দেখায়, Name আর Value সহ।",
+    rootMx: "না। সেও শুধু পাঠায়। তবে তার SPF বসে মূল নামে, তাই আগের SPF এর সাথে জোড়া লাগাতে হয়।",
+    rows: [
+      { type: "CNAME", name: "litesrv._domainkey", value: "litesrv._domainkey.mlsend.com", own: false, job: "DKIM, চাবিটা তাদের কাছে থাকে" },
+      { type: "TXT", name: "@", value: "v=spf1 include:_spf.mlsend.com ~all", own: false, job: "SPF, আগেরটার সাথে মেলাতে হবে" },
+    ],
+  },
+];
+
+export function EmailProviderLab() {
+  const reduce = useReducedMotion();
+  const [id, setId] = useState<string>(PROVIDERS[1].id);
+  const pv = PROVIDERS.find((x) => x.id === id) ?? PROVIDERS[0];
+
+  return (
+    <Panel
+      label="Interactive"
+      title="তিন ধরনের ইমেইল সেবা, তিনটা ছক"
+      footer="তিনটা সেবা বেছে দেখুন। তিনটাই ইমেইলের সেবা, কিন্তু কাজ আলাদা, তাই Record এর ছকও আলাদা। সবচেয়ে জরুরি তফাত শেষের ঘরে, সে কি মূল নামের MX ছোঁয়। শুধু সেই সেবা ছোঁয়, যার কাছে আপনার চিঠি আসে। যারা শুধু পাঠায় তারা কখনো ছোঁয় না, তাই একটা Domain এ তিনটা সেবাই পাশাপাশি চলতে পারে। ডান দিকের চিহ্নটা বলে মানটা শুধু আপনার জন্য বানানো, নাকি সব গ্রাহকের জন্য একই। এখানকার মানগুলো উদাহরণ, বাস্তবে নিজের পাতায় যা দেখায় সেটাই কপি করুন।"
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-5">
+        {PROVIDERS.map((x) => (
+          <button
+            key={x.id}
+            onClick={() => setId(x.id)}
+            data-provider={x.id}
+            data-active={x.id === id ? "true" : "false"}
+            className={cn(
+              "px-3 py-2 border text-left transition-colors",
+              x.id === id
+                ? "border-primary bg-primary/10 text-primary"
+                : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
+            )}
+          >
+            <div className="text-[12px] font-bold">{x.label}</div>
+            <div className="text-[10px] opacity-80">{x.kind}</div>
+          </button>
+        ))}
+      </div>
+
+      <motion.div
+        key={pv.id}
+        initial={reduce ? false : { opacity: 0, y: 4 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: EASE }}
+        className="space-y-4"
+        data-shown={pv.id}
+      >
+        <p className="text-sm text-foreground leading-relaxed">{pv.does}</p>
+
+        <div className="border border-border bg-background p-4">
+          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            Record গুলো কোন পাতায় পাবেন
+          </div>
+          <div className="text-sm text-foreground leading-relaxed">{pv.page}</div>
+        </div>
+
+        <div className="border border-border overflow-x-auto">
+          <div className="min-w-[640px]">
+            <div className="grid grid-cols-[60px_150px_1fr_170px] gap-2 px-3 py-2 border-b border-border bg-muted/30 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+              <span>Type</span>
+              <span>Name</span>
+              <span>Value</span>
+              <span>কাজ</span>
+            </div>
+            {pv.rows.map((r, i) => (
+              <div
+                key={`${r.type}-${r.name}-${i}`}
+                className="grid grid-cols-[60px_150px_1fr_170px] gap-2 items-start px-3 py-2 border-b border-border/60 last:border-b-0"
+              >
+                <span className="font-mono text-[11px] font-bold text-primary">{r.type}</span>
+                <span className="font-mono text-[11px] text-foreground break-all">{r.name}</span>
+                <span className="font-mono text-[11px] text-muted-foreground break-all">{r.value}</span>
+                <span className="text-[11px] text-muted-foreground leading-snug">
+                  {r.job}
+                  <span
+                    className={cn(
+                      "block mt-1 font-mono text-[9px] uppercase tracking-[0.1em]",
+                      r.own ? "text-accent" : "text-muted-foreground/70",
+                    )}
+                  >
+                    {r.own ? "শুধু আপনার জন্য" : "সবার জন্য একই"}
+                  </span>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="border border-primary/40 bg-primary/5 p-4" data-root-mx={pv.id === "inbox" ? "yes" : "no"}>
+          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            সে কি মূল নামের MX ছোঁয়
+          </div>
+          <div className="text-sm text-muted-foreground leading-relaxed">{pv.rootMx}</div>
+        </div>
+      </motion.div>
+    </Panel>
+  );
+}

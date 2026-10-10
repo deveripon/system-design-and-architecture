@@ -7,12 +7,14 @@ import {
 } from "../../../components/course/content-components";
 import { IslandToursBrief } from "../../../components/course/topics/island-tours/project-brief";
 import {
+  EmailProviderLab,
   RecordExplorerLab,
   WhichRecordLab,
 } from "../../../components/course/topics/dns/records-animations";
 import {
   CnameChainDiagram,
   RecordAnatomyDiagram,
+  SentEmailChecksDiagram,
   ZoneTableDiagram,
 } from "../../../components/course/topics/dns/records-diagrams";
 import {
@@ -473,8 +475,579 @@ _dmarc                TXT   "v=DMARC1; p=none; rua=mailto:dmarc@islandtours.exam
     },
     /* ---------------------------------------------------------------- 8 */
     {
+      id: "email-providers",
+      subHeader: { index: "008", title: "Email Providers" },
+      title: <SectionTitle>MX আর TXT বাস্তবে: ইমেইল সেবা আসলে কী চায়</SectionTitle>,
+      blocks: [
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                MX আর TXT এর নিয়ম জানলেন। কিন্তু বাস্তবে এই দুই ধরনের Record আপনি
+                নিজে থেকে প্রায় কখনো লিখবেন না। লিখবেন তখন, যখন কোনো ইমেইল সেবা
+                একটা ছক দিয়ে বলবে এগুলো বসান। তাই এই দুই Record সত্যিই বুঝতে হলে
+                একটা আসল ইমেইল সেবা জুড়ে দেখতে হয়। পরের চার অংশে আমরা ঠিক সেটাই
+                করব, দুইটা আসল সেবা দিয়ে, Resend আর MailerLite।
+              </ContentParagraph>
+              <ContentParagraph>
+                তার আগে একটা জিনিস পরিষ্কার হওয়া দরকার, কারণ এখানেই সবচেয়ে বড়
+                বিভ্রান্তি। ইমেইল সেবা বললে তিনটা সম্পূর্ণ আলাদা ধরনের সেবা
+                বোঝায়, আর তারা আপনার DNS এ আলাদা আলাদা জিনিস চায়।
+              </ContentParagraph>
+              <ContentList>
+                <ListItem>
+                  <strong>Inbox সহ ইমেইল (Google Workspace, Zoho Mail, Microsoft
+                  365):</strong> এখানে মানুষ ইমেইল পড়ে আর লেখে। আপনার Domain এর
+                  ঠিকানায় আসা চিঠি এখানে জমা হয়। তাই এই সেবা মূল নামের MX চায়।
+                </ListItem>
+                <ListItem>
+                  <strong>App থেকে পাঠানো ইমেইল (Resend, SendGrid, Postmark,
+                  Amazon SES):</strong> আপনার কোড এদের API ডেকে একটা একটা করে
+                  ইমেইল পাঠায়, যেমন বুকিং নিশ্চিতকরণ, রসিদ বা পাসওয়ার্ড বদলের
+                  লিংক। এদের বলে Transactional Email। এরা শুধু পাঠায়।
+                </ListItem>
+                <ListItem>
+                  <strong>Newsletter আর প্রচারের ইমেইল (MailerLite, Mailchimp,
+                  Brevo):</strong> এখানে আপনি একটা ইমেইল সাজিয়ে একসাথে হাজার
+                  গ্রাহককে পাঠান। এদের বলে Marketing Email। এরাও শুধু পাঠায়।
+                </ListItem>
+              </ContentList>
+              <ContentParagraph>
+                একটা সাধারণ ব্যবসায় তিনটাই একসাথে থাকে, একই Domain এ। আর এটা
+                সম্ভব কারণ যারা শুধু পাঠায় তারা মূল নামের MX ছোঁয়ই না। নিচে তিনটার
+                ছক পাশাপাশি দেখুন।
+              </ContentParagraph>
+            </div>
+          ),
+        },
+        { type: CONTENT_TYPES.CUSTOM, component: <EmailProviderLab /> },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                এখন প্রশ্ন, যে সেবা শুধু পাঠায়, সে DNS এ কিছু চায় কেন? পাঠাতে তো
+                DNS লাগার কথা নয়। লাগে, কারণ গ্রহীতা বিশ্বাস করতে চায়। যে কেউ
+                যেকোনো নাম দিয়ে ইমেইল পাঠাতে পারে, ইমেইলের নিয়মে এতে কোনো বাধা
+                নেই। তাই Gmail এর মতো গ্রহীতা প্রতিটা ইমেইল পেয়ে আপনার Domain এর
+                DNS এ গিয়ে যাচাই করে, এই সেবাটা কি সত্যিই আপনার অনুমতি নিয়ে
+                পাঠাচ্ছে। নিচের ছবিতে দেখুন সে ঠিক কোথায় কোথায় দেখে।
+              </ContentParagraph>
+            </div>
+          ),
+        },
+        { type: CONTENT_TYPES.CUSTOM, component: <SentEmailChecksDiagram /> },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentList>
+              <ListItem>
+                <strong>SPF কেন মূল নামে নয়, send উপনামে:</strong> প্রতিটা ইমেইলের
+                দুইটা প্রেরকের ঠিকানা থাকে। একটা আপনি দেখেন, From। আরেকটা লুকানো,
+                নাম Return-Path, যেখানে পৌঁছাতে না পারা ইমেইলের খবর ফেরত যায়। SPF
+                পরীক্ষা হয় এই লুকানো ঠিকানার Domain এ। Resend সেই ঠিকানা বানায়
+                send.আপনার-Domain দিয়ে, তাই SPF এর TXT বসে send উপনামে। এতে একটা
+                বড় সুবিধা, মূল নামে থাকা আপনার Google এর SPF এর সাথে এর কোনো
+                সংঘর্ষ হয় না।
+              </ListItem>
+              <ListItem>
+                <strong>পাঠানোর সেবা MX চায় কেন:</strong> ঐ send উপনামের MX টা
+                আপনার চিঠি নেওয়ার জন্য নয়। একটা ইমেইল পৌঁছাতে না পারলে (ঠিকানা
+                ভুল, Inbox ভরা) গ্রহীতার সার্ভার একটা ফেরত চিঠি পাঠায় Return-Path
+                এর ঠিকানায়। সেই ফেরত চিঠি যাতে ইমেইল সেবার কাছে পৌঁছায়, তার জন্য
+                এই MX। সেবা তখন জানতে পারে কোন ঠিকানা অচল, আর সেখানে আর পাঠায় না।
+              </ListItem>
+              <ListItem>
+                <strong>DKIM এর অদ্ভুত নামটা কী:</strong> DKIM এর Record এর নাম
+                সবসময় কিছু-একটা._domainkey আকারের। প্রথম অংশটার নাম Selector, যা
+                সেবা নিজে বেছে নেয়। Resend এর Selector resend, MailerLite এর
+                litesrv, Google এর google। গ্রহীতা ইমেইলের ভেতরে Selector টা পড়ে,
+                আর ঠিক সেই নামে গিয়ে চাবিটা খোঁজে। প্রতিটা সেবার Selector আলাদা
+                বলেই একটা Domain এ যত খুশি সেবার DKIM পাশাপাশি থাকতে পারে, কোনো
+                সংঘর্ষ ছাড়া।
+              </ListItem>
+              <ListItem>
+                <strong>DKIM কখনো TXT, কখনো CNAME কেন:</strong> Resend চাবিটা
+                সরাসরি আপনাকে দেয়, আপনি TXT এ বসান। MailerLite দেয় একটা CNAME, যা
+                তাদের নিজের Domain এর একটা নামের দিকে দেখায়, আর চাবিটা সেখানে
+                থাকে। দ্বিতীয় উপায়ে সেবা পরে নিজে চাবি বদলাতে পারে, আপনাকে কিছু
+                করতে হয় না। গ্রহীতার জন্য ফল একই, সে শেষে একটা চাবিই পায়।
+              </ListItem>
+            </ContentList>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.CONCEPT,
+          title: "DMARC পাশ করতে দুইটার একটা মিললেই হয়, কিন্তু নাম মিলতে হবে",
+          content: (
+            <p>
+              DMARC একটা ইমেইলকে পাশ করায় যদি SPF বা DKIM, দুইটার অন্তত একটা পাশ
+              করে, আর সেই পাশ করা পরীক্ষার Domain টা From ঠিকানার Domain এর সাথে
+              মেলে। এই মেলাকে বলে Alignment। তাই শুধু SPF পাশ করা যথেষ্ট নয়, যদি
+              সেটা সেবার নিজের Domain এর SPF হয়। এই কারণেই প্রতিটা সেবা আপনাকে
+              নিজের Domain এ DKIM বসাতে বলে। আপনার Domain এর নামে সই করা ইমেইল
+              আপনার Domain এর From এর সাথে মেলে, আর DMARC পাশ করে। তিনটার মধ্যে
+              একটাই বসানোর সময় থাকলে DKIM বসান।
+            </p>
+          ),
+        },
+      ],
+    },
+    /* ---------------------------------------------------------------- 9 */
+    {
+      id: "resend-setup",
+      subHeader: { index: "009", title: "Walkthrough: Resend" },
+      title: <SectionTitle>হাতে কলমে, Resend জোড়া (App থেকে ইমেইল)</SectionTitle>,
+      blocks: [
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                Island Tours এর Backend বুকিং হলে পর্যটককে একটা নিশ্চিতকরণের ইমেইল
+                পাঠাবে। এর জন্য Resend। Domain না জুড়লে Resend শুধু আপনার নিজের
+                ঠিকানায় পরীক্ষার ইমেইল পাঠাতে দেয়। আসল গ্রাহককে পাঠাতে হলে নিজের
+                Domain যাচাই করতেই হবে।
+              </ContentParagraph>
+              <ContentParagraph>
+                শুরুর আগে একটা সিদ্ধান্ত, মূল নাম নাকি একটা উপনাম। Resend নিজে
+                জোর দিয়ে উপনাম ব্যবহার করতে বলে, যেমন updates.islandtours.example।
+                কারণ সরল। App এর ইমেইলে কখনো সমস্যা হলে (অনেক গ্রাহক Spam বলে
+                চিহ্নিত করলেন) সুনাম নষ্ট হয় শুধু সেই উপনামের। মূল নাম আর আপনার
+                দলের নিজের ইমেইল নিরাপদ থাকে। এই উদাহরণে আমরা উপনাম নেব।
+              </ContentParagraph>
+            </div>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.STEP_FLOW,
+          stepName: "STEP",
+          steps: [
+            {
+              title: "[Resend] Domain যোগ করুন",
+              description:
+                "Dashboard এ Domains পাতায় গিয়ে Add Domain চাপুন। নাম লিখুন updates.islandtours.example। এখানে পুরো নামটাই লিখতে হয়, কারণ এটা Resend এর পাতা, DNS পাতা নয়।",
+            },
+            {
+              title: "[Resend] অঞ্চল বাছুন",
+              description:
+                "একটা Region বাছতে বলবে। যেখানে আপনার বেশিরভাগ গ্রহীতা, তার কাছেরটা নিন। এই পছন্দ একটা Record এর মানের ভেতরে ঢুকে যায় (MX এর নামে অঞ্চলের নাম থাকে), তাই পরে বদলানো মানে Record ও বদলানো।",
+            },
+            {
+              title: "[Resend] Records ট্যাব খুলুন, ছকটা পড়ুন",
+              description:
+                "সে তিনটা সারি দেখাবে। একটা DKIM (Type TXT), আর দুইটা SPF নামের দলে (একটা MX, একটা TXT)। প্রতিটার পাশে Name, Value আর অবস্থা Not Started। উপনাম ব্যবহার করায় Name গুলোর শেষে .updates জুড়ে থাকবে, নিচের ছকে দেখুন।",
+            },
+            {
+              title: "[DNS সেবা] তিনটা Record বসান",
+              description:
+                "নিজের DNS পাতায় (dig +short NS যাকে দেখায়) তিনটা সারি বসান, হুবহু কপি করে। Name এ শুধু সামনের অংশ, নিজের Domain বাদ দিয়ে। MX এ Priority 10 আলাদা ঘরে। TTL Auto। Cloudflare এ MX আর TXT তে মেঘই থাকে না, তাই Proxy নিয়ে ভাবতে হয় না।",
+            },
+            {
+              title: "[Terminal] নিজে মিলিয়ে দেখুন",
+              description:
+                "নিচের তিনটা dig কমান্ড চালান। Resend এর দেওয়া মান ফেরত এলে DNS এর কাজ নিখুঁত, এরপর শুধু Resend এর দেখার অপেক্ষা।",
+            },
+            {
+              title: "[Resend] Verify চাপুন",
+              description:
+                "Domain এর পাতায় Verify DNS Records চাপুন। অবস্থা Pending হবে, তারপর প্রতিটা সারি একটা একটা করে Verified। সাধারণত ১৫ মিনিটের মধ্যে, কখনো কয়েক ঘণ্টা। ৭২ ঘণ্টায় না হলে অবস্থা Failed হয়, তখন Record ঠিক করে Restart verification চাপুন।",
+            },
+            {
+              title: "[DNS সেবা] DMARC বসান",
+              description:
+                "এটা Resend দেয় না, আপনি নিজে লেখেন। মূল Domain এ _dmarc নামে একটা TXT, শুরুতে p=none দিয়ে। মূল Domain এ একটা থাকলে সব উপনাম সেটাই মানে, তাই আগে থেকে থাকলে নতুন লাগবে না।",
+            },
+            {
+              title: "[App] পাঠিয়ে দেখুন",
+              description:
+                "From ঠিকানা হতে হবে যাচাই করা Domain এর, যেমন booking@updates.islandtours.example। @ এর আগের অংশ যা খুশি হতে পারে, কোনো Inbox বানাতে হয় না। নিচের কমান্ডে একটা পরীক্ষার ইমেইল নিজের Gmail এ পাঠান।",
+            },
+          ],
+        },
+        {
+          type: CONTENT_TYPES.CODE_BLOCK,
+          language: "text",
+          filename: "resend-records.txt",
+          code: `; Resend যা দেখায় (updates.islandtours.example এর জন্য)
+; আর আপনার DNS পাতায় Name এর ঘরে যা বসে
+
+; কাজ    Type   Name (DNS পাতায়)             Value
+DKIM     TXT    resend._domainkey.updates    p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKB...
+SPF      MX     send.updates                 feedback-smtp.us-east-1.amazonses.com   (Priority 10)
+SPF      TXT    send.updates                 v=spf1 include:amazonses.com ~all
+
+; আপনি নিজে যোগ করেন (মূল Domain এ, একবার)
+DMARC    TXT    _dmarc                       v=DMARC1; p=none; rua=mailto:dmarc@islandtours.example
+
+; উপনাম না নিয়ে মূল নাম (islandtours.example) জুড়লে Name গুলো হতো:
+;   resend._domainkey      send      send
+; মানে শেষের .updates অংশটা থাকত না। বাকি সব একই।`,
+        },
+        {
+          type: CONTENT_TYPES.CODE_BLOCK,
+          language: "bash",
+          filename: "verify-resend.sh",
+          code: `D=updates.islandtours.example
+
+# Resend যা দেখতে চায়, আপনিও তাই দেখুন
+dig +short TXT resend._domainkey.$D @1.1.1.1    # p=MIGf... দিয়ে শুরু লম্বা চাবি
+dig +short MX  send.$D @1.1.1.1                 # 10 feedback-smtp.<অঞ্চল>.amazonses.com.
+dig +short TXT send.$D @1.1.1.1                 # "v=spf1 include:amazonses.com ~all"
+dig +short TXT _dmarc.islandtours.example @1.1.1.1
+
+# একটা আসল উদাহরণ দেখতে চাইলে, Resend এর নিজের Domain এই একই ছক:
+dig +short MX  send.resend.com
+dig +short TXT send.resend.com
+
+# পরীক্ষার ইমেইল (API Key থাকে Environment Variable এ, কমান্ডে লেখা নয়)
+curl -X POST https://api.resend.com/emails \\
+  -H "Authorization: Bearer $RESEND_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "from": "Island Tours <booking@updates.islandtours.example>",
+    "to": ["apnar-thikana@gmail.com"],
+    "subject": "DNS porikkha",
+    "text": "Ei email ta pouchhale Domain thik achhe."
+  }'`,
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.WARNING,
+          title: "Name ঘরের সেই ফাঁদ, এখানে সবচেয়ে বেশি ঘটে",
+          content: (
+            <p>
+              Resend এর ছকে Name হিসেবে লেখা থাকে resend._domainkey.updates। কিন্তু
+              অনেকে অভ্যাসে পুরো নামটা, resend._domainkey.updates.islandtours.example,
+              DNS পাতায় বসিয়ে দেন। বেশিরভাগ DNS পাতা তখন শেষে আবার Domain জুড়ে
+              দেয়, আর Record টা গিয়ে বসে একটা ভুল নামে, যেখানে Resend কখনো খুঁজবে
+              না। যাচাই Pending এ আটকে থাকলে প্রথম সন্দেহ এটাই। উপরের dig কমান্ড
+              চালান। কিছু না এলে DNS পাতার তালিকায় পুরো নামটা পড়ে দেখুন Domain
+              দুইবার এসেছে কি না।
+            </p>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.TIP,
+          title: "Resend দিয়ে ইমেইল নিতেও চাইলে",
+          content: (
+            <p>
+              Resend ইমেইল নিতেও পারে (গ্রাহকের উত্তর আপনার App এ পৌঁছানোর জন্য),
+              আর তখন সে আরেকটা MX দেয়। এখানে সাবধান। সেই MX মূল নামে বসালে আপনার
+              দলের Google Workspace এর ইমেইল আসা বন্ধ হয়ে যাবে, কারণ একটা নামের
+              চিঠি এক জায়গাতেই যায়। নিরাপদ উপায়, নেওয়ার জন্য আলাদা একটা উপনাম
+              ব্যবহার করা, যেমন reply.islandtours.example, আর MX টা সেখানে বসানো।
+              মূল নামের MX কখনো না ভেবে বদলাবেন না।
+            </p>
+          ),
+        },
+      ],
+    },
+    /* --------------------------------------------------------------- 10 */
+    {
+      id: "mailerlite-setup",
+      subHeader: { index: "010", title: "Walkthrough: MailerLite" },
+      title: <SectionTitle>হাতে কলমে, MailerLite জোড়া (Newsletter)</SectionTitle>,
+      blocks: [
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                এবার দ্বিতীয় ধরন। Island Tours মাসে একবার সব পুরনো পর্যটককে নতুন
+                ট্যুরের খবর পাঠাবে। এর জন্য MailerLite। এখানে দুইটা জিনিস Resend
+                থেকে আলাদা, আর দুইটাই শেখার মতো। DKIM আসে CNAME হিসেবে, আর SPF
+                বসে মূল নামে, যেখানে আগে থেকেই একটা SPF থাকতে পারে।
+              </ContentParagraph>
+              <ContentParagraph>
+                Domain না জুড়লে কী হয়? MailerLite তখন নিজের Domain থেকে পাঠায়, আর
+                গ্রহীতার Inbox এ আপনার নামের পাশে লেখা থাকে অন্য Domain এর মাধ্যমে
+                পাঠানো। আর From এ Gmail বা Yahoo র মতো বিনা খরচের ঠিকানা ব্যবহার
+                করলে ইমেইল প্রায় নিশ্চিতভাবেই Spam এ যায় বা ফেরত আসে, কারণ সেই
+                Domain গুলোর DMARC অন্যদের তাদের নামে পাঠাতে দেয় না। তাই Newsletter
+                এ নিজের Domain এর ঠিকানা আর যাচাই, দুইটাই লাগে।
+              </ContentParagraph>
+            </div>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.STEP_FLOW,
+          stepName: "STEP",
+          steps: [
+            {
+              title: "[MailerLite] Domain যোগ করুন",
+              description:
+                "Account settings খুলে Domains ট্যাবে যান। Add domain চাপুন আর নিজের Domain এর একটা ইমেইল ঠিকানা দিন, যেমন news@islandtours.example। এটাই হবে Newsletter এর From ঠিকানা।",
+            },
+            {
+              title: "[ইমেইল] ঠিকানাটা যাচাই করুন",
+              description:
+                "MailerLite সেই ঠিকানায় একটা নিশ্চিতকরণের ইমেইল পাঠায়, আর আপনাকে ভেতরের লিংকে চাপতে হয়। মানে ঠিকানাটা সত্যিই চালু থাকতে হবে আর আপনি সেটা পড়তে পারবেন। এর জন্য মূল নামের MX আগে থেকে ঠিক থাকা চাই। এটা Resend থেকে একটা তফাত, সেখানে কোনো Inbox লাগে না।",
+            },
+            {
+              title: "[MailerLite] Authenticate চাপুন, দুইটা Record নিন",
+              description:
+                "Domain এর পাশে Authenticate চাপুন। সে দুইটা Record দেখাবে, প্রতিটায় Name আর Value। একটা DKIM, Type CNAME। আরেকটা SPF, Type TXT। দুইটাই কপি করুন।",
+            },
+            {
+              title: "[DNS সেবা] DKIM এর CNAME বসান",
+              description:
+                "Type CNAME, Name litesrv._domainkey, Value litesrv._domainkey.mlsend.com। Cloudflare এ এটা অবশ্যই DNS only রাখুন। Proxied করলে গ্রহীতা CNAME এর বদলে Cloudflare এর IP পাবে, চাবি খুঁজে পাবে না, আর DKIM ব্যর্থ হবে।",
+            },
+            {
+              title: "[DNS সেবা] SPF দেখুন, তারপর বসান বা জোড়া লাগান",
+              description:
+                "আগে dig +short TXT islandtours.example চালান। v=spf1 দিয়ে শুরু কোনো লাইন না থাকলে MailerLite এর দেওয়া TXT টা Name @ এ বসান। আগে থেকে একটা থাকলে নতুন বসাবেন না। পুরনোটা Edit করে ~all এর ঠিক আগে include:_spf.mlsend.com জুড়ে দিন। নিচের উদাহরণ দেখুন।",
+            },
+            {
+              title: "[MailerLite] Check DNS records চাপুন",
+              description:
+                "MailerLite এর পাতায় ফিরে Check DNS records চাপুন। দুইটা সারির পাশেই সবুজ টিক এলে Domain Authenticated। না এলে কয়েক মিনিট অপেক্ষা করে আবার চাপুন, আর নিচের dig কমান্ডে নিজে দেখুন।",
+            },
+            {
+              title: "[DNS সেবা] DMARC, তারপর পরীক্ষা",
+              description:
+                "_dmarc নামে TXT আগে বসিয়ে থাকলে আর কিছু লাগবে না। তারপর MailerLite থেকে নিজের একটা Gmail ঠিকানায় একটা পরীক্ষার Campaign পাঠান, আর পরের অংশের নিয়মে Header পড়ে দেখুন।",
+            },
+          ],
+        },
+        {
+          type: CONTENT_TYPES.CODE_BLOCK,
+          language: "text",
+          filename: "mailerlite-records.txt",
+          code: `; MailerLite যা দেখায়
+
+; কাজ    Type    Name                  Value
+DKIM     CNAME   litesrv._domainkey    litesrv._domainkey.mlsend.com
+SPF      TXT     @                     v=spf1 include:_spf.mlsend.com ~all
+
+
+; ---- SPF জোড়া লাগানো: সবচেয়ে জরুরি অংশ ----
+
+; আগে থেকে ছিল (Google Workspace এর জন্য):
+TXT   @   "v=spf1 include:_spf.google.com ~all"
+
+; ভুল: দ্বিতীয় একটা SPF বসানো। এখন দুইটা, আর দুইটাই বাতিল।
+TXT   @   "v=spf1 include:_spf.google.com ~all"
+TXT   @   "v=spf1 include:_spf.mlsend.com ~all"
+
+; ঠিক: একটাই Record, ভেতরে দুইটা include পাশাপাশি
+TXT   @   "v=spf1 include:_spf.google.com include:_spf.mlsend.com ~all"
+
+; নিয়ম: v=spf1 একবার, শুরুতে। ~all একবার, শেষে। মাঝখানে যত সেবা, তত include।`,
+        },
+        {
+          type: CONTENT_TYPES.CODE_BLOCK,
+          language: "bash",
+          filename: "verify-mailerlite.sh",
+          code: `D=islandtours.example
+
+# DKIM: CNAME টা তাদের নামের দিকে যাচ্ছে তো?
+dig +short CNAME litesrv._domainkey.$D @1.1.1.1
+#   litesrv._domainkey.mlsend.com.
+
+# CNAME ধরে শেষ পর্যন্ত গেলে চাবিটা পাওয়া যায় (চাবিটা তাদের DNS এ)
+dig +short TXT litesrv._domainkey.$D @1.1.1.1
+#   "v=DKIM1;p=MIGfMA0GCSq..."
+
+# SPF: ঠিক একটাই লাইন আসা চাই, আর তাতে mlsend থাকা চাই
+dig +short TXT $D @1.1.1.1 | grep spf1
+dig +short TXT $D @1.1.1.1 | grep -c spf1        # উত্তর 1 হওয়া চাই। 2 মানে বিপদ।
+
+# একটা আসল উদাহরণ: MailerLite এর নিজের Domain ও ঠিক এভাবেই বসানো
+dig +short CNAME litesrv._domainkey.mailerlite.com
+dig +short TXT mailerlite.com | grep spf1        # অনেকগুলো include, একটাই Record`,
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.WARNING,
+          title: "SPF এ সেবা যোগ করার একটা সীমা আছে, দশ",
+          content: (
+            <p>
+              একটাই SPF Record এ যত খুশি include জোড়া যায় না। SPF যাচাই করতে
+              গ্রহীতাকে প্রতিটা include এর জন্য একটা করে বাড়তি DNS প্রশ্ন করতে
+              হয়, আর নিয়ম বলে মোট দশটার বেশি প্রশ্ন হলে SPF ব্যর্থ। একটা include
+              এর ভেতরে আবার আরও include থাকতে পারে, তাই চার পাঁচটা সেবা জুড়লেই
+              দশে ঠেকা সম্ভব। তাই SPF এ শুধু সেই সেবাগুলো রাখুন যেগুলো সত্যিই
+              মূল নামে SPF চায়, আর যে সেবা বাদ দিয়েছেন তার include মুছে ফেলুন।
+              Resend এর মতো যারা নিজের উপনামে SPF রাখে, তারা এই হিসাবে পড়েই না,
+              এটা উপনাম ব্যবহারের আরেকটা লাভ।
+            </p>
+          ),
+        },
+      ],
+    },
+    /* --------------------------------------------------------------- 11 */
+    {
+      id: "email-verify",
+      subHeader: { index: "011", title: "Email: Test and Fix" },
+      title: <SectionTitle>সব ঠিক বসেছে তো: পরীক্ষা, পুরো ছক, আর চেনা ভুল</SectionTitle>,
+      blocks: [
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <div className="space-y-6">
+              <ContentParagraph>
+                সেবার পাতায় সবুজ টিক মানে Record গুলো DNS এ আছে। কিন্তু আসল প্রশ্ন,
+                ইমেইল কি গ্রহীতার চোখে বিশ্বাসযোগ্য হচ্ছে। সেটা জানার একমাত্র
+                নিশ্চিত উপায়, একটা আসল ইমেইল পাঠিয়ে গ্রহীতার দিক থেকে দেখা।
+              </ContentParagraph>
+              <ContentList>
+                <ListItem>
+                  <strong>Gmail এ পড়ুন:</strong> নিজের একটা Gmail ঠিকানায় পরীক্ষার
+                  ইমেইল পাঠান। ইমেইলটা খুলে ডান দিকের তিন ফোঁটায় চেপে Show
+                  original বাছুন। উপরে একটা ছোট ছক আসে, SPF, DKIM আর DMARC, প্রতিটার
+                  পাশে PASS বা FAIL আর কোন Domain এর সাথে মিলেছে।
+                </ListItem>
+                <ListItem>
+                  <strong>তিনটা লাইন মিলিয়ে নিন:</strong> SPF এর পাশে PASS আর send
+                  উপনামের নাম (Resend এ)। DKIM এর পাশে PASS আর আপনার নিজের Domain।
+                  DMARC এর পাশে PASS। DKIM এ সেবার নিজের Domain দেখালে আপনার DKIM
+                  Record এখনো কাজ করছে না।
+                </ListItem>
+                <ListItem>
+                  <strong>প্রেরকের নামের নিচে দেখুন:</strong> ইমেইলে প্রেরকের
+                  নামের পাশের ছোট তীরে চাপলে mailed-by আর signed-by দেখা যায়।
+                  signed-by তে আপনার নিজের Domain থাকা চাই।
+                </ListItem>
+                <ListItem>
+                  <strong>একটা স্বয়ংক্রিয় পরীক্ষক:</strong> mail-tester.com একটা
+                  সাময়িক ঠিকানা দেয়। সেখানে ইমেইল পাঠালে সে দশের মধ্যে নম্বর দেয়
+                  আর প্রতিটা সমস্যা আলাদা করে লেখে। Resend এর নিজের dns.email
+                  পাতাটাও আপনার Record গুলো বাইরে থেকে দেখে দেয়।
+                </ListItem>
+              </ContentList>
+            </div>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.CODE_BLOCK,
+          language: "text",
+          filename: "show-original.txt",
+          code: `; Gmail এর Show original এ যা দেখা চাই (Resend দিয়ে পাঠানো ইমেইল)
+
+SPF:    PASS with IP 54.240.x.x          <- send.updates.islandtours.example এর SPF
+DKIM:   'PASS' with domain updates.islandtours.example     <- আপনার Domain, সেবার নয়
+DMARC:  'PASS'
+
+; আর নিচের Header এ:
+Return-Path: <...@send.updates.islandtours.example>     <- এই Domain এ SPF আর MX
+DKIM-Signature: ... d=updates.islandtours.example; s=resend; ...
+;                    ^ কোন Domain এর নামে সই        ^ Selector, মানে
+;                                                     resend._domainkey এ চাবি খুঁজুন`,
+        },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentParagraph>
+              এবার তিনটা সেবাই একসাথে। Island Tours এর দল Google Workspace এ ইমেইল
+              পড়ে, Backend Resend দিয়ে বুকিং এর ইমেইল পাঠায়, আর MailerLite দিয়ে
+              Newsletter যায়। একই Domain, একই DNS পাতা, কোনো সংঘর্ষ নেই। প্রতিটা
+              সারির পাশে দেখুন কে দিয়েছে।
+            </ContentParagraph>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.CODE_BLOCK,
+          language: "text",
+          filename: "three-providers-one-domain.txt",
+          code: `; Type   Name                        Value                                          ; কে দিয়েছে
+
+; ---- মূল নাম: ইমেইল আসে Google এ ----
+MX      @                           1 smtp.google.com                              ; Google
+TXT     @                           "google-site-verification=AbC123..."           ; Google
+TXT     @                           "v=spf1 include:_spf.google.com include:_spf.mlsend.com ~all"
+;                                    ^ একটাই SPF, দুই সেবা মিলে                    ; Google + MailerLite
+
+; ---- DKIM: তিন সেবা, তিন Selector, কোনো সংঘর্ষ নেই ----
+TXT     google._domainkey           "v=DKIM1; k=rsa; p=MIIBIjAN..."                ; Google
+CNAME   litesrv._domainkey          litesrv._domainkey.mlsend.com                  ; MailerLite
+TXT     resend._domainkey.updates   "p=MIGfMA0GCSq..."                             ; Resend
+
+; ---- Resend এর নিজের উপনাম: মূল নামের কিছুই ছোঁয় না ----
+MX      send.updates                10 feedback-smtp.us-east-1.amazonses.com       ; Resend
+TXT     send.updates                "v=spf1 include:amazonses.com ~all"            ; Resend
+
+; ---- আপনি নিজে লিখেছেন, সবার জন্য একটাই ----
+TXT     _dmarc                      "v=DMARC1; p=none; rua=mailto:dmarc@islandtours.example"`,
+        },
+        {
+          type: CONTENT_TYPES.HTML,
+          content: (
+            <ContentList>
+              <ListItem>
+                <strong>দুইটা SPF:</strong> নতুন সেবার SPF আলাদা Record হিসেবে
+                বসানো। দুইটাই বাতিল হয়। একটাতেই সব include।
+              </ListItem>
+              <ListItem>
+                <strong>Name এ পুরো Domain:</strong> Record টা ভুল নামে বসে, সেবা
+                খুঁজে পায় না। শুধু সামনের অংশ লিখুন।
+              </ListItem>
+              <ListItem>
+                <strong>উপনাম জুড়ে মূল নামের Name ব্যবহার:</strong> Resend এ
+                updates উপনাম জুড়েছেন, অথচ Name এ লিখেছেন শুধু resend._domainkey।
+                তখন চাবিটা মূল নামের নিচে বসে। Name এর শেষে .updates থাকা চাই।
+              </ListItem>
+              <ListItem>
+                <strong>DKIM এর CNAME কমলা মেঘে:</strong> Cloudflare এ Proxied।
+                DNS only করুন।
+              </ListItem>
+              <ListItem>
+                <strong>DKIM এর চাবি কাটা পড়েছে:</strong> চাবিটা খুব লম্বা, আর
+                হাতে বাছাই করে কপি করলে শেষটা বাদ পড়ে। সবসময় Copy বোতাম ব্যবহার
+                করুন, আর dig দিয়ে দেখুন শেষটা সেবার পাতার সাথে মেলে কি না।
+              </ListItem>
+              <ListItem>
+                <strong>পাঠানোর সেবার MX মূল নামে বসানো:</strong> send উপনামের MX
+                ভুল করে @ এ বসালে আপনার নিজের ইমেইল আসা বন্ধ হয়ে যায়। Name ঘরটা
+                দুইবার দেখুন।
+              </ListItem>
+              <ListItem>
+                <strong>From এ যাচাই না করা Domain:</strong> যাচাই করেছেন
+                updates.islandtours.example, অথচ পাঠাচ্ছেন
+                booking@islandtours.example থেকে। সেবা পাঠাতেই দেবে না, বা DMARC
+                ব্যর্থ হবে। From এর Domain আর যাচাই করা Domain হুবহু এক হতে হবে।
+              </ListItem>
+              <ListItem>
+                <strong>DMARC শুরুতেই কড়া:</strong> সব সেবা জোড়া শেষ হওয়ার আগে
+                p=reject করলে যে সেবাটা এখনো ঠিকমতো বসেনি তার সব ইমেইল ফেরত যাবে।
+                p=none দিয়ে শুরু করুন, কয়েক সপ্তাহ রিপোর্ট দেখুন, তারপর quarantine,
+                তারপর reject।
+              </ListItem>
+              <ListItem>
+                <strong>সেবা বাদ দিয়ে Record রেখে দেওয়া:</strong> পুরনো সেবার
+                include SPF এ রয়ে গেলে সেই সেবার যেকোনো গ্রাহক আপনার নামে SPF পাশ
+                করাতে পারে। সেবা বাদ দিলে তার include আর DKIM দুইটাই মুছুন।
+              </ListItem>
+            </ContentList>
+          ),
+        },
+        {
+          type: CONTENT_TYPES.INFO_BOX,
+          variant: INFO_BOX_VARIANTS.IMPORTANT,
+          title: "যেকোনো ইমেইল সেবা, একই চার প্রশ্ন",
+          content: (
+            <p>
+              Resend আর MailerLite শুধু দুইটা উদাহরণ। SendGrid, Postmark, Mailchimp,
+              Brevo, যেটাই জুড়ুন, পাতা আলাদা হবে কিন্তু প্রশ্ন একই চারটা। এক, এই
+              সেবা কি আমার চিঠি নেবে, নাকি শুধু পাঠাবে? শুধু পাঠালে মূল নামের MX
+              ছোঁবেন না। দুই, এর SPF কোন নামে বসে? মূল নামে হলে আগেরটার সাথে জোড়া
+              লাগান, উপনামে হলে আলাদা বসান। তিন, এর DKIM এর Selector কী, আর সেটা
+              TXT নাকি CNAME? হুবহু বসান, Cloudflare এ DNS only। চার, DMARC আছে
+              তো? একবার বসালেই সব সেবার জন্য খাটে। এই চার প্রশ্নের উত্তর পেলে
+              বাকিটা শুধু কপি আর বসানো।
+            </p>
+          ),
+        },
+      ],
+    },
+    /* --------------------------------------------------------------- 12 */
+    {
       id: "ns-soa",
-      subHeader: { index: "008", title: "NS and SOA" },
+      subHeader: { index: "012", title: "NS and SOA" },
       title: <SectionTitle>NS আর SOA, খাতার মালিকানা</SectionTitle>,
       blocks: [
         {
@@ -519,10 +1092,10 @@ _dmarc                TXT   "v=DMARC1; p=none; rua=mailto:dmarc@islandtours.exam
         },
       ],
     },
-    /* ---------------------------------------------------------------- 9 */
+    /* --------------------------------------------------------------- 13 */
     {
       id: "others",
-      subHeader: { index: "009", title: "SRV and Others" },
+      subHeader: { index: "013", title: "SRV and Others" },
       title: <SectionTitle>SRV, আর আরও তিনটা যা চিনে রাখা ভালো</SectionTitle>,
       blocks: [
         {
@@ -573,10 +1146,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 10 */
+    /* --------------------------------------------------------------- 14 */
     {
       id: "name-field",
-      subHeader: { index: "010", title: "The Name Field" },
+      subHeader: { index: "014", title: "The Name Field" },
       title: <SectionTitle>Name ঘরের ছোট ছোট ফাঁদ</SectionTitle>,
       blocks: [
         {
@@ -630,10 +1203,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 11 */
+    /* --------------------------------------------------------------- 15 */
     {
       id: "add-record",
-      subHeader: { index: "011", title: "Adding a Record" },
+      subHeader: { index: "015", title: "Adding a Record" },
       title: <SectionTitle>হাতে কলমে, একটা Record বসানো</SectionTitle>,
       blocks: [
         {
@@ -685,10 +1258,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 12 */
+    /* --------------------------------------------------------------- 16 */
     {
       id: "email-setup",
-      subHeader: { index: "012", title: "Setting up Email" },
+      subHeader: { index: "016", title: "Setting up Email" },
       title: <SectionTitle>হাতে কলমে, নিজের Domain এ ইমেইল</SectionTitle>,
       blocks: [
         {
@@ -755,10 +1328,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 13 */
+    /* --------------------------------------------------------------- 17 */
     {
       id: "mistakes",
-      subHeader: { index: "013", title: "Common Mistakes" },
+      subHeader: { index: "017", title: "Common Mistakes" },
       title: <SectionTitle>যে ভুলগুলো প্রায় সবাই একবার করে</SectionTitle>,
       blocks: [
         {
@@ -804,10 +1377,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 14 */
+    /* --------------------------------------------------------------- 18 */
     {
       id: "project",
-      subHeader: { index: "014", title: "Project Example" },
+      subHeader: { index: "018", title: "Project Example" },
       title: <SectionTitle>Island Tours এর পুরো Zone</SectionTitle>,
       blocks: [
         { type: CONTENT_TYPES.CUSTOM, component: <IslandToursBrief /> },
@@ -847,10 +1420,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 15 */
+    /* --------------------------------------------------------------- 19 */
     {
       id: "request-flow",
-      subHeader: { index: "015", title: "Step-by-step Flow" },
+      subHeader: { index: "019", title: "Step-by-step Flow" },
       title: <SectionTitle>www লিখলে Record গুলো যেভাবে কাজ করে</SectionTitle>,
       blocks: [
         {
@@ -895,10 +1468,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 16 */
+    /* --------------------------------------------------------------- 20 */
     {
       id: "resources",
-      subHeader: { index: "016", title: "Best Resources" },
+      subHeader: { index: "020", title: "Best Resources" },
       title: <SectionTitle>আরও দেখতে চাইলে</SectionTitle>,
       blocks: [
         {
@@ -939,10 +1512,10 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
         },
       ],
     },
-    /* --------------------------------------------------------------- 17 */
+    /* --------------------------------------------------------------- 21 */
     {
       id: "recap",
-      subHeader: { index: "017", title: "Recap" },
+      subHeader: { index: "021", title: "Recap" },
       title: <SectionTitle>৫ মিনিটে পুরো লেসন</SectionTitle>,
       blocks: [
         {
@@ -973,6 +1546,12 @@ _sip._tcp     SRV   3600   10 5 5060 sip.provider.example
               <ListItem>
                 <strong>TXT</strong> মালিকানার প্রমাণ আর ইমেইলের সুরক্ষা, SPF কে
                 পাঠাতে পারে, DKIM সই, DMARC নীতি। SPF একটাই।
+              </ListItem>
+              <ListItem>
+                ইমেইল সেবা তিন ধরনের: Inbox সহ (মূল নামের MX লাগে), App থেকে
+                পাঠানো (যেমন Resend), আর Newsletter (যেমন MailerLite)। শেষ দুইটা
+                শুধু পাঠায়, তাই মূল MX ছোঁয় না, চায় শুধু SPF আর DKIM। প্রতিটা সেবার
+                নিজের DKIM, কিন্তু মূল নামে SPF সবার মিলে একটাই।
               </ListItem>
               <ListItem>
                 <strong>NS</strong> হিসাব কার কাছে, <strong>SOA</strong> Zone এর

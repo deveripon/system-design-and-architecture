@@ -204,3 +204,133 @@ export function ZoneTableDiagram() {
     </Sketch>
   );
 }
+
+/* ------------------------------------------------------------------------- */
+/* 4. একটা পাঠানো ইমেইল, আর গ্রহীতা যে চারটা Record দেখে                       */
+/* ------------------------------------------------------------------------- */
+
+const CHECKS = [
+  {
+    n: "১",
+    name: "SPF",
+    where: "send.islandtours.example",
+    type: "TXT",
+    q: "এই সার্ভার কি এই নামে পাঠাতে পারে?",
+  },
+  {
+    n: "২",
+    name: "DKIM",
+    where: "resend._domainkey.islandtours.example",
+    type: "TXT",
+    q: "ইমেইলের সইটা কি এই চাবিতে মেলে?",
+  },
+  {
+    n: "৩",
+    name: "DMARC",
+    where: "_dmarc.islandtours.example",
+    type: "TXT",
+    q: "না মিললে মালিক কী করতে বলেছেন?",
+  },
+  {
+    n: "৪",
+    name: "ফেরত চিঠি",
+    where: "send.islandtours.example",
+    type: "MX",
+    q: "পৌঁছাতে না পারলে খবরটা কোথায় যাবে?",
+  },
+];
+
+export function SentEmailChecksDiagram() {
+  const rowH = 50;
+  const top = 150;
+  const h = top + CHECKS.length * rowH + 16;
+  return (
+    <Sketch
+      label="Diagram: একটা পাঠানো ইমেইল, আর গ্রহীতা DNS এ যা যা দেখে"
+      height={h}
+      minWidth={880}
+      viewBox={`0 0 880 ${h}`}
+      caption="আপনার App একটা ইমেইল সেবাকে (এখানে Resend) বলল একটা বুকিং নিশ্চিতকরণ পাঠাতে। ইমেইল সেবা সেটা গ্রহীতার ইমেইল সার্ভারে (যেমন Gmail) পৌঁছে দিল। Gmail ইমেইলটা Inbox এ রাখার আগে আপনার Domain এর DNS এ চারটা জায়গা দেখে। এই চারটা সারিই ব্যাখ্যা করে ইমেইল সেবাগুলো আপনাকে ঠিক কেন ঐ Record গুলো বসাতে বলে। খেয়াল করুন প্রতিটা প্রশ্ন আলাদা একটা নামে করা হয়। SPF আর ফেরত চিঠির MX দুইটাই বসে send নামের উপনামে, কারণ ইমেইলের ফেরত ঠিকানাটা সেই উপনামের। DKIM বসে সেবার নিজের নামের একটা বিশেষ উপনামে, আর DMARC বসে _dmarc এ। কোনোটাই মূল নামের MX ছোঁয় না, তাই আপনার নিজের ইমেইল ঠিকানাগুলো আগের জায়গাতেই থাকে।"
+    >
+      <Arrow id="se-a" />
+      {[
+        { x: 40, w: 180, top: "আপনার App", sub: "বলল, এই ইমেইলটা পাঠান" },
+        { x: 350, w: 200, top: "ইমেইল সেবা", sub: "সই করে পাঠায়", accent: true },
+        { x: 680, w: 170, top: "গ্রহীতার সার্ভার", sub: "যেমন Gmail" },
+      ].map((b) => (
+        <g key={b.top}>
+          <rect
+            x={b.x}
+            y={30}
+            width={b.w}
+            height={54}
+            fill={b.accent ? "var(--primary)" : "currentColor"}
+            fillOpacity={b.accent ? 0.1 : 0.04}
+            stroke={b.accent ? "var(--primary)" : "currentColor"}
+            strokeOpacity={b.accent ? 1 : 0.45}
+            strokeWidth="1.3"
+          />
+          <SketchText x={b.x + b.w / 2} y={54} size={10.5} bold accent={b.accent}>
+            {b.top}
+          </SketchText>
+          <SketchText x={b.x + b.w / 2} y={72} size={8.5} body opacity={0.7}>
+            {b.sub}
+          </SketchText>
+        </g>
+      ))}
+      <line x1={220} y1={57} x2={348} y2={57} stroke="var(--primary)" strokeWidth="1.4" markerEnd="url(#se-a)" />
+      <line x1={550} y1={57} x2={678} y2={57} stroke="var(--primary)" strokeWidth="1.4" markerEnd="url(#se-a)" />
+      <line x1={765} y1={84} x2={765} y2={132} stroke="var(--primary)" strokeWidth="1.3" markerEnd="url(#se-a)" />
+      <SketchText x={440} y={118} size={9} body accent>
+        Inbox এ রাখার আগে গ্রহীতা আপনার Domain এর DNS এ চারটা জায়গা দেখে
+      </SketchText>
+
+      <SketchText x={86} y={142} size={8.5} anchor="start" opacity={0.55}>
+        কী
+      </SketchText>
+      <SketchText x={200} y={142} size={8.5} anchor="start" opacity={0.55}>
+        কোন নামে খোঁজে
+      </SketchText>
+      <SketchText x={520} y={142} size={8.5} anchor="start" opacity={0.55}>
+        Type
+      </SketchText>
+      <SketchText x={590} y={142} size={8.5} anchor="start" opacity={0.55}>
+        যে প্রশ্নের উত্তর
+      </SketchText>
+      {CHECKS.map((c, i) => {
+        const y = top + i * rowH;
+        return (
+          <g key={c.name}>
+            <rect
+              x={24}
+              y={y}
+              width={832}
+              height={rowH - 10}
+              fill={i % 2 === 0 ? "currentColor" : "transparent"}
+              fillOpacity={0.03}
+              stroke="currentColor"
+              strokeOpacity={0.25}
+              strokeWidth="1"
+            />
+            <circle cx={52} cy={y + 20} r={10} fill="var(--primary)" fillOpacity={0.15} stroke="var(--primary)" strokeWidth="1" />
+            <SketchText x={52} y={y + 24} size={9} bold accent>
+              {c.n}
+            </SketchText>
+            <SketchText x={86} y={y + 24} size={10.5} anchor="start" body bold accent>
+              {c.name}
+            </SketchText>
+            <SketchText x={200} y={y + 24} size={9.5} anchor="start" bold>
+              {c.where}
+            </SketchText>
+            <SketchText x={520} y={y + 24} size={9.5} anchor="start" bold accent>
+              {c.type}
+            </SketchText>
+            <SketchText x={590} y={y + 24} size={8.5} anchor="start" body opacity={0.8}>
+              {c.q}
+            </SketchText>
+          </g>
+        );
+      })}
+    </Sketch>
+  );
+}
