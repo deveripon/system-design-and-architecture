@@ -133,7 +133,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 py-14 md:py-16 border-t border-border">
           <div className="max-w-sm">
             <Link href="/" aria-label="Devripon home" className="inline-block">
-              <Logo variant="stacked" className="h-20 md:h-24" />
+              <Logo className="h-20 md:h-24" />
             </Link>
             <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
               System Design আর DevOps, একদম শূন্য থেকে হাতে কলমে শেখার একটা
