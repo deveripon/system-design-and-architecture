@@ -11,6 +11,7 @@ import { InfoBox } from './info-box';
 import { MCQ } from './mcq';
 import { StepFlow } from './step-flow';
 import { Collapse } from '@/components/motion/collapse';
+import { SECTION_SCROLL_MARGIN } from './section-scroll';
 import { SubHeader } from './sub-header';
 
 export const KnowledgeCheckSection = React.memo(
@@ -27,7 +28,7 @@ export const KnowledgeCheckSection = React.memo(
             <BorderCross className='p-4 md:p-10'>
                 <section
                     id={LESSON_EXTRA_ANCHORS.quiz.anchor}
-                    className='scroll-mt-20'>
+                    className={SECTION_SCROLL_MARGIN}>
                     <div
                         className='flex flex-wrap items-center justify-between gap-3 cursor-pointer group'
                         onClick={() => setIsExpanded(!isExpanded)}>
@@ -59,7 +60,7 @@ export const AssignmentSection = React.memo(
             <BorderCross className='p-4 md:p-10'>
                 <section
                     id={LESSON_EXTRA_ANCHORS.assignment.anchor}
-                    className='scroll-mt-20'>
+                    className={SECTION_SCROLL_MARGIN}>
                     <div
                         className='flex flex-wrap items-center justify-between gap-3 cursor-pointer group'
                         onClick={() => setIsExpanded(!isExpanded)}>
@@ -97,7 +98,7 @@ export const PracticalLabSection = React.memo(
             <BorderCross className='p-4 md:p-10'>
                 <section
                     id={LESSON_EXTRA_ANCHORS.lab.anchor}
-                    className='scroll-mt-20'>
+                    className={SECTION_SCROLL_MARGIN}>
                     <div
                         className='flex flex-wrap items-center justify-between gap-3 cursor-pointer group'
                         onClick={() => setIsExpanded(!isExpanded)}>

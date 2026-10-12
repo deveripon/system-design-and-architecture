@@ -13,6 +13,7 @@ import { CodeBlock } from './code-block';
 import { CompareTable } from './compare-table';
 import { InfoBox } from './info-box';
 import { StepFlow } from './step-flow';
+import { SECTION_SCROLL_MARGIN } from './section-scroll';
 import { SubHeader } from './sub-header';
 
 export function DynamicTopicContent({ data }: { data: TopicData }) {
@@ -52,7 +53,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
             {data.sections.map(section => (
                 <Reveal key={section.id}>
                 <BorderCross className='p-4 md:p-10'>
-                    <section id={section.id} className='scroll-mt-20'>
+                    <section id={section.id} className={SECTION_SCROLL_MARGIN}>
                         <SubHeader
                             index={section.subHeader.index}
                             title={section.subHeader.title}
@@ -75,7 +76,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
                 <BorderCross className='p-4 md:p-10'>
                     <section
                         id={LESSON_EXTRA_ANCHORS.summary.anchor}
-                        className='scroll-mt-20'>
+                        className={SECTION_SCROLL_MARGIN}>
                         <SubHeader
                             index={(data.sections.length + 1)
                                 .toString()
