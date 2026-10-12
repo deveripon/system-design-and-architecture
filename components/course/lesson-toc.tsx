@@ -110,7 +110,27 @@ function OutlineList({
                     <li key={item.id}>
                         <a
                             href={`#${item.id}`}
-                            onClick={onNavigate}
+                            onClick={event => {
+                                onNavigate?.();
+                                const target = document.getElementById(item.id);
+                                const plain =
+                                    !event.metaKey &&
+                                    !event.ctrlKey &&
+                                    !event.shiftKey &&
+                                    !event.altKey;
+                                if (!target || !plain) return;
+                                // The page scrolls smoothly by default, and a
+                                // lesson is tens of screens long: gliding there
+                                // takes seconds while the highlight crawls over
+                                // every headline in between. A chosen headline
+                                // is reached at once; only the highlight slides.
+                                event.preventDefault();
+                                target.scrollIntoView({
+                                    behavior: 'instant',
+                                    block: 'start',
+                                });
+                                history.replaceState(null, '', `#${item.id}`);
+                            }}
                             aria-current={isActive ? 'location' : undefined}
                             className={cn(
                                 'relative block py-2.5 pl-4 pr-3 transition-colors duration-300',
