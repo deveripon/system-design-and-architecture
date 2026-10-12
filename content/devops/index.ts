@@ -45,6 +45,14 @@ import { dnsPropagationContent } from "./04-dns/08-dns-propagation";
 import { dnsJourneyContent } from "./04-dns/09-dns-journey";
 import { domainSetupGuideContent } from "./04-dns/10-domain-setup-guide";
 import { wildcardMultiTenantDomainsContent } from "./04-dns/11-wildcard-multi-tenant-domains";
+import { osiModelContent } from "./05-tcp-ip/01-osi-model";
+import { tcpIpModelContent } from "./05-tcp-ip/02-tcp-ip-model";
+import { tcpDeepDiveContent } from "./05-tcp-ip/03-tcp-deep-dive";
+import { udpDeepDiveContent } from "./05-tcp-ip/04-udp-deep-dive";
+import { threeWayHandshakeContent } from "./05-tcp-ip/05-three-way-handshake";
+import { packetSegmentFrameContent } from "./05-tcp-ip/06-packet-segment-frame";
+import { portAndSocketContent } from "./05-tcp-ip/07-port-and-socket";
+import { connectionCloseContent } from "./05-tcp-ip/08-connection-close";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -94,4 +102,14 @@ export const devopsContentMap: Record<string, TopicData> = {
   "dns-journey": dnsJourneyContent,
   "domain-setup-guide": domainSetupGuideContent,
   "wildcard-multi-tenant-domains": wildcardMultiTenantDomainsContent,
+
+  // Module 05, TCP/IP & Transport Layer
+  "osi-model": osiModelContent,
+  "tcp-ip-model": tcpIpModelContent,
+  "tcp-deep-dive": tcpDeepDiveContent,
+  "udp-deep-dive": udpDeepDiveContent,
+  "three-way-handshake": threeWayHandshakeContent,
+  "packet-segment-frame": packetSegmentFrameContent,
+  "port-and-socket": portAndSocketContent,
+  "connection-close": connectionCloseContent,
 };
