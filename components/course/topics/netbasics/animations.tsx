@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -131,7 +131,7 @@ export function ScaleLab() {
       footer="হাতলটা টানুন, এক ঘর থেকে গোটা পৃথিবী পর্যন্ত। খেয়াল করুন, এলাকা বড় হওয়ার সাথে সাথে চারটা জিনিস একসাথে খারাপ দিকে যায়, দেরি বাড়ে, মালিকানা হাতছাড়া হয়, অচেনা মানুষ ঢোকে, আর টাকা লাগে। এই একটা কারণেই ভালো ইঞ্জিনিয়াররা যতটা সম্ভব কাজ LAN এর ভেতরে রাখেন, আর বাইরের দুনিয়ায় যাওয়াটা কমান। ভেতরের দুনিয়া সবদিক থেকেই সস্তা আর নিরাপদ।"
     >
       <label className="block mb-6">
-        <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
           কতটুকু এলাকা:{" "}
           <span className="text-primary font-bold" data-scale-index={i}>
             {r.name}
@@ -146,7 +146,7 @@ export function ScaleLab() {
           className="w-full accent-[var(--primary)]"
           aria-label="এলাকার আকার"
         />
-        <div className="flex justify-between font-mono text-[8px] text-muted-foreground mt-1">
+        <div className="flex justify-between font-mono text-[0.5rem] text-muted-foreground mt-1">
           <span>ঘর</span>
           <span>বাসা</span>
           <span>শহর</span>
@@ -159,7 +159,7 @@ export function ScaleLab() {
         <span
           data-kind={r.kind}
           className={cn(
-            "font-mono text-[11px] font-bold uppercase tracking-[0.15em] px-3 py-1 border",
+            "font-mono text-[0.6875rem] font-bold uppercase tracking-[0.15em] px-3 py-1 border",
             r.kind === "LAN"
               ? "border-accent text-accent bg-accent/10"
               : r.kind === "WAN"
@@ -169,7 +169,7 @@ export function ScaleLab() {
         >
           {r.kind}
         </span>
-        <span className="font-mono text-[10px] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] text-muted-foreground">
           {KIND_LABEL[r.kind]}
         </span>
       </div>
@@ -177,12 +177,12 @@ export function ScaleLab() {
       <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 mb-6">
         {rows.map((row) => (
           <div key={row.k} className="border border-border p-3">
-            <div className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5rem] uppercase tracking-[0.1em] text-muted-foreground mb-1">
               {row.k}
             </div>
             <div
               className={cn(
-                "font-mono text-[11px] font-bold",
+                "font-mono text-[0.6875rem] font-bold",
                 row.bad ? "text-primary" : "text-accent",
               )}
               data-row={row.k}
@@ -288,11 +288,11 @@ export function InsideOrOutLab() {
       footer="একজন ইঞ্জিনিয়ারের সবচেয়ে কাজের অভ্যাসগুলোর একটা হলো, যেকোনো কথা শুনে সাথে সাথে বোঝা সেটা LAN এ থাকছে নাকি WAN এ যাচ্ছে। ভেতরে থাকলে দ্রুত, বিনামূল্যে, নিরাপদ। বাইরে গেলে ধীর, Data খরচ, আর সাবধানতা লাগে। এই এক প্রশ্নের উত্তরই ঠিক করে দেয় Database কোথায় বসবে, কোন কথায় Timeout লাগবে, আর কোথায় খাম বন্ধ করতে হবে।"
     >
       <div className="flex items-baseline justify-between mb-4">
-        <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground">
           দৃশ্য {toBn(i + 1)} / {toBn(SCENES.length)}
         </span>
         <span
-          className="font-mono text-[10px] text-muted-foreground"
+          className="font-mono text-[0.625rem] text-muted-foreground"
           data-score={score}
         >
           ঠিক <span className="text-primary font-bold">{toBn(score)}</span> /{" "}
@@ -301,7 +301,7 @@ export function InsideOrOutLab() {
       </div>
 
       <div className="border border-border bg-background p-4 mb-4">
-        <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] mb-3">
+        <div className="flex flex-wrap items-center gap-2 font-mono text-[0.6875rem] mb-3">
           <span className="px-2 py-1 border border-border text-foreground">
             {s.from}
           </span>
@@ -319,7 +319,7 @@ export function InsideOrOutLab() {
           disabled={answered}
           data-choice="stays"
           className={cn(
-            "px-4 py-3 border font-mono text-[11px] font-bold uppercase tracking-[0.1em] transition-colors",
+            "px-4 py-3 border font-mono text-[0.6875rem] font-bold uppercase tracking-[0.1em] transition-colors",
             !answered &&
               "border-border hover:border-accent/60 hover:bg-accent/5 cursor-pointer",
             answered && s.stays && "border-accent bg-accent/10 text-accent",
@@ -337,7 +337,7 @@ export function InsideOrOutLab() {
           disabled={answered}
           data-choice="goes"
           className={cn(
-            "px-4 py-3 border font-mono text-[11px] font-bold uppercase tracking-[0.1em] transition-colors",
+            "px-4 py-3 border font-mono text-[0.6875rem] font-bold uppercase tracking-[0.1em] transition-colors",
             !answered &&
               "border-border hover:border-primary/60 hover:bg-primary/5 cursor-pointer",
             answered && !s.stays && "border-accent bg-accent/10 text-accent",
@@ -367,7 +367,7 @@ export function InsideOrOutLab() {
         >
           <span
             className={cn(
-              "font-mono text-[9px] font-bold uppercase tracking-[0.15em] block mb-1",
+              "font-mono text-[0.5625rem] font-bold uppercase tracking-[0.15em] block mb-1",
               correct ? "text-accent" : "text-primary",
             )}
           >
@@ -382,7 +382,7 @@ export function InsideOrOutLab() {
           onClick={() => setI((v) => (v + 1) % SCENES.length)}
           disabled={!answered}
           className={cn(
-            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-colors",
+            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] transition-colors",
             answered
               ? "border-primary/40 bg-primary/5 text-primary hover:bg-primary/10"
               : "border-border text-muted-foreground/40",

@@ -69,7 +69,7 @@ export const throttlingContent: TopicData = {
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-b border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         SECURITY
                                     </h4>
@@ -79,7 +79,7 @@ export const throttlingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-b border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         BUSINESS
                                     </h4>
@@ -89,7 +89,7 @@ export const throttlingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-yellow-500' />
                                         FAIRNESS
                                     </h4>
@@ -99,7 +99,7 @@ export const throttlingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-purple-500' />
                                         STABILITY
                                     </h4>
@@ -130,7 +130,7 @@ export const throttlingContent: TopicData = {
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-b border-border bg-card/30'>
-                                    <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
+                                    <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-3 font-mono uppercase tracking-widest text-[0.6875rem]'>
                                         Token Bucket
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed mb-3'>
@@ -147,7 +147,7 @@ export const throttlingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-b border-border bg-card/30'>
-                                    <h4 className='font-bold text-blue-700 dark:text-blue-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
+                                    <h4 className='font-bold text-blue-700 dark:text-blue-400 mb-3 font-mono uppercase tracking-widest text-[0.6875rem]'>
                                         Leaky Bucket
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed mb-3'>
@@ -163,7 +163,7 @@ export const throttlingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-yellow-700 dark:text-yellow-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
+                                    <h4 className='font-bold text-yellow-700 dark:text-yellow-400 mb-3 font-mono uppercase tracking-widest text-[0.6875rem]'>
                                         Fixed Window
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed mb-3'>
@@ -179,7 +179,7 @@ export const throttlingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-purple-700 dark:text-purple-400 mb-3 font-mono uppercase tracking-widest text-[11px]'>
+                                    <h4 className='font-bold text-purple-700 dark:text-purple-400 mb-3 font-mono uppercase tracking-widest text-[0.6875rem]'>
                                         Sliding Window
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed mb-3'>
@@ -272,7 +272,7 @@ export const throttlingContent: TopicData = {
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         PROBLEM — Local Counter
                                     </h4>
@@ -285,7 +285,7 @@ export const throttlingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         SOLUTION — Redis Shared Counter
                                     </h4>
@@ -519,7 +519,7 @@ app.use('/api/', rateLimit(100, 60000));       // 100 per min`,
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         STANDARD HEADERS
                                     </h4>
@@ -534,7 +534,7 @@ app.use('/api/', rateLimit(100, 60000));       // 100 per min`,
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         PRODUCTION TOOLS
                                     </h4>

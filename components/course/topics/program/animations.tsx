@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -56,14 +56,14 @@ function Controls({
     <div className="flex flex-wrap items-center gap-2 mb-8">
       <button
         onClick={onPlay}
-        className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+        className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
       >
         {running ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
         {running ? "Pause" : finished ? "আবার" : "Play"}
       </button>
       <button
         onClick={onStep}
-        className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+        className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
       >
         <SkipForward className="w-3 h-3" />
         Step
@@ -230,7 +230,7 @@ export function ProgramStartLab() {
               >
                 <span
                   className={cn(
-                    "font-mono text-[10px] pt-0.5 w-5 shrink-0",
+                    "font-mono text-[0.625rem] pt-0.5 w-5 shrink-0",
                     active ? "text-primary" : "text-muted-foreground/50",
                   )}
                 >
@@ -249,7 +249,7 @@ export function ProgramStartLab() {
                   {s.stage}
                 </span>
                 {active && (
-                  <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.15em] text-primary shrink-0 pt-1">
+                  <span className="ml-auto font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-primary shrink-0 pt-1">
                     {WHO_LABEL[frame.who]}
                   </span>
                 )}
@@ -261,10 +261,10 @@ export function ProgramStartLab() {
         {/* memory image */}
         <div className="border border-border bg-background p-4">
           <div className="flex items-baseline justify-between mb-3">
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground">
+            <span className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground">
               Memory
             </span>
-            <span className="font-mono text-[10px] text-primary">
+            <span className="font-mono text-[0.625rem] text-primary">
               PID {frame.pid ?? "নেই"}
             </span>
           </div>
@@ -283,7 +283,7 @@ export function ProgramStartLab() {
                 >
                   <span
                     className={cn(
-                      "font-mono text-[11px] font-bold",
+                      "font-mono text-[0.6875rem] font-bold",
                       on ? "text-primary" : "text-muted-foreground/30",
                     )}
                   >
@@ -291,7 +291,7 @@ export function ProgramStartLab() {
                   </span>
                   <span
                     className={cn(
-                      "font-mono text-[9px]",
+                      "font-mono text-[0.5625rem]",
                       on ? "text-muted-foreground" : "text-muted-foreground/25",
                     )}
                   >
@@ -436,7 +436,7 @@ export function SyscallTraceLab() {
               setPlaying(false);
             }}
             className={cn(
-              "px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.15em] transition-colors",
+              "px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] transition-colors",
               io
                 ? "border-accent bg-accent/10 text-accent"
                 : "border-border text-muted-foreground hover:text-foreground",
@@ -461,7 +461,7 @@ export function SyscallTraceLab() {
             >
               <code
                 className={cn(
-                  "font-mono text-xs sm:text-[13px] break-words",
+                  "font-mono text-xs sm:text-[0.8125rem] break-words",
                   active
                     ? "text-foreground"
                     : past
@@ -473,7 +473,7 @@ export function SyscallTraceLab() {
               </code>
               <span
                 className={cn(
-                  "font-mono text-[10px] whitespace-nowrap self-center",
+                  "font-mono text-[0.625rem] whitespace-nowrap self-center",
                   !l.kernel
                     ? active || past
                       ? "text-muted-foreground/70"
@@ -492,7 +492,7 @@ export function SyscallTraceLab() {
 
       <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground mb-1">
             এ পর্যন্ত Syscall
           </div>
           <div className="font-mono text-2xl font-bold text-primary">
@@ -680,7 +680,7 @@ export function CompilerStagesLab() {
           <div
             key={s.name}
             className={cn(
-              "px-3 py-1.5 border font-mono text-[9px] uppercase tracking-[0.1em] transition-colors duration-200",
+              "px-3 py-1.5 border font-mono text-[0.5625rem] uppercase tracking-[0.1em] transition-colors duration-200",
               idx === i
                 ? "border-primary bg-primary/10 text-primary"
                 : idx < i
@@ -695,10 +695,10 @@ export function CompilerStagesLab() {
 
       <div className="border border-border bg-background">
         <div className="flex items-baseline gap-3 px-5 py-3 border-b border-border bg-muted/20">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary">
+          <span className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary">
             {stage.name}
           </span>
-          <span className="font-mono text-[9px] text-muted-foreground">
+          <span className="font-mono text-[0.5625rem] text-muted-foreground">
             {stage.what}
           </span>
         </div>
@@ -932,17 +932,17 @@ export function StopSignalLab() {
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-1">
                 <span
                   className={cn(
-                    "font-mono text-[10px] font-bold uppercase tracking-[0.15em]",
+                    "font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em]",
                     mode.good ? "text-accent" : "text-primary",
                   )}
                 >
                   {mode.badge}
                 </span>
-                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground">
+                <span className="font-mono text-[0.5625rem] uppercase tracking-[0.1em] text-muted-foreground">
                   {mode.signal}
                 </span>
               </div>
-              <div className="font-mono text-[9px] text-muted-foreground/70 mb-4">
+              <div className="font-mono text-[0.5625rem] text-muted-foreground/70 mb-4">
                 {mode.sub}
               </div>
 
@@ -957,7 +957,7 @@ export function StopSignalLab() {
               >
                 <span
                   className={cn(
-                    "font-mono text-[11px] font-bold",
+                    "font-mono text-[0.6875rem] font-bold",
                     f.alive ? "text-primary" : "text-muted-foreground/40",
                   )}
                 >
@@ -965,7 +965,7 @@ export function StopSignalLab() {
                 </span>
                 <span
                   className={cn(
-                    "font-mono text-[9px] uppercase tracking-[0.1em]",
+                    "font-mono text-[0.5625rem] uppercase tracking-[0.1em]",
                     f.alive
                       ? "text-muted-foreground"
                       : "text-muted-foreground/40",
@@ -988,7 +988,7 @@ export function StopSignalLab() {
                     <div
                       key={idx}
                       className={cn(
-                        "flex items-center gap-2 px-3 py-1.5 border text-[11px] transition-colors duration-300",
+                        "flex items-center gap-2 px-3 py-1.5 border text-[0.6875rem] transition-colors duration-300",
                         state === "served"
                           ? "border-accent/50 bg-accent/10 text-accent"
                           : state === "waiting"
@@ -996,7 +996,7 @@ export function StopSignalLab() {
                             : "border-dashed border-border/50 text-muted-foreground/40 line-through",
                       )}
                     >
-                      <span className="font-mono text-[9px]">
+                      <span className="font-mono text-[0.5625rem]">
                         ইউজার {toBn(idx + 1)}
                       </span>
                       <span className="ml-auto">
@@ -1011,7 +1011,7 @@ export function StopSignalLab() {
                 })}
               </div>
 
-              <div className="pt-3 border-t border-border font-mono text-[10px]">
+              <div className="pt-3 border-t border-border font-mono text-[0.625rem]">
                 <span className="text-muted-foreground">সেবা পেলেন </span>
                 <span
                   className={cn(

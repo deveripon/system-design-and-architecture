@@ -186,7 +186,7 @@ export const youtubeContent: TopicData = {
                                     <span className='font-mono text-2xl font-bold text-primary block mb-1'>
                                         {card.num}
                                     </span>
-                                    <span className='font-mono text-[10px] uppercase tracking-wide text-muted-foreground'>
+                                    <span className='font-mono text-[0.625rem] uppercase tracking-wide text-muted-foreground'>
                                         {card.label}
                                     </span>
                                 </div>
@@ -1131,7 +1131,7 @@ https://cdn.youtube.com/video123/1080p/playlist.m3u8
                                     key={i}
                                     className='flex gap-3 items-start'>
                                     <span
-                                        className={`font-mono text-[11px] px-2 py-1 rounded flex-shrink-0 mt-0.5 ${
+                                        className={`font-mono text-[0.6875rem] px-2 py-1 rounded flex-shrink-0 mt-0.5 ${
                                             item.type === 'pro'
                                                 ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20'
                                                 : 'bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/20'

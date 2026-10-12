@@ -70,7 +70,7 @@ export const serviceDiscoveryContent: TopicData = {
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         <span className='text-red-700 dark:text-red-400'>
                                             ❌ Without Discovery
@@ -86,7 +86,7 @@ export const serviceDiscoveryContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ With Discovery
@@ -319,7 +319,7 @@ export const serviceDiscoveryContent: TopicData = {
                             </p>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border mb-4'>
                                 <div className='p-6 border-r border-border'>
-                                    <p className='font-mono text-[10px] text-purple-700 dark:text-purple-400 uppercase tracking-widest mb-3'>
+                                    <p className='font-mono text-[0.625rem] text-purple-700 dark:text-purple-400 uppercase tracking-widest mb-3'>
                                         POD A
                                     </p>
                                     <div className='flex gap-2'>
@@ -335,20 +335,20 @@ export const serviceDiscoveryContent: TopicData = {
                                             <p className='font-mono text-xs text-purple-700 dark:text-purple-300 font-bold'>
                                                 Envoy
                                             </p>
-                                            <p className='font-mono text-[9px] text-purple-700 dark:text-purple-400'>
+                                            <p className='font-mono text-[0.5625rem] text-purple-700 dark:text-purple-400'>
                                                 Sidecar
                                             </p>
-                                            <p className='font-mono text-[8px] text-muted-foreground'>
+                                            <p className='font-mono text-[0.5rem] text-muted-foreground'>
                                                 mTLS, LB
                                             </p>
-                                            <p className='font-mono text-[8px] text-muted-foreground'>
+                                            <p className='font-mono text-[0.5rem] text-muted-foreground'>
                                                 Circuit Breaker
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='p-6'>
-                                    <p className='font-mono text-[10px] text-emerald-700 dark:text-emerald-400 uppercase tracking-widest mb-3'>
+                                    <p className='font-mono text-[0.625rem] text-emerald-700 dark:text-emerald-400 uppercase tracking-widest mb-3'>
                                         POD B
                                     </p>
                                     <div className='flex gap-2'>
@@ -356,7 +356,7 @@ export const serviceDiscoveryContent: TopicData = {
                                             <p className='font-mono text-xs text-purple-700 dark:text-purple-300 font-bold'>
                                                 Envoy
                                             </p>
-                                            <p className='font-mono text-[9px] text-purple-700 dark:text-purple-400'>
+                                            <p className='font-mono text-[0.5625rem] text-purple-700 dark:text-purple-400'>
                                                 Sidecar
                                             </p>
                                         </div>
@@ -375,12 +375,12 @@ export const serviceDiscoveryContent: TopicData = {
                                 <p className='font-mono text-xs text-yellow-700 dark:text-yellow-400 font-bold'>
                                     mTLS Encrypted Channel
                                 </p>
-                                <p className='font-mono text-[9px] text-muted-foreground'>
+                                <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                     Mutual TLS · Auto cert rotation
                                 </p>
                             </div>
                             <div className='mt-3 border border-purple-500/30 rounded p-2 text-center bg-purple-500/5 mx-auto max-w-xs'>
-                                <p className='font-mono text-[9px] text-purple-700 dark:text-purple-400'>
+                                <p className='font-mono text-[0.5625rem] text-purple-700 dark:text-purple-400'>
                                     Istio Control Plane
                                 </p>
                             </div>
@@ -396,7 +396,7 @@ export const serviceDiscoveryContent: TopicData = {
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border border-b bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         🔐 mTLS
                                     </h4>
@@ -408,7 +408,7 @@ export const serviceDiscoveryContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-b bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         ⚖️ Load Balancing
                                     </h4>
@@ -419,7 +419,7 @@ export const serviceDiscoveryContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-yellow-500' />
                                         ⚡ Circuit Breaking
                                     </h4>
@@ -430,7 +430,7 @@ export const serviceDiscoveryContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-purple-500' />
                                         📊 Observability
                                     </h4>
@@ -631,7 +631,7 @@ spec:
                         <>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border border-b bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         ☸️ Kubernetes DNS
                                     </h4>
@@ -646,7 +646,7 @@ spec:
                                     </p>
                                 </div>
                                 <div className='p-8 border-b bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         🎬 Netflix Eureka
                                     </h4>
@@ -658,7 +658,7 @@ spec:
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         🌐 Istio (Google)
                                     </h4>
@@ -670,7 +670,7 @@ spec:
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-purple-500' />
                                         🔗 Consul (HashiCorp)
                                     </h4>

@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -61,7 +61,7 @@ export function WhoHasIpLab() {
       footer="খেয়াল করুন দুইটা জিনিস। প্রশ্নটা সবাই শোনে, কারণ A জানে না কার কাছে জিজ্ঞেস করবে, তাই Broadcast, সবাইকে একসাথে। কিন্তু উত্তর দেয় শুধু একজন, যার সেই IP। বাকিরা প্রশ্নটা শুনেই বোঝে এটা তাদের নয়, তাই চুপ থাকে, চিঠিটা ফেলে দেয়। তিনজন শুনল, একজন উত্তর দিল। এই কারণেই ARP এর প্রশ্ন সবার কাছে যায় কিন্তু জবাব আসে ঠিক জনের থেকে।"
     >
       <div className="flex flex-wrap items-center gap-3 mb-6">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
           A কার MAC চায়
         </span>
         {HOSTS.map((h, idx) => (
@@ -73,7 +73,7 @@ export function WhoHasIpLab() {
             }}
             data-target={idx}
             className={cn(
-              "px-3 py-1.5 border font-mono text-[10px] transition-colors",
+              "px-3 py-1.5 border font-mono text-[0.625rem] transition-colors",
               targetIdx === idx
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground",
@@ -86,8 +86,8 @@ export function WhoHasIpLab() {
 
       <div className="border border-border bg-background p-6">
         <div className="mx-auto mb-6 w-40 py-2 border border-primary bg-primary/5 text-center">
-          <div className="font-mono text-[11px] font-bold text-primary">A</div>
-          <div className="font-mono text-[8px] text-muted-foreground">
+          <div className="font-mono text-[0.6875rem] font-bold text-primary">A</div>
+          <div className="font-mono text-[0.5rem] text-muted-foreground">
             {sent ? `${target.ip} এর MAC চায়` : "জিজ্ঞেস করতে প্রস্তুত"}
           </div>
         </div>
@@ -119,12 +119,12 @@ export function WhoHasIpLab() {
                 >
                   {h.name}
                 </div>
-                <div className="font-mono text-[8px] text-muted-foreground">
+                <div className="font-mono text-[0.5rem] text-muted-foreground">
                   {h.ip}
                 </div>
                 <div
                   className={cn(
-                    "mt-2 font-mono text-[9px]",
+                    "mt-2 font-mono text-[0.5625rem]",
                     replied
                       ? "text-primary font-bold"
                       : heard
@@ -147,7 +147,7 @@ export function WhoHasIpLab() {
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <button
           onClick={() => setSent(true)}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
         >
           <Send className="w-3 h-3" /> চেঁচিয়ে জিজ্ঞেস করুন
         </button>
@@ -164,7 +164,7 @@ export function WhoHasIpLab() {
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.25, ease: EASE }}
-            className="font-mono text-[11px] text-muted-foreground"
+            className="font-mono text-[0.6875rem] text-muted-foreground"
           >
             শুনল{" "}
             <span
@@ -261,7 +261,7 @@ export function CacheLab() {
             data-step={idx}
             data-active={idx === i ? "true" : "false"}
             className={cn(
-              "px-3 py-1.5 border font-mono text-[9px] transition-colors",
+              "px-3 py-1.5 border font-mono text-[0.5625rem] transition-colors",
               idx === i
                 ? "border-primary bg-primary/10 text-primary"
                 : idx < i
@@ -276,7 +276,7 @@ export function CacheLab() {
 
       <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4 items-start">
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
             এই ধাপে
           </div>
           <div className="text-base font-bold text-foreground mb-3">
@@ -286,7 +286,7 @@ export function CacheLab() {
             <span
               data-cache={s.cached ? "hit" : "miss"}
               className={cn(
-                "px-3 py-1 border font-mono text-[9px] font-bold uppercase tracking-[0.1em]",
+                "px-3 py-1 border font-mono text-[0.5625rem] font-bold uppercase tracking-[0.1em]",
                 s.cached
                   ? "border-accent text-accent bg-accent/10"
                   : "border-border text-muted-foreground",
@@ -297,7 +297,7 @@ export function CacheLab() {
             <span
               data-broadcast={s.broadcast ? "true" : "false"}
               className={cn(
-                "px-3 py-1 border font-mono text-[9px] font-bold uppercase tracking-[0.1em]",
+                "px-3 py-1 border font-mono text-[0.5625rem] font-bold uppercase tracking-[0.1em]",
                 s.broadcast
                   ? "border-primary text-primary bg-primary/10"
                   : "border-border text-muted-foreground/40",
@@ -316,7 +316,7 @@ export function CacheLab() {
                 : "border-primary/50 bg-primary/5",
             )}
           >
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               খরচ
             </div>
             <div
@@ -345,7 +345,7 @@ export function CacheLab() {
       <div className="mt-5 flex flex-wrap gap-2">
         <button
           onClick={() => setI((v) => (v + 1) % STEPS.length)}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
         >
           {i === STEPS.length - 1 ? "প্রথম থেকে" : "পরের ধাপ"}
         </button>
@@ -575,7 +575,7 @@ export function FullPathArpLab() {
               data-dir={d}
               data-active={dir === d ? "true" : "false"}
               className={cn(
-                "px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.12em] transition-colors",
+                "px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.12em] transition-colors",
                 dir === d
                   ? "border-primary bg-primary/10 text-primary"
                   : "border-border text-muted-foreground hover:text-foreground",
@@ -592,7 +592,7 @@ export function FullPathArpLab() {
             if (finished) setI(0);
             setPlaying((p) => !p);
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
         >
           {running ? (
             <Pause className="w-3 h-3" />
@@ -606,11 +606,11 @@ export function FullPathArpLab() {
             setPlaying(false);
             setI((v) => (v >= hops.length - 1 ? 0 : v + 1));
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
         >
           <SkipForward className="w-3 h-3" /> Step
         </button>
-        <span className="ml-auto font-mono text-[11px] text-muted-foreground">
+        <span className="ml-auto font-mono text-[0.6875rem] text-muted-foreground">
           এই দিকে ARP{" "}
           <span
             className={cn(
@@ -632,7 +632,7 @@ export function FullPathArpLab() {
               data-station={idx}
               data-active={idx === i ? "true" : "false"}
               className={cn(
-                "px-2.5 py-1.5 border font-mono text-[8.5px] transition-colors whitespace-nowrap",
+                "px-2.5 py-1.5 border font-mono text-[0.53125rem] transition-colors whitespace-nowrap",
                 idx === i
                   ? st.edgeArp
                     ? "border-accent bg-accent/10 text-accent"
@@ -645,7 +645,7 @@ export function FullPathArpLab() {
               {st.name}
             </div>
             {idx < hops.length - 1 && (
-              <span className="text-muted-foreground/40 font-mono text-[9px]">
+              <span className="text-muted-foreground/40 font-mono text-[0.5625rem]">
                 {dir === "req" ? ">" : "<"}
               </span>
             )}
@@ -656,35 +656,35 @@ export function FullPathArpLab() {
       {/* the per-hop card */}
       <div className="border border-border bg-background p-5">
         <div className="flex flex-wrap items-baseline gap-2 mb-4">
-          <span className="font-mono text-[11px] font-bold text-primary">
+          <span className="font-mono text-[0.6875rem] font-bold text-primary">
             {h.name}
           </span>
-          <span className="font-mono text-[9px] text-muted-foreground">
+          <span className="font-mono text-[0.5625rem] text-muted-foreground">
             {h.role}
           </span>
-          <span className="ml-auto font-mono text-[8.5px] uppercase tracking-[0.12em] text-muted-foreground">
+          <span className="ml-auto font-mono text-[0.53125rem] uppercase tracking-[0.12em] text-muted-foreground">
             {dir === "req" ? "অনুরোধ" : "উত্তর"}
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
           <div className="border border-accent/40 bg-accent/5 px-3 py-2">
-            <div className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5rem] uppercase tracking-[0.1em] text-muted-foreground mb-1">
               IP জোড়া (এই দিকে এক থাকে)
             </div>
             <div
-              className="font-mono text-[11px] text-accent font-bold"
+              className="font-mono text-[0.6875rem] text-accent font-bold"
               data-ip={`${h.ipSrc}->${h.ipDst}`}
             >
               {h.ipSrc} {"->"} {h.ipDst}
             </div>
           </div>
           <div className="border border-primary/40 bg-primary/5 px-3 py-2">
-            <div className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5rem] uppercase tracking-[0.1em] text-muted-foreground mb-1">
               MAC জোড়া (প্রতি Hop এ নতুন)
             </div>
             <div
-              className="font-mono text-[11px] text-primary font-bold"
+              className="font-mono text-[0.6875rem] text-primary font-bold"
               data-mac={`${h.macSrc}->${h.macDst}`}
             >
               {h.macSrc} {"->"} {h.macDst}
@@ -703,12 +703,12 @@ export function FullPathArpLab() {
           )}
         >
           <div className="flex flex-wrap items-center gap-2">
-            <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+            <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
               ARP খোঁজে
             </span>
             <span
               className={cn(
-                "font-mono text-[12px] font-bold",
+                "font-mono text-[0.75rem] font-bold",
                 h.edgeArp ? "text-accent" : "text-primary",
               )}
               data-arp-target={h.arpTarget}
@@ -718,7 +718,7 @@ export function FullPathArpLab() {
             <span
               data-fires={h.arpFires ? "true" : "false"}
               className={cn(
-                "ml-auto px-2 py-0.5 border font-mono text-[8.5px] font-bold uppercase tracking-[0.1em]",
+                "ml-auto px-2 py-0.5 border font-mono text-[0.53125rem] font-bold uppercase tracking-[0.1em]",
                 h.arpFires
                   ? "border-primary text-primary"
                   : "border-accent text-accent",
@@ -728,7 +728,7 @@ export function FullPathArpLab() {
             </span>
           </div>
           {h.edgeArp && (
-            <div className="mt-2 font-mono text-[9px] text-accent">
+            <div className="mt-2 font-mono text-[0.5625rem] text-accent">
               {dir === "req"
                 ? "পুরো পথে একমাত্র এখানেই সত্যিকারের Server কে ARP"
                 : "শেষ হাত, Laptop এই LAN এ, তবু MAC আগেই জানা ছিল"}

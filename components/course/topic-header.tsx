@@ -40,8 +40,8 @@ export function TopicHeader({
 function Badge({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-1 px-4 md:px-6 py-2 md:py-3 bg-card flex-1 sm:min-w-[140px]">
-      <span className="text-[8px] md:text-[9px] font-mono font-bold uppercase tracking-widest text-muted-foreground">{label}</span>
-      <span className="text-[10px] md:text-xs font-bold uppercase tracking-tight">{value}</span>
+      <span className="text-[0.5rem] md:text-[0.5625rem] font-mono font-bold uppercase tracking-widest text-muted-foreground">{label}</span>
+      <span className="text-[0.625rem] md:text-xs font-bold uppercase tracking-tight">{value}</span>
     </div>
   );
 }

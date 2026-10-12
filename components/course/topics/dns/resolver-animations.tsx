@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -125,7 +125,7 @@ export function ResolverMemoryLab() {
             onClick={() => ask(a)}
             data-ask={a.name}
             className={cn(
-              "px-3 py-2 border font-mono text-[11px] font-bold transition-colors",
+              "px-3 py-2 border font-mono text-[0.6875rem] font-bold transition-colors",
               out?.name === a.name
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -158,8 +158,8 @@ export function ResolverMemoryLab() {
                   : "border-border text-muted-foreground/60",
               )}
             >
-              <div className="font-mono text-[11px] font-bold">{h}</div>
-              <div className="mt-1 text-[10px]">
+              <div className="font-mono text-[0.6875rem] font-bold">{h}</div>
+              <div className="mt-1 text-[0.625rem]">
                 {out ? (used ? "যেতে হলো" : "বাদ") : "অপেক্ষায়"}
               </div>
             </div>
@@ -177,7 +177,7 @@ export function ResolverMemoryLab() {
       >
         {out ? (
           <>
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               {out.name}
             </div>
             <div className="text-base font-bold text-primary mb-1">
@@ -195,10 +195,10 @@ export function ResolverMemoryLab() {
       </motion.div>
 
       <div className="border border-border bg-background p-4">
-        <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-3">
+        <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-3">
           Resolver এর খাতায় এখন যা আছে
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[0.6875rem]">
           <div>
             <div className="font-bold text-foreground mb-1">চেনা TLD server</div>
             <div className="font-mono text-muted-foreground break-all">
@@ -290,7 +290,7 @@ export function ResolverPickerLab() {
             data-resolver={ch.id}
             data-active={ch.id === id ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border text-left text-[12px] font-bold transition-colors",
+              "px-3 py-2 border text-left text-[0.75rem] font-bold transition-colors",
               ch.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -311,26 +311,26 @@ export function ResolverPickerLab() {
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               ঠিকানা
             </div>
             <div className="font-mono text-sm font-bold text-primary">{c.ips}</div>
           </div>
           <div>
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               কে চালায়
             </div>
             <div className="text-sm font-bold text-foreground">{c.who}</div>
           </div>
         </div>
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             ভালো দিক
           </div>
           <div className="text-sm text-foreground leading-relaxed">{c.good}</div>
         </div>
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             খেয়াল রাখুন
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">{c.watch}</div>

@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -86,7 +86,7 @@ export function NatTableLab() {
       {/* the table */}
       <div className="border border-border bg-background overflow-x-auto mb-6">
         <div className="min-w-[560px]">
-          <div className="grid grid-cols-[1.4fr_1.2fr_1.1fr] gap-2 px-4 py-2 border-b border-border bg-muted/20 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="grid grid-cols-[1.4fr_1.2fr_1.1fr] gap-2 px-4 py-2 border-b border-border bg-muted/20 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             <span>ভেতরের (Private)</span>
             <span>বাইরের Port</span>
             <span>কার সাথে</span>
@@ -105,19 +105,19 @@ export function NatTableLab() {
               >
                 <span
                   className={cn(
-                    "font-mono text-[11px] font-bold",
+                    "font-mono text-[0.6875rem] font-bold",
                     active ? "text-primary" : "text-foreground",
                   )}
                 >
                   {r.inside}
                 </span>
-                <span className="font-mono text-[11px] text-muted-foreground">
+                <span className="font-mono text-[0.6875rem] text-muted-foreground">
                   {PUBLIC_IP}:
                   <span className={active ? "text-primary font-bold" : "text-foreground"}>
                     {r.pubPort}
                   </span>
                 </span>
-                <span className="font-mono text-[10px] text-muted-foreground">
+                <span className="font-mono text-[0.625rem] text-muted-foreground">
                   {r.who}
                 </span>
               </div>
@@ -128,7 +128,7 @@ export function NatTableLab() {
 
       {/* reply chooser */}
       <div className="flex flex-wrap items-center gap-2 mb-5">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           উত্তর ফিরল
         </span>
         {CHOICES.map((p) => (
@@ -137,7 +137,7 @@ export function NatTableLab() {
             onClick={() => setPort(p)}
             data-port={p}
             className={cn(
-              "px-3 py-1.5 border font-mono text-[11px] font-bold transition-colors",
+              "px-3 py-1.5 border font-mono text-[0.6875rem] font-bold transition-colors",
               port === p
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",

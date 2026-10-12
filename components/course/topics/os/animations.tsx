@@ -20,10 +20,10 @@ function Panel({
     return (
         <figure className='my-10 border border-border bg-card'>
             <figcaption className='flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30'>
-                <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
+                <span className='font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary'>
                     {label}
                 </span>
-                <span className='font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground'>
+                <span className='font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground'>
                     {title}
                 </span>
             </figcaption>
@@ -92,7 +92,7 @@ export function SchedulerLab() {
                         if (finished) setI(0);
                         setPlaying(p => !p);
                     }}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
                     {running ? <Pause className='w-3 h-3' /> : <Play className='w-3 h-3' />}
                     {running ? 'Pause' : finished ? 'আবার' : 'Play'}
                 </button>
@@ -101,7 +101,7 @@ export function SchedulerLab() {
                         setPlaying(false);
                         step();
                     }}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <SkipForward className='w-3 h-3' />
                     Step
                 </button>
@@ -114,7 +114,7 @@ export function SchedulerLab() {
                     className='inline-flex items-center justify-center w-9 h-9 border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <RotateCcw className='w-3 h-3' />
                 </button>
-                <span className='ml-auto font-mono text-[10px] text-muted-foreground tabular-nums'>
+                <span className='ml-auto font-mono text-[0.625rem] text-muted-foreground tabular-nums'>
                     Slice {toBn(i + 1)} / {toBn(SLICES.length)}
                 </span>
             </div>
@@ -145,11 +145,11 @@ export function SchedulerLab() {
                             {holding ? (
                                 <motion.span
                                     layoutId={reduce ? undefined : 'core-chip'}
-                                    className='px-3 py-1 bg-primary text-primary-foreground font-mono text-[9px] font-bold uppercase tracking-[0.15em] whitespace-nowrap'>
+                                    className='px-3 py-1 bg-primary text-primary-foreground font-mono text-[0.5625rem] font-bold uppercase tracking-[0.15em] whitespace-nowrap'>
                                     CORE
                                 </motion.span>
                             ) : (
-                                <span className='px-3 py-1 font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground/50 whitespace-nowrap'>
+                                <span className='px-3 py-1 font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground/50 whitespace-nowrap'>
                                     অপেক্ষায়
                                 </span>
                             )}
@@ -227,7 +227,7 @@ export function SyscallLab() {
                             setI(0);
                         }}
                         className={cn(
-                            'px-4 py-2 border font-mono text-[10px] uppercase tracking-[0.12em] transition-colors',
+                            'px-4 py-2 border font-mono text-[0.625rem] uppercase tracking-[0.12em] transition-colors',
                             key === action
                                 ? 'border-primary bg-primary/10 text-primary'
                                 : 'border-border text-muted-foreground hover:text-foreground hover:border-primary/40'
@@ -237,7 +237,7 @@ export function SyscallLab() {
                 ))}
                 <button
                     onClick={() => setI(v => (v + 1) % current.steps.length)}
-                    className='ml-auto inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
+                    className='ml-auto inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
                     <SkipForward className='w-3 h-3' />
                     পরের ধাপ
                 </button>
@@ -257,7 +257,7 @@ export function SyscallLab() {
                             )}>
                             <span
                                 className={cn(
-                                    'font-mono text-[10px] font-bold uppercase tracking-[0.15em] w-28',
+                                    'font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] w-28',
                                     here ? 'text-primary' : 'text-muted-foreground/60'
                                 )}>
                                 {layer}
@@ -269,7 +269,7 @@ export function SyscallLab() {
                                 />
                             )}
                             {layer === 'SYSCALL' && (
-                                <span className='ml-auto font-mono text-[10px] text-muted-foreground'>
+                                <span className='ml-auto font-mono text-[0.625rem] text-muted-foreground'>
                                     {current.call}
                                 </span>
                             )}
@@ -279,7 +279,7 @@ export function SyscallLab() {
             </div>
 
             <div className='mt-6 flex items-start gap-4'>
-                <span className='font-mono text-[10px] text-muted-foreground tabular-nums pt-1 shrink-0'>
+                <span className='font-mono text-[0.625rem] text-muted-foreground tabular-nums pt-1 shrink-0'>
                     {toBn(i + 1)} / {toBn(current.steps.length)}
                 </span>
                 <motion.p

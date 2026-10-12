@@ -32,12 +32,12 @@ export function Sketch({
     return (
         <figure className='my-10 border border-border bg-card'>
             <figcaption className='flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30'>
-                <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
+                <span className='font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary'>
                     {label}
                 </span>
                 {/* On a phone the drawing is wider than the screen, so say so
                     rather than leaving the reader to discover it. */}
-                <span className='sm:hidden inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground'>
+                <span className='sm:hidden inline-flex items-center gap-1 font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground'>
                     <MoveHorizontal className='w-3 h-3' />
                     টেনে দেখুন
                 </span>
@@ -86,7 +86,7 @@ export function SketchSplit({
     return (
         <figure className='my-10 border border-border bg-card'>
             <figcaption className='px-5 py-3 border-b border-border bg-muted/30'>
-                <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
+                <span className='font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary'>
                     {label}
                 </span>
             </figcaption>
@@ -94,11 +94,11 @@ export function SketchSplit({
                 {panels.map(panel => (
                     <div key={panel.title} className='p-5 md:p-6'>
                         <div className='flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-4'>
-                            <span className='font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary'>
+                            <span className='font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary'>
                                 {panel.title}
                             </span>
                             {panel.sub && (
-                                <span className='font-mono text-[9px] text-muted-foreground'>
+                                <span className='font-mono text-[0.5625rem] text-muted-foreground'>
                                     {panel.sub}
                                 </span>
                             )}

@@ -48,7 +48,7 @@ export function CollapsibleCodeExample({
                         )}
                     </div>
                 </div>
-                <button className='flex items-center gap-2 px-3 py-1.5 border border-border bg-muted/5 hover:bg-muted/20 transition-all font-mono text-[10px] uppercase tracking-widest text-muted-foreground'>
+                <button className='flex items-center gap-2 px-3 py-1.5 border border-border bg-muted/5 hover:bg-muted/20 transition-all font-mono text-[0.625rem] uppercase tracking-widest text-muted-foreground'>
                     {isExpanded ? 'Collapse' : 'Expand'}
                     <ChevronDown
                         className={cn(

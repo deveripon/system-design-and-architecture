@@ -1,4 +1,5 @@
 import { GoogleAnalytics } from '@/components/google-analytics';
+import { SearchProvider } from '@/components/site/search/search-provider';
 import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 import type { Metadata, Viewport } from 'next';
@@ -130,7 +131,7 @@ export default function RootLayout({
                     defaultTheme='dark'
                     enableSystem
                     disableTransitionOnChange>
-                    {children}
+                    <SearchProvider>{children}</SearchProvider>
                 </ThemeProvider>
                 <GoogleAnalytics
                     measurementId={

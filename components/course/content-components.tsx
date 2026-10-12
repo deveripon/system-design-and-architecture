@@ -43,7 +43,7 @@ export function FeatureCard({ title, children, iconColor = "primary", className 
   return (
     <div className={cn("p-6 md:p-10 border-r border-b border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors group", className)}>
       <div className="flex flex-col gap-6 md:gap-8">
-        <h4 className="font-bold flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]">
+        <h4 className="font-bold flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]">
           <span className={cn("w-1.5 h-1.5 rounded-full", colorClass)} />
           {title}
         </h4>
@@ -77,7 +77,7 @@ export function ProConItem({ title, badge, children, isLast = false, type = "pos
     
     return (
         <div className={cn("p-8 bg-card/30", !isLast && "border-b md:border-b-0 md:border-r border-border")}>
-            <h4 className="font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]">
+            <h4 className="font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]">
                 <span className={cn("w-1.5 h-1.5", dotColor)} />
                 {title} <span className={badgeColor}>{badge}</span>
             </h4>

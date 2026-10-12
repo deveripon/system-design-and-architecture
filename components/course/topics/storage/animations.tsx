@@ -20,10 +20,10 @@ function Panel({
     return (
         <figure className='my-10 border border-border bg-card'>
             <figcaption className='flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30'>
-                <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
+                <span className='font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary'>
                     {label}
                 </span>
-                <span className='font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground'>
+                <span className='font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground'>
                     {title}
                 </span>
             </figcaption>
@@ -86,7 +86,7 @@ export function SeekRaceLab() {
                         if (finished) setDone(0);
                         setPlaying(p => !p);
                     }}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
                     {running ? <Pause className='w-3 h-3' /> : <Play className='w-3 h-3' />}
                     {running ? 'Pause' : finished ? 'আবার' : 'Play'}
                 </button>
@@ -95,7 +95,7 @@ export function SeekRaceLab() {
                         setPlaying(false);
                         step();
                     }}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <SkipForward className='w-3 h-3' />
                     Step
                 </button>
@@ -108,7 +108,7 @@ export function SeekRaceLab() {
                     className='inline-flex items-center justify-center w-9 h-9 border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <RotateCcw className='w-3 h-3' />
                 </button>
-                <span className='ml-auto font-mono text-[10px] text-muted-foreground tabular-nums'>
+                <span className='ml-auto font-mono text-[0.625rem] text-muted-foreground tabular-nums'>
                     {toBn(done)} / {toBn(TRACKS.length)} Read শেষ
                 </span>
             </div>
@@ -116,7 +116,7 @@ export function SeekRaceLab() {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                 {/* the platter */}
                 <div className='border border-border bg-background p-4'>
-                    <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-3'>
+                    <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-3'>
                         HDD
                     </span>
                     <div className='relative mx-auto w-44 h-44'>
@@ -150,7 +150,7 @@ export function SeekRaceLab() {
 
                 {/* the flash grid */}
                 <div className='border border-border bg-background p-4'>
-                    <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-3'>
+                    <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-3'>
                         SSD
                     </span>
                     <div className='grid grid-cols-4 gap-1.5'>
@@ -251,7 +251,7 @@ export function FileLookupLab() {
                         key={s.title}
                         onClick={() => setI(idx)}
                         className={cn(
-                            'w-8 h-8 border font-mono text-[11px] tabular-nums transition-colors',
+                            'w-8 h-8 border font-mono text-[0.6875rem] tabular-nums transition-colors',
                             idx === i
                                 ? 'border-primary bg-primary/10 text-primary'
                                 : idx < i
@@ -263,14 +263,14 @@ export function FileLookupLab() {
                 ))}
                 <button
                     onClick={() => setI(v => (v + 1) % LOOKUP.length)}
-                    className='ml-auto inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
+                    className='ml-auto inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
                     <SkipForward className='w-3 h-3' />
                     পরের ধাপ
                 </button>
             </div>
 
             <div className='border border-border bg-background p-5'>
-                <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-3'>
+                <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-3'>
                     এখন কোথায়
                 </span>
                 <motion.p

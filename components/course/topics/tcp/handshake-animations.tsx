@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -52,7 +52,7 @@ function Choice({
       onClick={onClick}
       {...rest}
       className={cn(
-        "px-3 py-1.5 border text-[11px] font-bold transition-colors text-left",
+        "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors text-left",
         active
           ? "border-primary bg-primary/10 text-primary"
           : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -149,7 +149,7 @@ export function HandshakeStepLab() {
           disabled={step === 0}
           data-action="prev"
           className={cn(
-            "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             step === 0
               ? "border-border text-muted-foreground/40"
               : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -162,7 +162,7 @@ export function HandshakeStepLab() {
           disabled={step === STEPS.length - 1}
           data-action="next"
           className={cn(
-            "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             step === STEPS.length - 1
               ? "border-border text-muted-foreground/40"
               : "border-primary bg-primary/10 text-primary hover:bg-primary/20",
@@ -177,20 +177,20 @@ export function HandshakeStepLab() {
         >
           <RotateCcw className="w-3 h-3" />
         </button>
-        <span className="font-mono text-[10px] text-muted-foreground" data-step={step}>
+        <span className="font-mono text-[0.625rem] text-muted-foreground" data-step={step}>
           {s.title}
         </span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr_1fr] gap-3 mb-6 items-stretch">
         <div className="border border-border bg-background px-3 py-3">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             ফোন, 192.168.1.20:51514
           </div>
           <div
             data-client-state={s.clientState}
             className={cn(
-              "mt-2 font-mono text-[13px] font-bold transition-colors",
+              "mt-2 font-mono text-[0.8125rem] font-bold transition-colors",
               s.clientState === "ESTABLISHED" ? "text-primary" : "text-foreground",
             )}
           >
@@ -213,32 +213,32 @@ export function HandshakeStepLab() {
             >
               <div className="flex items-center gap-2 text-primary">
                 {s.packet.dir === "left" && <ArrowLeft className="w-4 h-4" />}
-                <span className="font-mono text-[13px] font-bold">{s.packet.flag}</span>
+                <span className="font-mono text-[0.8125rem] font-bold">{s.packet.flag}</span>
                 {s.packet.dir === "right" && <ArrowRight className="w-4 h-4" />}
               </div>
               <ul className="mt-2 space-y-0.5">
                 {s.packet.fields.map((f) => (
-                  <li key={f} className="font-mono text-[10px] text-muted-foreground">
+                  <li key={f} className="font-mono text-[0.625rem] text-muted-foreground">
                     {f}
                   </li>
                 ))}
               </ul>
             </motion.div>
           ) : (
-            <div className="font-mono text-[10px] text-muted-foreground">
+            <div className="font-mono text-[0.625rem] text-muted-foreground">
               তারে এখনো কিছু নেই
             </div>
           )}
         </div>
 
         <div className="border border-border bg-background px-3 py-3">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             Server, 103.94.135.2:443
           </div>
           <div
             data-server-state={s.serverState}
             className={cn(
-              "mt-2 font-mono text-[13px] font-bold transition-colors",
+              "mt-2 font-mono text-[0.8125rem] font-bold transition-colors",
               s.serverState === "ESTABLISHED" ? "text-primary" : "text-foreground",
             )}
           >
@@ -248,7 +248,7 @@ export function HandshakeStepLab() {
       </div>
 
       <div className="border border-border mb-5">
-        <div className="grid grid-cols-[1fr_64px_64px] gap-x-2 px-3 py-2 border-b border-border bg-muted/30 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+        <div className="grid grid-cols-[1fr_64px_64px] gap-x-2 px-3 py-2 border-b border-border bg-muted/30 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
           <span>কে কী জানে</span>
           <span className="text-center">ফোন</span>
           <span className="text-center">Server</span>
@@ -258,12 +258,12 @@ export function HandshakeStepLab() {
             key={k.label}
             className="grid grid-cols-[1fr_64px_64px] gap-x-2 px-3 py-2 border-b last:border-b-0 border-border items-center"
           >
-            <span className="text-[12px] text-foreground">{k.label}</span>
+            <span className="text-[0.75rem] text-foreground">{k.label}</span>
             {[k.client, k.server].map((v, i) => (
               <span
                 key={i}
                 className={cn(
-                  "mx-auto w-9 text-center font-mono text-[10px] font-bold border py-0.5 transition-colors",
+                  "mx-auto w-9 text-center font-mono text-[0.625rem] font-bold border py-0.5 transition-colors",
                   v ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground/60",
                 )}
               >
@@ -375,12 +375,12 @@ export function ConnectOutcomeLab() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
           <div className="border border-border bg-background px-3 py-3">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
               তারে যা ঘটে
             </div>
             <ol className="space-y-1">
               {o.wire.map((w, i) => (
-                <li key={i} className="font-mono text-[11px] text-foreground">
+                <li key={i} className="font-mono text-[0.6875rem] text-foreground">
                   <span className="text-muted-foreground mr-2">{toBn(i + 1)}.</span>
                   {w}
                 </li>
@@ -389,22 +389,22 @@ export function ConnectOutcomeLab() {
           </div>
           <div className="border border-border bg-background px-3 py-3 space-y-2">
             <div>
-              <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+              <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
                 কতক্ষণ পরে জানবেন
               </div>
-              <div className="text-[12px] text-foreground">{o.wait}</div>
+              <div className="text-[0.75rem] text-foreground">{o.wait}</div>
             </div>
             <div>
-              <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+              <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
                 nc বা curl এ যা দেখবেন
               </div>
-              <div className="font-mono text-[11px] font-bold text-primary">{o.nc}</div>
+              <div className="font-mono text-[0.6875rem] font-bold text-primary">{o.nc}</div>
             </div>
             <div>
-              <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+              <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
                 আপনার Code এ যা আসবে
               </div>
-              <div className="font-mono text-[11px] font-bold text-primary">{o.code}</div>
+              <div className="font-mono text-[0.6875rem] font-bold text-primary">{o.code}</div>
             </div>
           </div>
         </div>
@@ -412,12 +412,12 @@ export function ConnectOutcomeLab() {
         <p className="text-sm leading-relaxed text-muted-foreground mb-4">{o.meaning}</p>
 
         <div className="border border-border px-3 py-3">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
             এরপর কোথায় খুঁজবেন
           </div>
           <ul className="space-y-1">
             {o.check.map((c) => (
-              <li key={c} className="text-[12px] text-foreground">
+              <li key={c} className="text-[0.75rem] text-foreground">
                 {c}
               </li>
             ))}
@@ -485,7 +485,7 @@ export function HandshakeCostLab() {
       footer="হিসাবটা সরল রাখা হয়েছে যাতে মূল কথাটা চোখে পড়ে। TCP Handshake এ এক Round Trip, তার উপর TLS 1.3 এর Handshake এ আরও এক Round Trip, তারপর আসল Request যেতে আর Response আসতে আরও এক। Server এর ভাবার সময় আর DNS এখানে ধরা হয়নি, আর Request গুলো একটার পর একটা যাচ্ছে ধরা হয়েছে। দূরত্ব বাড়িয়ে দেখুন, Handshake এর দাম সমান তালে বাড়ে, কারণ এটা Bandwidth এর ব্যাপার নয়, Latency র ব্যাপার। তারপর Request এর সংখ্যা বাড়ান, নিচের সারিটা কতটা এগিয়ে যায় দেখুন। Keep-Alive আর Connection Pool এর পুরো যুক্তি এই দুই সারির তফাতটুকু।"
     >
       <div className="flex flex-wrap items-center gap-2 mb-3">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           Server কত দূরে
         </span>
         {DISTANCES.map((d) => (
@@ -495,7 +495,7 @@ export function HandshakeCostLab() {
         ))}
       </div>
       <div className="flex flex-wrap items-center gap-2 mb-6">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           কয়টা Request
         </span>
         {COUNTS.map((c) => (
@@ -509,8 +509,8 @@ export function HandshakeCostLab() {
         {rows.map((r) => (
           <div key={r.id} data-row={r.id} data-total={r.total}>
             <div className="flex flex-wrap items-baseline justify-between gap-x-3 mb-1">
-              <span className="text-[12px] font-bold text-foreground">{r.name}</span>
-              <span className="font-mono text-[11px] font-bold text-primary">{ms(r.total)}</span>
+              <span className="text-[0.75rem] font-bold text-foreground">{r.name}</span>
+              <span className="font-mono text-[0.6875rem] font-bold text-primary">{ms(r.total)}</span>
             </div>
             <div className="flex h-5 w-full border border-border bg-background overflow-hidden">
               {r.parts.map((p) => (
@@ -528,7 +528,7 @@ export function HandshakeCostLab() {
 
       <div className="flex flex-wrap gap-x-4 gap-y-1 mb-5">
         {rows[0].parts.map((p) => (
-          <span key={p.label} className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground">
+          <span key={p.label} className="inline-flex items-center gap-1.5 text-[0.625rem] text-muted-foreground">
             <span className={cn("inline-block w-3 h-3", p.tone)} />
             {p.label}
           </span>

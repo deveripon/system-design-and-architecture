@@ -29,7 +29,7 @@ export function ByteAnatomyDiagram() {
                     </span>
                     <Link
                         href='/devops/reference/ascii-table'
-                        className='inline-flex items-center gap-2 shrink-0 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary hover:text-foreground transition-colors'>
+                        className='inline-flex items-center gap-2 shrink-0 font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary hover:text-foreground transition-colors'>
                         পুরো ASCII টেবিল
                         <ArrowRight className='w-3 h-3' />
                     </Link>

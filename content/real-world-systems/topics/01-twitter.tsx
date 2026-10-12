@@ -532,7 +532,7 @@ export const twitterContent: TopicData = {
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             {/* Functional */}
                             <div className='rounded-lg border border-border bg-card/50 p-5'>
-                                <p className='font-mono text-[11px] uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4 font-bold'>
+                                <p className='font-mono text-[0.6875rem] uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-4 font-bold'>
                                     ✅ Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -559,7 +559,7 @@ export const twitterContent: TopicData = {
                             </div>
                             {/* Non-Functional */}
                             <div className='rounded-lg border border-border bg-card/50 p-5'>
-                                <p className='font-mono text-[11px] uppercase tracking-widest text-purple-700 dark:text-purple-400 mb-4 font-bold'>
+                                <p className='font-mono text-[0.6875rem] uppercase tracking-widest text-purple-700 dark:text-purple-400 mb-4 font-bold'>
                                     ⚡ Non-Functional Requirements
                                 </p>
                                 <ul className='space-y-2'>
@@ -617,7 +617,7 @@ export const twitterContent: TopicData = {
                                     <span className='font-mono text-2xl font-bold text-primary block mb-1'>
                                         {card.num}
                                     </span>
-                                    <span className='font-mono text-[10px] text-muted-foreground uppercase tracking-wide'>
+                                    <span className='font-mono text-[0.625rem] text-muted-foreground uppercase tracking-wide'>
                                         {card.label}
                                     </span>
                                 </div>
@@ -1276,7 +1276,7 @@ LTRIM timeline:user123 0 799   -- Keep last 800 tweets only`,
                                     key={i}
                                     className='flex gap-3 items-start'>
                                     <span
-                                        className={`font-mono text-[11px] px-2 py-1 rounded flex-shrink-0 mt-0.5 ${
+                                        className={`font-mono text-[0.6875rem] px-2 py-1 rounded flex-shrink-0 mt-0.5 ${
                                             item.color === 'emerald'
                                                 ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20'
                                                 : 'bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/20'

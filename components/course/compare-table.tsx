@@ -16,7 +16,7 @@ export function CompareTable({ headers = [], rows = [] }: CompareTableProps) {
               {headers.map((header, idx) => (
                 <th 
                   key={idx} 
-                  className="px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-widest text-muted-foreground border-b border-border"
+                  className="px-6 py-4 font-mono text-[0.6875rem] font-bold uppercase tracking-widest text-muted-foreground border-b border-border"
                 >
                   {header}
                 </th>

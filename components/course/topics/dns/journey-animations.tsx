@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -179,7 +179,7 @@ export function JourneyScenarioLab() {
             data-scenario={sc.id}
             data-active={sc.id === id ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border text-left text-[12px] font-bold transition-colors",
+              "px-3 py-2 border text-left text-[0.75rem] font-bold transition-colors",
               sc.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -213,14 +213,14 @@ export function JourneyScenarioLab() {
                 st === "hit" && "border-primary/50 bg-primary/5",
               )}
             >
-              <span className="font-mono text-[11px] font-bold text-muted-foreground">
+              <span className="font-mono text-[0.6875rem] font-bold text-muted-foreground">
                 {toBn(i + 1)}
               </span>
-              <span className="text-[12px] font-bold text-foreground">{stage}</span>
-              <span className="text-[11px] text-muted-foreground leading-relaxed">
+              <span className="text-[0.75rem] font-bold text-foreground">{stage}</span>
+              <span className="text-[0.6875rem] text-muted-foreground leading-relaxed">
                 {s.texts[i]}
               </span>
-              <span className={cn("px-2 py-1 border text-center text-[10px] font-bold", b.cls)}>
+              <span className={cn("px-2 py-1 border text-center text-[0.625rem] font-bold", b.cls)}>
                 {b.text}
               </span>
             </div>
@@ -230,13 +230,13 @@ export function JourneyScenarioLab() {
 
       <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3">
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             মোটামুটি সময়
           </div>
           <div className="font-mono text-lg font-bold text-primary" data-ms={s.ms}>
             {toBn(s.ms)} ms
           </div>
-          <div className="mt-1 text-[10px] text-muted-foreground" data-used={used}>
+          <div className="mt-1 text-[0.625rem] text-muted-foreground" data-used={used}>
             {toBn(used)}টা ধাপ লাগল
           </div>
         </div>
@@ -335,13 +335,13 @@ export function DebugTreeLab() {
       footer="প্রতিটা ধাপে উপরের কমান্ডটা চালালে কী ফল পেতেন, সেটা বেছে নিন। সর্বোচ্চ চারটা প্রশ্নে আপনি ছয়টা সম্ভাব্য কারণের একটায় পৌঁছাবেন। আসল পরিস্থিতিতে ঠিক এই ক্রমেই এগোন, আর প্রতিটা ধাপে আসল কমান্ডটা চালান। ক্রমটাই জরুরি, কারণ প্রতিটা প্রশ্ন বাকি সম্ভাবনার অর্ধেক বাদ দেয়।"
     >
       <div className="flex flex-wrap items-center gap-2 mb-5">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
           ধাপ {toBn(path.length)}
         </span>
         <button
           onClick={() => setPath(["net"])}
           data-action="restart"
-          className="px-3 py-1 border border-border text-[11px] font-bold text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          className="px-3 py-1 border border-border text-[0.6875rem] font-bold text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
         >
           শুরু থেকে
         </button>
@@ -349,7 +349,7 @@ export function DebugTreeLab() {
           <button
             onClick={() => setPath((p) => p.slice(0, -1))}
             data-action="back"
-            className="px-3 py-1 border border-border text-[11px] font-bold text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+            className="px-3 py-1 border border-border text-[0.6875rem] font-bold text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
           >
             এক ধাপ পেছনে
           </button>
@@ -366,21 +366,21 @@ export function DebugTreeLab() {
         {node ? (
           <div className="border border-border bg-background p-5">
             <div className="text-base font-bold text-foreground mb-3">{node.q}</div>
-            <div className="font-mono text-[11px] text-accent break-all border border-border/60 bg-muted/30 px-3 py-2 mb-4">
+            <div className="font-mono text-[0.6875rem] text-accent break-all border border-border/60 bg-muted/30 px-3 py-2 mb-4">
               {node.cmd}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <button
                 onClick={() => setPath((p) => [...p, node.yes.to])}
                 data-answer="yes"
-                className="px-3 py-2 border border-primary/50 bg-primary/5 text-left text-[12px] font-bold text-primary hover:bg-primary/10 transition-colors"
+                className="px-3 py-2 border border-primary/50 bg-primary/5 text-left text-[0.75rem] font-bold text-primary hover:bg-primary/10 transition-colors"
               >
                 {node.yes.label}
               </button>
               <button
                 onClick={() => setPath((p) => [...p, node.no.to])}
                 data-answer="no"
-                className="px-3 py-2 border border-border text-left text-[12px] font-bold text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+                className="px-3 py-2 border border-border text-left text-[0.75rem] font-bold text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
               >
                 {node.no.label}
               </button>
@@ -388,7 +388,7 @@ export function DebugTreeLab() {
           </div>
         ) : (
           <div className="border border-primary/50 bg-primary/5 p-5" data-verdict={current}>
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               রায়
             </div>
             <div className="text-base font-bold text-primary mb-2">{verdict.title}</div>

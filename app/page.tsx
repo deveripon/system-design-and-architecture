@@ -157,7 +157,7 @@ export default function Home() {
                                 <div
                                     key={tip.title}
                                     className='p-6 md:p-12 border-r border-b border-border bg-muted/5 hover:bg-primary/5 dark:hover:bg-white/2 transition-colors last:border-r-0 md:even:border-r-border'>
-                                    <span className='font-mono text-[10px] text-muted-foreground/40 mb-6 block font-black'>
+                                    <span className='font-mono text-[0.625rem] text-muted-foreground/40 mb-6 block font-black'>
                                         0{idx + 1}
                                     </span>
                                     <h3 className='text-sm font-black uppercase tracking-widest text-primary mb-4'>

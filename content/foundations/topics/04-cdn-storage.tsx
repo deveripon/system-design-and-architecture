@@ -108,7 +108,7 @@ export const cdnStorageContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <div className='border border-border bg-card/30 rounded-sm p-6 my-4 overflow-x-auto'>
-                            <p className='font-mono text-[10px] text-muted-foreground uppercase tracking-[0.3em] mb-4'>
+                            <p className='font-mono text-[0.625rem] text-muted-foreground uppercase tracking-[0.3em] mb-4'>
                                 CDN GLOBAL ARCHITECTURE
                             </p>
                             <div className='flex flex-col items-center gap-4'>
@@ -117,7 +117,7 @@ export const cdnStorageContent: TopicData = {
                                     <p className='font-mono text-xs font-bold text-orange-700 dark:text-orange-400'>
                                         🏢 Origin Server
                                     </p>
-                                    <p className='font-mono text-[10px] text-muted-foreground'>
+                                    <p className='font-mono text-[0.625rem] text-muted-foreground'>
                                         USA (us-east-1)
                                     </p>
                                 </div>
@@ -129,7 +129,7 @@ export const cdnStorageContent: TopicData = {
                                             className='w-3 h-px bg-orange-500/50'
                                         />
                                     ))}
-                                    <span className='font-mono text-[9px] text-muted-foreground mx-2'>
+                                    <span className='font-mono text-[0.5625rem] text-muted-foreground mx-2'>
                                         distributes to PoPs
                                     </span>
                                     {[...Array(5)].map((_, i) => (
@@ -166,16 +166,16 @@ export const cdnStorageContent: TopicData = {
                                         <div
                                             key={pop.city}
                                             className='border border-emerald-500/40 bg-emerald-500/10 rounded px-3 py-2 text-center'>
-                                            <p className='font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-400'>
+                                            <p className='font-mono text-[0.625rem] font-bold text-emerald-700 dark:text-emerald-400'>
                                                 ⚡ PoP: {pop.city}
                                             </p>
-                                            <p className='font-mono text-[9px] text-muted-foreground'>
+                                            <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                                 {pop.users}
                                             </p>
                                         </div>
                                     ))}
                                 </div>
-                                <p className='font-mono text-[10px] text-blue-700 dark:text-blue-400 text-center'>
+                                <p className='font-mono text-[0.625rem] text-blue-700 dark:text-blue-400 text-center'>
                                     BD User → Singapore PoP: ~35ms ✓
                                     &nbsp;|&nbsp; Without CDN (USA): ~250ms ✗
                                 </p>
@@ -328,7 +328,7 @@ Cache-Control: no-store
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ S3 ব্যবহার করুন
@@ -342,7 +342,7 @@ Cache-Control: no-store
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         <span className='text-red-700 dark:text-red-400'>
                                             ❌ S3 ব্যবহার করুন না
@@ -451,7 +451,7 @@ Cache-Control: no-store
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <div className='border border-border bg-card/30 rounded-sm p-6 my-4 overflow-x-auto'>
-                            <p className='font-mono text-[10px] text-muted-foreground uppercase tracking-[0.3em] mb-6'>
+                            <p className='font-mono text-[0.625rem] text-muted-foreground uppercase tracking-[0.3em] mb-6'>
                                 S3 + CLOUDFRONT INTEGRATION
                             </p>
                             <div className='flex flex-col md:flex-row items-center justify-center gap-0'>
@@ -460,14 +460,14 @@ Cache-Control: no-store
                                     <p className='font-mono text-xs font-bold text-blue-700 dark:text-blue-400'>
                                         👤 User
                                     </p>
-                                    <p className='font-mono text-[9px] text-muted-foreground'>
+                                    <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                         Bangladesh
                                     </p>
                                 </div>
                                 {/* Arrow */}
                                 <div className='flex flex-col items-center px-2'>
                                     <div className='h-px w-12 md:w-8 bg-blue-500/50 hidden md:block' />
-                                    <p className='font-mono text-[8px] text-muted-foreground text-center'>
+                                    <p className='font-mono text-[0.5rem] text-muted-foreground text-center'>
                                         DNS lookup
                                     </p>
                                     <div className='h-px w-12 md:w-8 bg-blue-500/50 hidden md:block' />
@@ -477,20 +477,20 @@ Cache-Control: no-store
                                     <p className='font-mono text-xs font-bold text-yellow-700 dark:text-yellow-400'>
                                         ☁️ CloudFront
                                     </p>
-                                    <p className='font-mono text-[9px] text-muted-foreground'>
+                                    <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                         Edge: Singapore PoP
                                     </p>
-                                    <p className='font-mono text-[9px] text-emerald-700 dark:text-emerald-400 mt-1'>
+                                    <p className='font-mono text-[0.5625rem] text-emerald-700 dark:text-emerald-400 mt-1'>
                                         Cache HIT → serve ✓
                                     </p>
-                                    <p className='font-mono text-[9px] text-orange-700 dark:text-orange-400'>
+                                    <p className='font-mono text-[0.5625rem] text-orange-700 dark:text-orange-400'>
                                         Cache MISS → fetch origin
                                     </p>
                                 </div>
                                 {/* Dashed Arrow */}
                                 <div className='flex flex-col items-center px-2'>
                                     <div className='h-px w-12 md:w-8 bg-orange-500/50 border-dashed hidden md:block' />
-                                    <p className='font-mono text-[8px] text-muted-foreground text-center'>
+                                    <p className='font-mono text-[0.5rem] text-muted-foreground text-center'>
                                         on miss only
                                     </p>
                                     <div className='h-px w-12 md:w-8 bg-orange-500/50 hidden md:block' />
@@ -500,18 +500,18 @@ Cache-Control: no-store
                                     <p className='font-mono text-xs font-bold text-orange-700 dark:text-orange-400'>
                                         🗂️ S3 Origin
                                     </p>
-                                    <p className='font-mono text-[9px] text-muted-foreground'>
+                                    <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                         us-east-1
                                     </p>
-                                    <p className='font-mono text-[9px] text-muted-foreground'>
+                                    <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                         images/, videos/
                                     </p>
-                                    <p className='font-mono text-[9px] text-muted-foreground'>
+                                    <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                         static assets
                                     </p>
                                 </div>
                             </div>
-                            <p className='font-mono text-[10px] text-emerald-700 dark:text-emerald-400 text-center mt-4'>
+                            <p className='font-mono text-[0.625rem] text-emerald-700 dark:text-emerald-400 text-center mt-4'>
                                 95%+ requests served from edge — origin barely
                                 touched
                             </p>
@@ -567,11 +567,11 @@ Cache-Control: no-store
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <div className='border border-border bg-card/30 rounded-sm p-6 my-4 overflow-x-auto'>
-                            <p className='font-mono text-[10px] text-muted-foreground uppercase tracking-[0.3em] mb-1'>
+                            <p className='font-mono text-[0.625rem] text-muted-foreground uppercase tracking-[0.3em] mb-1'>
                                 Presigned URL: Direct S3 upload (API server
                                 bandwidth save হয়)
                             </p>
-                            <p className='font-mono text-[9px] text-blue-700 dark:text-blue-400 mb-6'>
+                            <p className='font-mono text-[0.5625rem] text-blue-700 dark:text-blue-400 mb-6'>
                                 UPLOAD FLOW DIAGRAM
                             </p>
                             {/* Step flow as horizontal diagram */}
@@ -584,7 +584,7 @@ Cache-Control: no-store
                                         </p>
                                     </div>
                                     <div className='flex flex-col items-center'>
-                                        <p className='font-mono text-[9px] text-muted-foreground'>
+                                        <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                             1. Request upload URL →
                                         </p>
                                     </div>
@@ -592,12 +592,12 @@ Cache-Control: no-store
                                         <p className='font-mono text-xs font-bold text-purple-700 dark:text-purple-400'>
                                             🔌 API Server
                                         </p>
-                                        <p className='font-mono text-[9px] text-muted-foreground'>
+                                        <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                             generate presigned URL
                                         </p>
                                     </div>
                                     <div className='flex flex-col items-center'>
-                                        <p className='font-mono text-[9px] text-purple-700 dark:text-purple-400'>
+                                        <p className='font-mono text-[0.5625rem] text-purple-700 dark:text-purple-400'>
                                             ← 2. presigned URL
                                         </p>
                                     </div>
@@ -610,7 +610,7 @@ Cache-Control: no-store
                                         </p>
                                     </div>
                                     <div className='flex flex-col items-center'>
-                                        <p className='font-mono text-[9px] text-orange-700 dark:text-orange-400'>
+                                        <p className='font-mono text-[0.5625rem] text-orange-700 dark:text-orange-400'>
                                             3. Direct upload to S3 (no server!)
                                             →
                                         </p>
@@ -619,7 +619,7 @@ Cache-Control: no-store
                                         <p className='font-mono text-xs font-bold text-orange-700 dark:text-orange-400'>
                                             🗂️ S3
                                         </p>
-                                        <p className='font-mono text-[9px] text-muted-foreground'>
+                                        <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                             raw-uploads/
                                         </p>
                                     </div>
@@ -627,18 +627,18 @@ Cache-Control: no-store
                                 {/* Row 3 */}
                                 <div className='flex flex-col md:flex-row items-start md:items-center gap-3 ml-0 md:ml-[calc(4px+90px+110px)]'>
                                     <div className='border border-yellow-500/40 bg-yellow-500/10 rounded px-4 py-2 text-center min-w-[90px]'>
-                                        <p className='font-mono text-[9px] text-yellow-700 dark:text-yellow-400'>
+                                        <p className='font-mono text-[0.5625rem] text-yellow-700 dark:text-yellow-400'>
                                             4. S3 Event →
                                         </p>
                                         <p className='font-mono text-xs font-bold text-yellow-700 dark:text-yellow-400'>
                                             ⚡ Lambda
                                         </p>
-                                        <p className='font-mono text-[9px] text-muted-foreground'>
+                                        <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                             resize: 800px, 400px, thumbnail
                                         </p>
                                     </div>
                                     <div className='flex flex-col items-center'>
-                                        <p className='font-mono text-[9px] text-emerald-700 dark:text-emerald-400'>
+                                        <p className='font-mono text-[0.5625rem] text-emerald-700 dark:text-emerald-400'>
                                             5. Store processed →
                                         </p>
                                     </div>
@@ -646,10 +646,10 @@ Cache-Control: no-store
                                         <p className='font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400'>
                                             S3 + CloudFront
                                         </p>
-                                        <p className='font-mono text-[9px] text-muted-foreground'>
+                                        <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                             cdn.app.com/
                                         </p>
-                                        <p className='font-mono text-[9px] text-muted-foreground'>
+                                        <p className='font-mono text-[0.5625rem] text-muted-foreground'>
                                             photo_800.webp
                                         </p>
                                     </div>

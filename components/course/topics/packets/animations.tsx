@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -136,7 +136,7 @@ function PacketChip({
       >
         {toBn(n)}
       </span>
-      <span className="font-mono text-[7px] text-muted-foreground">
+      <span className="font-mono text-[0.4375rem] text-muted-foreground">
         / {toBn(TOTAL)}
       </span>
     </div>
@@ -176,7 +176,7 @@ export function PacketJourneyLab() {
             if (finished) setI(0);
             setPlaying((p) => !p);
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
         >
           {running ? (
             <Pause className="w-3 h-3" />
@@ -190,7 +190,7 @@ export function PacketJourneyLab() {
             setPlaying(false);
             setI((v) => (v >= FRAMES.length - 1 ? 0 : v + 1));
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
         >
           <SkipForward className="w-3 h-3" /> Step
         </button>
@@ -208,12 +208,12 @@ export function PacketJourneyLab() {
 
       {/* wire */}
       <div className="mb-4">
-        <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+        <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
           রাস্তায়
         </div>
         <div className="flex flex-wrap gap-2 min-h-[48px] border border-dashed border-border/50 p-3">
           {inWire.length === 0 && (
-            <span className="font-mono text-[10px] text-muted-foreground/50 self-center">
+            <span className="font-mono text-[0.625rem] text-muted-foreground/50 self-center">
               সব পৌঁছে গেছে
             </span>
           )}
@@ -236,11 +236,11 @@ export function PacketJourneyLab() {
       {/* receiver, in arrival order */}
       <div>
         <div className="flex items-baseline justify-between mb-2">
-          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             ওপাশে পৌঁছানোর ক্রমে
           </span>
           <span
-            className="font-mono text-[9px] text-muted-foreground"
+            className="font-mono text-[0.5625rem] text-muted-foreground"
             data-arrived={f.arrived.length}
           >
             {toBn(f.arrived.length)} / {toBn(TOTAL)} এসেছে
@@ -248,7 +248,7 @@ export function PacketJourneyLab() {
         </div>
         <div className="flex flex-wrap gap-2 min-h-[48px] border border-border p-3 bg-background">
           {f.arrived.length === 0 && (
-            <span className="font-mono text-[10px] text-muted-foreground/50 self-center">
+            <span className="font-mono text-[0.625rem] text-muted-foreground/50 self-center">
               এখনো কিছু আসেনি
             </span>
           )}
@@ -266,7 +266,7 @@ export function PacketJourneyLab() {
         {f.resent && (
           <div
             data-status="reordered"
-            className="mt-3 px-4 py-2 border border-accent/50 bg-accent/10 font-mono text-[10px] text-accent"
+            className="mt-3 px-4 py-2 border border-accent/50 bg-accent/10 font-mono text-[0.625rem] text-accent"
           >
             Kernel সাজিয়ে দিল: ১ ২ ৩ ৪ ৫। Program পেল একটা নিখুঁত ফাইল।
           </div>
@@ -324,7 +324,7 @@ export function PipeLab() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
         <label className="block">
-          <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
+          <span className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
             Latency:{" "}
             <span className="text-primary font-bold" data-latency={latency}>
               {toBn(latency)} ms
@@ -340,12 +340,12 @@ export function PipeLab() {
             className="w-full accent-[var(--primary)]"
             aria-label="Latency"
           />
-          <span className="font-mono text-[8px] text-muted-foreground">
+          <span className="font-mono text-[0.5rem] text-muted-foreground">
             পাশের শহর ৫, Singapore ৬০, US ২২০
           </span>
         </label>
         <label className="block">
-          <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
+          <span className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
             Bandwidth:{" "}
             <span className="text-primary font-bold" data-bandwidth={bandwidth}>
               {toBn(bandwidth)} Mbps
@@ -360,7 +360,7 @@ export function PipeLab() {
             className="w-full accent-[var(--primary)]"
             aria-label="Bandwidth"
           />
-          <span className="font-mono text-[8px] text-muted-foreground">
+          <span className="font-mono text-[0.5rem] text-muted-foreground">
             পাইপ কত চওড়া, এক সেকেন্ডে কত ঢোকে
           </span>
         </label>
@@ -368,7 +368,7 @@ export function PipeLab() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="border border-border p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground mb-1">
             ছোট Chat message
           </div>
           <div
@@ -380,12 +380,12 @@ export function PipeLab() {
           <div className="text-xs text-muted-foreground mt-1">
             প্রথম Byte পৌঁছাতে, {feel(firstByteMs)}
           </div>
-          <div className="mt-3 font-mono text-[8px] text-muted-foreground/70">
+          <div className="mt-3 font-mono text-[0.5rem] text-muted-foreground/70">
             শুধু Latency এর উপর। Bandwidth এখানে কিছু করে না।
           </div>
         </div>
         <div className="border border-border p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground mb-1">
             {toBn(FILE_MB)} MB Video Download
           </div>
           <div
@@ -397,13 +397,13 @@ export function PipeLab() {
           <div className="text-xs text-muted-foreground mt-1">
             পুরোটা নামাতে, {feel(fileTotalMs)}
           </div>
-          <div className="mt-3 font-mono text-[8px] text-muted-foreground/70">
+          <div className="mt-3 font-mono text-[0.5rem] text-muted-foreground/70">
             প্রায় পুরোটাই Bandwidth এর উপর। Latency শুধু শুরুর ধাক্কা।
           </div>
         </div>
       </div>
 
-      <div className="mt-5 grid grid-cols-2 gap-3 font-mono text-[9px] text-muted-foreground">
+      <div className="mt-5 grid grid-cols-2 gap-3 font-mono text-[0.5625rem] text-muted-foreground">
         <button
           onClick={() => {
             setLatency(5);
@@ -411,7 +411,7 @@ export function PipeLab() {
           }}
           className="px-3 py-2 border border-border hover:border-primary/40 hover:text-foreground transition-colors text-left"
         >
-          <span className="block text-[10px] font-bold text-foreground">
+          <span className="block text-[0.625rem] font-bold text-foreground">
             পাশের শহর
           </span>
           কম Latency, মাঝারি Bandwidth
@@ -423,7 +423,7 @@ export function PipeLab() {
           }}
           className="px-3 py-2 border border-border hover:border-primary/40 hover:text-foreground transition-colors text-left"
         >
-          <span className="block text-[10px] font-bold text-foreground">
+          <span className="block text-[0.625rem] font-bold text-foreground">
             দূরের চওড়া লাইন
           </span>
           বেশি Latency, বেশি Bandwidth

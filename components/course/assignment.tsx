@@ -20,11 +20,11 @@ export function Assignment({ title, time, difficulty, tasks = [], deliverables =
         
         <div className="flex flex-col sm:flex-row gap-px bg-border border border-border shrink-0 w-full md:w-fit">
           <div className="px-6 py-3 bg-background flex flex-col gap-1 flex-1">
-            <span className="text-[9px] font-mono font-bold uppercase text-muted-foreground">Estimated Time</span>
+            <span className="text-[0.5625rem] font-mono font-bold uppercase text-muted-foreground">Estimated Time</span>
             <span className="text-xs font-bold uppercase tracking-tight">{time}</span>
           </div>
           <div className="px-6 py-3 bg-background flex flex-col gap-1 flex-1">
-            <span className="text-[9px] font-mono font-bold uppercase text-muted-foreground">Difficulty</span>
+            <span className="text-[0.5625rem] font-mono font-bold uppercase text-muted-foreground">Difficulty</span>
             <span className="text-xs font-bold uppercase tracking-tight">{difficulty}</span>
           </div>
         </div>
@@ -32,7 +32,7 @@ export function Assignment({ title, time, difficulty, tasks = [], deliverables =
 
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="p-6 md:p-10 space-y-8 border-b md:border-b-0 md:border-r border-border">
-          <h3 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-primary">Required Tasks</h3>
+          <h3 className="text-[0.625rem] font-mono font-bold uppercase tracking-[0.3em] text-primary">Required Tasks</h3>
           <ul className="space-y-6">
             {tasks.map((task, idx) => (
               <li key={idx} className="flex gap-4 md:gap-6 group">
@@ -44,7 +44,7 @@ export function Assignment({ title, time, difficulty, tasks = [], deliverables =
         </div>
 
         <div className="p-6 md:p-10 space-y-8 bg-muted/5">
-          <h3 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-primary">Deliverables</h3>
+          <h3 className="text-[0.625rem] font-mono font-bold uppercase tracking-[0.3em] text-primary">Deliverables</h3>
           <div className="space-y-4">
             {deliverables.map((item, idx) => (
               <div key={idx} className="flex items-center gap-4 p-4 border border-border bg-card group hover:border-primary/50 transition-colors">
@@ -54,7 +54,7 @@ export function Assignment({ title, time, difficulty, tasks = [], deliverables =
             ))}
           </div>
           <div className="pt-6 md:pt-8 mt-6 md:mt-8 border-t border-border">
-            <p className="text-[10px] md:text-[11px] font-mono text-muted-foreground leading-relaxed italic">
+            <p className="text-[0.625rem] md:text-[0.6875rem] font-mono text-muted-foreground leading-relaxed italic">
               Submit your work as a GitHub repository link or a PDF document.
             </p>
           </div>

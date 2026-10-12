@@ -24,7 +24,7 @@ export function OtherTrackCta() {
     >
       <span className="flex items-center gap-3">
         <track.Icon className="w-4 h-4 text-foreground" />
-        <span className="font-mono text-[12px] font-bold text-foreground">
+        <span className="font-mono text-[0.75rem] font-bold text-foreground">
           {track.label}
         </span>
       </span>

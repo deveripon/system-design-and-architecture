@@ -25,10 +25,10 @@ function Frame({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -197,7 +197,7 @@ export function ModuleRoadmap({
               href={`/devops/topic/${lesson.id}`}
               className="group flex h-full items-start gap-4 border border-border bg-background p-4 transition-colors hover:border-primary/50"
             >
-              <span className="font-mono text-[11px] font-bold text-primary pt-0.5">
+              <span className="font-mono text-[0.6875rem] font-bold text-primary pt-0.5">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="flex-1 min-w-0">
@@ -206,12 +206,12 @@ export function ModuleRoadmap({
                   <ArrowRight className="w-3.5 h-3.5 mt-1 shrink-0 text-muted-foreground group-hover:text-primary transition-colors" />
                 </span>
                 {questions[lesson.id] && (
-                  <span className="mt-1.5 block text-[13px] leading-relaxed text-muted-foreground">
+                  <span className="mt-1.5 block text-[0.8125rem] leading-relaxed text-muted-foreground">
                     {questions[lesson.id]}
                   </span>
                 )}
                 {lesson.time && (
-                  <span className="mt-2 block font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground/70">
+                  <span className="mt-2 block font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground/70">
                     {lesson.time}
                   </span>
                 )}
@@ -254,15 +254,15 @@ export function BeforeAfterSplit({
             <div
               className={
                 col.strong
-                  ? "font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-3"
-                  : "font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-3"
+                  ? "font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary mb-3"
+                  : "font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-3"
               }
             >
               {col.title}
             </div>
             <ul className="space-y-2.5">
               {col.items.map((item) => (
-                <li key={item} className="flex gap-2.5 text-[13px] leading-relaxed text-muted-foreground">
+                <li key={item} className="flex gap-2.5 text-[0.8125rem] leading-relaxed text-muted-foreground">
                   <span className={col.strong ? "text-primary" : "text-muted-foreground/60"}>
                     {col.strong ? "✓" : "?"}
                   </span>

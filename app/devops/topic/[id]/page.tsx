@@ -1,5 +1,6 @@
 import { ContentPlaceholder } from '@/components/course/content-placeholder';
 import { DynamicTopicContent } from '@/components/course/dynamic-topic-content';
+import { LessonToc } from '@/components/course/lesson-toc';
 import { TopicHeader } from '@/components/course/topic-header';
 import { TopicNavigation } from '@/components/course/topic-navigation';
 import { devopsContentMap } from '@/content/devops';
@@ -8,6 +9,7 @@ import {
     devopsTrack,
     findDevopsLesson,
 } from '@/lib/devops-course-data';
+import { lessonOutline } from '@/lib/lesson-outline';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -104,7 +106,10 @@ export default async function DevopsLessonPage({
             />
 
             {contentData ? (
-                <DynamicTopicContent data={contentData} />
+                <>
+                    <LessonToc items={lessonOutline(contentData)} />
+                    <DynamicTopicContent data={contentData} />
+                </>
             ) : (
                 <ContentPlaceholder
                     title={lesson.title}

@@ -57,7 +57,7 @@ export default function DevopsTrackPage() {
             <main className='max-w-6xl xl:max-w-7xl mx-auto px-4 md:px-6 xl:px-10 pt-10 md:pt-16 pb-10 relative z-10'>
                 <Link
                     href='/'
-                    className='inline-flex items-center gap-2 mb-10 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors'>
+                    className='inline-flex items-center gap-2 mb-10 font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors'>
                     <ArrowLeft className='w-3 h-3' />
                     All Tracks
                 </Link>
@@ -106,7 +106,7 @@ export default function DevopsTrackPage() {
                                 <Compass className='w-6 h-6 text-primary' />
                             </span>
                             <span className='flex-1'>
-                                <span className='block font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary mb-2'>
+                                <span className='block font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary mb-2'>
                                     The Project
                                 </span>
                                 <span className='block text-lg md:text-xl font-black uppercase tracking-tighter mb-2 group-hover:text-primary transition-colors'>
@@ -181,7 +181,7 @@ export default function DevopsTrackPage() {
                                 <div
                                     key={step.title}
                                     className='p-6 md:p-8 border-r border-b border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors group'>
-                                    <span className='font-mono text-[10px] text-muted-foreground/50 font-black block mb-5'>
+                                    <span className='font-mono text-[0.625rem] text-muted-foreground/50 font-black block mb-5'>
                                         {String(idx + 1).padStart(2, '0')}
                                     </span>
                                     <h3 className='text-sm font-black uppercase tracking-widest text-primary mb-3 group-hover:text-foreground transition-colors'>
@@ -272,7 +272,7 @@ export default function DevopsTrackPage() {
                                 <div
                                     key={outcome}
                                     className='flex items-start gap-4 p-6 md:p-10 border-r border-b border-border bg-muted/5'>
-                                    <span className='font-mono text-[10px] font-black text-primary mt-1'>
+                                    <span className='font-mono text-[0.625rem] font-black text-primary mt-1'>
                                         {String(idx + 1).padStart(2, '0')}
                                     </span>
                                     <p className='text-sm md:text-base leading-relaxed font-medium'>

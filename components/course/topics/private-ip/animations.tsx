@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -118,7 +118,7 @@ export function IpScopeLab() {
             data-ip={sample.ip}
             data-active={sample.id === id ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border font-mono text-[11px] font-bold transition-colors",
+              "px-3 py-2 border font-mono text-[0.6875rem] font-bold transition-colors",
               sample.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -133,7 +133,7 @@ export function IpScopeLab() {
         <div className="flex flex-wrap items-center gap-3 mb-5">
           <span
             className={cn(
-              "px-3 py-1 border font-mono text-[11px] font-bold uppercase tracking-[0.12em]",
+              "px-3 py-1 border font-mono text-[0.6875rem] font-bold uppercase tracking-[0.12em]",
               KIND_STYLE[s.kind],
             )}
             data-kind={s.kind}
@@ -146,10 +146,10 @@ export function IpScopeLab() {
         </div>
 
         <div className="flex items-baseline justify-between gap-3 border-b border-border/60 pb-2 mb-4">
-          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground shrink-0">
+          <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground shrink-0">
             কোন ব্লক
           </span>
-          <span className="text-[13px] text-foreground text-right">
+          <span className="text-[0.8125rem] text-foreground text-right">
             {s.block}
           </span>
         </div>
@@ -227,7 +227,7 @@ export function BoundaryLab() {
               data-station={idx}
               data-active={idx === i ? "true" : "false"}
               className={cn(
-                "px-3 py-2 border font-mono text-[9px] transition-colors",
+                "px-3 py-2 border font-mono text-[0.5625rem] transition-colors",
                 idx === i
                   ? "border-primary bg-primary/10 text-primary"
                   : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -244,7 +244,7 @@ export function BoundaryLab() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
         <div className="border border-primary/50 bg-primary/5 p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             এখানে উৎস ঠিকানা দেখা যায়
           </div>
           <div
@@ -256,7 +256,7 @@ export function BoundaryLab() {
         </div>
         <div
           className={cn(
-            "flex items-center border p-4 font-mono text-[11px]",
+            "flex items-center border p-4 font-mono text-[0.6875rem]",
             st.swap
               ? "border-accent/50 bg-accent/5 text-accent"
               : "border-border bg-background text-muted-foreground",

@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -92,7 +92,7 @@ export function PropagationClocksLab() {
       footer="গল্পটা এমন, আপনি এইমাত্র Record এর IP বদলেছেন। ছয়টা Resolver এর প্রত্যেকে পুরনো উত্তরটা আলাদা সময়ে শিখেছিল, তাই প্রত্যেকের মেয়াদ আলাদা সময়ে ফুরাবে। সময় এগিয়ে দেখুন কে আগে নতুন উত্তর পায়। খেয়াল করুন দুইটা জিনিস। এক, সবচেয়ে শেষে পায় আপনার নিজের Resolver, কারণ আপনি বদলের ঠিক আগে সাইটটা খুলে দেখেছিলেন, আর তাতে তার ঘড়ি নতুন করে চালু হয়েছে। দুই, TTL বদলে দেখুন, ৫ মিনিটে পুরো ব্যাপারটা মিনিটের মধ্যে শেষ, আর ১ দিনে পুরো এক দিন।"
     >
       <div className="flex flex-wrap items-center gap-2 mb-4">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           বদলের আগে TTL ছিল
         </span>
         {TTLS.map((t) => (
@@ -104,7 +104,7 @@ export function PropagationClocksLab() {
             }}
             data-ttl={t.value}
             className={cn(
-              "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+              "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
               ttl === t.value
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -121,7 +121,7 @@ export function PropagationClocksLab() {
           disabled={all}
           data-action="advance"
           className={cn(
-            "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             all
               ? "border-border text-muted-foreground/40"
               : "border-primary bg-primary/10 text-primary hover:bg-primary/20",
@@ -136,7 +136,7 @@ export function PropagationClocksLab() {
         >
           <RotateCcw className="w-3 h-3" />
         </button>
-        <span className="font-mono text-[10px] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] text-muted-foreground">
           বদলের পর পার হয়েছে {elapsed === 0 ? "০" : human(elapsed)}
         </span>
       </div>
@@ -153,15 +153,15 @@ export function PropagationClocksLab() {
             )}
           >
             <div>
-              <div className="text-[12px] font-bold text-foreground">{r.name}</div>
-              <div className="text-[10px] text-muted-foreground">{r.note}</div>
+              <div className="text-[0.75rem] font-bold text-foreground">{r.name}</div>
+              <div className="text-[0.625rem] text-muted-foreground">{r.note}</div>
             </div>
-            <div className="font-mono text-[10px] text-muted-foreground">
+            <div className="font-mono text-[0.625rem] text-muted-foreground">
               {r.fresh ? "মেয়াদ শেষ, নতুন করে জিজ্ঞেস করেছে" : `Cache এ আর ${human(r.remaining)}`}
             </div>
             <div
               className={cn(
-                "font-mono text-[12px] font-bold",
+                "font-mono text-[0.75rem] font-bold",
                 r.fresh ? "text-primary" : "text-muted-foreground",
               )}
             >

@@ -1,6 +1,7 @@
 'use client';
 
 import { Reveal } from '@/components/motion/reveal';
+import { LESSON_EXTRA_ANCHORS } from '@/lib/search/constants';
 import { ContentBlock, TopicData, CONTENT_TYPES } from '../../types/content';
 import {
     AssignmentSection,
@@ -21,7 +22,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
             {data.introduction && (
                 <BorderCross className='p-4 md:p-10 border-b-0'>
                     <div className='mb-12'>
-                        <span className='px-3 py-1 bg-accent/10 text-accent font-mono text-[10px] uppercase tracking-widest border border-accent/20'>
+                        <span className='px-3 py-1 bg-accent/10 text-accent font-mono text-[0.625rem] uppercase tracking-widest border border-accent/20'>
                             {data.introduction.badge}
                         </span>
                     </div>
@@ -72,7 +73,9 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
             {/* Summary */}
             {data.summary && (
                 <BorderCross className='p-4 md:p-10'>
-                    <section id='summary' className='scroll-mt-20'>
+                    <section
+                        id={LESSON_EXTRA_ANCHORS.summary.anchor}
+                        className='scroll-mt-20'>
                         <SubHeader
                             index={(data.sections.length + 1)
                                 .toString()
@@ -145,7 +148,7 @@ export function DynamicTopicContent({ data }: { data: TopicData }) {
                             {data.phaseComplete.topics.map(topic => (
                                 <div
                                     key={topic.id}
-                                    className='px-4 md:px-6 py-2 md:py-3 border border-accent/30 bg-accent/10 text-accent font-mono text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-2 md:gap-3'
+                                    className='px-4 md:px-6 py-2 md:py-3 border border-accent/30 bg-accent/10 text-accent font-mono text-[0.625rem] md:text-xs uppercase tracking-widest flex items-center gap-2 md:gap-3'
                                 >
                                     <span className='text-accent font-bold'>
                                         ✓

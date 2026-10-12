@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -150,7 +150,7 @@ export function SetupScenarioLab() {
             data-dest={x.id}
             data-active={x.id === id ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border text-left text-[12px] font-bold transition-colors",
+              "px-3 py-2 border text-left text-[0.75rem] font-bold transition-colors",
               x.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -172,19 +172,19 @@ export function SetupScenarioLab() {
         <p className="text-sm text-foreground leading-relaxed">{d.what}</p>
 
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             ১. মানগুলো কোন পাতায় পাবেন
           </div>
           <div className="text-sm text-foreground leading-relaxed">{d.where}</div>
         </div>
 
         <div className="border border-border bg-background">
-          <div className="px-4 pt-4 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+          <div className="px-4 pt-4 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
             ২. আপনি যা পাবেন, আর নিজের DNS পাতায় যা বসাবেন
           </div>
           <div className="overflow-x-auto">
             <div className="min-w-[460px]">
-              <div className="grid grid-cols-[70px_150px_1fr] gap-2 px-4 py-2 border-y border-border bg-muted/30 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+              <div className="grid grid-cols-[70px_150px_1fr] gap-2 px-4 py-2 border-y border-border bg-muted/30 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
                 <span>Type</span>
                 <span>Name</span>
                 <span>Value</span>
@@ -192,7 +192,7 @@ export function SetupScenarioLab() {
               {d.records.map((r, i) => (
                 <div
                   key={`${r.type}-${r.name}-${i}`}
-                  className="grid grid-cols-[70px_150px_1fr] gap-2 px-4 py-2 border-b border-border/60 last:border-b-0 font-mono text-[11px]"
+                  className="grid grid-cols-[70px_150px_1fr] gap-2 px-4 py-2 border-b border-border/60 last:border-b-0 font-mono text-[0.6875rem]"
                 >
                   <span className="font-bold text-primary">{r.type}</span>
                   <span className="text-foreground break-all">{r.name}</span>
@@ -205,13 +205,13 @@ export function SetupScenarioLab() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="border border-primary/40 bg-primary/5 p-4">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               ৩. মানগুলো আসলে কার
             </div>
             <div className="text-sm text-muted-foreground leading-relaxed">{d.source}</div>
           </div>
           <div className="border border-border bg-background p-4">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               ৪. কে যাচাই করে, কীভাবে
             </div>
             <div className="text-sm text-muted-foreground leading-relaxed">{d.verify}</div>
@@ -315,10 +315,10 @@ export function WherePasteLab() {
       footer="Domain Setup এর সবচেয়ে চেনা ভুল হলো ঠিক জিনিস ভুল জায়গায় বসানো। সাতটা মান একটা একটা করে আসবে। প্রতিটার জন্য বলুন, এটা কোন পাতায় গিয়ে বসাতে হবে। নিয়মটা ছোট, Name Server এর নাম যায় Registrar এ, বাকি সব Record যায় DNS সেবায়, আর নিজের Domain এর নামটা লিখতে হয় সেই সেবার পাতায় যেখানে জুড়ছেন।"
     >
       <div className="flex flex-wrap items-center gap-3 mb-5">
-        <span className="font-mono text-[10px] text-muted-foreground" data-progress={i}>
+        <span className="font-mono text-[0.625rem] text-muted-foreground" data-progress={i}>
           {done ? "শেষ" : `${toBn(i + 1)} / ${toBn(CARDS.length)}`}
         </span>
-        <span className="font-mono text-[10px] text-primary" data-score={score}>
+        <span className="font-mono text-[0.625rem] text-primary" data-score={score}>
           ঠিক হয়েছে {toBn(score)}টা
         </span>
         <button
@@ -350,7 +350,7 @@ export function WherePasteLab() {
           data-card={i}
         >
           <div className="border border-border bg-background p-5 mb-4">
-            <div className="text-[11px] text-muted-foreground mb-2">{card.from}</div>
+            <div className="text-[0.6875rem] text-muted-foreground mb-2">{card.from}</div>
             <div className="font-mono text-sm font-bold text-foreground break-all">
               {card.text}
             </div>
@@ -366,7 +366,7 @@ export function WherePasteLab() {
                   onClick={() => pick(p.id)}
                   data-place={p.id}
                   className={cn(
-                    "px-3 py-2 border text-left text-[12px] font-bold transition-colors",
+                    "px-3 py-2 border text-left text-[0.75rem] font-bold transition-colors",
                     isAnswer
                       ? "border-primary bg-primary/10 text-primary"
                       : isWrongPick
@@ -395,7 +395,7 @@ export function WherePasteLab() {
               <button
                 onClick={next}
                 data-action="next"
-                className="px-3 py-1.5 border border-primary bg-primary/10 text-[11px] font-bold text-primary hover:bg-primary/20 transition-colors"
+                className="px-3 py-1.5 border border-primary bg-primary/10 text-[0.6875rem] font-bold text-primary hover:bg-primary/20 transition-colors"
               >
                 পরেরটা
               </button>

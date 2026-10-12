@@ -182,7 +182,7 @@ export const loadBalancingContent: TopicData = {
             id: 'round-robin',
             subHeader: { index: '02.1', title: 'Round Robin' },
             title: (
-                <SectionTitle className='text-[30px]!'>
+                <SectionTitle className='text-[1.875rem]!'>
                     Round Robin
                 </SectionTitle>
             ),
@@ -201,7 +201,7 @@ export const loadBalancingContent: TopicData = {
             id: 'weighted-round-robin',
             subHeader: { index: '02.2', title: 'Weighted Round Robin' },
             title: (
-                <SectionTitle className='text-[30px]!'>
+                <SectionTitle className='text-[1.875rem]!'>
                     Weighted Round Robin
                 </SectionTitle>
             ),
@@ -220,7 +220,7 @@ export const loadBalancingContent: TopicData = {
             id: 'least-connection',
             subHeader: { index: '02.3', title: 'Least Connection' },
             title: (
-                <SectionTitle className='text-[30px]!'>
+                <SectionTitle className='text-[1.875rem]!'>
                     Least Connection
                 </SectionTitle>
             ),
@@ -239,7 +239,7 @@ export const loadBalancingContent: TopicData = {
             id: 'least-response-time',
             subHeader: { index: '02.4', title: 'Least Response Time' },
             title: (
-                <SectionTitle className='text-[30px]!'>
+                <SectionTitle className='text-[1.875rem]!'>
                     Least Response Time
                 </SectionTitle>
             ),
@@ -258,7 +258,7 @@ export const loadBalancingContent: TopicData = {
             id: 'least-bandwidth',
             subHeader: { index: '02.5', title: 'Least Bandwidth' },
             title: (
-                <SectionTitle className='text-[30px]!'>
+                <SectionTitle className='text-[1.875rem]!'>
                     Least Bandwidth
                 </SectionTitle>
             ),
@@ -277,7 +277,7 @@ export const loadBalancingContent: TopicData = {
             id: 'ip-hash',
             subHeader: { index: '02.6', title: 'IP Hash' },
             title: (
-                <SectionTitle className='text-[30px]!'>
+                <SectionTitle className='text-[1.875rem]!'>
                     IP Hash
                 </SectionTitle>
             ),
@@ -303,7 +303,7 @@ export const loadBalancingContent: TopicData = {
                         <div className='space-y-6'>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         LAYER 4{' '}
                                         <span className='text-blue-700 dark:text-blue-400'>
@@ -319,7 +319,7 @@ export const loadBalancingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         LAYER 7{' '}
                                         <span className='text-emerald-700 dark:text-emerald-400'>
@@ -408,7 +408,7 @@ export const loadBalancingContent: TopicData = {
                         <div className='space-y-8'>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-b border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-yellow-700 dark:text-yellow-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[0.625rem] text-yellow-700 dark:text-yellow-400 mb-3'>
                                         Round Robin
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -419,7 +419,7 @@ export const loadBalancingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-b border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-blue-700 dark:text-blue-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[0.625rem] text-blue-700 dark:text-blue-400 mb-3'>
                                         Weighted Round Robin
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -430,7 +430,7 @@ export const loadBalancingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-b border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-emerald-700 dark:text-emerald-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[0.625rem] text-emerald-700 dark:text-emerald-400 mb-3'>
                                         Least Connections
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -442,7 +442,7 @@ export const loadBalancingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-b border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-purple-700 dark:text-purple-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[0.625rem] text-purple-700 dark:text-purple-400 mb-3'>
                                         IP Hash
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -453,7 +453,7 @@ export const loadBalancingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-red-700 dark:text-red-400 mb-3'>
+                                    <h4 className='font-mono uppercase tracking-[0.3em] text-[0.625rem] text-red-700 dark:text-red-400 mb-3'>
                                         Random
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -874,7 +874,7 @@ Promise.all([
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                             <div className='p-8 border-r border-b border-border bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-emerald-700 dark:text-emerald-400 mb-4'>
+                                <h4 className='font-mono uppercase tracking-[0.3em] text-[0.625rem] text-emerald-700 dark:text-emerald-400 mb-4'>
                                     🎵 Spotify
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -886,7 +886,7 @@ Promise.all([
                                 </p>
                             </div>
                             <div className='p-8 border-b border-border bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-yellow-700 dark:text-yellow-400 mb-4'>
+                                <h4 className='font-mono uppercase tracking-[0.3em] text-[0.625rem] text-yellow-700 dark:text-yellow-400 mb-4'>
                                     🛍️ Shopify
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -897,7 +897,7 @@ Promise.all([
                                 </p>
                             </div>
                             <div className='p-8 border-r border-border bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-red-700 dark:text-red-400 mb-4'>
+                                <h4 className='font-mono uppercase tracking-[0.3em] text-[0.625rem] text-red-700 dark:text-red-400 mb-4'>
                                     🎬 Netflix
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -908,7 +908,7 @@ Promise.all([
                                 </p>
                             </div>
                             <div className='p-8 bg-card/30'>
-                                <h4 className='font-mono uppercase tracking-[0.3em] text-[10px] text-blue-700 dark:text-blue-400 mb-4'>
+                                <h4 className='font-mono uppercase tracking-[0.3em] text-[0.625rem] text-blue-700 dark:text-blue-400 mb-4'>
                                     🏦 Banks
                                 </h4>
                                 <p className='text-sm text-muted-foreground leading-relaxed'>

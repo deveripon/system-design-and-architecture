@@ -35,7 +35,7 @@ export function IslandToursBrief() {
                     <Compass className='w-4 h-4 text-primary' />
                 </span>
                 <span className='flex-1 min-w-0'>
-                    <span className='block font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary mb-1.5'>
+                    <span className='block font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary mb-1.5'>
                         Project Context
                     </span>
                     <span className='block text-sm font-bold mb-1'>
@@ -66,14 +66,14 @@ export function IslandToursBrief() {
                         {STACK.map(item => (
                             <span
                                 key={item}
-                                className='px-2.5 py-1 border border-border bg-card font-mono text-[10px] uppercase tracking-wider text-muted-foreground'>
+                                className='px-2.5 py-1 border border-border bg-card font-mono text-[0.625rem] uppercase tracking-wider text-muted-foreground'>
                                 {item}
                             </span>
                         ))}
                     </div>
                     <Link
                         href='/devops/project'
-                        className='inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:text-foreground transition-colors'>
+                        className='inline-flex items-center gap-2 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:text-foreground transition-colors'>
                         পুরো আর্কিটেকচার আর নিজের ভার্সন বানানোর প্ল্যান
                         <ArrowRight className='w-3 h-3' />
                     </Link>

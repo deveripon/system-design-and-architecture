@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -103,7 +103,7 @@ export function RoleLab() {
             data-player={player.id}
             data-active={player.id === id ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border font-mono text-[11px] font-bold transition-colors",
+              "px-3 py-2 border font-mono text-[0.6875rem] font-bold transition-colors",
               player.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -130,7 +130,7 @@ export function RoleLab() {
           { k: "কখন লাগে", v: p.touch },
         ].map((row) => (
           <div key={row.k} className="flex flex-col sm:flex-row sm:gap-4">
-            <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground shrink-0 sm:w-24 pt-0.5">
+            <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground shrink-0 sm:w-24 pt-0.5">
               {row.k}
             </span>
             <span className="text-sm text-foreground leading-relaxed">

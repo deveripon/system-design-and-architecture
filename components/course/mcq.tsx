@@ -57,7 +57,7 @@ export function MCQ({ questions = [] }: MCQProps) {
           <div key={q.id} className="space-y-6 md:space-y-8">
             <div className="space-y-3 md:space-y-4">
               <div className="flex items-center gap-4">
-                <span className="text-[10px] font-mono font-bold text-primary border border-primary/30 px-3 py-1 bg-primary/5 uppercase">Question 0{qIdx + 1}</span>
+                <span className="text-[0.625rem] font-mono font-bold text-primary border border-primary/30 px-3 py-1 bg-primary/5 uppercase">Question 0{qIdx + 1}</span>
               </div>
               <h3 className="text-lg md:text-xl font-bold leading-tight max-w-3xl">{q.text}</h3>
             </div>
@@ -131,7 +131,7 @@ export function MCQ({ questions = [] }: MCQProps) {
         ) : (
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex flex-col items-center sm:items-start">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">Your Score</span>
+              <span className="text-[0.625rem] font-mono font-bold uppercase tracking-widest text-muted-foreground">Your Score</span>
               <span className="text-xl md:text-2xl font-black">{calculateScore()} / {questions.length}</span>
             </div>
             <button
@@ -139,7 +139,7 @@ export function MCQ({ questions = [] }: MCQProps) {
                 setSelectedOptions({});
                 setShowResults(false);
               }}
-              className="w-full sm:w-auto px-8 py-3 border border-border font-black uppercase tracking-widest text-[10px] md:text-xs hover:bg-muted transition-all"
+              className="w-full sm:w-auto px-8 py-3 border border-border font-black uppercase tracking-widest text-[0.625rem] md:text-xs hover:bg-muted transition-all"
             >
               Retry Quiz
             </button>

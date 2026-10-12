@@ -614,7 +614,7 @@ export const whatsappContent: TopicData = {
                                     <span className='font-mono text-2xl font-bold text-primary block mb-1'>
                                         {card.num}
                                     </span>
-                                    <span className='font-mono text-[10px] text-muted-foreground uppercase tracking-widest'>
+                                    <span className='font-mono text-[0.625rem] text-muted-foreground uppercase tracking-widest'>
                                         {card.label}
                                     </span>
                                 </div>
@@ -714,7 +714,7 @@ export const whatsappContent: TopicData = {
                                                     {c}
                                                 </div>
                                             ))}
-                                            <p className='text-[10px] text-muted-foreground mt-2'>
+                                            <p className='text-[0.625rem] text-muted-foreground mt-2'>
                                                 WebSocket persistent connection
                                             </p>
                                         </div>
@@ -1179,7 +1179,7 @@ CREATE TABLE message_receipts (
                                         <p className='font-bold mb-1'>
                                             Chat Server 1
                                         </p>
-                                        <p className='text-[10px] text-muted-foreground'>
+                                        <p className='text-[0.625rem] text-muted-foreground'>
                                             User A connected
                                         </p>
                                     </div>
@@ -1190,7 +1190,7 @@ CREATE TABLE message_receipts (
                                         <p className='font-bold mb-1'>
                                             Kafka Topic
                                         </p>
-                                        <p className='text-[10px] text-muted-foreground'>
+                                        <p className='text-[0.625rem] text-muted-foreground'>
                                             &quot;chat:server-5&quot;
                                         </p>
                                     </div>
@@ -1201,7 +1201,7 @@ CREATE TABLE message_receipts (
                                         <p className='font-bold mb-1'>
                                             Chat Server 5
                                         </p>
-                                        <p className='text-[10px] text-muted-foreground'>
+                                        <p className='text-[0.625rem] text-muted-foreground'>
                                             User B connected
                                         </p>
                                     </div>
@@ -1212,7 +1212,7 @@ CREATE TABLE message_receipts (
                                         <p className='font-bold mb-1'>
                                             User B
                                         </p>
-                                        <p className='text-[10px] text-emerald-700 dark:text-emerald-400'>
+                                        <p className='text-[0.625rem] text-emerald-700 dark:text-emerald-400'>
                                             Gets message!
                                         </p>
                                     </div>

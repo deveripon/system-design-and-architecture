@@ -226,13 +226,13 @@ export const sagaPatternContent: TopicData = {
                                         <p className='text-xs font-mono text-pink-700 dark:text-pink-400 font-bold mb-2'>
                                             Order Service
                                         </p>
-                                        <p className='text-[11px] text-muted-foreground'>
+                                        <p className='text-[0.6875rem] text-muted-foreground'>
                                             1. Create order
                                         </p>
-                                        <p className='text-[11px] text-muted-foreground'>
+                                        <p className='text-[0.6875rem] text-muted-foreground'>
                                             2. Publish:
                                         </p>
-                                        <p className='text-[11px] text-orange-700 dark:text-orange-400 font-mono'>
+                                        <p className='text-[0.6875rem] text-orange-700 dark:text-orange-400 font-mono'>
                                             OrderPlaced →
                                         </p>
                                     </div>
@@ -240,10 +240,10 @@ export const sagaPatternContent: TopicData = {
                                         <p className='text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold mb-2'>
                                             Payment Service
                                         </p>
-                                        <p className='text-[11px] text-muted-foreground'>
+                                        <p className='text-[0.6875rem] text-muted-foreground'>
                                             Listens: OrderPlaced
                                         </p>
-                                        <p className='text-[11px] text-orange-700 dark:text-orange-400 font-mono'>
+                                        <p className='text-[0.6875rem] text-orange-700 dark:text-orange-400 font-mono'>
                                             Publish: PaymentDone →
                                         </p>
                                     </div>
@@ -251,10 +251,10 @@ export const sagaPatternContent: TopicData = {
                                         <p className='text-xs font-mono text-purple-700 dark:text-purple-400 font-bold mb-2'>
                                             Inventory Service
                                         </p>
-                                        <p className='text-[11px] text-muted-foreground'>
+                                        <p className='text-[0.6875rem] text-muted-foreground'>
                                             Listens: PaymentDone
                                         </p>
-                                        <p className='text-[11px] text-orange-700 dark:text-orange-400 font-mono'>
+                                        <p className='text-[0.6875rem] text-orange-700 dark:text-orange-400 font-mono'>
                                             Publish: StockReserved →
                                         </p>
                                     </div>
@@ -262,10 +262,10 @@ export const sagaPatternContent: TopicData = {
                                         <p className='text-xs font-mono text-blue-700 dark:text-blue-400 font-bold mb-2'>
                                             Notification Svc
                                         </p>
-                                        <p className='text-[11px] text-muted-foreground'>
+                                        <p className='text-[0.6875rem] text-muted-foreground'>
                                             Listens: multiple events
                                         </p>
-                                        <p className='text-[11px] text-emerald-700 dark:text-emerald-400'>
+                                        <p className='text-[0.6875rem] text-emerald-700 dark:text-emerald-400'>
                                             ✓ Sends email/SMS
                                         </p>
                                     </div>
@@ -283,7 +283,7 @@ export const sagaPatternContent: TopicData = {
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         <span className='text-emerald-700 dark:text-emerald-400'>
                                             ✅ Pros
@@ -296,7 +296,7 @@ export const sagaPatternContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         <span className='text-red-700 dark:text-red-400'>
                                             ❌ Cons
@@ -351,10 +351,10 @@ export const sagaPatternContent: TopicData = {
                                     <p className='text-xs font-mono text-pink-700 dark:text-pink-400 font-bold'>
                                         Saga Orchestrator
                                     </p>
-                                    <p className='text-[11px] text-muted-foreground mt-1'>
+                                    <p className='text-[0.6875rem] text-muted-foreground mt-1'>
                                         Knows entire flow + compensations
                                     </p>
-                                    <p className='text-[11px] text-muted-foreground'>
+                                    <p className='text-[0.6875rem] text-muted-foreground'>
                                         State machine — tracks progress
                                     </p>
                                 </div>
@@ -384,13 +384,13 @@ export const sagaPatternContent: TopicData = {
                                         <div
                                             key={i}
                                             className={`p-3 border bg-card rounded text-center ${s.color}`}>
-                                            <p className='text-[11px] font-mono font-bold mb-1'>
+                                            <p className='text-[0.6875rem] font-mono font-bold mb-1'>
                                                 {s.label}
                                             </p>
-                                            <p className='text-[10px] text-muted-foreground'>
+                                            <p className='text-[0.625rem] text-muted-foreground'>
                                                 {s.step}
                                             </p>
-                                            <p className='text-[10px] text-muted-foreground'>
+                                            <p className='text-[0.625rem] text-muted-foreground'>
                                                 Just executes commands
                                             </p>
                                         </div>
@@ -766,7 +766,7 @@ bus.emit('order.start', { orderId: 'nostock-002', userId: 'u2', productId: 'p2',
                         <>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border mb-10'>
                                 <div className='p-8 border-r border-border bg-card/30 border-b border-border'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         🛒 Amazon / Flipkart
                                     </h4>
@@ -778,7 +778,7 @@ bus.emit('order.start', { orderId: 'nostock-002', userId: 'u2', productId: 'p2',
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30 border-b border-border'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         🚗 Uber
                                     </h4>
@@ -790,7 +790,7 @@ bus.emit('order.start', { orderId: 'nostock-002', userId: 'u2', productId: 'p2',
                                     </p>
                                 </div>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-purple-500' />
                                         ✈️ Booking.com
                                     </h4>
@@ -801,7 +801,7 @@ bus.emit('order.start', { orderId: 'nostock-002', userId: 'u2', productId: 'p2',
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-yellow-500' />
                                         💳 Fintech Apps
                                     </h4>

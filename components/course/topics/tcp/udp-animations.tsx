@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -52,7 +52,7 @@ function Choice({
       {...rest}
       onClick={onClick}
       className={cn(
-        "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+        "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
         active
           ? "border-primary bg-primary/10 text-primary"
           : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -127,7 +127,7 @@ export function LostPieceLab() {
       footer="পাঠানো হচ্ছে আটটা টুকরো, প্রতি মুহূর্তে একটা। ৩ নম্বরটা পথে হারিয়ে যাবে। উপরে বেছে নিন কোন Transport আর কী কাজ, তারপর এক মুহূর্ত করে এগোন। চারটা জোড়াই চালিয়ে দেখুন। খেয়াল করার জিনিস দুইটা। TCP তে ৪ আর ৫ নম্বর পৌঁছে গিয়েও বসে থাকে, কারণ তাদের সামনের জন আসেনি। আর একই আচরণ কলের বেলায় সমস্যা, ফাইলের বেলায় আশীর্বাদ। কোনটা ভালো সেটা Protocol এর গুণ নয়, কাজের ধরনের উপর নির্ভর করে।"
     >
       <div className="flex flex-wrap items-center gap-2 mb-3">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           Transport
         </span>
         <Choice active={transport === "tcp"} onClick={() => { setTransport("tcp"); setTick(0); }} data-transport="tcp">
@@ -136,7 +136,7 @@ export function LostPieceLab() {
         <Choice active={transport === "udp"} onClick={() => { setTransport("udp"); setTick(0); }} data-transport="udp">
           UDP
         </Choice>
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground ml-3 mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground ml-3 mr-1">
           কাজ
         </span>
         <Choice active={work === "call"} onClick={() => { setWork("call"); setTick(0); }} data-work="call">
@@ -153,7 +153,7 @@ export function LostPieceLab() {
           disabled={done}
           data-action="advance"
           className={cn(
-            "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             done
               ? "border-border text-muted-foreground/40"
               : "border-primary bg-primary/10 text-primary hover:bg-primary/20",
@@ -168,7 +168,7 @@ export function LostPieceLab() {
         >
           <RotateCcw className="w-3 h-3" />
         </button>
-        <span className="font-mono text-[10px] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] text-muted-foreground">
           মুহূর্ত {toBn(tick)} / {toBn(LAST_TICK)}
         </span>
       </div>
@@ -188,12 +188,12 @@ export function LostPieceLab() {
               state === "waiting" && "border-border bg-background opacity-50",
             )}
           >
-            <div className="font-mono text-[13px] font-bold text-foreground">
+            <div className="font-mono text-[0.8125rem] font-bold text-foreground">
               টুকরো {toBn(piece)}
             </div>
             <div
               className={cn(
-                "text-[10px]",
+                "text-[0.625rem]",
                 state === "lost" ? "text-destructive" : state === "ok" ? "text-primary" : "text-muted-foreground",
               )}
             >
@@ -203,7 +203,7 @@ export function LostPieceLab() {
         ))}
       </div>
 
-      <div className="font-mono text-[10px] text-muted-foreground mb-3" data-empty={emptyMoments}>
+      <div className="font-mono text-[0.625rem] text-muted-foreground mb-3" data-empty={emptyMoments}>
         Application এর হাত খালি ছিল {toBn(emptyMoments)} মুহূর্ত
       </div>
 
@@ -265,7 +265,7 @@ export function DatagramSizeLab() {
       footer="হিসাবটা ধরা হয়েছে সাধারণ Ethernet এর জন্য, যেখানে একটা IP Packet সর্বোচ্চ 1500 Byte হতে পারে। এই সীমার নাম MTU, যা নিয়ে বিস্তারিত আসছে Packet, Segment and Frame লেসনে। 1472 আর 1473 পরপর চেপে দেখুন, মাত্র এক Byte এর জন্য একটা Packet দুইটা হয়ে যায়। আর খেয়াল করুন, আকার যত বাড়ে, পুরোটা হারানোর ঝুঁকি তত দ্রুত বাড়ে। আপনার নিজের যন্ত্র আরও আগেই থামিয়ে দিতে পারে। macOS এ একটা UDP Datagram এর সীমা স্বাভাবিকভাবে 9216 Byte।"
     >
       <div className="flex flex-wrap items-center gap-2 mb-6">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           Data, Byte
         </span>
         {SIZES.map((s) => (
@@ -277,8 +277,8 @@ export function DatagramSizeLab() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-5">
         <div className="border border-border bg-background px-3 py-2">
-          <div className="text-[10px] text-muted-foreground">IP Packet এর মোট আকার</div>
-          <div className="font-mono text-[13px] font-bold text-foreground" data-total={possible ? size + UDP_HEADER + IP_HEADER : -1}>
+          <div className="text-[0.625rem] text-muted-foreground">IP Packet এর মোট আকার</div>
+          <div className="font-mono text-[0.8125rem] font-bold text-foreground" data-total={possible ? size + UDP_HEADER + IP_HEADER : -1}>
             {possible ? `${size} + 8 + 20 = ${size + UDP_HEADER + IP_HEADER}` : "সীমার বাইরে"}
           </div>
         </div>
@@ -292,14 +292,14 @@ export function DatagramSizeLab() {
                 : "border-border bg-muted/40",
           )}
         >
-          <div className="text-[10px] text-muted-foreground">পথে কয়টা Packet</div>
-          <div className="font-mono text-[13px] font-bold text-foreground" data-fragments={fragments}>
+          <div className="text-[0.625rem] text-muted-foreground">পথে কয়টা Packet</div>
+          <div className="font-mono text-[0.8125rem] font-bold text-foreground" data-fragments={fragments}>
             {!possible ? "EMSGSIZE" : single ? "১টা, ভাঙেনি" : `${toBn(fragments)}টা টুকরো`}
           </div>
         </div>
         <div className="border border-border bg-background px-3 py-2">
-          <div className="text-[10px] text-muted-foreground">পুরোটা হারানোর ঝুঁকি</div>
-          <div className="font-mono text-[13px] font-bold text-foreground">
+          <div className="text-[0.625rem] text-muted-foreground">পুরোটা হারানোর ঝুঁকি</div>
+          <div className="font-mono text-[0.8125rem] font-bold text-foreground">
             {possible ? `প্রায় ${lossText}%` : "প্রযোজ্য নয়"}
           </div>
         </div>
@@ -416,7 +416,7 @@ export function TransportPickerLab() {
               )}
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="text-[12px] font-bold text-foreground">{c.what}</div>
+                <div className="text-[0.75rem] font-bold text-foreground">{c.what}</div>
                 <div className="flex gap-2">
                   <Choice
                     active={choice === "tcp"}
@@ -435,7 +435,7 @@ export function TransportPickerLab() {
                 </div>
               </div>
               {choice && (
-                <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-[0.75rem] leading-relaxed text-muted-foreground">
                   <strong className={correct ? "text-primary" : "text-destructive"}>
                     {correct ? "ঠিক। " : `এখানে ${c.answer.toUpperCase()}। `}
                   </strong>
@@ -448,7 +448,7 @@ export function TransportPickerLab() {
       </div>
 
       <div className="flex flex-wrap items-center gap-3">
-        <span className="font-mono text-[10px] text-muted-foreground" data-right={right} data-answered={answered}>
+        <span className="font-mono text-[0.625rem] text-muted-foreground" data-right={right} data-answered={answered}>
           {toBn(answered)}টার উত্তর দিয়েছেন, ঠিক হয়েছে {toBn(right)}টা
         </span>
         <button

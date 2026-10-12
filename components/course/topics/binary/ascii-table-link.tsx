@@ -32,7 +32,7 @@ export function AsciiTableLink({
                 <Table2 className='w-5 h-5 text-primary' />
             </span>
             <span className='flex-1'>
-                <span className='block font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary mb-2'>
+                <span className='block font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary mb-2'>
                     Reference
                 </span>
                 <span className='block text-lg font-black uppercase tracking-tighter mb-2 group-hover:text-primary transition-colors'>

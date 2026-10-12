@@ -23,10 +23,10 @@ function Panel({
     return (
         <figure className='my-10 border border-border bg-card'>
             <figcaption className='flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30'>
-                <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
+                <span className='font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary'>
                     {label}
                 </span>
-                <span className='font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground'>
+                <span className='font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground'>
                     {title}
                 </span>
             </figcaption>
@@ -78,7 +78,7 @@ export function BitSwitchLab() {
                     <button
                         key={p.label}
                         onClick={() => load(p.value)}
-                        className='px-3 py-1.5 border border-border bg-muted/20 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors'>
+                        className='px-3 py-1.5 border border-border bg-muted/20 font-mono text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors'>
                         {p.label}
                     </button>
                 ))}
@@ -87,7 +87,7 @@ export function BitSwitchLab() {
             <div className='flex gap-1.5 sm:gap-2 justify-center flex-wrap'>
                 {bits.map((bit, i) => (
                     <div key={i} className='flex flex-col items-center gap-2'>
-                        <span className='font-mono text-[9px] text-muted-foreground/70 tabular-nums'>
+                        <span className='font-mono text-[0.5625rem] text-muted-foreground/70 tabular-nums'>
                             {PLACE_VALUES[i]}
                         </span>
                         <button
@@ -143,7 +143,7 @@ function Readout({
 }) {
     return (
         <div className='bg-card px-4 py-3'>
-            <span className='block font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-1.5'>
+            <span className='block font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-1.5'>
                 {label}
             </span>
             <motion.span
@@ -158,7 +158,7 @@ function Readout({
                 {value}
             </motion.span>
             {hint && (
-                <span className='block text-[10px] text-muted-foreground mt-1'>
+                <span className='block text-[0.625rem] text-muted-foreground mt-1'>
                     {hint}
                 </span>
             )}
@@ -222,7 +222,7 @@ export function KeypressToBitsStory() {
             <div className='flex items-center gap-2 mb-8'>
                 <button
                     onClick={() => setPlaying(p => !p)}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
                     {playing ? (
                         <Pause className='w-3 h-3' />
                     ) : (
@@ -235,7 +235,7 @@ export function KeypressToBitsStory() {
                         setPlaying(false);
                         next();
                     }}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <SkipForward className='w-3 h-3' />
                     Step
                 </button>
@@ -248,7 +248,7 @@ export function KeypressToBitsStory() {
                     className='inline-flex items-center justify-center w-9 h-9 border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <RotateCcw className='w-3 h-3' />
                 </button>
-                <span className='ml-auto font-mono text-[10px] text-muted-foreground tabular-nums'>
+                <span className='ml-auto font-mono text-[0.625rem] text-muted-foreground tabular-nums'>
                     {toBn(step + 1)} / {toBn(STORY.length)}
                 </span>
             </div>
@@ -310,7 +310,7 @@ export function KeypressToBitsStory() {
 
                 {/* the wire */}
                 <div className='space-y-2'>
-                    <span className='font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground'>
+                    <span className='font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground'>
                         Wire
                     </span>
                     <div className='flex items-end gap-1 h-12 border-b border-border'>
@@ -332,7 +332,7 @@ export function KeypressToBitsStory() {
                             />
                         ))}
                     </div>
-                    <div className='flex justify-between font-mono text-[9px] text-muted-foreground'>
+                    <div className='flex justify-between font-mono text-[0.5625rem] text-muted-foreground'>
                         <span>বিদ্যুৎ আছে = ১</span>
                         <span>বিদ্যুৎ নেই = ০</span>
                     </div>
@@ -409,7 +409,7 @@ export function ByteScaleVisual() {
                         <div
                             key={row.unit}
                             className='grid grid-cols-[5.5rem_1fr] md:grid-cols-[7rem_1fr_11rem] gap-3 items-center'>
-                            <span className='font-mono text-[11px] font-bold uppercase tracking-wide text-primary'>
+                            <span className='font-mono text-[0.6875rem] font-bold uppercase tracking-wide text-primary'>
                                 {row.unit}
                             </span>
                             <div className='h-4 bg-muted/40 border border-border overflow-hidden'>

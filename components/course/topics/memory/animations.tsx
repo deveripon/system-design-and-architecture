@@ -20,10 +20,10 @@ function Panel({
     return (
         <figure className='my-10 border border-border bg-card'>
             <figcaption className='flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30'>
-                <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
+                <span className='font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary'>
                     {label}
                 </span>
-                <span className='font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground'>
+                <span className='font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground'>
                     {title}
                 </span>
             </figcaption>
@@ -94,7 +94,7 @@ export function StackPlayLab() {
             <div className='flex flex-wrap items-center gap-2 mb-8'>
                 <button
                     onClick={() => setPlaying(p => !p)}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
                     {playing ? <Pause className='w-3 h-3' /> : <Play className='w-3 h-3' />}
                     {playing ? 'Pause' : 'Play'}
                 </button>
@@ -103,7 +103,7 @@ export function StackPlayLab() {
                         setPlaying(false);
                         next();
                     }}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <SkipForward className='w-3 h-3' />
                     Step
                 </button>
@@ -116,7 +116,7 @@ export function StackPlayLab() {
                     className='inline-flex items-center justify-center w-9 h-9 border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <RotateCcw className='w-3 h-3' />
                 </button>
-                <span className='ml-auto font-mono text-[10px] text-muted-foreground tabular-nums'>
+                <span className='ml-auto font-mono text-[0.625rem] text-muted-foreground tabular-nums'>
                     {toBn(i + 1)} / {toBn(STEPS.length)}
                 </span>
             </div>
@@ -135,7 +135,7 @@ export function StackPlayLab() {
                             <span className='block font-mono text-xs font-bold text-primary'>
                                 {f.fn}
                             </span>
-                            <span className='block text-[11px] text-muted-foreground mt-1'>
+                            <span className='block text-[0.6875rem] text-muted-foreground mt-1'>
                                 {f.local}
                             </span>
                         </motion.div>
@@ -203,7 +203,7 @@ export function HeapLeakLab() {
                 <button
                     onClick={handle}
                     disabled={crashed}
-                    className='px-4 py-2 border border-primary bg-primary/10 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/20 transition-colors disabled:opacity-40'>
+                    className='px-4 py-2 border border-primary bg-primary/10 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/20 transition-colors disabled:opacity-40'>
                     একটা Request আসল
                 </button>
                 <button
@@ -212,7 +212,7 @@ export function HeapLeakLab() {
                         reset();
                     }}
                     className={cn(
-                        'px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.15em] transition-colors',
+                        'px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] transition-colors',
                         cleanup
                             ? 'border-accent bg-accent/10 text-accent'
                             : 'border-border text-muted-foreground hover:text-foreground'
@@ -254,7 +254,7 @@ export function HeapLeakLab() {
 
             <div className='grid grid-cols-2 md:grid-cols-3 gap-px bg-border border border-border'>
                 <div className='bg-card px-4 py-3'>
-                    <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
+                    <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
                         Request
                     </span>
                     <span className='block text-lg font-bold tabular-nums'>
@@ -262,7 +262,7 @@ export function HeapLeakLab() {
                     </span>
                 </div>
                 <div className='bg-card px-4 py-3'>
-                    <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
+                    <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
                         Heap ব্যবহার
                     </span>
                     <span
@@ -274,7 +274,7 @@ export function HeapLeakLab() {
                     </span>
                 </div>
                 <div className='bg-card px-4 py-3 col-span-2 md:col-span-1'>
-                    <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
+                    <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
                         অবস্থা
                     </span>
                     <span

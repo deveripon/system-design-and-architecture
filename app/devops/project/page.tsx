@@ -125,7 +125,7 @@ export default function IslandToursProjectPage() {
             <main className='max-w-6xl xl:max-w-7xl mx-auto px-4 md:px-6 xl:px-10 pt-10 md:pt-16 pb-10 relative z-10'>
                 <Link
                     href='/devops'
-                    className='inline-flex items-center gap-2 mb-10 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors'>
+                    className='inline-flex items-center gap-2 mb-10 font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors'>
                     <ArrowLeft className='w-3 h-3' />
                     Back to Track
                 </Link>
@@ -194,13 +194,13 @@ export default function IslandToursProjectPage() {
                                 <div
                                     key={c.name}
                                     className='p-6 md:p-8 border-r border-b border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors'>
-                                    <h3 className='font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-primary mb-3'>
+                                    <h3 className='font-mono text-[0.6875rem] font-bold uppercase tracking-[0.15em] text-primary mb-3'>
                                         {c.name}
                                     </h3>
                                     <p className='text-sm text-muted-foreground leading-relaxed mb-4'>
                                         {c.why}
                                     </p>
-                                    <span className='font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/60'>
+                                    <span className='font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground/60'>
                                         {c.module}
                                     </span>
                                 </div>
@@ -233,7 +233,7 @@ export default function IslandToursProjectPage() {
                                     key={m.module}
                                     className='grid grid-cols-1 md:grid-cols-[13rem_1fr] border-r border-b border-border'>
                                     <div className='px-6 py-4 bg-muted/30 border-b md:border-b-0 md:border-r border-border'>
-                                        <span className='font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary'>
+                                        <span className='font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary'>
                                             {m.module}
                                         </span>
                                     </div>
@@ -266,7 +266,7 @@ export default function IslandToursProjectPage() {
                                     key={e.name}
                                     className='grid grid-cols-1 md:grid-cols-[10rem_1fr] border-r border-b border-border'>
                                     <div className='px-6 py-4 bg-muted/30 border-b md:border-b-0 md:border-r border-border'>
-                                        <span className='font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-primary'>
+                                        <span className='font-mono text-[0.6875rem] font-bold uppercase tracking-[0.15em] text-primary'>
                                             {e.name}
                                         </span>
                                     </div>

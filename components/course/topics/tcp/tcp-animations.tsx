@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -37,7 +37,7 @@ function Panel({
   );
 }
 
-const BTN = "px-3 py-1.5 border text-[11px] font-bold transition-colors";
+const BTN = "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors";
 const BTN_ON = "border-primary bg-primary/10 text-primary";
 const BTN_OFF = "border-border text-muted-foreground hover:text-foreground hover:border-primary/40";
 
@@ -191,10 +191,10 @@ export function TcpHeaderLab() {
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
             )}
           >
-            <span className="block font-mono text-[9px] sm:text-[10px] font-bold leading-tight break-words">
+            <span className="block font-mono text-[0.5625rem] sm:text-[0.625rem] font-bold leading-tight break-words">
               {f.span === 1 ? f.name.split(" ")[0] : f.name}
             </span>
-            <span className="hidden sm:block font-mono text-[8px] opacity-70 mt-0.5">
+            <span className="hidden sm:block font-mono text-[0.5rem] opacity-70 mt-0.5">
               {f.bits}
             </span>
           </button>
@@ -210,22 +210,22 @@ export function TcpHeaderLab() {
         data-active={field.id}
       >
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
-          <span className="font-mono text-[13px] font-bold text-primary">{field.name}</span>
-          <span className="font-mono text-[10px] text-muted-foreground">{field.bits}</span>
+          <span className="font-mono text-[0.8125rem] font-bold text-primary">{field.name}</span>
+          <span className="font-mono text-[0.625rem] text-muted-foreground">{field.bits}</span>
         </div>
         <p className="text-sm leading-relaxed text-muted-foreground mb-4">{field.job}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <div className="border border-border px-3 py-2">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               আমাদের গল্পে মান
             </div>
-            <div className="font-mono text-[12px] font-bold text-foreground">{field.value}</div>
+            <div className="font-mono text-[0.75rem] font-bold text-foreground">{field.value}</div>
           </div>
           <div className="border border-border px-3 py-2">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               কোন কাজে লাগে
             </div>
-            <div className="text-[12px] font-bold text-foreground">{field.serves}</div>
+            <div className="text-[0.75rem] font-bold text-foreground">{field.serves}</div>
           </div>
         </div>
       </motion.div>
@@ -311,7 +311,7 @@ export function SeqAckLab() {
       footer="প্রথমে কোনো কিছু না হারিয়ে পুরোটা একবার চালান, আর শুধু সংখ্যাগুলো দেখুন। Seq হলো Segment এর প্রথম Byte এর নম্বর, আর ACK হলো Receiver এরপর যে Byte চায় তার নম্বর। তারপর একটা Segment হারানো চালু করে আবার চালান। এবার তিনটা জিনিস খেয়াল করুন। এক, Receiver পরের Segment গুলো ফেলে দেয় না, নিজের Buffer এ ধরে রাখে, কিন্তু Program কে দেয় না। দুই, সে নতুন কোনো সংখ্যা না বলে একই ACK বারবার পাঠায়। তিন, একই ACK তিনবার বাড়তি পেলেই Sender বুঝে নেয় কোনটা হারিয়েছে আর শুধু সেটাই আবার পাঠায়।"
     >
       <div className="flex flex-wrap items-center gap-2 mb-4">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           পথের অবস্থা
         </span>
         <button
@@ -352,12 +352,12 @@ export function SeqAckLab() {
         >
           <RotateCcw className="w-3 h-3" />
         </button>
-        <span className="font-mono text-[10px] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] text-muted-foreground">
           ধাপ {toBn(step)} / {toBn(events.length)}
         </span>
       </div>
 
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mb-2 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mb-2 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
         <span>ফোন (Sender)</span>
         <span />
         <span className="text-right">Server (Receiver)</span>
@@ -379,19 +379,19 @@ export function SeqAckLab() {
           >
             <div
               className={cn(
-                "font-mono text-[11px] font-bold",
+                "font-mono text-[0.6875rem] font-bold",
                 e.dir === "lost" ? "text-destructive" : e.dir === "left" ? "text-foreground sm:text-right" : "text-primary",
               )}
             >
               {e.dir === "right" ? "→ " : e.dir === "lost" ? "✕ " : "← "}
               {e.text}
             </div>
-            <div className="text-[11px] text-muted-foreground">{e.note}</div>
+            <div className="text-[0.6875rem] text-muted-foreground">{e.note}</div>
           </div>
         ))}
       </div>
 
-      <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+      <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
         Server এর দিকে পাঁচটা টুকরোর অবস্থা
       </div>
       <div className="grid grid-cols-5 gap-1 mb-5">
@@ -408,12 +408,12 @@ export function SeqAckLab() {
                   : "border-dashed border-border",
             )}
           >
-            <div className="font-mono text-[8px] sm:text-[9px] text-muted-foreground leading-tight">
+            <div className="font-mono text-[0.5rem] sm:text-[0.5625rem] text-muted-foreground leading-tight">
               {SLOT_LABEL[i]}
             </div>
             <div
               className={cn(
-                "text-[10px] font-bold mt-1",
+                "text-[0.625rem] font-bold mt-1",
                 s === "d" ? "text-primary" : s === "h" ? "text-foreground" : "text-muted-foreground/60",
               )}
             >
@@ -540,7 +540,7 @@ export function CongestionWindowLab() {
       <div className="flex items-end gap-1 h-40 border-b border-l border-border px-1 mb-2">
         {rounds.map((r, i) => (
           <div key={i} className="flex-1 min-w-0 flex flex-col items-center justify-end h-full" data-cwnd={r.cwnd}>
-            <span className="font-mono text-[8px] sm:text-[9px] text-muted-foreground mb-0.5">{toBn(r.cwnd)}</span>
+            <span className="font-mono text-[0.5rem] sm:text-[0.5625rem] text-muted-foreground mb-0.5">{toBn(r.cwnd)}</span>
             <div
               className={cn(
                 "w-full transition-all duration-300",
@@ -558,7 +558,7 @@ export function CongestionWindowLab() {
           <div key={`e-${i}`} className="flex-1 min-w-0" />
         ))}
       </div>
-      <div className="flex flex-wrap gap-x-4 gap-y-1 mb-5 font-mono text-[9px] text-muted-foreground">
+      <div className="flex flex-wrap gap-x-4 gap-y-1 mb-5 font-mono text-[0.5625rem] text-muted-foreground">
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block w-2.5 h-2.5 bg-primary" /> Slow Start
         </span>
@@ -578,8 +578,8 @@ export function CongestionWindowLab() {
           { k: "এ পর্যন্ত পাঠানো", v: `${kb(total)} KB` },
         ].map((c) => (
           <div key={c.k} className="border border-border px-3 py-2">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">{c.k}</div>
-            <div className="font-mono text-[12px] font-bold text-foreground">{c.v}</div>
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">{c.k}</div>
+            <div className="font-mono text-[0.75rem] font-bold text-foreground">{c.v}</div>
           </div>
         ))}
       </div>

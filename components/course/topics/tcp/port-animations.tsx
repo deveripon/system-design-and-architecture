@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -55,7 +55,7 @@ function Choice({
       disabled={disabled}
       {...rest}
       className={cn(
-        "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+        "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
         disabled
           ? "border-border text-muted-foreground/40"
           : active
@@ -157,7 +157,7 @@ export function FourTupleLab() {
 
       <div className="overflow-x-auto mb-5">
         <div className="min-w-[560px]">
-          <div className="grid grid-cols-[1.3fr_1fr_0.7fr_1fr_0.7fr] gap-x-2 px-3 pb-2 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="grid grid-cols-[1.3fr_1fr_0.7fr_1fr_0.7fr] gap-x-2 px-3 pb-2 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             <span>কে</span>
             <span>Source IP</span>
             <span>Source Port</span>
@@ -174,11 +174,11 @@ export function FourTupleLab() {
                   key={`${r.ip}-${r.port}`}
                   data-row={i}
                   className={cn(
-                    "grid grid-cols-[1.3fr_1fr_0.7fr_1fr_0.7fr] gap-x-2 items-center border px-3 py-2 font-mono text-[11px] transition-colors",
+                    "grid grid-cols-[1.3fr_1fr_0.7fr_1fr_0.7fr] gap-x-2 items-center border px-3 py-2 font-mono text-[0.6875rem] transition-colors",
                     last ? "border-primary/50 bg-primary/5" : "border-border bg-background",
                   )}
                 >
-                  <span className="font-sans text-[11px] text-foreground">{r.who}</span>
+                  <span className="font-sans text-[0.6875rem] text-foreground">{r.who}</span>
                   <span className={cn(ipNew ? "text-primary font-bold" : "text-muted-foreground")}>{r.ip}</span>
                   <span className={cn(portNew ? "text-primary font-bold" : "text-muted-foreground")}>{r.port}</span>
                   <span className="text-muted-foreground/60">{SERVER_IP}</span>
@@ -189,9 +189,9 @@ export function FourTupleLab() {
             {note === "dup" && (
               <div
                 data-row="dup"
-                className="grid grid-cols-[1.3fr_1fr_0.7fr_1fr_0.7fr] gap-x-2 items-center border border-destructive/60 bg-destructive/5 px-3 py-2 font-mono text-[11px] text-destructive line-through"
+                className="grid grid-cols-[1.3fr_1fr_0.7fr_1fr_0.7fr] gap-x-2 items-center border border-destructive/60 bg-destructive/5 px-3 py-2 font-mono text-[0.6875rem] text-destructive line-through"
               >
-                <span className="font-sans text-[11px] no-underline">নকল, বাতিল</span>
+                <span className="font-sans text-[0.6875rem] no-underline">নকল, বাতিল</span>
                 <span>{FIRST_IP}</span>
                 <span>{FIRST_PORT}</span>
                 <span>{SERVER_IP}</span>
@@ -301,7 +301,7 @@ export function ReachabilityLab() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-6">
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
             অনুরোধ আসছে কোথা থেকে
           </div>
           <div className="flex flex-wrap gap-2">
@@ -314,7 +314,7 @@ export function ReachabilityLab() {
           </div>
         </div>
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
             Firewall এ Port 3000
           </div>
           <div className="flex flex-wrap gap-2">
@@ -327,7 +327,7 @@ export function ReachabilityLab() {
           </div>
         </div>
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
             App এর Process
           </div>
           <div className="flex flex-wrap gap-2">
@@ -340,7 +340,7 @@ export function ReachabilityLab() {
           </div>
         </div>
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
             App কোথায় Bind করেছে
           </div>
           <div className="flex flex-wrap gap-2">
@@ -369,14 +369,14 @@ export function ReachabilityLab() {
                 s === "skip" && "border-border bg-background opacity-50",
               )}
             >
-              <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+              <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
                 গেট {toBn(g.n)}
               </div>
-              <div className="text-[12px] font-bold text-foreground">{g.name}</div>
-              <div className="text-[10px] text-muted-foreground">{g.q}</div>
+              <div className="text-[0.75rem] font-bold text-foreground">{g.name}</div>
+              <div className="text-[0.625rem] text-muted-foreground">{g.q}</div>
               <div
                 className={cn(
-                  "mt-1 font-mono text-[10px] font-bold",
+                  "mt-1 font-mono text-[0.625rem] font-bold",
                   s === "pass" && "text-primary",
                   s === "fail" && "text-destructive",
                   s === "skip" && "text-muted-foreground",
@@ -399,7 +399,7 @@ export function ReachabilityLab() {
       >
         <div
           className={cn(
-            "inline-block font-mono text-[12px] font-bold px-3 py-1.5 border mb-3",
+            "inline-block font-mono text-[0.75rem] font-bold px-3 py-1.5 border mb-3",
             v.ok ? "border-primary text-primary bg-primary/10" : "border-destructive/60 text-destructive bg-destructive/5",
           )}
         >

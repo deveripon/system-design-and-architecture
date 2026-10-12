@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -52,7 +52,7 @@ function Chip({
       onClick={onClick}
       {...rest}
       className={cn(
-        "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+        "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
         active
           ? "border-primary bg-primary/10 text-primary"
           : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -154,7 +154,7 @@ export function CloseStepLab() {
       footer="উপরে বেছে নিন কে আগে বিদায় বলছে, তারপর এক ধাপ করে এগোন। দুই পাশের State কীভাবে বদলায় খেয়াল করুন। তারপর যে আগে বিদায় বলে সেটা বদলে আবার চালান। দেখবেন State এর নামগুলো পাশ বদল করছে, আর TIME_WAIT সবসময় তার ঘাড়েই পড়ে যে আগে বিদায় বলেছিল। এই একটা পর্যবেক্ষণ পরের দুইটা সেকশনের চাবি।"
     >
       <div className="flex flex-wrap items-center gap-2 mb-4">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           আগে বিদায় বলছে
         </span>
         <Chip
@@ -185,7 +185,7 @@ export function CloseStepLab() {
           disabled={last}
           data-action="next"
           className={cn(
-            "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             last
               ? "border-border text-muted-foreground/40"
               : "border-primary bg-primary/10 text-primary hover:bg-primary/20",
@@ -200,7 +200,7 @@ export function CloseStepLab() {
         >
           <RotateCcw className="w-3 h-3" />
         </button>
-        <span className="font-mono text-[10px] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] text-muted-foreground">
           ধাপ {toBn(step)} / {toBn(CLOSE_FLOW.length - 1)}
         </span>
       </div>
@@ -222,13 +222,13 @@ export function CloseStepLab() {
                   : "border-border bg-background",
               )}
             >
-              <div className="text-[11px] font-bold text-foreground">{SIDE_NAME[side]}</div>
-              <div className="text-[10px] text-muted-foreground mb-2">
+              <div className="text-[0.6875rem] font-bold text-foreground">{SIDE_NAME[side]}</div>
+              <div className="text-[0.625rem] text-muted-foreground mb-2">
                 {isCloser ? "Active Closer" : "Passive Closer"}
               </div>
               <div
                 className={cn(
-                  "font-mono text-[15px] font-bold",
+                  "font-mono text-[0.9375rem] font-bold",
                   state === "CLOSED" ? "text-muted-foreground" : "text-primary",
                 )}
               >
@@ -240,7 +240,7 @@ export function CloseStepLab() {
         <div className="sm:order-2 flex flex-col items-center justify-center border border-dashed border-border px-2 py-3 min-h-[72px]">
           {cur.segment && sender ? (
             <>
-              <span className="font-mono text-[13px] font-bold text-primary" data-segment={cur.segment}>
+              <span className="font-mono text-[0.8125rem] font-bold text-primary" data-segment={cur.segment}>
                 {cur.segment}
               </span>
               {sender === "phone" ? (
@@ -250,7 +250,7 @@ export function CloseStepLab() {
               )}
             </>
           ) : (
-            <span className="font-mono text-[10px] text-muted-foreground">
+            <span className="font-mono text-[0.625rem] text-muted-foreground">
               {step === 0 ? "কথা চলছে" : "নীরব"}
             </span>
           )}
@@ -294,7 +294,7 @@ export function IdleTimeoutLab() {
       footer="Load Balancer আর App এর মাঝের Connection চুপচাপ পড়ে থাকলে দুই পক্ষই একটা সময় পর সেটা বন্ধ করে দেয়। দুইটা সংখ্যা বদলে দেখুন কে আগে বন্ধ করে। App আগে বন্ধ করলে একটা লাল সময় তৈরি হয়, যখন Load Balancer একটা মরা Connection কে জীবিত ভাবছে। সেই সময়ে আসা Request এর কপালে 502। App এর সংখ্যাটা Load Balancer এর চেয়ে বড় করলেই লাল অংশটা পুরো মিলিয়ে যায়। Node এর Default হলো ৫ সেকেন্ড, তাই Node App কে Load Balancer এর পেছনে বসালে এই সংখ্যাটা প্রায় সবসময় নিজে বাড়াতে হয়।"
     >
       <div className="flex flex-wrap items-center gap-2 mb-3">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1 w-full sm:w-44">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1 w-full sm:w-44">
           Load Balancer এর Idle Timeout
         </span>
         {LB_OPTIONS.map((v) => (
@@ -304,7 +304,7 @@ export function IdleTimeoutLab() {
         ))}
       </div>
       <div className="flex flex-wrap items-center gap-2 mb-6">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1 w-full sm:w-44">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1 w-full sm:w-44">
           App এর Keep-Alive Timeout
         </span>
         {APP_OPTIONS.map((v) => (
@@ -320,7 +320,7 @@ export function IdleTimeoutLab() {
           { name: "App", value: app, primary: true },
         ].map((row) => (
           <div key={row.name} className="grid grid-cols-[110px_1fr] items-center gap-3">
-            <span className="text-[11px] font-bold text-foreground">{row.name}</span>
+            <span className="text-[0.6875rem] font-bold text-foreground">{row.name}</span>
             <div className="relative h-5 border border-border bg-background">
               <div
                 className={cn(
@@ -329,14 +329,14 @@ export function IdleTimeoutLab() {
                 )}
                 style={{ width: `${(row.value / max) * 100}%` }}
               />
-              <span className="absolute inset-y-0 right-2 flex items-center font-mono text-[10px] text-muted-foreground">
+              <span className="absolute inset-y-0 right-2 flex items-center font-mono text-[0.625rem] text-muted-foreground">
                 {toBn(row.value)} সেকেন্ডে বন্ধ করে
               </span>
             </div>
           </div>
         ))}
         <div className="grid grid-cols-[110px_1fr] items-center gap-3">
-          <span className="text-[11px] font-bold text-foreground">বিপদের সময়</span>
+          <span className="text-[0.6875rem] font-bold text-foreground">বিপদের সময়</span>
           <div className="relative h-5 border border-border bg-background">
             {!safe && (
               <div
@@ -347,7 +347,7 @@ export function IdleTimeoutLab() {
                 }}
               />
             )}
-            <span className="absolute inset-y-0 right-2 flex items-center font-mono text-[10px] text-muted-foreground">
+            <span className="absolute inset-y-0 right-2 flex items-center font-mono text-[0.625rem] text-muted-foreground">
               {safe ? "নেই" : `${toBn(danger)} সেকেন্ড`}
             </span>
           </div>
@@ -476,10 +476,10 @@ export function CloseSymptomLab() {
               i === 1 ? "border-primary/50 bg-primary/5" : "border-border bg-background",
             )}
           >
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground pt-0.5">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground pt-0.5">
               {r.k}
             </div>
-            <div className="text-[13px] leading-relaxed text-foreground">{r.v}</div>
+            <div className="text-[0.8125rem] leading-relaxed text-foreground">{r.v}</div>
           </div>
         ))}
       </motion.div>

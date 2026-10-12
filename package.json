@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test \"lib/**/spec/*.spec.ts\""
   },
   "dependencies": {
     "@tabler/icons-react": "^3.43.0",

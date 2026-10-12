@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -77,7 +77,7 @@ export function PathCompareLab() {
             data-mode={m}
             data-active={mode === m ? "true" : "false"}
             className={cn(
-              "px-4 py-2 border font-mono text-[11px] font-bold uppercase tracking-[0.12em] transition-colors",
+              "px-4 py-2 border font-mono text-[0.6875rem] font-bold uppercase tracking-[0.12em] transition-colors",
               mode === m
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -89,7 +89,7 @@ export function PathCompareLab() {
       </div>
 
       {/* on-ramp rows (change) */}
-      <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+      <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
         শুরুর অংশ, এটা আলাদা
       </div>
       <div className="border border-border bg-background mb-6">
@@ -101,7 +101,7 @@ export function PathCompareLab() {
               i < rows.length - 1 && "border-b border-border/60",
             )}
           >
-            <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground">
+            <span className="font-mono text-[0.625rem] uppercase tracking-[0.1em] text-muted-foreground">
               {r.k}
             </span>
             <motion.span
@@ -109,7 +109,7 @@ export function PathCompareLab() {
               initial={reduce ? false : { opacity: 0, y: 3 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25, ease: EASE }}
-              className="text-[13px] font-bold text-primary"
+              className="text-[0.8125rem] font-bold text-primary"
               data-ramp={r.k}
             >
               {r.v}
@@ -119,14 +119,14 @@ export function PathCompareLab() {
       </div>
 
       {/* downstream (same) */}
-      <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+      <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
         তারপরের অংশ, এটা দুই পথেই এক
       </div>
       <div
         className="border border-accent/50 bg-accent/5 p-4"
         data-downstream="same"
       >
-        <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] text-accent font-bold">
+        <div className="flex flex-wrap items-center gap-2 font-mono text-[0.6875rem] text-accent font-bold">
           <span>DNS দিয়ে নাম</span>
           <span className="opacity-50">{"->"}</span>
           <span>Gateway দিয়ে বাইরে</span>

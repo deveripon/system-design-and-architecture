@@ -6,6 +6,8 @@ import { TopicHeader } from "@/components/course/topic-header";
 import { TopicNavigation } from "@/components/course/topic-navigation";
 import { ContentPlaceholder } from "@/components/course/content-placeholder";
 import { contentMap } from "@/content";
+import { LessonToc } from "@/components/course/lesson-toc";
+import { lessonOutline } from "@/lib/lesson-outline";
 import { DynamicTopicContent } from "@/components/course/dynamic-topic-content";
 
 export async function generateMetadata({
@@ -86,7 +88,10 @@ export default async function TopicPage({ params }: { params: Promise<{ id: stri
       />
 
       {contentData ? (
-        <DynamicTopicContent data={contentData} />
+        <>
+          <LessonToc items={lessonOutline(contentData)} />
+          <DynamicTopicContent data={contentData} />
+        </>
       ) : (
         <ContentPlaceholder
           title={topic.title}

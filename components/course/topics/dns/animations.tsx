@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -94,7 +94,7 @@ export function DnsLookupLab() {
             data-name={site.name}
             data-active={site.id === id ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border font-mono text-[11px] font-bold transition-colors",
+              "px-3 py-2 border font-mono text-[0.6875rem] font-bold transition-colors",
               site.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -108,7 +108,7 @@ export function DnsLookupLab() {
       {/* name -> resolver -> ip */}
       <div className="flex flex-col sm:flex-row sm:items-stretch gap-3 mb-5">
         <div className="flex-1 border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             নাম
           </div>
           <div className="font-mono text-sm font-bold text-foreground break-all">
@@ -119,7 +119,7 @@ export function DnsLookupLab() {
           {"->"}
         </div>
         <div className="flex-1 border border-primary/40 bg-primary/5 p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             DNS ফেরত দিল
           </div>
           <div className="space-y-0.5" data-ips={s.ips.join(",")}>
@@ -130,7 +130,7 @@ export function DnsLookupLab() {
             ))}
           </div>
           {multi && (
-            <div className="mt-1 font-mono text-[9px] text-accent">
+            <div className="mt-1 font-mono text-[0.5625rem] text-accent">
               একাধিক IP
             </div>
           )}

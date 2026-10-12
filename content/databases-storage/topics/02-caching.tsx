@@ -83,7 +83,7 @@ export const cachingContent: TopicData = {
                             </ContentParagraph>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-red-700 dark:text-red-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-red-700 dark:text-red-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         WITHOUT CACHE
                                     </h4>
@@ -97,7 +97,7 @@ export const cachingContent: TopicData = {
                                     </div>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         WITH CACHE
                                     </h4>
@@ -134,7 +134,7 @@ export const cachingContent: TopicData = {
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                             <div className='p-8 border-r border-b border-border bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-blue-500' />
                                     PERFORMANCE
                                 </h4>
@@ -154,7 +154,7 @@ export const cachingContent: TopicData = {
                                 </p>
                             </div>
                             <div className='p-8 border-b border-border bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-yellow-500' />
                                     COST SAVING
                                 </h4>
@@ -168,7 +168,7 @@ export const cachingContent: TopicData = {
                                 </p>
                             </div>
                             <div className='p-8 border-r border-border bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-purple-500' />
                                     SCALABILITY
                                 </h4>
@@ -183,7 +183,7 @@ export const cachingContent: TopicData = {
                                 </p>
                             </div>
                             <div className='p-8 bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-emerald-500' />
                                     AVAILABILITY
                                 </h4>
@@ -244,7 +244,7 @@ export const cachingContent: TopicData = {
                         <div className='space-y-8'>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-emerald-700 dark:text-emerald-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         CACHE HIT ✅
                                     </h4>
@@ -258,7 +258,7 @@ export const cachingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-red-700 dark:text-red-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-red-700 dark:text-red-400 mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-red-500' />
                                         CACHE MISS ❌
                                     </h4>
@@ -660,7 +660,7 @@ export const cachingContent: TopicData = {
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                                 <div className='p-8 border-r border-border bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-blue-500' />
                                         RDB — Snapshot
                                     </h4>
@@ -675,7 +675,7 @@ export const cachingContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='p-8 bg-card/30'>
-                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                    <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                         <span className='w-1.5 h-1.5 bg-emerald-500' />
                                         AOF — Append Only File
                                     </h4>
@@ -993,7 +993,7 @@ app.use('/api/auth/', rateLimitMiddleware(5, 60));  // Login: 5 req/min`,
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border'>
                             <div className='p-8 border-r border-b border-border bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-blue-500' />
                                     TWITTER — Timeline Cache
                                 </h4>
@@ -1010,7 +1010,7 @@ app.use('/api/auth/', rateLimitMiddleware(5, 60));  // Login: 5 req/min`,
                                 </p>
                             </div>
                             <div className='p-8 border-b border-border bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-yellow-500' />
                                     AMAZON — Product Cache
                                 </h4>
@@ -1025,7 +1025,7 @@ app.use('/api/auth/', rateLimitMiddleware(5, 60));  // Login: 5 req/min`,
                                 </p>
                             </div>
                             <div className='p-8 border-r border-border bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-purple-500' />
                                     GAMING — Leaderboard
                                 </h4>
@@ -1040,7 +1040,7 @@ app.use('/api/auth/', rateLimitMiddleware(5, 60));  // Login: 5 req/min`,
                                 </p>
                             </div>
                             <div className='p-8 bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-emerald-500' />
                                     AUTH — Session Store
                                 </h4>

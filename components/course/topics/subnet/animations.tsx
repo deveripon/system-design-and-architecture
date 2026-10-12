@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -109,7 +109,7 @@ export function PrefixLab() {
             key={p}
             onClick={() => setPrefix(p)}
             className={cn(
-              "px-3 py-1.5 border font-mono text-[11px] font-bold transition-colors",
+              "px-3 py-1.5 border font-mono text-[0.6875rem] font-bold transition-colors",
               prefix === p
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -135,7 +135,7 @@ export function PrefixLab() {
                       data-bit={idx}
                       data-net={on ? "1" : "0"}
                       className={cn(
-                        "flex items-center justify-center w-5 h-7 border font-mono text-[10px] font-bold",
+                        "flex items-center justify-center w-5 h-7 border font-mono text-[0.625rem] font-bold",
                         on
                           ? "border-primary bg-primary/15 text-primary"
                           : "border-border bg-background text-muted-foreground/40",
@@ -157,7 +157,7 @@ export function PrefixLab() {
       {/* readout */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             Subnet Mask
           </div>
           <div className="font-mono text-base font-bold text-primary" data-mask={maskStr}>
@@ -165,7 +165,7 @@ export function PrefixLab() {
           </div>
         </div>
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             Network / Host bit
           </div>
           <div className="font-mono text-base font-bold text-foreground">
@@ -173,7 +173,7 @@ export function PrefixLab() {
           </div>
         </div>
         <div className="border border-primary/40 bg-primary/5 p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             যন্ত্র ধরে
           </div>
           <div
@@ -214,7 +214,7 @@ export function SameSubnetLab() {
     >
       {/* prefix control */}
       <div className="flex flex-wrap items-center gap-2 mb-6">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           Mask
         </span>
         <button
@@ -240,7 +240,7 @@ export function SameSubnetLab() {
             key={p}
             onClick={() => setPrefix(p)}
             className={cn(
-              "px-3 py-1.5 border font-mono text-[11px] font-bold transition-colors",
+              "px-3 py-1.5 border font-mono text-[0.6875rem] font-bold transition-colors",
               prefix === p
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -249,7 +249,7 @@ export function SameSubnetLab() {
             /{p}
           </button>
         ))}
-        <span className="font-mono text-[10px] text-muted-foreground" data-mask={maskStr}>
+        <span className="font-mono text-[0.625rem] text-muted-foreground" data-mask={maskStr}>
           {maskStr}
         </span>
       </div>
@@ -257,13 +257,13 @@ export function SameSubnetLab() {
       {/* two devices */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             যন্ত্র A
           </div>
           <div className="font-mono text-sm font-bold text-foreground mb-2">
             {IP_A}
           </div>
-          <div className="font-mono text-[10px] text-muted-foreground">
+          <div className="font-mono text-[0.625rem] text-muted-foreground">
             Network:{" "}
             <span className="text-primary font-bold" data-net-a={netA}>
               {netA}
@@ -271,13 +271,13 @@ export function SameSubnetLab() {
           </div>
         </div>
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             যন্ত্র B
           </div>
           <div className="font-mono text-sm font-bold text-foreground mb-2">
             {IP_B}
           </div>
-          <div className="font-mono text-[10px] text-muted-foreground">
+          <div className="font-mono text-[0.625rem] text-muted-foreground">
             Network:{" "}
             <span className="text-primary font-bold" data-net-b={netB}>
               {netB}

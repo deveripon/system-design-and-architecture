@@ -40,7 +40,7 @@ export default function AsciiTablePage() {
             <main className='max-w-6xl xl:max-w-7xl mx-auto px-4 md:px-6 xl:px-10 pt-10 md:pt-16 pb-10 relative z-10'>
                 <Link
                     href='/devops/topic/binary-and-data'
-                    className='inline-flex items-center gap-2 mb-10 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors'>
+                    className='inline-flex items-center gap-2 mb-10 font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors'>
                     <ArrowLeft className='w-3 h-3' />
                     Binary, Bit and Byte
                 </Link>
@@ -138,7 +138,7 @@ export default function AsciiTablePage() {
                             href='/devops/topic/binary-and-data'
                             className='group flex items-center gap-5 p-6 md:p-8 hover:bg-primary/5 dark:hover:bg-white/2 transition-colors'>
                             <span className='flex-1'>
-                                <span className='block font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary mb-2'>
+                                <span className='block font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary mb-2'>
                                     Back to the lesson
                                 </span>
                                 <span className='block text-lg font-black uppercase tracking-tighter group-hover:text-primary transition-colors'>

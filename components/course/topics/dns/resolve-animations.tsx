@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -106,7 +106,7 @@ export function ResolveWalkLab() {
               data-station={step.station}
               data-active={idx === i ? "true" : "false"}
               className={cn(
-                "px-3 py-2 border font-mono text-[9px] font-bold transition-colors",
+                "px-3 py-2 border font-mono text-[0.5625rem] font-bold transition-colors",
                 idx === i
                   ? "border-primary bg-primary/10 text-primary"
                   : idx < i
@@ -125,15 +125,15 @@ export function ResolveWalkLab() {
 
       {/* who is asked + badge */}
       <div className="flex flex-wrap items-center gap-3 mb-4">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
           জিজ্ঞেস করল
         </span>
-        <span className="px-3 py-1.5 border border-border bg-background font-mono text-[11px] font-bold text-foreground">
+        <span className="px-3 py-1.5 border border-border bg-background font-mono text-[0.6875rem] font-bold text-foreground">
           {s.ask}
         </span>
         <span
           className={cn(
-            "px-2.5 py-1 border font-mono text-[9px] font-bold uppercase tracking-[0.1em]",
+            "px-2.5 py-1 border font-mono text-[0.5625rem] font-bold uppercase tracking-[0.1em]",
             badge.cls,
           )}
           data-kind={s.kind}
@@ -154,7 +154,7 @@ export function ResolveWalkLab() {
         )}
         data-reply={s.station}
       >
-        <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+        <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
           উত্তর দিল
         </div>
         <div

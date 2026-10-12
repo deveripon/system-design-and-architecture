@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -54,14 +54,14 @@ function Controls({
     <div className="flex flex-wrap items-center gap-2 mb-6">
       <button
         onClick={onPlay}
-        className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+        className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
       >
         {running ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
         {running ? "Pause" : finished ? "আবার" : "Play"}
       </button>
       <button
         onClick={onStep}
-        className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+        className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
       >
         <SkipForward className="w-3 h-3" /> Step
       </button>
@@ -177,21 +177,21 @@ export function SwitchLearnLab() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* the wire event */}
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-3">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-3">
             এই চিঠিটা
           </div>
           <div className="flex items-center justify-between gap-2 mb-4">
-            <span className="px-3 py-2 border border-primary bg-primary/10 font-mono text-[11px] font-bold text-primary">
+            <span className="px-3 py-2 border border-primary bg-primary/10 font-mono text-[0.6875rem] font-bold text-primary">
               {DEVICES[f.fromIdx].name}
             </span>
             <span className="text-primary font-mono">{"->"}</span>
-            <span className="px-3 py-2 border border-border font-mono text-[11px] text-foreground">
+            <span className="px-3 py-2 border border-border font-mono text-[0.6875rem] text-foreground">
               {DEVICES[f.toIdx].name}
             </span>
           </div>
           <div
             className={cn(
-              "px-3 py-2 border font-mono text-[10px]",
+              "px-3 py-2 border font-mono text-[0.625rem]",
               f.flood
                 ? "border-primary/50 bg-primary/5 text-primary"
                 : "border-accent/50 bg-accent/5 text-accent",
@@ -206,7 +206,7 @@ export function SwitchLearnLab() {
 
         {/* the table */}
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-3">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-3">
             Switch এর টেবিল,{" "}
             <span data-known={f.known.length}>{toBn(f.known.length)}</span> / ৩
             শেখা
@@ -231,7 +231,7 @@ export function SwitchLearnLab() {
                 >
                   <span
                     className={cn(
-                      "font-mono text-[10px] font-bold",
+                      "font-mono text-[0.625rem] font-bold",
                       known ? "text-primary" : "text-muted-foreground/40",
                     )}
                   >
@@ -239,7 +239,7 @@ export function SwitchLearnLab() {
                   </span>
                   <span
                     className={cn(
-                      "font-mono text-[10px]",
+                      "font-mono text-[0.625rem]",
                       known ? "text-foreground" : "text-muted-foreground/30",
                     )}
                   >
@@ -247,7 +247,7 @@ export function SwitchLearnLab() {
                   </span>
                   <span
                     className={cn(
-                      "font-mono text-[9px]",
+                      "font-mono text-[0.5625rem]",
                       known
                         ? "text-muted-foreground"
                         : "text-muted-foreground/30",
@@ -355,7 +355,7 @@ export function HopMacLab() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
         <div className="border border-accent/50 bg-accent/5 p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             চূড়ান্ত গন্তব্য IP (বদলায় না)
           </div>
           <div
@@ -364,21 +364,21 @@ export function HopMacLab() {
           >
             {DEST_IP}
           </div>
-          <div className="font-mono text-[9px] text-muted-foreground mt-1">
+          <div className="font-mono text-[0.5625rem] text-muted-foreground mt-1">
             উৎস {SRC_IP}, শুরু থেকে শেষ এক
           </div>
         </div>
         <div className="border border-primary/50 bg-primary/5 p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             এই ধাপের MAC (প্রতিবার নতুন)
           </div>
           <div
-            className="font-mono text-[12px] font-bold text-primary"
+            className="font-mono text-[0.75rem] font-bold text-primary"
             data-srcmac={l.srcMac}
           >
             {l.srcMac}
           </div>
-          <div className="font-mono text-[10px] text-primary">
+          <div className="font-mono text-[0.625rem] text-primary">
             {"->"} <span data-dstmac={l.dstMac}>{l.dstMac}</span>
           </div>
         </div>
@@ -392,7 +392,7 @@ export function HopMacLab() {
               data-leg={idx}
               data-active={idx === i ? "true" : "false"}
               className={cn(
-                "px-3 py-2 border font-mono text-[9px] transition-colors",
+                "px-3 py-2 border font-mono text-[0.5625rem] transition-colors",
                 idx === i
                   ? "border-primary bg-primary/10 text-primary"
                   : idx < i

@@ -20,10 +20,10 @@ function Panel({
     return (
         <figure className='my-10 border border-border bg-card'>
             <figcaption className='flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30'>
-                <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
+                <span className='font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary'>
                     {label}
                 </span>
-                <span className='font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground'>
+                <span className='font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground'>
                     {title}
                 </span>
             </figcaption>
@@ -104,7 +104,7 @@ export function RaceConditionLab() {
                         if (finished) setI(0);
                         setPlaying(p => !p);
                     }}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
                     {running ? <Pause className='w-3 h-3' /> : <Play className='w-3 h-3' />}
                     {running ? 'Pause' : finished ? 'আবার' : 'Play'}
                 </button>
@@ -113,7 +113,7 @@ export function RaceConditionLab() {
                         setPlaying(false);
                         step();
                     }}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <SkipForward className='w-3 h-3' />
                     Step
                 </button>
@@ -124,7 +124,7 @@ export function RaceConditionLab() {
                         setPlaying(false);
                     }}
                     className={cn(
-                        'px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.15em] transition-colors',
+                        'px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] transition-colors',
                         safe
                             ? 'border-accent bg-accent/10 text-accent'
                             : 'border-border text-muted-foreground hover:text-foreground'
@@ -178,7 +178,7 @@ export function RaceConditionLab() {
 
             <div className='mt-6 grid grid-cols-2 gap-px bg-border border border-border'>
                 <div className='bg-card px-4 py-3'>
-                    <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
+                    <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
                         Database এ Seat
                     </span>
                     <span className='block text-xl font-bold tabular-nums'>
@@ -186,7 +186,7 @@ export function RaceConditionLab() {
                     </span>
                 </div>
                 <div className='bg-card px-4 py-3'>
-                    <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
+                    <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
                         মোট Booking
                     </span>
                     <span
@@ -348,7 +348,7 @@ export function ConcurrencyVsParallelismLab() {
                         key={k}
                         onClick={() => setType(k)}
                         className={cn(
-                            'px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.12em] transition-colors',
+                            'px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.12em] transition-colors',
                             k === type
                                 ? 'border-primary bg-primary/10 text-primary'
                                 : 'border-border text-muted-foreground hover:text-foreground hover:border-primary/40'
@@ -356,7 +356,7 @@ export function ConcurrencyVsParallelismLab() {
                         {WORK_TYPES[k].label}
                     </button>
                 ))}
-                <span className='ml-auto font-mono text-[10px] text-muted-foreground'>
+                <span className='ml-auto font-mono text-[0.625rem] text-muted-foreground'>
                     {cfg.hint}
                 </span>
             </div>
@@ -374,7 +374,7 @@ export function ConcurrencyVsParallelismLab() {
                         <div className='flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-4'>
                             <span
                                 className={cn(
-                                    'font-mono text-[9px] font-bold uppercase tracking-[0.2em] px-2 py-1',
+                                    'font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] px-2 py-1',
                                     sc.isConcurrency || sc.isParallelism
                                         ? 'bg-primary text-primary-foreground'
                                         : 'bg-muted text-muted-foreground'
@@ -395,7 +395,7 @@ export function ConcurrencyVsParallelismLab() {
                         {/* what each request experiences */}
                         {sc.requests.map(lane => (
                             <div key={lane.name} className='flex items-center gap-3 mb-1.5'>
-                                <span className='font-mono text-[10px] text-muted-foreground w-20 shrink-0'>
+                                <span className='font-mono text-[0.625rem] text-muted-foreground w-20 shrink-0'>
                                     {lane.name}
                                 </span>
                                 <div className='flex-1 h-6 bg-muted/20 border border-border relative'>
@@ -428,7 +428,7 @@ export function ConcurrencyVsParallelismLab() {
                         <div className='mt-3 pt-3 border-t border-border/60'>
                             {sc.workers.map(lane => (
                                 <div key={lane.name} className='flex items-center gap-3 mb-1.5'>
-                                    <span className='font-mono text-[10px] font-bold text-foreground/80 w-20 shrink-0'>
+                                    <span className='font-mono text-[0.625rem] font-bold text-foreground/80 w-20 shrink-0'>
                                         {lane.name}
                                     </span>
                                     <div className='flex-1 h-6 bg-muted/20 border border-border relative'>
@@ -454,7 +454,7 @@ export function ConcurrencyVsParallelismLab() {
                 ))}
             </div>
 
-            <div className='mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] text-muted-foreground'>
+            <div className='mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.6875rem] text-muted-foreground'>
                 <span className='flex items-center gap-2'>
                     <span className='w-4 h-3 bg-primary/70' />
                     Request এর কাজ চলছে

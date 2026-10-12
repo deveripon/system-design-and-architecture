@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -52,7 +52,7 @@ function Choice({
       onClick={onClick}
       {...rest}
       className={cn(
-        "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+        "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
         active
           ? "border-primary bg-primary/10 text-primary"
           : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -65,7 +65,7 @@ function Choice({
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+    <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
       {children}
     </span>
   );
@@ -210,41 +210,41 @@ export function EncapsulationLab() {
                 : "border-dashed border-border text-muted-foreground/40",
             )}
           >
-            <div className="font-mono text-[10px] font-bold">{b.text}</div>
-            <div className="font-mono text-[10px] mt-1">{b.on ? `${b.bytes} Byte` : "নেই"}</div>
+            <div className="font-mono text-[0.625rem] font-bold">{b.text}</div>
+            <div className="font-mono text-[0.625rem] mt-1">{b.on ? `${b.bytes} Byte` : "নেই"}</div>
           </div>
         ))}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-5">
         <div className="border border-border px-3 py-2">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             এই মুহূর্তে নাম
           </div>
           <div className="text-sm font-bold text-primary" data-unit={info.unit}>
             {info.unit}
           </div>
-          <div className="text-[11px] text-muted-foreground">{info.layer}</div>
+          <div className="text-[0.6875rem] text-muted-foreground">{info.layer}</div>
         </div>
         <div className="border border-border px-3 py-2">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             মোট মাপ
           </div>
           <div className="text-sm font-bold text-foreground" data-total={total}>
             {depth === 4 ? `${toBn(total * 8)} Bit` : `${toBn(total)} Byte`}
           </div>
-          <div className="text-[11px] text-muted-foreground">
+          <div className="text-[0.6875rem] text-muted-foreground">
             {depth === 4 ? `${toBn(total)} Byte গুণ ৮` : `Data ${toBn(size)} Byte`}
           </div>
         </div>
         <div className="border border-border px-3 py-2">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             মোড়কের ভাগ
           </div>
           <div className="text-sm font-bold text-foreground" data-overhead={overhead}>
             {toBn(overhead)} Byte
           </div>
-          <div className="text-[11px] text-muted-foreground">মোটের {toBn(percent)} শতাংশ</div>
+          <div className="text-[0.6875rem] text-muted-foreground">মোটের {toBn(percent)} শতাংশ</div>
         </div>
       </div>
 
@@ -264,7 +264,7 @@ export function EncapsulationLab() {
           disabled={last}
           data-action="next"
           className={cn(
-            "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             last
               ? "border-border text-muted-foreground/40"
               : "border-primary bg-primary/10 text-primary hover:bg-primary/20",
@@ -279,7 +279,7 @@ export function EncapsulationLab() {
         >
           <RotateCcw className="w-3 h-3" />
         </button>
-        <span className="font-mono text-[10px] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] text-muted-foreground">
           ধাপ {toBn(step + 1)} / ৫
         </span>
       </div>
@@ -416,13 +416,13 @@ export function HopRewriteLab() {
                 isChanged ? "border-primary/60 bg-primary/5" : "border-border bg-background",
               )}
             >
-              <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+              <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
                 {r.unit}
               </span>
-              <span className="text-[12px] font-bold text-foreground">{r.label}</span>
+              <span className="text-[0.75rem] font-bold text-foreground">{r.label}</span>
               <span
                 className={cn(
-                  "col-span-2 sm:col-span-1 font-mono text-[12px]",
+                  "col-span-2 sm:col-span-1 font-mono text-[0.75rem]",
                   isChanged ? "text-primary font-bold" : "text-muted-foreground",
                 )}
               >
@@ -430,7 +430,7 @@ export function HopRewriteLab() {
               </span>
               <span
                 className={cn(
-                  "hidden sm:block font-mono text-[9px] uppercase tracking-[0.12em] text-right",
+                  "hidden sm:block font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-right",
                   isChanged ? "text-primary" : "text-muted-foreground/50",
                 )}
               >
@@ -539,8 +539,8 @@ export function FragmentLab() {
       <div className="space-y-1.5 mb-5" data-fragments={dropped ? 0 : count}>
         {dropped ? (
           <div className="border border-destructive/60 bg-destructive/5 px-3 py-3">
-            <div className="text-[12px] font-bold text-destructive">Router Packet টা ফেলে দিল</div>
-            <div className="font-mono text-[11px] text-muted-foreground mt-1">
+            <div className="text-[0.75rem] font-bold text-destructive">Router Packet টা ফেলে দিল</div>
+            <div className="font-mono text-[0.6875rem] text-muted-foreground mt-1">
               ICMP: frag needed and DF set (MTU {mtu})
             </div>
           </div>
@@ -550,16 +550,16 @@ export function FragmentLab() {
               key={f.index}
               className="grid grid-cols-2 sm:grid-cols-[110px_1fr_1fr_1fr] gap-x-3 gap-y-0.5 items-center border border-border bg-background px-3 py-2"
             >
-              <span className="text-[12px] font-bold text-foreground">
+              <span className="text-[0.75rem] font-bold text-foreground">
                 {fits ? "একটাই Packet" : `টুকরো ${toBn(f.index + 1)}`}
               </span>
-              <span className="font-mono text-[11px] text-muted-foreground">
+              <span className="font-mono text-[0.6875rem] text-muted-foreground">
                 Header 20 + Data {f.data} = {f.total}
               </span>
-              <span className="font-mono text-[11px] text-muted-foreground">Offset {f.offset}</span>
+              <span className="font-mono text-[0.6875rem] text-muted-foreground">Offset {f.offset}</span>
               <span
                 className={cn(
-                  "font-mono text-[11px]",
+                  "font-mono text-[0.6875rem]",
                   f.more ? "text-primary font-bold" : "text-muted-foreground",
                 )}
               >

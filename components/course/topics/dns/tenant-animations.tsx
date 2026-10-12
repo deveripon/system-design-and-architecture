@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -123,7 +123,7 @@ export function WildcardMatchLab() {
     >
       <div className="border border-border mb-5 overflow-x-auto">
         <div className="min-w-[420px]">
-          <div className="grid grid-cols-[80px_80px_1fr] gap-2 px-3 py-2 border-b border-border bg-muted/30 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="grid grid-cols-[80px_80px_1fr] gap-2 px-3 py-2 border-b border-border bg-muted/30 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             <span>Name</span>
             <span>Type</span>
             <span>Value</span>
@@ -134,7 +134,7 @@ export function WildcardMatchLab() {
               data-zone-row={idx}
               data-hit={p.row === idx ? "true" : "false"}
               className={cn(
-                "grid grid-cols-[80px_80px_1fr] gap-2 px-3 py-2 border-b border-border/60 last:border-b-0 font-mono text-[11px] transition-colors",
+                "grid grid-cols-[80px_80px_1fr] gap-2 px-3 py-2 border-b border-border/60 last:border-b-0 font-mono text-[0.6875rem] transition-colors",
                 p.row === idx && p.verdict !== "none" && "bg-primary/10",
                 p.row === idx && p.verdict === "none" && "bg-destructive/10",
               )}
@@ -155,7 +155,7 @@ export function WildcardMatchLab() {
             data-probe={idx}
             data-active={idx === i ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border text-left font-mono text-[11px] font-bold transition-colors break-all",
+              "px-3 py-2 border text-left font-mono text-[0.6875rem] font-bold transition-colors break-all",
               idx === i
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -175,8 +175,8 @@ export function WildcardMatchLab() {
         data-verdict={p.verdict}
       >
         <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className={cn("px-2 py-1 border text-[11px] font-bold", v.cls)}>{v.text}</span>
-          <span className="font-mono text-[12px] font-bold text-foreground">{p.answer}</span>
+          <span className={cn("px-2 py-1 border text-[0.6875rem] font-bold", v.cls)}>{v.text}</span>
+          <span className="font-mono text-[0.75rem] font-bold text-foreground">{p.answer}</span>
         </div>
         <p className="text-sm text-muted-foreground leading-relaxed">{p.why}</p>
       </motion.div>
@@ -291,7 +291,7 @@ export function RecordsForUserLab() {
             data-kind={x.id}
             data-active={x.id === id ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border text-left text-[12px] font-bold transition-colors",
+              "px-3 py-2 border text-left text-[0.75rem] font-bold transition-colors",
               x.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -310,19 +310,19 @@ export function RecordsForUserLab() {
         data-shown={k.id}
       >
         <div className="border border-border bg-background p-4 mb-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             গ্রাহক Add Domain ঘরে লিখলেন
           </div>
           <div className="font-mono text-sm font-bold text-foreground break-all">{k.input}</div>
-          <p className="mt-2 text-[12px] text-muted-foreground leading-relaxed">{k.note}</p>
+          <p className="mt-2 text-[0.75rem] text-muted-foreground leading-relaxed">{k.note}</p>
         </div>
 
         <div className="border border-border mb-4 overflow-x-auto">
           <div className="min-w-[520px]">
-            <div className="px-3 pt-3 pb-2 text-[12px] font-bold text-foreground">
+            <div className="px-3 pt-3 pb-2 text-[0.75rem] font-bold text-foreground">
               আপনার DNS সেবায় এই Record গুলো বসান
             </div>
-            <div className="grid grid-cols-[70px_190px_1fr] gap-2 px-3 py-2 border-y border-border bg-muted/30 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+            <div className="grid grid-cols-[70px_190px_1fr] gap-2 px-3 py-2 border-y border-border bg-muted/30 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
               <span>Type</span>
               <span>Name</span>
               <span>Value</span>
@@ -334,7 +334,7 @@ export function RecordsForUserLab() {
                 data-row={idx}
                 data-open={idx === open ? "true" : "false"}
                 className={cn(
-                  "grid grid-cols-[70px_190px_1fr] gap-2 w-full px-3 py-2 border-b border-border/60 last:border-b-0 text-left font-mono text-[11px] transition-colors",
+                  "grid grid-cols-[70px_190px_1fr] gap-2 w-full px-3 py-2 border-b border-border/60 last:border-b-0 text-left font-mono text-[0.6875rem] transition-colors",
                   idx === open ? "bg-primary/10" : "hover:bg-muted/30",
                 )}
               >
@@ -347,7 +347,7 @@ export function RecordsForUserLab() {
         </div>
 
         <div className="border border-primary/40 bg-primary/5 p-4" data-source-row={open}>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             এই মানটা আপনার কোড পেল কোথা থেকে
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">{row.from}</p>
@@ -431,7 +431,7 @@ export function CustomDomainFlowLab() {
           disabled={i === 0}
           data-action="prev"
           className={cn(
-            "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             i === 0
               ? "border-border text-muted-foreground/40"
               : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -444,7 +444,7 @@ export function CustomDomainFlowLab() {
           disabled={last}
           data-action="next"
           className={cn(
-            "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             last
               ? "border-border text-muted-foreground/40"
               : "border-primary bg-primary/10 text-primary hover:bg-primary/20",
@@ -459,7 +459,7 @@ export function CustomDomainFlowLab() {
         >
           <RotateCcw className="w-3 h-3" />
         </button>
-        <span className="font-mono text-[10px] text-muted-foreground" data-stage={i}>
+        <span className="font-mono text-[0.625rem] text-muted-foreground" data-stage={i}>
           ধাপ {toBn(i + 1)} / {toBn(STAGES.length)}
         </span>
       </div>
@@ -485,7 +485,7 @@ export function CustomDomainFlowLab() {
         <div className="flex flex-wrap items-center gap-3 mb-4">
           <span className="text-base font-bold text-foreground">{s.title}</span>
           <span
-            className="px-2 py-1 border border-primary bg-primary/10 font-mono text-[10px] font-bold text-primary"
+            className="px-2 py-1 border border-primary bg-primary/10 font-mono text-[0.625rem] font-bold text-primary"
             data-status={s.status}
           >
             status: {s.status}
@@ -493,13 +493,13 @@ export function CustomDomainFlowLab() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="border border-border bg-background p-4">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               গ্রাহক যা করেন বা দেখেন
             </div>
             <p className="text-sm text-foreground leading-relaxed">{s.user}</p>
           </div>
           <div className="border border-primary/40 bg-primary/5 p-4">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               আপনার Backend যা করে
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">{s.backend}</p>

@@ -10,7 +10,7 @@ export function SubHeader({ index, title, className }: SubHeaderProps) {
   return (
     <div
       className={cn(
-        "flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] font-bold",
+        "flex items-center gap-3 font-mono text-[0.625rem] uppercase tracking-[0.2em] font-bold",
         className
       )}
     >

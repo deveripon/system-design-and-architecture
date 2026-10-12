@@ -93,7 +93,7 @@ export const databasesContent: TopicData = {
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border mb-12'>
                             <div className='p-8 border-r border-border bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-blue-500' />
                                     📊 SQL — Relational
                                 </h4>
@@ -104,7 +104,7 @@ export const databasesContent: TopicData = {
                                 </p>
                             </div>
                             <div className='p-8 bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-emerald-500' />
                                     🌊 NoSQL — Non-Relational
                                 </h4>
@@ -300,7 +300,7 @@ COMMIT;  -- সব ঠিক থাকলে permanent save — Durability!`,
                     content: (
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-0 border border-border mb-12'>
                             <div className='p-8 border-r border-border bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-emerald-500' />
                                     ✅ Index দিন যখন
                                 </h4>
@@ -311,7 +311,7 @@ COMMIT;  -- সব ঠিক থাকলে permanent save — Durability!`,
                                 </p>
                             </div>
                             <div className='p-8 bg-card/30'>
-                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]'>
+                                <h4 className='font-bold text-foreground mb-4 flex items-center gap-3 font-mono uppercase tracking-widest text-[0.625rem]'>
                                     <span className='w-1.5 h-1.5 bg-red-500' />
                                     ❌ Index এড়াও যখন
                                 </h4>

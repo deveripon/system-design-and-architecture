@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import { ModeToggle } from '../mode-toggle';
+import { SearchTrigger } from '../site/search/search-trigger';
 
 export interface NavTopic {
     id: string;
@@ -53,15 +54,15 @@ function SectionLabel({
 }) {
     return (
         <>
-            <span className='font-mono text-[10px] font-bold tabular-nums pt-px shrink-0 text-muted-foreground/60'>
+            <span className='font-mono text-[0.625rem] font-bold tabular-nums pt-px shrink-0 text-muted-foreground/60'>
                 {index}
             </span>
             <span className='flex-1 min-w-0'>
-                <span className='block font-mono text-[11px] font-bold uppercase tracking-[0.06em] leading-snug text-foreground/85 group-hover:text-foreground'>
+                <span className='block font-mono text-[0.6875rem] font-bold uppercase tracking-[0.06em] leading-snug text-foreground/85 group-hover:text-foreground'>
                     {title}
                 </span>
                 {subtitle && (
-                    <span className='block text-[11px] leading-snug mt-1 text-muted-foreground'>
+                    <span className='block text-[0.6875rem] leading-snug mt-1 text-muted-foreground'>
                         {subtitle}
                     </span>
                 )}
@@ -185,7 +186,7 @@ export function NavList({
                                             return (
                                                 <div key={topic.id}>
                                                     {showGroup && (
-                                                        <p className='pl-6 pr-3 pt-4 pb-2 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground/70'>
+                                                        <p className='pl-6 pr-3 pt-4 pb-2 font-mono text-[0.5625rem] uppercase tracking-[0.14em] text-muted-foreground/70'>
                                                             {topic.group}
                                                         </p>
                                                     )}
@@ -199,7 +200,7 @@ export function NavList({
                                                             onNavigate?.();
                                                         }}
                                                         className={cn(
-                                                            'flex items-start gap-3 pl-6 pr-3 py-2 text-[13px] font-medium leading-snug transition-colors duration-150 group border-l-2',
+                                                            'flex items-start gap-3 pl-6 pr-3 py-2 text-[0.8125rem] font-medium leading-snug transition-colors duration-150 group border-l-2',
                                                             isActive
                                                                 ? 'border-primary bg-primary/10 text-primary'
                                                                 : 'border-transparent text-muted-foreground hover:bg-card hover:text-foreground'
@@ -217,7 +218,7 @@ export function NavList({
                                                         <span className='line-clamp-2 pr-1'>
                                                             {topic.title}
                                                         </span>
-                                                        <span className='ml-auto font-mono text-[10px] text-muted-foreground/50 group-hover:text-primary transition-colors tabular-nums mt-px'>
+                                                        <span className='ml-auto font-mono text-[0.625rem] text-muted-foreground/50 group-hover:text-primary transition-colors tabular-nums mt-px'>
                                                             {String(
                                                                 idx + 1
                                                             ).padStart(2, '0')}
@@ -256,7 +257,7 @@ export function SidebarShell({
             <div className='px-6 pb-6 mb-6 border-b border-border'>
                 <div className='flex justify-between items-start gap-2'>
                     <Link href={homeHref} className='group'>
-                        <span className='font-mono text-[10px] text-primary tracking-[0.2em] uppercase block mb-1'>
+                        <span className='font-mono text-[0.625rem] text-primary tracking-[0.2em] uppercase block mb-1'>
                             {eyebrow}
                         </span>
                         <h1 className='font-heading text-lg font-bold leading-tight group-hover:text-primary transition-colors'>
@@ -265,6 +266,7 @@ export function SidebarShell({
                     </Link>
                     <ModeToggle />
                 </div>
+                <SearchTrigger variant='bar' className='mt-5' />
             </div>
 
             <NavList
@@ -306,7 +308,7 @@ export function MobileNavShell({
                     href={homeHref}
                     onClick={() => setIsOpen(false)}
                     className='flex items-center gap-2 min-w-0'>
-                    <span className='font-mono text-[10px] text-primary tracking-[0.2em] uppercase shrink-0'>
+                    <span className='font-mono text-[0.625rem] text-primary tracking-[0.2em] uppercase shrink-0'>
                         {eyebrow}
                     </span>
                     <span className='font-heading text-sm font-bold leading-none truncate'>
@@ -315,6 +317,7 @@ export function MobileNavShell({
                 </Link>
                 <div className='flex items-center gap-3'>
                     <ModeToggle />
+                    <SearchTrigger variant='icon' />
                     <button
                         onClick={() => setIsOpen(v => !v)}
                         className='w-9 h-9 flex items-center justify-center border border-border hover:border-primary/50 transition-colors'
@@ -350,7 +353,7 @@ export function MobileNavShell({
                             className='lg:hidden fixed left-0 top-0 bottom-0 w-72 z-50 bg-muted border-r border-border overflow-y-auto sidebar-scroll'>
                             <div className='px-6 py-5 border-b border-border flex items-start justify-between gap-2'>
                                 <div className='min-w-0'>
-                                    <span className='font-mono text-[10px] text-primary tracking-[0.2em] uppercase block mb-1'>
+                                    <span className='font-mono text-[0.625rem] text-primary tracking-[0.2em] uppercase block mb-1'>
                                         {eyebrow}
                                     </span>
                                     <h1 className='font-heading text-lg font-bold leading-tight'>

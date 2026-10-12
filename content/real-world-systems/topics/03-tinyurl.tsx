@@ -181,7 +181,7 @@ export const tinyurlContent: TopicData = {
                                     <span className='block font-mono text-2xl font-bold text-primary mb-1'>
                                         {item.num}
                                     </span>
-                                    <span className='font-mono text-[10px] text-muted-foreground uppercase tracking-wider'>
+                                    <span className='font-mono text-[0.625rem] text-muted-foreground uppercase tracking-wider'>
                                         {item.label}
                                     </span>
                                 </div>
@@ -223,7 +223,7 @@ export const tinyurlContent: TopicData = {
                     type: CONTENT_TYPES.HTML,
                     content: (
                         <div className='bg-muted/30 border border-border rounded-lg p-6 my-4 overflow-x-auto'>
-                            <p className='font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-6 text-center'>
+                            <p className='font-mono text-[0.625rem] uppercase tracking-widest text-muted-foreground mb-6 text-center'>
                                 URL SHORTENER — SYSTEM ARCHITECTURE
                             </p>
                             <svg

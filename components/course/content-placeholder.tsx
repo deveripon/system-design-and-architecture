@@ -42,14 +42,14 @@ export function ContentPlaceholder({
 
                 <div className='flex flex-col sm:flex-row gap-4'>
                     <Link href={homeHref}>
-                        <button className='w-full px-6 py-3 border border-border text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/50 dark:hover:border-white/30 transition-all flex items-center justify-center gap-2'>
+                        <button className='w-full px-6 py-3 border border-border text-[0.625rem] font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/50 dark:hover:border-white/30 transition-all flex items-center justify-center gap-2'>
                             <ArrowLeft className='w-3 h-3' />
                             {homeLabel}
                         </button>
                     </Link>
                     {sample && (
                         <Link href={sample.href}>
-                            <button className='w-full px-6 py-3 bg-primary text-primary-foreground text-[10px] font-mono font-bold uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-all border border-primary'>
+                            <button className='w-full px-6 py-3 bg-primary text-primary-foreground text-[0.625rem] font-mono font-bold uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-all border border-primary'>
                                 {sample.label}
                             </button>
                         </Link>

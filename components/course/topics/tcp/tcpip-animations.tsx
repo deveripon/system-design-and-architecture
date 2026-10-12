@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -157,8 +157,8 @@ function StackColumn({
 }) {
   return (
     <div>
-      <div className="text-[12px] font-bold text-foreground">{name}</div>
-      <div className="font-mono text-[10px] text-muted-foreground mb-2">{sub}</div>
+      <div className="text-[0.75rem] font-bold text-foreground">{name}</div>
+      <div className="font-mono text-[0.625rem] text-muted-foreground mb-2">{sub}</div>
       <div className="space-y-1.5">
         {LAYERS.map((l, i) => {
           const present = rows.includes(i);
@@ -167,7 +167,7 @@ function StackColumn({
             <div
               key={l}
               className={cn(
-                "border px-2 py-2 text-center font-mono text-[10px] font-bold transition-colors",
+                "border px-2 py-2 text-center font-mono text-[0.625rem] font-bold transition-colors",
                 !present && "border-dashed border-border/50 text-muted-foreground/30",
                 present && !on && "border-border text-muted-foreground",
                 on && "border-primary bg-primary/10 text-primary",
@@ -215,7 +215,7 @@ export function StackWalkLab() {
         />
       </div>
 
-      <div className="mb-2 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+      <div className="mb-2 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
         এই মুহূর্তে মোড়কে যা আছে
       </div>
       <div className="grid grid-cols-4 gap-1.5 mb-6">
@@ -228,7 +228,7 @@ export function StackWalkLab() {
               data-chip={c}
               data-present={present}
               className={cn(
-                "border px-1 py-2 text-center font-mono text-[10px] font-bold transition-colors",
+                "border px-1 py-2 text-center font-mono text-[0.625rem] font-bold transition-colors",
                 !present && "border-dashed border-border/50 text-muted-foreground/30",
                 present && !fresh && "border-border bg-muted/30 text-foreground",
                 present && fresh && "border-primary bg-primary/10 text-primary",
@@ -248,12 +248,12 @@ export function StackWalkLab() {
         className="border border-border bg-background p-4 mb-5"
         data-step={i}
       >
-        <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-primary mb-1">
+        <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-primary mb-1">
           ধাপ {toBn(i + 1)} / {toBn(WALK.length)}
         </div>
         <div className="text-sm font-bold text-foreground mb-2">{s.title}</div>
         <p className="text-sm leading-relaxed text-muted-foreground mb-3">{s.did}</p>
-        <div className="font-mono text-[11px] text-foreground break-words">{s.wrote}</div>
+        <div className="font-mono text-[0.6875rem] text-foreground break-words">{s.wrote}</div>
       </motion.div>
 
       <div className="flex flex-wrap items-center gap-2">
@@ -261,7 +261,7 @@ export function StackWalkLab() {
           onClick={() => setI((v) => Math.max(0, v - 1))}
           disabled={i === 0}
           className={cn(
-            "inline-flex items-center gap-1 px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "inline-flex items-center gap-1 px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             i === 0
               ? "border-border text-muted-foreground/40"
               : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -275,7 +275,7 @@ export function StackWalkLab() {
           disabled={last}
           data-action="next"
           className={cn(
-            "inline-flex items-center gap-1 px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "inline-flex items-center gap-1 px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             last
               ? "border-border text-muted-foreground/40"
               : "border-primary bg-primary/10 text-primary hover:bg-primary/20",
@@ -377,10 +377,10 @@ export function WhichLayerLab() {
       footer="দশটা জিনিস একটা একটা করে আসবে। প্রতিটার জন্য চার Layer এর একটা বেছে নিন। মুখস্থ করার দরকার নেই, নিজেকে শুধু একটা প্রশ্ন করুন, এই জিনিসটা কোন প্রশ্নের উত্তর দিচ্ছে। পাশের যন্ত্র পর্যন্ত কীভাবে যাব, তাহলে Link। পৃথিবীর কোন যন্ত্র, তাহলে Internet। সেই যন্ত্রের কোন Program আর কতটা যত্নে, তাহলে Transport। কথাটার অর্থ কী, তাহলে Application।"
     >
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-        <span className="font-mono text-[10px] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] text-muted-foreground">
           প্রশ্ন {toBn(idx + 1)} / {toBn(ITEMS.length)}
         </span>
-        <span className="font-mono text-[10px] text-muted-foreground" data-score={score}>
+        <span className="font-mono text-[0.625rem] text-muted-foreground" data-score={score}>
           ঠিক হয়েছে {toBn(score)}টা
         </span>
       </div>
@@ -399,7 +399,7 @@ export function WhichLayerLab() {
               onClick={() => pick(i)}
               data-layer={l}
               className={cn(
-                "inline-flex items-center justify-center gap-1 px-3 py-2 border text-[11px] font-bold transition-colors",
+                "inline-flex items-center justify-center gap-1 px-3 py-2 border text-[0.6875rem] font-bold transition-colors",
                 !answered && "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
                 answered && !isRight && !isWrong && "border-border text-muted-foreground/40",
                 isRight && "border-primary bg-primary/10 text-primary",
@@ -440,7 +440,7 @@ export function WhichLayerLab() {
           disabled={!answered || lastItem}
           data-action="next"
           className={cn(
-            "inline-flex items-center gap-1 px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "inline-flex items-center gap-1 px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             !answered || lastItem
               ? "border-border text-muted-foreground/40"
               : "border-primary bg-primary/10 text-primary hover:bg-primary/20",
@@ -461,7 +461,7 @@ export function WhichLayerLab() {
           <RotateCcw className="w-3 h-3" />
         </button>
         {answered && lastItem && (
-          <span className="text-[12px] text-muted-foreground">
+          <span className="text-[0.75rem] text-muted-foreground">
             শেষ। দশটার মধ্যে {toBn(score)}টা ঠিক। আটের কম হলে আরেকবার খেলুন।
           </span>
         )}
@@ -567,7 +567,7 @@ export function LayerFaultLab() {
             onClick={() => setId(f.id)}
             data-fault={f.id}
             className={cn(
-              "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+              "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
               f.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -593,16 +593,16 @@ export function LayerFaultLab() {
                 r === "skip" && "border-dashed border-border bg-background",
               )}
             >
-              <div className="font-mono text-[10px] font-bold text-foreground">
+              <div className="font-mono text-[0.625rem] font-bold text-foreground">
                 {toBn(i + 1)}. {LAYERS[c.layer]}
               </div>
               <div>
-                <div className="font-mono text-[11px] text-foreground break-all">{c.cmd}</div>
-                <div className="text-[10px] text-muted-foreground">{c.asks}</div>
+                <div className="font-mono text-[0.6875rem] text-foreground break-all">{c.cmd}</div>
+                <div className="text-[0.625rem] text-muted-foreground">{c.asks}</div>
               </div>
               <div
                 className={cn(
-                  "font-mono text-[11px] font-bold",
+                  "font-mono text-[0.6875rem] font-bold",
                   r === "ok" && "text-primary",
                   r === "fail" && "text-destructive",
                   r === "skip" && "text-muted-foreground/50",
@@ -624,7 +624,7 @@ export function LayerFaultLab() {
         transition={{ duration: 0.3, ease: EASE }}
         data-broken={LAYERS[fault.broken]}
       >
-        <div className="font-mono text-[11px] text-destructive mb-2 break-words">{fault.says}</div>
+        <div className="font-mono text-[0.6875rem] text-destructive mb-2 break-words">{fault.says}</div>
         <p className="text-sm leading-relaxed text-muted-foreground">
           <strong className="text-foreground">ভেঙেছে {LAYERS[fault.broken]} Layer এ। </strong>
           {fault.story}

@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -123,7 +123,7 @@ export function PortTableLab() {
         {/* controls */}
         <div className="space-y-5">
           <div>
-            <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-2">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground mb-2">
               Program চালু করুন
             </div>
             <div className="flex flex-col gap-1.5">
@@ -135,14 +135,14 @@ export function PortTableLab() {
                   className="flex items-center justify-between gap-3 px-3 py-2 border border-border text-left hover:border-primary/50 hover:bg-primary/5 transition-colors"
                 >
                   <span>
-                    <span className="font-mono text-[11px] text-foreground">
+                    <span className="font-mono text-[0.6875rem] text-foreground">
                       {p.name}
                     </span>
-                    <span className="block font-mono text-[8px] text-muted-foreground">
+                    <span className="block font-mono text-[0.5rem] text-muted-foreground">
                       {p.what}
                     </span>
                   </span>
-                  <span className="font-mono text-[10px] text-primary font-bold shrink-0">
+                  <span className="font-mono text-[0.625rem] text-primary font-bold shrink-0">
                     listen({p.port})
                   </span>
                 </button>
@@ -150,7 +150,7 @@ export function PortTableLab() {
             </div>
           </div>
           <div>
-            <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-2">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground mb-2">
               কড়া নাড়ুন
             </div>
             <div className="flex flex-wrap items-center gap-1.5">
@@ -160,7 +160,7 @@ export function PortTableLab() {
                   onClick={() => setKnock(port)}
                   data-knock-port={port}
                   className={cn(
-                    "px-3 py-1.5 border font-mono text-[10px] transition-colors",
+                    "px-3 py-1.5 border font-mono text-[0.625rem] transition-colors",
                     knock === port
                       ? "border-primary bg-primary/10 text-primary"
                       : "border-border text-muted-foreground hover:text-foreground",
@@ -172,7 +172,7 @@ export function PortTableLab() {
               <button
                 onClick={doKnock}
                 data-knock
-                className="ml-auto px-4 py-1.5 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary hover:bg-primary/10 transition-colors"
+                className="ml-auto px-4 py-1.5 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary hover:bg-primary/10 transition-colors"
               >
                 curl localhost:{knock}
               </button>
@@ -183,25 +183,25 @@ export function PortTableLab() {
         {/* the table */}
         <div>
           <div className="flex items-baseline justify-between mb-2">
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground">
+            <span className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground">
               Kernel এর খাতা: ফ্ল্যাট → Process
             </span>
             <span
-              className="font-mono text-[9px] text-muted-foreground"
+              className="font-mono text-[0.5625rem] text-muted-foreground"
               data-running={running.length}
             >
               {toBn(running.length)} টা চলছে
             </span>
           </div>
           <div className="border border-border bg-background min-h-[140px]">
-            <div className="grid grid-cols-[70px_1fr_70px_36px] gap-2 px-3 py-2 border-b border-border font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground">
+            <div className="grid grid-cols-[70px_1fr_70px_36px] gap-2 px-3 py-2 border-b border-border font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted-foreground">
               <span>Port</span>
               <span>Program</span>
               <span>PID</span>
               <span />
             </div>
             {running.length === 0 && (
-              <div className="px-3 py-6 text-center font-mono text-[10px] text-muted-foreground/60">
+              <div className="px-3 py-6 text-center font-mono text-[0.625rem] text-muted-foreground/60">
                 খাতা খালি। কেউ কোনো দরজা খোলেনি।
               </div>
             )}
@@ -216,13 +216,13 @@ export function PortTableLab() {
                   data-row-port={r.port}
                   className="grid grid-cols-[70px_1fr_70px_36px] gap-2 items-center px-3 py-2 border-b border-border last:border-b-0"
                 >
-                  <span className="font-mono text-[11px] font-bold text-primary">
+                  <span className="font-mono text-[0.6875rem] font-bold text-primary">
                     {r.port}
                   </span>
-                  <span className="font-mono text-[10px] text-foreground truncate">
+                  <span className="font-mono text-[0.625rem] text-foreground truncate">
                     {r.name}
                   </span>
-                  <span className="font-mono text-[10px] text-muted-foreground">
+                  <span className="font-mono text-[0.625rem] text-muted-foreground">
                     {r.pid}
                   </span>
                   <button
@@ -267,7 +267,7 @@ export function PortTableLab() {
             setLog(null);
             setNextPid(4821);
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
         >
           <RotateCcw className="w-3 h-3" />
           সব বন্ধ করুন
@@ -312,7 +312,7 @@ export function ManyTabsLab() {
           data-open-tab
           disabled={tabs.length >= 8}
           className={cn(
-            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-colors",
+            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] transition-colors",
             tabs.length >= 8
               ? "border-border text-muted-foreground/40"
               : "border-primary/40 bg-primary/5 text-primary hover:bg-primary/10",
@@ -328,7 +328,7 @@ export function ManyTabsLab() {
 
       <div className="border border-border bg-background overflow-x-auto">
         <div className="min-w-[560px]">
-          <div className="grid grid-cols-[60px_1fr_1fr_40px] gap-3 px-4 py-2 border-b border-border font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="grid grid-cols-[60px_1fr_1fr_40px] gap-3 px-4 py-2 border-b border-border font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted-foreground">
             <span>Tab</span>
             <span>আপনার দিক (ঠিকানা : ফেরার ফ্ল্যাট)</span>
             <span>Server এর দিক</span>
@@ -353,13 +353,13 @@ export function ManyTabsLab() {
               >
                 <span
                   className={cn(
-                    "font-mono text-[11px] font-bold",
+                    "font-mono text-[0.6875rem] font-bold",
                     hot ? "text-accent" : "text-foreground",
                   )}
                 >
                   Tab {toBn(idx + 1)}
                 </span>
-                <span className="font-mono text-[10px]">
+                <span className="font-mono text-[0.625rem]">
                   <span className="text-muted-foreground">{ME}</span>
                   <span className="text-muted-foreground"> : </span>
                   <span
@@ -371,7 +371,7 @@ export function ManyTabsLab() {
                     {port}
                   </span>
                 </span>
-                <span className="font-mono text-[10px] text-muted-foreground">
+                <span className="font-mono text-[0.625rem] text-muted-foreground">
                   {SERVER.ip} :{" "}
                   <span className="text-foreground">{SERVER.port}</span>
                 </span>
@@ -390,7 +390,7 @@ export function ManyTabsLab() {
             );
           })}
           {tabs.length === 0 && (
-            <div className="px-4 py-6 text-center font-mono text-[10px] text-muted-foreground/60">
+            <div className="px-4 py-6 text-center font-mono text-[0.625rem] text-muted-foreground/60">
               কোনো Tab খোলা নেই, কোনো ফেরার ফ্ল্যাটও নেই।
             </div>
           )}
@@ -410,7 +410,7 @@ export function ManyTabsLab() {
             ? "সব Tab একই Server এর একই ফ্ল্যাট 443 এর সাথে কথা বলছে। তফাত শুধু আপনার দিকের নম্বরটায়। কোনো একটা সারিতে চাপুন।"
             : `Server উত্তরের খামে লিখল: ${ME} : ${replyTo}। আপনার Kernel খাতায় ${replyTo} খুঁজল, পেল Tab ${toBn(tabs.indexOf(replyTo) + 1)}। উত্তর ঠিক ওই Tab এ গেল, বাকিরা কিছুই জানল না। চারটা সংখ্যা মিলিয়ে একটা কথা আলাদা হয়: আপনার ঠিকানা, আপনার ফ্ল্যাট, Server এর ঠিকানা, Server এর ফ্ল্যাট।`}
         </motion.p>
-        <div className="font-mono text-[9px] text-muted-foreground border border-border px-3 py-2 shrink-0">
+        <div className="font-mono text-[0.5625rem] text-muted-foreground border border-border px-3 py-2 shrink-0">
           <div className="uppercase tracking-[0.12em] mb-1">
             ব্যবহৃত ফেরার ফ্ল্যাট
           </div>

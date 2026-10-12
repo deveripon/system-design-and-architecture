@@ -35,7 +35,7 @@ function Shell({ children }: { children: React.ReactNode }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="GitHub repository"
-      className="inline-flex items-center gap-2 border border-border bg-card px-2.5 py-1.5 font-mono text-[11px] font-bold text-foreground hover:border-primary/50 hover:bg-muted transition-colors"
+      className="inline-flex items-center gap-2 border border-border bg-card px-2.5 py-1.5 font-mono text-[0.6875rem] font-bold text-foreground hover:border-primary/50 hover:bg-muted transition-colors"
     >
       {children}
     </a>

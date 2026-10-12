@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -163,7 +163,7 @@ export function FullJourneyLab() {
             if (finished) setI(0);
             setPlaying((p) => !p);
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
         >
           {running ? (
             <Pause className="w-3 h-3" />
@@ -177,7 +177,7 @@ export function FullJourneyLab() {
             setPlaying(false);
             setI((v) => (v >= STAGES.length - 1 ? 0 : v + 1));
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
         >
           <SkipForward className="w-3 h-3" /> Step
         </button>
@@ -191,7 +191,7 @@ export function FullJourneyLab() {
         >
           <RotateCcw className="w-3 h-3" />
         </button>
-        <span className="ml-auto font-mono text-[11px] text-muted-foreground">
+        <span className="ml-auto font-mono text-[0.6875rem] text-muted-foreground">
           ঘড়ি{" "}
           <span className="text-primary font-bold text-base" data-clock={s.ms}>
             {toBn(s.ms)}
@@ -223,7 +223,7 @@ export function FullJourneyLab() {
               >
                 <span
                   className={cn(
-                    "font-mono text-[10px] pt-0.5 w-4 shrink-0",
+                    "font-mono text-[0.625rem] pt-0.5 w-4 shrink-0",
                     active ? "text-primary" : "text-muted-foreground/50",
                   )}
                 >
@@ -232,7 +232,7 @@ export function FullJourneyLab() {
                 <span className="min-w-0">
                   <span
                     className={cn(
-                      "block text-[12px] leading-snug",
+                      "block text-[0.75rem] leading-snug",
                       active
                         ? "text-foreground"
                         : done
@@ -244,7 +244,7 @@ export function FullJourneyLab() {
                   </span>
                   <span
                     className={cn(
-                      "block font-mono text-[8px] uppercase tracking-[0.1em]",
+                      "block font-mono text-[0.5rem] uppercase tracking-[0.1em]",
                       st.faded ? "text-muted-foreground/50" : "text-primary/70",
                     )}
                   >
@@ -261,7 +261,7 @@ export function FullJourneyLab() {
           <div className="flex flex-wrap items-baseline gap-2 mb-2">
             <span
               className={cn(
-                "font-mono text-[9px] font-bold uppercase tracking-[0.15em] px-2 py-0.5 border",
+                "font-mono text-[0.5625rem] font-bold uppercase tracking-[0.15em] px-2 py-0.5 border",
                 s.where === "server"
                   ? "border-primary/50 text-primary"
                   : s.where === "road"
@@ -274,7 +274,7 @@ export function FullJourneyLab() {
             </span>
             <span
               className={cn(
-                "font-mono text-[9px] uppercase tracking-[0.12em]",
+                "font-mono text-[0.5625rem] uppercase tracking-[0.12em]",
                 s.faded ? "text-muted-foreground/60" : "text-primary",
               )}
             >
@@ -294,7 +294,7 @@ export function FullJourneyLab() {
             {s.note}
           </motion.p>
           {s.faded && (
-            <div className="mt-4 px-3 py-2 border border-dashed border-border/60 font-mono text-[10px] text-muted-foreground">
+            <div className="mt-4 px-3 py-2 border border-dashed border-border/60 font-mono text-[0.625rem] text-muted-foreground">
               এই ধাপটা এখনো শেখানো হয়নি, {s.lesson} এ শিখবেন।
             </div>
           )}
@@ -384,11 +384,11 @@ export function NarrateItLab() {
       footer="এই মডিউলটা যদি সত্যিই বসে থাকে, তাহলে যাত্রার যেকোনো ধাপ শুনে আপনি বলতে পারবেন সেটা কোন লেসনের গল্প। পাঁচটাই ঠিক হলে ধরে নিন Module 02 আপনার হাতের মুঠোয়। এবার Module 03 এ আমরা এই যাত্রার সেই অংশগুলোতে ঢুকব যেগুলো এতক্ষণ ধরে নিয়েছিলাম, বিশেষ করে ঠিকানা আসলে কীভাবে কাজ করে।"
     >
       <div className="flex items-baseline justify-between mb-4">
-        <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground">
           প্রশ্ন {toBn(i + 1)} / {toBn(QUIZ.length)}
         </span>
         <span
-          className="font-mono text-[10px] text-muted-foreground"
+          className="font-mono text-[0.625rem] text-muted-foreground"
           data-score={score}
         >
           ঠিক <span className="text-primary font-bold">{toBn(score)}</span> /{" "}
@@ -397,7 +397,7 @@ export function NarrateItLab() {
       </div>
 
       <div className="border border-border bg-background p-4 mb-4">
-        <div className="font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+        <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
           যাত্রার এই ধাপটা
         </div>
         <div className="text-base text-foreground">{q.stage}</div>
@@ -414,7 +414,7 @@ export function NarrateItLab() {
               disabled={answered}
               data-option={idx}
               className={cn(
-                "w-full text-left px-4 py-3 border font-mono text-[12px] transition-colors",
+                "w-full text-left px-4 py-3 border font-mono text-[0.75rem] transition-colors",
                 !answered &&
                   "hover:border-primary/50 hover:bg-primary/5 cursor-pointer border-border",
                 answered && isAns && "border-accent bg-accent/10 text-accent",
@@ -443,7 +443,7 @@ export function NarrateItLab() {
         >
           <span
             className={cn(
-              "font-mono text-[9px] font-bold uppercase tracking-[0.15em] block mb-1",
+              "font-mono text-[0.5625rem] font-bold uppercase tracking-[0.15em] block mb-1",
               correct ? "text-accent" : "text-primary",
             )}
           >
@@ -458,7 +458,7 @@ export function NarrateItLab() {
           onClick={() => setI((v) => (v + 1) % QUIZ.length)}
           disabled={!answered}
           className={cn(
-            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-colors",
+            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] transition-colors",
             answered
               ? "border-primary/40 bg-primary/5 text-primary hover:bg-primary/10"
               : "border-border text-muted-foreground/40",

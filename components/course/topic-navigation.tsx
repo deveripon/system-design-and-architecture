@@ -39,7 +39,7 @@ export function TopicNavigation({
                         <Link
                             href={`${basePath}/${prev.id}`}
                             className='group flex flex-col items-start p-5 md:p-6 bg-muted/5 border border-transparent hover:border-border hover:bg-muted/20 transition-colors h-full'>
-                            <span className='font-mono text-[9px] md:text-[10px] uppercase tracking-widest text-muted-foreground mb-2 md:mb-3 flex items-center gap-2'>
+                            <span className='font-mono text-[0.5625rem] md:text-[0.625rem] uppercase tracking-widest text-muted-foreground mb-2 md:mb-3 flex items-center gap-2'>
                                 <ChevronLeft className='w-3 h-3 md:w-4 md:h-4 text-primary transition-transform duration-300 group-hover:-translate-x-1' />
                                 Previous {label}
                             </span>
@@ -57,7 +57,7 @@ export function TopicNavigation({
                         <Link
                             href={`${basePath}/${next.id}`}
                             className='group flex flex-col items-end text-right p-5 md:p-6 bg-muted/5 border border-transparent hover:border-border hover:bg-muted/20 transition-colors h-full'>
-                            <span className='font-mono text-[9px] md:text-[10px] uppercase tracking-widest text-muted-foreground mb-2 md:mb-3 flex items-center gap-2'>
+                            <span className='font-mono text-[0.5625rem] md:text-[0.625rem] uppercase tracking-widest text-muted-foreground mb-2 md:mb-3 flex items-center gap-2'>
                                 Next {label}
                                 <ChevronRight className='w-3 h-3 md:w-4 md:h-4 text-primary transition-transform duration-300 group-hover:translate-x-1' />
                             </span>

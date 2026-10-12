@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -74,7 +74,7 @@ export function HubVsSwitchLab() {
               data-mode={m}
               data-active={mode === m ? "true" : "false"}
               className={cn(
-                "px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.15em] transition-colors",
+                "px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] transition-colors",
                 mode === m
                   ? m === "hub"
                     ? "border-primary bg-primary/10 text-primary"
@@ -87,7 +87,7 @@ export function HubVsSwitchLab() {
           ))}
         </div>
         <div className="flex items-center gap-2 ml-auto">
-          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             গন্তব্য
           </span>
           {DEVICES.filter((d) => d !== from).map((d) => (
@@ -99,7 +99,7 @@ export function HubVsSwitchLab() {
               }}
               data-target={d}
               className={cn(
-                "w-8 h-8 border font-mono text-[11px] font-bold transition-colors",
+                "w-8 h-8 border font-mono text-[0.6875rem] font-bold transition-colors",
                 target === d
                   ? "border-primary bg-primary/10 text-primary"
                   : "border-border text-muted-foreground hover:text-foreground",
@@ -115,7 +115,7 @@ export function HubVsSwitchLab() {
       <div className="border border-border bg-background p-6">
         <div
           className={cn(
-            "mx-auto mb-6 w-32 py-2 border text-center font-mono text-[11px] font-bold uppercase tracking-[0.15em]",
+            "mx-auto mb-6 w-32 py-2 border text-center font-mono text-[0.6875rem] font-bold uppercase tracking-[0.15em]",
             mode === "hub"
               ? "border-primary text-primary bg-primary/5"
               : "border-accent text-accent bg-accent/5",
@@ -159,7 +159,7 @@ export function HubVsSwitchLab() {
                 >
                   {d}
                 </div>
-                <div className="font-mono text-[8px] text-muted-foreground mt-1">
+                <div className="font-mono text-[0.5rem] text-muted-foreground mt-1">
                   {isFrom
                     ? "পাঠাল"
                     : got
@@ -179,7 +179,7 @@ export function HubVsSwitchLab() {
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <button
           onClick={() => setSent(true)}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
         >
           <Send className="w-3 h-3" />A থেকে {target} কে পাঠান
         </button>
@@ -196,7 +196,7 @@ export function HubVsSwitchLab() {
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.25, ease: EASE }}
-            className="font-mono text-[11px] text-muted-foreground"
+            className="font-mono text-[0.6875rem] text-muted-foreground"
           >
             পেল{" "}
             <span
@@ -288,11 +288,11 @@ export function WhichBoxLab() {
       footer="নিয়মটা এক লাইনে মনে রাখুন। একই LAN এর ভেতরে যন্ত্র জোড়া, আর প্রত্যেককে ঠিক তার চিঠি, মানে Switch। দুইটা আলাদা Network জোড়া, বিশেষ করে LAN থেকে বাইরে, মানে Router। আর সবাইকে সব চিঠি শোনানো, মানে সেকেলে Hub, যেটা আজ আর কেউ ব্যবহার করে না। ভেতরে জোড়া Switch, বাইরে জোড়া Router, এই দুইটা গেঁথে নিলেই যথেষ্ট।"
     >
       <div className="flex items-baseline justify-between mb-4">
-        <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground">
           কাজ {toBn(i + 1)} / {toBn(QUIZ.length)}
         </span>
         <span
-          className="font-mono text-[10px] text-muted-foreground"
+          className="font-mono text-[0.625rem] text-muted-foreground"
           data-score={score}
         >
           ঠিক <span className="text-primary font-bold">{toBn(score)}</span> /{" "}
@@ -301,7 +301,7 @@ export function WhichBoxLab() {
       </div>
 
       <div className="border border-border bg-background p-4 mb-4">
-        <div className="font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+        <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
           এই কাজটার জন্য
         </div>
         <div className="text-base text-foreground leading-relaxed">
@@ -320,7 +320,7 @@ export function WhichBoxLab() {
               disabled={answered}
               data-option={o.key}
               className={cn(
-                "px-4 py-3 border font-mono text-[11px] font-bold uppercase tracking-[0.1em] transition-colors",
+                "px-4 py-3 border font-mono text-[0.6875rem] font-bold uppercase tracking-[0.1em] transition-colors",
                 !answered &&
                   "border-border hover:border-primary/50 hover:bg-primary/5 cursor-pointer",
                 answered && isAns && "border-accent bg-accent/10 text-accent",
@@ -352,7 +352,7 @@ export function WhichBoxLab() {
         >
           <span
             className={cn(
-              "font-mono text-[9px] font-bold uppercase tracking-[0.15em] block mb-1",
+              "font-mono text-[0.5625rem] font-bold uppercase tracking-[0.15em] block mb-1",
               correct ? "text-accent" : "text-primary",
             )}
           >
@@ -367,7 +367,7 @@ export function WhichBoxLab() {
           onClick={() => setI((v) => (v + 1) % QUIZ.length)}
           disabled={!answered}
           className={cn(
-            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-colors",
+            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] transition-colors",
             answered
               ? "border-primary/40 bg-primary/5 text-primary hover:bg-primary/10"
               : "border-border text-muted-foreground/40",

@@ -37,10 +37,10 @@ export function RealLifeLab({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           Interactive
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           বাস্তবে কোথায় কাজে লাগে
         </span>
       </figcaption>
@@ -53,7 +53,7 @@ export function RealLifeLab({
               data-scenario={s.id}
               aria-pressed={s.id === active}
               className={cn(
-                "px-3 py-1.5 border text-[11px] font-bold transition-colors text-left",
+                "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors text-left",
                 s.id === active
                   ? "border-primary bg-primary/10 text-primary"
                   : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -74,26 +74,26 @@ export function RealLifeLab({
           <p className="text-sm md:text-base leading-relaxed text-foreground mb-5">{current.situation}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
             <div className="border border-border bg-background p-4">
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-2">
+              <div className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-2">
                 এই মডিউল না জানলে
               </div>
-              <p className="text-[13px] leading-relaxed text-muted-foreground">{current.without}</p>
+              <p className="text-[0.8125rem] leading-relaxed text-muted-foreground">{current.without}</p>
             </div>
             <div className="border border-primary/50 bg-primary/5 p-4">
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2">
+              <div className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary mb-2">
                 এই মডিউল জানলে
               </div>
-              <p className="text-[13px] leading-relaxed text-foreground">{current.withIt}</p>
+              <p className="text-[0.8125rem] leading-relaxed text-foreground">{current.withIt}</p>
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+            <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
               উত্তর আছে এই লেসনে
             </span>
             {current.lessons.map((lesson) => (
               <span
                 key={lesson}
-                className="px-2 py-1 border border-border font-mono text-[10px] text-muted-foreground"
+                className="px-2 py-1 border border-border font-mono text-[0.625rem] text-muted-foreground"
               >
                 {lesson}
               </span>

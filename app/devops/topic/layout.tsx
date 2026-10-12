@@ -18,9 +18,12 @@ export default function DevopsTopicLayout({
 
             {/* Main content. min-w-0 matters: as a flex item it defaults to
                 min-width: auto, so one wide diagram would stretch it past the
-                viewport and the wrapper would clip the whole column. */}
-            <main className='flex-1 min-w-0 lg:ml-84 bg-background pt-14 lg:pt-0'>
-                <div className='w-full mx-auto max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl xl:max-w-[80rem] 2xl:max-w-[90rem] px-4 py-8 md:px-8 md:py-14 lg:px-12 xl:px-16 2xl:px-20'>
+                viewport and the wrapper would clip the whole column.
+                A lesson with an outline renders a `data-lesson-toc` marker;
+                the `has-` classes then clear the fixed right rail and give
+                back some side padding so diagrams keep their width. */}
+            <main className='flex-1 min-w-0 lg:ml-84 bg-background pt-14 lg:pt-0 toc:has-[[data-lesson-toc]]:mr-64 2xl:has-[[data-lesson-toc]]:mr-80'>
+                <div className='w-full mx-auto max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl xl:max-w-[80rem] 2xl:max-w-[90rem] px-4 py-8 md:px-8 md:py-14 lg:px-12 xl:px-16 2xl:px-20 toc:has-[[data-lesson-toc]]:px-8 2xl:has-[[data-lesson-toc]]:px-12'>
                     {children}
                 </div>
             </main>

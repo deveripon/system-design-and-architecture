@@ -8,7 +8,7 @@ interface ScenarioCardProps {
 export function ScenarioCard({ title, description }: ScenarioCardProps) {
   return (
     <div className="p-8 border-r border-b border-border bg-card/50 hover:bg-primary/5 dark:hover:bg-white/2 transition-colors group">
-      <SubHeader index="CASE" title={title} className="text-[9px] mb-4" />
+      <SubHeader index="CASE" title={title} className="text-[0.5625rem] mb-4" />
       <p className="text-sm text-muted-foreground leading-relaxed font-medium">
         {description}
       </p>

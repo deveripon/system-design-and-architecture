@@ -14,7 +14,7 @@ export function NextCTA({ href, title }: NextCTAProps) {
       className="flex items-center justify-between p-6 mt-16 rounded-none border border-border bg-muted/30 hover:border-primary transition-all group"
     >
       <div>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2 block">
+        <span className="font-mono text-[0.625rem] uppercase tracking-widest text-muted-foreground mb-2 block">
           Next Topic
         </span>
         <h3 className="text-xl font-bold group-hover:text-primary transition-colors">

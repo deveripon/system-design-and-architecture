@@ -44,7 +44,7 @@ export function TrackGrid() {
                         <div className='w-12 h-12 border border-border flex items-center justify-center bg-background shrink-0'>
                             <track.icon className='w-6 h-6 text-primary' />
                         </div>
-                        <span className='font-mono text-[9px] uppercase tracking-[0.25em] text-muted-foreground'>
+                        <span className='font-mono text-[0.5625rem] uppercase tracking-[0.25em] text-muted-foreground'>
                             {track.eyebrow}
                         </span>
                     </div>
@@ -63,7 +63,7 @@ export function TrackGrid() {
                         <Stat label='Lessons' value={track.lessons} />
                     </div>
 
-                    <div className='mt-auto pt-2 inline-flex items-center gap-3 font-mono text-[10px] font-black uppercase tracking-[0.25em] text-foreground/70 group-hover:text-foreground transition-colors'>
+                    <div className='mt-auto pt-2 inline-flex items-center gap-3 font-mono text-[0.625rem] font-black uppercase tracking-[0.25em] text-foreground/70 group-hover:text-foreground transition-colors'>
                         {track.cta}
                         <ArrowRight className='w-3 h-3 text-primary group-hover:translate-x-0.5 transition-transform' />
                     </div>
@@ -76,7 +76,7 @@ export function TrackGrid() {
 function Stat({ label, value }: { label: string; value: number }) {
     return (
         <div className='flex flex-col gap-1 px-4 py-2 bg-card min-w-[96px]'>
-            <span className='text-[8px] font-mono font-bold uppercase tracking-widest text-muted-foreground'>
+            <span className='text-[0.5rem] font-mono font-bold uppercase tracking-widest text-muted-foreground'>
                 {label}
             </span>
             <span className='text-sm font-black tabular-nums'>{value}</span>

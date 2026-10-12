@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -56,14 +56,14 @@ function Controls({
     <div className="flex flex-wrap items-center gap-2 mb-8">
       <button
         onClick={onPlay}
-        className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+        className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
       >
         {running ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
         {running ? "Pause" : finished ? "আবার" : "Play"}
       </button>
       <button
         onClick={onStep}
-        className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+        className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
       >
         <SkipForward className="w-3 h-3" />
         Step
@@ -246,7 +246,7 @@ export function GrowingNetworkLab() {
           <div
             key={s.title}
             className={cn(
-              "px-3 py-1.5 border font-mono text-[9px] uppercase tracking-[0.1em] transition-colors duration-200",
+              "px-3 py-1.5 border font-mono text-[0.5625rem] uppercase tracking-[0.1em] transition-colors duration-200",
               idx === i
                 ? "border-primary bg-primary/10 text-primary"
                 : idx < i
@@ -260,7 +260,7 @@ export function GrowingNetworkLab() {
       </div>
 
       <div className="border border-border bg-background">
-        <div className="px-5 py-3 border-b border-border bg-muted/20 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary">
+        <div className="px-5 py-3 border-b border-border bg-muted/20 font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary">
           {scene.title}
         </div>
         <div className="overflow-x-auto p-4">
@@ -565,7 +565,7 @@ function NetworkBoard({
       <div
         data-status={path ? "connected" : "broken"}
         className={cn(
-          "mt-3 px-4 py-2 border font-mono text-[10px] uppercase tracking-[0.12em] transition-colors duration-300",
+          "mt-3 px-4 py-2 border font-mono text-[0.625rem] uppercase tracking-[0.12em] transition-colors duration-300",
           path
             ? "border-accent/50 bg-accent/10 text-accent"
             : "border-primary bg-primary/10 text-primary",
@@ -602,10 +602,10 @@ export function NoCenterLab() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="border border-border p-4">
           <div className="flex items-baseline gap-2 mb-3">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-accent">
+            <span className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-accent">
               কেন্দ্র নেই
             </span>
-            <span className="font-mono text-[9px] text-muted-foreground">
+            <span className="font-mono text-[0.5625rem] text-muted-foreground">
               Internet এভাবেই বানানো
             </span>
           </div>
@@ -618,10 +618,10 @@ export function NoCenterLab() {
         </div>
         <div className="border border-border p-4">
           <div className="flex items-baseline gap-2 mb-3">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary">
+            <span className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary">
               কেন্দ্র আছে
             </span>
-            <span className="font-mono text-[9px] text-muted-foreground">
+            <span className="font-mono text-[0.5625rem] text-muted-foreground">
               একটা কোম্পানি সব চালালে যেমন হতো
             </span>
           </div>
@@ -639,7 +639,7 @@ export function NoCenterLab() {
             setMeshCut(new Set());
             setStarCut(new Set());
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
         >
           <RotateCcw className="w-3 h-3" />
           সব জোড়া লাগান
@@ -750,16 +750,16 @@ export function WhoIsClientLab() {
           pick && !isAns && !isPick && "border-border opacity-60",
         )}
       >
-        <div className="font-mono text-[11px] font-bold text-foreground">
+        <div className="font-mono text-[0.6875rem] font-bold text-foreground">
           {who.name}
         </div>
-        <div className="font-mono text-[9px] text-muted-foreground mt-0.5">
+        <div className="font-mono text-[0.5625rem] text-muted-foreground mt-0.5">
           {who.sub}
         </div>
         {pick && (
           <div
             className={cn(
-              "mt-3 font-mono text-[9px] font-bold uppercase tracking-[0.15em]",
+              "mt-3 font-mono text-[0.5625rem] font-bold uppercase tracking-[0.15em]",
               isAns ? "text-accent" : "text-muted-foreground",
             )}
           >
@@ -777,11 +777,11 @@ export function WhoIsClientLab() {
       footer="ছয়টা দৃশ্যে যদি একটা জিনিস চোখে পড়ে থাকে, সেটা হলো একই মেশিন একবার Client, পরের মুহূর্তে Server। তাই কেউ যদি বলেন এটা একটা Server, প্রশ্ন করুন, কোন কথায়? Island Tours এর API পর্যটকের কাছে Server, আর Database এর কাছে Client, একই সেকেন্ডে।"
     >
       <div className="flex items-baseline justify-between mb-4">
-        <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground">
           দৃশ্য {toBn(i + 1)} / {toBn(ROLE_SCENES.length)}
         </span>
         <span
-          className="font-mono text-[10px] text-muted-foreground"
+          className="font-mono text-[0.625rem] text-muted-foreground"
           data-score={score}
         >
           ঠিক হয়েছে{" "}
@@ -799,7 +799,7 @@ export function WhoIsClientLab() {
       >
         {scene.setting}
       </motion.p>
-      <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-primary mb-3">
+      <p className="font-mono text-[0.625rem] uppercase tracking-[0.15em] text-primary mb-3">
         কে আগে জিজ্ঞেস করল? সেই Client।
       </p>
 
@@ -812,7 +812,7 @@ export function WhoIsClientLab() {
         disabled={!!pick}
         data-side="both"
         className={cn(
-          "mt-3 w-full px-4 py-2 border font-mono text-[10px] uppercase tracking-[0.15em] transition-colors",
+          "mt-3 w-full px-4 py-2 border font-mono text-[0.625rem] uppercase tracking-[0.15em] transition-colors",
           !pick &&
             "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
           pick &&
@@ -841,7 +841,7 @@ export function WhoIsClientLab() {
         >
           <span
             className={cn(
-              "font-mono text-[9px] font-bold uppercase tracking-[0.15em] block mb-1",
+              "font-mono text-[0.5625rem] font-bold uppercase tracking-[0.15em] block mb-1",
               correct ? "text-accent" : "text-primary",
             )}
           >
@@ -856,7 +856,7 @@ export function WhoIsClientLab() {
           onClick={() => setI((v) => (v + 1) % ROLE_SCENES.length)}
           disabled={!pick}
           className={cn(
-            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-colors",
+            "inline-flex items-center gap-2 px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] transition-colors",
             pick
               ? "border-primary/40 bg-primary/5 text-primary hover:bg-primary/10"
               : "border-border text-muted-foreground/40",
@@ -902,7 +902,7 @@ export function ManyClientsLab() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
         <label className="block">
-          <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
+          <span className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
             একসাথে কয়জন Client:{" "}
             <span className="text-primary font-bold" data-clients={clients}>
               {toBn(clients)}
@@ -919,7 +919,7 @@ export function ManyClientsLab() {
           />
         </label>
         <div>
-          <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
+          <span className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground block mb-2">
             কয়টা Server
           </span>
           <div className="flex gap-2">
@@ -929,7 +929,7 @@ export function ManyClientsLab() {
                 onClick={() => setServers(n)}
                 data-servers={n}
                 className={cn(
-                  "px-4 py-2 border font-mono text-[10px] font-bold uppercase tracking-[0.15em] transition-colors",
+                  "px-4 py-2 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] transition-colors",
                   servers === n
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-border text-muted-foreground hover:text-foreground",
@@ -951,17 +951,17 @@ export function ManyClientsLab() {
                 key={k}
                 className="w-20 px-2 py-3 border border-primary bg-primary/10 text-center"
               >
-                <div className="font-mono text-[10px] font-bold text-primary">
+                <div className="font-mono text-[0.625rem] font-bold text-primary">
                   Server
                 </div>
-                <div className="font-mono text-[8px] text-muted-foreground">
+                <div className="font-mono text-[0.5rem] text-muted-foreground">
                   {toBn(SERVICE_MS)} ms / জন
                 </div>
               </div>
             ))}
           </div>
           <div className="flex-1 min-w-0">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-2">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-2">
               লাইন, রঙ যত গাঢ় অপেক্ষা তত বেশি
             </div>
             <div className="flex flex-wrap gap-1">
@@ -987,7 +987,7 @@ export function ManyClientsLab() {
 
       <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-4">
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground mb-1">
             প্রথমজন পায়
           </div>
           <div className="font-mono text-xl font-bold text-foreground">
@@ -996,7 +996,7 @@ export function ManyClientsLab() {
           </div>
         </div>
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground mb-1">
             শেষজন পায়
           </div>
           <div
@@ -1012,7 +1012,7 @@ export function ManyClientsLab() {
           </div>
         </div>
         <div className="col-span-2 sm:col-span-1">
-          <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-muted-foreground mb-1">
             অনুভূতি
           </div>
           <div className={cn("text-sm", slow ? "text-primary" : "text-accent")}>

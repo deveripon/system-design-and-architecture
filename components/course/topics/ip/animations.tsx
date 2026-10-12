@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -72,7 +72,7 @@ export function OctetBinaryLab() {
     >
       {/* presets */}
       <div className="flex flex-wrap items-center gap-2 mb-6">
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mr-1">
+        <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mr-1">
           দেখুন
         </span>
         {PRESETS.map((p) => (
@@ -81,7 +81,7 @@ export function OctetBinaryLab() {
             onClick={() => setBits(valueToBits(p.value))}
             data-preset={p.value}
             className={cn(
-              "px-3 py-1.5 border font-mono text-[11px] font-bold transition-colors",
+              "px-3 py-1.5 border font-mono text-[0.6875rem] font-bold transition-colors",
               value === p.value
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -113,7 +113,7 @@ export function OctetBinaryLab() {
               <span className="font-mono text-lg font-bold leading-none">
                 {on ? "1" : "0"}
               </span>
-              <span className="font-mono text-[8px] sm:text-[9px] leading-none opacity-70">
+              <span className="font-mono text-[0.5rem] sm:text-[0.5625rem] leading-none opacity-70">
                 {place}
               </span>
             </button>
@@ -124,7 +124,7 @@ export function OctetBinaryLab() {
       {/* readout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             এই Byte এর সংখ্যা
           </div>
           <div
@@ -134,7 +134,7 @@ export function OctetBinaryLab() {
             {value}
           </div>
           <div
-            className="font-mono text-[11px] text-muted-foreground mt-2"
+            className="font-mono text-[0.6875rem] text-muted-foreground mt-2"
             data-binary={binary}
           >
             {binary}
@@ -246,7 +246,7 @@ export function AddressInspectorLab() {
             data-addr={sample.addr}
             data-active={sample.id === id ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border font-mono text-[11px] font-bold transition-colors",
+              "px-3 py-2 border font-mono text-[0.6875rem] font-bold transition-colors",
               sample.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -262,7 +262,7 @@ export function AddressInspectorLab() {
         <div className="flex flex-wrap items-center gap-3 mb-5">
           <span
             className={cn(
-              "px-3 py-1 border font-mono text-[11px] font-bold uppercase tracking-[0.12em]",
+              "px-3 py-1 border font-mono text-[0.6875rem] font-bold uppercase tracking-[0.12em]",
               "border-primary bg-primary/10 text-primary",
             )}
             data-version={s.version}
@@ -285,10 +285,10 @@ export function AddressInspectorLab() {
               key={row.k}
               className="flex items-baseline justify-between gap-3 border-b border-border/60 pb-2"
             >
-              <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground shrink-0">
+              <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground shrink-0">
                 {row.k}
               </span>
-              <span className="text-[13px] text-foreground text-right">
+              <span className="text-[0.8125rem] text-foreground text-right">
                 {row.v}
               </span>
             </div>

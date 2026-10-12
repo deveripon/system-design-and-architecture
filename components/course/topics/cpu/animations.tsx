@@ -20,10 +20,10 @@ function Panel({
     return (
         <figure className='my-10 border border-border bg-card'>
             <figcaption className='flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30'>
-                <span className='font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary'>
+                <span className='font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary'>
                     {label}
                 </span>
-                <span className='font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground'>
+                <span className='font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground'>
                     {title}
                 </span>
             </figcaption>
@@ -84,7 +84,7 @@ export function ClockCycleLab() {
             <div className='flex flex-wrap items-center gap-2 mb-8'>
                 <button
                     onClick={() => setPlaying(p => !p)}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors'>
                     {playing ? <Pause className='w-3 h-3' /> : <Play className='w-3 h-3' />}
                     {playing ? 'Pause' : 'Play'}
                 </button>
@@ -93,7 +93,7 @@ export function ClockCycleLab() {
                         setPlaying(false);
                         step();
                     }}
-                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
+                    className='inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors'>
                     <SkipForward className='w-3 h-3' />
                     Step
                 </button>
@@ -112,7 +112,7 @@ export function ClockCycleLab() {
                             key={s.label}
                             onClick={() => setSpeed(i)}
                             className={cn(
-                                'px-3 py-2 text-[10px] font-mono uppercase tracking-[0.12em] transition-colors',
+                                'px-3 py-2 text-[0.625rem] font-mono uppercase tracking-[0.12em] transition-colors',
                                 i === speed
                                     ? 'bg-primary/10 text-primary'
                                     : 'text-muted-foreground hover:text-foreground'
@@ -126,7 +126,7 @@ export function ClockCycleLab() {
             <div className='grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-6'>
                 {/* the program */}
                 <div className='border border-border bg-background'>
-                    <span className='block px-4 py-2 border-b border-border font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground'>
+                    <span className='block px-4 py-2 border-b border-border font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground'>
                         Program
                     </span>
                     <div className='p-3 space-y-1'>
@@ -139,7 +139,7 @@ export function ClockCycleLab() {
                                         ? 'border-primary bg-primary/10'
                                         : 'border-transparent'
                                 )}>
-                                <span className='font-mono text-[10px] text-muted-foreground tabular-nums'>
+                                <span className='font-mono text-[0.625rem] text-muted-foreground tabular-nums'>
                                     {toBn(i)}
                                 </span>
                                 <span
@@ -150,7 +150,7 @@ export function ClockCycleLab() {
                                     {ins.text}
                                 </span>
                                 {i === pc && (
-                                    <span className='ml-auto font-mono text-[9px] uppercase tracking-[0.15em] text-primary'>
+                                    <span className='ml-auto font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-primary'>
                                         PC
                                     </span>
                                 )}
@@ -171,7 +171,7 @@ export function ClockCycleLab() {
                                         ? 'bg-primary/15 text-primary'
                                         : 'bg-card text-muted-foreground/60'
                                 )}>
-                                <span className='block font-mono text-[9px] font-bold tracking-[0.1em]'>
+                                <span className='block font-mono text-[0.5625rem] font-bold tracking-[0.1em]'>
                                     {s}
                                 </span>
                             </div>
@@ -179,7 +179,7 @@ export function ClockCycleLab() {
                     </div>
 
                     <div className='border border-border bg-background p-4 min-h-20'>
-                        <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-2'>
+                        <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-2'>
                             এখন কী হচ্ছে
                         </span>
                         <motion.p
@@ -197,7 +197,7 @@ export function ClockCycleLab() {
 
                     <div className='grid grid-cols-2 gap-px bg-border border border-border'>
                         <div className='bg-card px-4 py-3'>
-                            <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
+                            <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
                                 Register A
                             </span>
                             <motion.span
@@ -209,7 +209,7 @@ export function ClockCycleLab() {
                             </motion.span>
                         </div>
                         <div className='bg-card px-4 py-3'>
-                            <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
+                            <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-1'>
                                 Cycle
                             </span>
                             <span className='block text-xl font-bold tabular-nums'>
@@ -251,7 +251,7 @@ export function LatencyScaleLab() {
                         key={l.name}
                         onClick={() => setPicked(i)}
                         className={cn(
-                            'px-3 py-2 border font-mono text-[10px] uppercase tracking-[0.12em] transition-colors',
+                            'px-3 py-2 border font-mono text-[0.625rem] uppercase tracking-[0.12em] transition-colors',
                             i === picked
                                 ? 'border-primary bg-primary/10 text-primary'
                                 : 'border-border text-muted-foreground hover:text-foreground hover:border-primary/40'
@@ -272,13 +272,13 @@ export function LatencyScaleLab() {
 
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-px bg-border border border-border'>
                     <div className='bg-card px-4 py-4'>
-                        <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5'>
+                        <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-1.5'>
                             আসল সময়
                         </span>
                         <span className='block text-lg font-bold'>{level.real}</span>
                     </div>
                     <div className='bg-card px-4 py-4'>
-                        <span className='block font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5'>
+                        <span className='block font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mb-1.5'>
                             CPU এর এক ধাপ যদি ১ সেকেন্ড হতো
                         </span>
                         <motion.span

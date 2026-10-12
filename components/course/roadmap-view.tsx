@@ -63,7 +63,7 @@ export function RoadmapView({
                             <div className='flex flex-col min-w-0'>
                                 <span
                                     className={cn(
-                                        'text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-[0.2em]',
+                                        'text-[0.5625rem] md:text-[0.625rem] font-mono font-bold uppercase tracking-[0.2em]',
                                         colors.text
                                     )}>
                                     {sectionLabel}{' '}
@@ -73,16 +73,16 @@ export function RoadmapView({
                                     {section.title}
                                 </h2>
                                 {section.subtitle && (
-                                    <span className='text-[11px] text-muted-foreground truncate'>
+                                    <span className='text-[0.6875rem] text-muted-foreground truncate'>
                                         {section.subtitle}
                                     </span>
                                 )}
                             </div>
                             <div className='flex-1' />
-                            <span className='hidden sm:block text-[10px] md:text-xs text-muted-foreground font-mono font-bold whitespace-nowrap'>
+                            <span className='hidden sm:block text-[0.625rem] md:text-xs text-muted-foreground font-mono font-bold whitespace-nowrap'>
                                 {toBn(section.topics.length)} লেসন
                             </span>
-                            <span className='text-[10px] md:text-xs text-muted-foreground font-mono font-bold whitespace-nowrap'>
+                            <span className='text-[0.625rem] md:text-xs text-muted-foreground font-mono font-bold whitespace-nowrap'>
                                 {section.duration}
                             </span>
                             <ChevronDown
@@ -115,7 +115,7 @@ export function RoadmapView({
                                             return (
                                                 <Fragment key={topic.id}>
                                                     {showGroup && (
-                                                        <p className='md:col-span-2 px-6 py-3 border-r border-b border-border bg-muted/40 font-mono text-[9px] uppercase tracking-[0.25em] text-muted-foreground'>
+                                                        <p className='md:col-span-2 px-6 py-3 border-r border-b border-border bg-muted/40 font-mono text-[0.5625rem] uppercase tracking-[0.25em] text-muted-foreground'>
                                                             {topic.group}
                                                         </p>
                                                     )}
@@ -156,7 +156,7 @@ function TopicCard({ topic, basePath }: { topic: any; basePath: string }) {
                             {topic.title}
                         </h3>
                         {topic.tag && (
-                            <span className='text-[8px] md:text-[9px] font-mono font-bold px-2 py-0.5 border border-border text-muted-foreground uppercase'>
+                            <span className='text-[0.5rem] md:text-[0.5625rem] font-mono font-bold px-2 py-0.5 border border-border text-muted-foreground uppercase'>
                                 {topic.tag}
                             </span>
                         )}
@@ -171,18 +171,18 @@ function TopicCard({ topic, basePath }: { topic: any; basePath: string }) {
                 {hasMore ? (
                     <button
                         onClick={() => setIsExpanded(!isExpanded)}
-                        className='text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors flex items-center gap-2'>
+                        className='text-[0.5625rem] md:text-[0.625rem] font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors flex items-center gap-2'>
                         {isExpanded ? '[-] Less' : '[+] More'}
                     </button>
                 ) : (
-                    <span className='text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground/60'>
+                    <span className='text-[0.5625rem] md:text-[0.625rem] font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground/60'>
                         {topic.time}
                     </span>
                 )}
 
                 <Link
                     href={`${basePath}/${topic.id}`}
-                    className='group/btn inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-2 md:py-2.5 border border-primary/20 dark:border-white/10 text-[9px] md:text-[10px] font-mono font-black uppercase tracking-[0.2em] md:tracking-[0.25em] text-foreground/70 hover:text-foreground hover:border-primary/50 dark:hover:border-white/30 transition-all duration-200'>
+                    className='group/btn inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-2 md:py-2.5 border border-primary/20 dark:border-white/10 text-[0.5625rem] md:text-[0.625rem] font-mono font-black uppercase tracking-[0.2em] md:tracking-[0.25em] text-foreground/70 hover:text-foreground hover:border-primary/50 dark:hover:border-white/30 transition-all duration-200'>
                     Learn Deeply
                     <ArrowRight className='w-3 h-3 text-primary group-hover/btn:translate-x-0.5 transition-transform duration-200' />
                 </Link>
@@ -199,7 +199,7 @@ function TopicCard({ topic, basePath }: { topic: any; basePath: string }) {
                         <div className='mt-8 pt-8 border-t border-border space-y-8'>
                             {topic.details && (
                                 <div className='space-y-3'>
-                                    <h4 className='text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-primary'>
+                                    <h4 className='text-[0.625rem] font-mono font-bold uppercase tracking-[0.2em] text-primary'>
                                         Learning Objectives
                                     </h4>
                                     <div className='p-4 border border-border bg-background text-sm text-muted-foreground leading-relaxed italic'>
@@ -210,14 +210,14 @@ function TopicCard({ topic, basePath }: { topic: any; basePath: string }) {
 
                             {topic.tools && (
                                 <div className='space-y-4'>
-                                    <h4 className='text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-primary'>
+                                    <h4 className='text-[0.625rem] font-mono font-bold uppercase tracking-[0.2em] text-primary'>
                                         Tech Stack
                                     </h4>
                                     <div className='grid grid-cols-2 gap-2'>
                                         {topic.tools.map((tool: string) => (
                                             <div
                                                 key={tool}
-                                                className='px-3 py-2 border border-border bg-muted/5 text-[11px] text-foreground font-mono font-bold uppercase'>
+                                                className='px-3 py-2 border border-border bg-muted/5 text-[0.6875rem] text-foreground font-mono font-bold uppercase'>
                                                 {tool}
                                             </div>
                                         ))}
@@ -227,7 +227,7 @@ function TopicCard({ topic, basePath }: { topic: any; basePath: string }) {
 
                             {topic.useCases && (
                                 <div className='space-y-4'>
-                                    <h4 className='text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-primary'>
+                                    <h4 className='text-[0.625rem] font-mono font-bold uppercase tracking-[0.2em] text-primary'>
                                         Real-world Scenarios
                                     </h4>
                                     <div className='space-y-2'>

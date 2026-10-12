@@ -94,7 +94,7 @@ export function SiteFooter() {
               >
                 <span className="flex items-center gap-3">
                   <Icon className="w-4 h-4 text-foreground" />
-                  <span className="font-mono text-[12px] font-bold text-foreground">
+                  <span className="font-mono text-[0.75rem] font-bold text-foreground">
                     {s.label}
                   </span>
                 </span>
@@ -109,7 +109,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 py-14 md:py-20">
           {COLUMNS.map((col) => (
             <div key={col.title}>
-              <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">
+              <h3 className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">
                 {col.title}
               </h3>
               <ul className="space-y-3">
@@ -142,7 +142,7 @@ export function SiteFooter() {
             </p>
           </div>
           <div className="lg:justify-self-end w-full lg:max-w-md">
-            <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">
+            <h3 className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">
               নতুন Lesson এর খবর পান
             </h3>
             <NewsletterForm />
@@ -151,7 +151,7 @@ export function SiteFooter() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-8 border-t border-border">
-          <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
+          <p className="font-mono text-[0.625rem] text-muted-foreground uppercase tracking-[0.2em]">
             © 2026{" "}
             <a
               href={PORTFOLIO_URL}
@@ -163,7 +163,7 @@ export function SiteFooter() {
             </a>{" "}
             · Build for Scale
           </p>
-          <p className="font-mono text-[10px] text-muted-foreground/70 uppercase tracking-[0.2em]">
+          <p className="font-mono text-[0.625rem] text-muted-foreground/70 uppercase tracking-[0.2em]">
             Made for learners, in Bangla
           </p>
         </div>

@@ -5,6 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Where a lesson page is wide enough for the "On this page" rail. */
+  --breakpoint-toc: 87.5rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -133,6 +135,16 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+  }
+  /* The site is read mostly on desktop, where the browser default of 16px is
+     small for long Bengali prose. Everything is sized in rem, so raising the
+     root scales text, spacing and the sidebars together, the same way browser
+     zoom does. Phones keep the default. Text sizes must stay in rem (never
+     `text-[10px]`) or they are left behind by this. */
+  @media (min-width: 64rem) {
+    html {
+      font-size: 112.5%;
+    }
   }
   body {
     @apply bg-background text-foreground selection:bg-primary/30;

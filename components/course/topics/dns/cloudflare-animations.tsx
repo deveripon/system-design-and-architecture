@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -148,7 +148,7 @@ export function ProxyToggleLab() {
     >
       <div className="border border-border mb-5 overflow-x-auto">
         <div className="min-w-[520px]">
-          <div className="grid grid-cols-[70px_70px_1fr_120px] gap-2 px-3 py-2 border-b border-border bg-muted/30 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <div className="grid grid-cols-[70px_70px_1fr_120px] gap-2 px-3 py-2 border-b border-border bg-muted/30 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             <span>Name</span>
             <span>Type</span>
             <span>Content</span>
@@ -168,16 +168,16 @@ export function ProxyToggleLab() {
               >
                 <button
                   onClick={() => setFocus(r.id)}
-                  className="text-left font-mono text-[12px] font-bold text-foreground"
+                  className="text-left font-mono text-[0.75rem] font-bold text-foreground"
                 >
                   {r.name}
                 </button>
-                <span className="font-mono text-[11px] font-bold text-primary">
+                <span className="font-mono text-[0.6875rem] font-bold text-primary">
                   {r.type}
                 </span>
                 <button
                   onClick={() => setFocus(r.id)}
-                  className="text-left font-mono text-[11px] text-muted-foreground break-all"
+                  className="text-left font-mono text-[0.6875rem] text-muted-foreground break-all"
                 >
                   {r.value}
                 </button>
@@ -190,7 +190,7 @@ export function ProxyToggleLab() {
                   data-proxied={isOn ? "true" : "false"}
                   aria-pressed={isOn}
                   className={cn(
-                    "px-2 py-1.5 border text-[11px] font-bold transition-colors",
+                    "px-2 py-1.5 border text-[0.6875rem] font-bold transition-colors",
                     bad
                       ? "border-destructive bg-destructive/10 text-destructive"
                       : isOn
@@ -221,22 +221,22 @@ export function ProxyToggleLab() {
           <span className="font-mono text-sm font-bold text-foreground">
             {row.name === "@" ? "islandtours.example" : `${row.name}.islandtours.example`}
           </span>
-          <span className="text-[11px] text-muted-foreground">{row.job}</span>
+          <span className="text-[0.6875rem] text-muted-foreground">{row.job}</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
           <div className="border border-border/60 bg-background px-3 py-2">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               বাইরে থেকে dig করলে যা আসে
             </div>
-            <div className="font-mono text-[11px] font-bold text-foreground break-all" data-seen={proxied ? CF_IP : row.plain}>
+            <div className="font-mono text-[0.6875rem] font-bold text-foreground break-all" data-seen={proxied ? CF_IP : row.plain}>
               {proxied ? `${CF_IP} (Cloudflare)` : row.plain}
             </div>
           </div>
           <div className="border border-border/60 bg-background px-3 py-2">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               সার্ভারের আসল IP
             </div>
-            <div className="text-[12px] font-bold text-foreground">
+            <div className="text-[0.75rem] font-bold text-foreground">
               {proxied ? "লুকানো" : "সবার কাছে খোলা"}
             </div>
           </div>
@@ -246,7 +246,7 @@ export function ProxyToggleLab() {
         </p>
       </motion.div>
 
-      <p className="mt-4 text-[11px] text-muted-foreground" data-wrong={wrong}>
+      <p className="mt-4 text-[0.6875rem] text-muted-foreground" data-wrong={wrong}>
         {wrong === 0
           ? "এই মুহূর্তে তালিকায় কোনো ভুল Proxy নেই।"
           : "তালিকায় এমন Record কমলা হয়ে আছে যেটা Website নয়। লাল বোতামটা ধূসর করুন।"}

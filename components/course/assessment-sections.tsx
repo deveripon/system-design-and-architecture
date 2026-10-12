@@ -1,5 +1,6 @@
 'use client';
 
+import { LESSON_EXTRA_ANCHORS } from '@/lib/search/constants';
 import { TopicData } from '../../types/content';
 import { ChevronDown } from 'lucide-react';
 import React from 'react';
@@ -24,12 +25,14 @@ export const KnowledgeCheckSection = React.memo(
 
         return (
             <BorderCross className='p-4 md:p-10'>
-                <section id='mcq' className='scroll-mt-20'>
+                <section
+                    id={LESSON_EXTRA_ANCHORS.quiz.anchor}
+                    className='scroll-mt-20'>
                     <div
                         className='flex flex-wrap items-center justify-between gap-3 cursor-pointer group'
                         onClick={() => setIsExpanded(!isExpanded)}>
                         <SubHeader index={index} title='Knowledge Check' />
-                        <button className='flex items-center gap-2 px-4 py-2 border border-border bg-muted/5 group-hover:bg-muted/20 group-hover:border-primary/50 transition-all font-mono text-[10px] uppercase tracking-widest text-muted-foreground whitespace-nowrap'>
+                        <button className='flex items-center gap-2 px-4 py-2 border border-border bg-muted/5 group-hover:bg-muted/20 group-hover:border-primary/50 transition-all font-mono text-[0.625rem] uppercase tracking-widest text-muted-foreground whitespace-nowrap'>
                             {isExpanded ? 'Hide Quiz' : 'Take Quiz'}
                             <ChevronDown
                                 className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
@@ -54,12 +57,14 @@ export const AssignmentSection = React.memo(
 
         return (
             <BorderCross className='p-4 md:p-10'>
-                <section id='assignment' className='scroll-mt-20'>
+                <section
+                    id={LESSON_EXTRA_ANCHORS.assignment.anchor}
+                    className='scroll-mt-20'>
                     <div
                         className='flex flex-wrap items-center justify-between gap-3 cursor-pointer group'
                         onClick={() => setIsExpanded(!isExpanded)}>
                         <SubHeader index={index} title='Assignments' />
-                        <button className='flex items-center gap-2 px-4 py-2 border border-border bg-muted/5 group-hover:bg-muted/20 group-hover:border-primary/50 transition-all font-mono text-[10px] uppercase tracking-widest text-muted-foreground whitespace-nowrap'>
+                        <button className='flex items-center gap-2 px-4 py-2 border border-border bg-muted/5 group-hover:bg-muted/20 group-hover:border-primary/50 transition-all font-mono text-[0.625rem] uppercase tracking-widest text-muted-foreground whitespace-nowrap'>
                             {isExpanded ? 'Hide Details' : 'View Details'}
                             <ChevronDown
                                 className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
@@ -90,12 +95,14 @@ export const PracticalLabSection = React.memo(
 
         return (
             <BorderCross className='p-4 md:p-10'>
-                <section id='project' className='scroll-mt-20'>
+                <section
+                    id={LESSON_EXTRA_ANCHORS.lab.anchor}
+                    className='scroll-mt-20'>
                     <div
                         className='flex flex-wrap items-center justify-between gap-3 cursor-pointer group'
                         onClick={() => setIsExpanded(!isExpanded)}>
                         <SubHeader index={index} title='Practical Lab' />
-                        <button className='flex items-center gap-2 px-4 py-2 border border-border bg-muted/5 group-hover:bg-muted/20 group-hover:border-primary/50 transition-all font-mono text-[10px] uppercase tracking-widest text-muted-foreground whitespace-nowrap'>
+                        <button className='flex items-center gap-2 px-4 py-2 border border-border bg-muted/5 group-hover:bg-muted/20 group-hover:border-primary/50 transition-all font-mono text-[0.625rem] uppercase tracking-widest text-muted-foreground whitespace-nowrap'>
                             {isExpanded ? 'Hide Lab' : 'Start Lab'}
                             <ChevronDown
                                 className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}

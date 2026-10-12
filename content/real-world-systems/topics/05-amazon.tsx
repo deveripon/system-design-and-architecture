@@ -69,7 +69,7 @@ export const amazonContent: TopicData = {
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-2'>
                             {/* Functional Requirements */}
                             <div className='bg-card border border-border rounded-lg p-5'>
-                                <p className='font-mono text-[11px] uppercase tracking-[0.15em] text-primary mb-4 font-bold'>
+                                <p className='font-mono text-[0.6875rem] uppercase tracking-[0.15em] text-primary mb-4 font-bold'>
                                     ✅ Functional Requirements
                                 </p>
                                 <ul className='space-y-0'>
@@ -96,7 +96,7 @@ export const amazonContent: TopicData = {
                             </div>
                             {/* Non-Functional Requirements */}
                             <div className='bg-card border border-border rounded-lg p-5'>
-                                <p className='font-mono text-[11px] uppercase tracking-[0.15em] text-purple-700 dark:text-purple-400 mb-4 font-bold'>
+                                <p className='font-mono text-[0.6875rem] uppercase tracking-[0.15em] text-purple-700 dark:text-purple-400 mb-4 font-bold'>
                                     ⚡ Non-Functional Requirements
                                 </p>
                                 <ul className='space-y-0'>
@@ -149,7 +149,7 @@ export const amazonContent: TopicData = {
                                     <span className='font-mono text-2xl font-bold text-primary block mb-1'>
                                         {item.num}
                                     </span>
-                                    <span className='font-mono text-[10px] text-muted-foreground uppercase tracking-wider'>
+                                    <span className='font-mono text-[0.625rem] text-muted-foreground uppercase tracking-wider'>
                                         {item.label}
                                     </span>
                                 </div>
@@ -1095,7 +1095,7 @@ export const amazonContent: TopicData = {
                                     key={i}
                                     className='flex gap-3 items-start'>
                                     <span
-                                        className={`font-mono text-[11px] px-2.5 py-[3px] rounded flex-shrink-0 border ${
+                                        className={`font-mono text-[0.6875rem] px-2.5 py-[3px] rounded flex-shrink-0 border ${
                                             item.type === 'pro'
                                                 ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20'
                                                 : 'bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/20'
@@ -1213,7 +1213,7 @@ export const amazonContent: TopicData = {
                             </h3>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                                 <div className='bg-card border border-border rounded-lg p-5'>
-                                    <h4 className='font-mono text-[11px] uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold mb-3'>
+                                    <h4 className='font-mono text-[0.6875rem] uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold mb-3'>
                                         💳 Payment System
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>
@@ -1225,7 +1225,7 @@ export const amazonContent: TopicData = {
                                     </p>
                                 </div>
                                 <div className='bg-card border border-border rounded-lg p-5'>
-                                    <h4 className='font-mono text-[11px] uppercase tracking-widest text-orange-700 dark:text-orange-400 font-bold mb-3'>
+                                    <h4 className='font-mono text-[0.6875rem] uppercase tracking-widest text-orange-700 dark:text-orange-400 font-bold mb-3'>
                                         🤖 Recommendations
                                     </h4>
                                     <p className='text-sm text-muted-foreground leading-relaxed'>

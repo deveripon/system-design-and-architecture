@@ -48,7 +48,7 @@ export function AsciiTable() {
                 <button
                     onClick={() => setShowControl(v => !v)}
                     className={cn(
-                        'px-4 py-3 border font-mono text-[10px] font-bold uppercase tracking-[0.15em] transition-colors whitespace-nowrap',
+                        'px-4 py-3 border font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] transition-colors whitespace-nowrap',
                         showControl
                             ? 'border-primary/50 bg-primary/5 text-primary'
                             : 'border-border text-muted-foreground hover:text-foreground'
@@ -59,14 +59,14 @@ export function AsciiTable() {
 
             {/* quick jumps */}
             <div className='flex flex-wrap items-center gap-2 mb-6'>
-                <span className='font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mr-1'>
+                <span className='font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-muted-foreground mr-1'>
                     চটপট দেখুন
                 </span>
                 {EXAMPLES.map(ex => (
                     <button
                         key={ex}
                         onClick={() => setQuery(ex)}
-                        className='px-3 py-1.5 border border-border bg-muted/20 font-mono text-[11px] text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors'>
+                        className='px-3 py-1.5 border border-border bg-muted/20 font-mono text-[0.6875rem] text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors'>
                         {ex}
                     </button>
                 ))}
@@ -99,7 +99,7 @@ export function AsciiTable() {
                 )}
             </div>
 
-            <p className='mt-4 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground'>
+            <p className='mt-4 font-mono text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground'>
                 দেখাচ্ছে {rows.length} / {ASCII_ROWS.length} কোড ·{' '}
                 {printableCount}টা ছাপা যায়, বাকিগুলো Control
             </p>
@@ -109,7 +109,7 @@ export function AsciiTable() {
 
 function Th({ children }: { children: React.ReactNode }) {
     return (
-        <th className='px-4 py-3 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground border-b border-border whitespace-nowrap'>
+        <th className='px-4 py-3 font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground border-b border-border whitespace-nowrap'>
             {children}
         </th>
     );
@@ -136,7 +136,7 @@ function Row({ row }: { row: AsciiRow }) {
                     className={cn(
                         'font-mono font-bold',
                         row.control
-                            ? 'text-[10px] uppercase tracking-wider text-muted-foreground'
+                            ? 'text-[0.625rem] uppercase tracking-wider text-muted-foreground'
                             : 'text-base text-foreground'
                     )}>
                     {row.glyph}

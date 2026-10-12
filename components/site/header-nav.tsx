@@ -31,7 +31,7 @@ export function HeaderNav() {
           key={t.href}
           href={t.href}
           className={cn(
-            "px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.12em] transition-colors",
+            "px-3 py-2 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.12em] transition-colors",
             isActive(t.href)
               ? "text-foreground"
               : "text-muted-foreground hover:text-foreground",
@@ -74,7 +74,7 @@ export function MobileMenu() {
                   href={t.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "block px-2 py-3 border-b border-border/60 font-mono text-[12px] font-bold uppercase tracking-[0.12em] transition-colors",
+                    "block px-2 py-3 border-b border-border/60 font-mono text-[0.75rem] font-bold uppercase tracking-[0.12em] transition-colors",
                     isActive(t.href)
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",
@@ -88,7 +88,7 @@ export function MobileMenu() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-2 px-2 py-3 font-mono text-[12px] font-bold uppercase tracking-[0.12em] text-muted-foreground hover:text-foreground transition-colors"
+                className="flex items-center gap-2 px-2 py-3 font-mono text-[0.75rem] font-bold uppercase tracking-[0.12em] text-muted-foreground hover:text-foreground transition-colors"
               >
                 <GithubIcon className="w-4 h-4" /> GitHub
               </a>

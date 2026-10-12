@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -119,7 +119,7 @@ export function RecordExplorerLab() {
             data-type={rec.type}
             data-active={rec.type === type ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border font-mono text-[12px] font-bold transition-colors",
+              "px-3 py-2 border font-mono text-[0.75rem] font-bold transition-colors",
               rec.type === type
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -139,30 +139,30 @@ export function RecordExplorerLab() {
         data-record={r.type}
       >
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             যে প্রশ্নের উত্তর দেয়
           </div>
           <div className="text-base font-bold text-primary">{r.answers}</div>
         </div>
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             দেখতে যেমন
           </div>
-          <div className="font-mono text-[11px] text-foreground break-all border border-border/60 bg-muted/30 px-3 py-2">
+          <div className="font-mono text-[0.6875rem] text-foreground break-all border border-border/60 bg-muted/30 px-3 py-2">
             {r.example}
           </div>
         </div>
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             কখন লাগে
           </div>
           <div className="text-sm text-foreground leading-relaxed">{r.use}</div>
         </div>
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             নিজে দেখুন
           </div>
-          <div className="font-mono text-[11px] text-accent break-all">
+          <div className="font-mono text-[0.6875rem] text-accent break-all">
             {r.dig}
           </div>
         </div>
@@ -247,7 +247,7 @@ export function WhichRecordLab() {
             data-job={job.id}
             data-active={job.id === id ? "true" : "false"}
             className={cn(
-              "px-3 py-2 border text-left text-[12px] font-bold transition-colors",
+              "px-3 py-2 border text-left text-[0.75rem] font-bold transition-colors",
               job.id === id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -267,14 +267,14 @@ export function WhichRecordLab() {
         data-answer={j.rec}
       >
         <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+          <span className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
             লাগবে
           </span>
           <span className="px-3 py-1 border border-primary bg-primary/10 font-mono text-sm font-bold text-primary">
             {j.rec}
           </span>
         </div>
-        <div className="font-mono text-[11px] text-foreground break-all border border-border/60 bg-background px-3 py-2 mb-3">
+        <div className="font-mono text-[0.6875rem] text-foreground break-all border border-border/60 bg-background px-3 py-2 mb-3">
           {j.row}
         </div>
         <p className="text-sm text-muted-foreground leading-relaxed">{j.why}</p>
@@ -366,8 +366,8 @@ export function EmailProviderLab() {
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
             )}
           >
-            <div className="text-[12px] font-bold">{x.label}</div>
-            <div className="text-[10px] opacity-80">{x.kind}</div>
+            <div className="text-[0.75rem] font-bold">{x.label}</div>
+            <div className="text-[0.625rem] opacity-80">{x.kind}</div>
           </button>
         ))}
       </div>
@@ -383,7 +383,7 @@ export function EmailProviderLab() {
         <p className="text-sm text-foreground leading-relaxed">{pv.does}</p>
 
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             Record গুলো কোন পাতায় পাবেন
           </div>
           <div className="text-sm text-foreground leading-relaxed">{pv.page}</div>
@@ -391,7 +391,7 @@ export function EmailProviderLab() {
 
         <div className="border border-border overflow-x-auto">
           <div className="min-w-[640px]">
-            <div className="grid grid-cols-[60px_150px_1fr_170px] gap-2 px-3 py-2 border-b border-border bg-muted/30 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+            <div className="grid grid-cols-[60px_150px_1fr_170px] gap-2 px-3 py-2 border-b border-border bg-muted/30 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground">
               <span>Type</span>
               <span>Name</span>
               <span>Value</span>
@@ -402,14 +402,14 @@ export function EmailProviderLab() {
                 key={`${r.type}-${r.name}-${i}`}
                 className="grid grid-cols-[60px_150px_1fr_170px] gap-2 items-start px-3 py-2 border-b border-border/60 last:border-b-0"
               >
-                <span className="font-mono text-[11px] font-bold text-primary">{r.type}</span>
-                <span className="font-mono text-[11px] text-foreground break-all">{r.name}</span>
-                <span className="font-mono text-[11px] text-muted-foreground break-all">{r.value}</span>
-                <span className="text-[11px] text-muted-foreground leading-snug">
+                <span className="font-mono text-[0.6875rem] font-bold text-primary">{r.type}</span>
+                <span className="font-mono text-[0.6875rem] text-foreground break-all">{r.name}</span>
+                <span className="font-mono text-[0.6875rem] text-muted-foreground break-all">{r.value}</span>
+                <span className="text-[0.6875rem] text-muted-foreground leading-snug">
                   {r.job}
                   <span
                     className={cn(
-                      "block mt-1 font-mono text-[9px] uppercase tracking-[0.1em]",
+                      "block mt-1 font-mono text-[0.5625rem] uppercase tracking-[0.1em]",
                       r.own ? "text-accent" : "text-muted-foreground/70",
                     )}
                   >
@@ -422,7 +422,7 @@ export function EmailProviderLab() {
         </div>
 
         <div className="border border-primary/40 bg-primary/5 p-4" data-root-mx={pv.id === "inbox" ? "yes" : "no"}>
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             সে কি মূল নামের MX ছোঁয়
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">{pv.rootMx}</div>

@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -171,8 +171,8 @@ export function LayerExplorerLab() {
                   : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
               )}
             >
-              <span className="font-mono text-[13px] font-bold w-4">{l.n}</span>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.08em]">
+              <span className="font-mono text-[0.8125rem] font-bold w-4">{l.n}</span>
+              <span className="font-mono text-[0.6875rem] font-bold uppercase tracking-[0.08em]">
                 {l.name}
               </span>
             </button>
@@ -186,13 +186,13 @@ export function LayerExplorerLab() {
           transition={{ duration: 0.3, ease: EASE }}
           data-active-layer={layer.n}
         >
-          <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-primary mb-3">
+          <div className="font-mono text-[0.625rem] uppercase tracking-[0.15em] text-primary mb-3">
             Layer {layer.n} · {layer.name}
           </div>
           <dl className="space-y-2.5">
             {facts.map((f) => (
               <div key={f.k} className="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-x-3 gap-y-0.5">
-                <dt className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground pt-0.5">
+                <dt className="font-mono text-[0.625rem] uppercase tracking-[0.1em] text-muted-foreground pt-0.5">
                   {f.k}
                 </dt>
                 <dd className="text-sm leading-relaxed text-foreground">{f.v}</dd>
@@ -200,10 +200,10 @@ export function LayerExplorerLab() {
             ))}
           </dl>
           <div className="mt-4 border border-border bg-background px-3 py-2">
-            <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+            <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
               নিজে দেখার কমান্ড
             </div>
-            <code className="font-mono text-[12px] text-primary break-all">{layer.command}</code>
+            <code className="font-mono text-[0.75rem] text-primary break-all">{layer.command}</code>
           </div>
         </motion.div>
       </div>
@@ -248,10 +248,10 @@ export function WhichLayerLab() {
       footer="বারোটা চেনা জিনিস, একটা একটা করে। প্রতিটার জন্য ভাবুন, এটা সাত তলার কোনটায় পড়ে, তারপর সেই সংখ্যায় চাপ দিন। ভুল হলে সমস্যা নেই, কারণটা সাথে সাথে দেখাবে। এই খেলাটা আসলে একটা অভ্যাস তৈরি করে, যেকোনো Error বা যন্ত্রের নাম শুনলে আগে ভাবা, এটা কোন তলার। ওই এক প্রশ্নই Debugging এর অর্ধেক কাজ করে দেয়।"
     >
       <div className="flex flex-wrap items-center gap-3 mb-4">
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           প্রশ্ন {toBn(index + 1)} / {toBn(ITEMS.length)}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-primary" data-score={score}>
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-primary" data-score={score}>
           ঠিক হয়েছে {toBn(score)}
         </span>
         <button
@@ -268,7 +268,7 @@ export function WhichLayerLab() {
       </div>
 
       <div className="border border-border bg-background px-4 py-4 mb-4">
-        <div className="font-mono text-[14px] font-bold text-foreground" data-question={index}>
+        <div className="font-mono text-[0.875rem] font-bold text-foreground" data-question={index}>
           {item.q}
         </div>
       </div>
@@ -284,7 +284,7 @@ export function WhichLayerLab() {
             }}
             data-pick={n}
             className={cn(
-              "w-11 h-11 border font-mono text-[13px] font-bold transition-colors",
+              "w-11 h-11 border font-mono text-[0.8125rem] font-bold transition-colors",
               answered && n === item.a
                 ? "border-primary bg-primary/10 text-primary"
                 : answered && n === picked
@@ -323,7 +323,7 @@ export function WhichLayerLab() {
                 setPicked(null);
               }}
               data-action="next"
-              className="px-3 py-1.5 border border-primary bg-primary/10 text-primary text-[11px] font-bold hover:bg-primary/20 transition-colors"
+              className="px-3 py-1.5 border border-primary bg-primary/10 text-primary text-[0.6875rem] font-bold hover:bg-primary/20 transition-colors"
             >
               পরের প্রশ্ন
             </button>
@@ -419,7 +419,7 @@ export function LayerDebugLab() {
             }}
             data-case={c.id}
             className={cn(
-              "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+              "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
               caseId === c.id
                 ? "border-primary bg-primary/10 text-primary"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
@@ -436,7 +436,7 @@ export function LayerDebugLab() {
           disabled={found}
           data-action="check"
           className={cn(
-            "px-3 py-1.5 border text-[11px] font-bold transition-colors",
+            "px-3 py-1.5 border text-[0.6875rem] font-bold transition-colors",
             found
               ? "border-border text-muted-foreground/40"
               : "border-primary bg-primary/10 text-primary hover:bg-primary/20",
@@ -451,7 +451,7 @@ export function LayerDebugLab() {
         >
           <RotateCcw className="w-3 h-3" />
         </button>
-        <span className="font-mono text-[10px] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] text-muted-foreground">
           পর্যটক বলছেন: সাইট খুলছে না
         </span>
       </div>
@@ -476,18 +476,18 @@ export function LayerDebugLab() {
             >
               <div
                 className={cn(
-                  "font-mono text-[12px] font-bold",
+                  "font-mono text-[0.75rem] font-bold",
                   failed ? "text-destructive" : "text-primary",
                 )}
               >
                 {c.layer}
               </div>
               <div>
-                <div className="text-[12px] font-bold text-foreground">{c.ask}</div>
-                <div className="font-mono text-[11px] text-muted-foreground break-all">$ {c.cmd}</div>
+                <div className="text-[0.75rem] font-bold text-foreground">{c.ask}</div>
+                <div className="font-mono text-[0.6875rem] text-muted-foreground break-all">$ {c.cmd}</div>
                 <div
                   className={cn(
-                    "font-mono text-[11px] break-all",
+                    "font-mono text-[0.6875rem] break-all",
                     failed ? "text-destructive" : "text-primary",
                   )}
                 >

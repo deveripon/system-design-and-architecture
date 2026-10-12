@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { GithubStats, GithubStatsFallback } from "./github-stats";
 import { HeaderNav, MobileMenu } from "./header-nav";
 import { Logo } from "./logo";
+import { SearchTrigger } from "./search/search-trigger";
 
 /**
  * Site chrome for the marketing pages: logo, the two tracks as navigation, and
@@ -22,6 +23,7 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-2 md:gap-3">
+          <SearchTrigger variant="responsive" />
           <Suspense fallback={<GithubStatsFallback />}>
             <GithubStats />
           </Suspense>

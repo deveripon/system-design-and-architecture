@@ -20,10 +20,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -100,7 +100,7 @@ export function HopByHopLab() {
             if (finished) setI(0);
             setPlaying((p) => !p);
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
         >
           {running ? (
             <Pause className="w-3 h-3" />
@@ -114,7 +114,7 @@ export function HopByHopLab() {
             setPlaying(false);
             setI((v) => (v >= STOPS.length - 1 ? 0 : v + 1));
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
         >
           <SkipForward className="w-3 h-3" /> Step
         </button>
@@ -238,7 +238,7 @@ export function HopByHopLab() {
       {/* the packet's envelope */}
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="border border-border p-3">
-          <div className="font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             এখন কোথায়
           </div>
           <div
@@ -247,12 +247,12 @@ export function HopByHopLab() {
           >
             {stop.label}
           </div>
-          <div className="font-mono text-[9px] text-muted-foreground">
+          <div className="font-mono text-[0.5625rem] text-muted-foreground">
             {stop.sub}, {sea ? "আলোয়" : stop.medium + " এ"}
           </div>
         </div>
         <div className="border border-border p-3">
-          <div className="font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             গন্তব্য (বদলায় না)
           </div>
           <div
@@ -261,12 +261,12 @@ export function HopByHopLab() {
           >
             {DEST}
           </div>
-          <div className="font-mono text-[9px] text-accent">
+          <div className="font-mono text-[0.5625rem] text-accent">
             একই, শুরু থেকে শেষ
           </div>
         </div>
         <div className="border border-border p-3">
-          <div className="font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             TTL (প্রতি Hop এ কমে)
           </div>
           <div
@@ -275,7 +275,7 @@ export function HopByHopLab() {
           >
             {toBn(ttl)}
           </div>
-          <div className="font-mono text-[9px] text-muted-foreground">
+          <div className="font-mono text-[0.5625rem] text-muted-foreground">
             শুরু ৬৪, এখন {toBn(ttl)}
           </div>
         </div>
@@ -389,8 +389,8 @@ export function TracerouteLab() {
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6">
         {/* the trace */}
-        <div className="border border-border bg-background font-mono text-[11px] overflow-x-auto">
-          <div className="px-4 py-2 border-b border-border text-[8px] uppercase tracking-[0.12em] text-muted-foreground">
+        <div className="border border-border bg-background font-mono text-[0.6875rem] overflow-x-auto">
+          <div className="px-4 py-2 border-b border-border text-[0.5rem] uppercase tracking-[0.12em] text-muted-foreground">
             traceroute to 103.94.135.2
           </div>
           {HOPS.map((h) => (
@@ -406,7 +406,7 @@ export function TracerouteLab() {
             >
               <span
                 className={cn(
-                  "text-[10px]",
+                  "text-[0.625rem]",
                   sel === h.n
                     ? "text-primary font-bold"
                     : "text-muted-foreground",
@@ -429,7 +429,7 @@ export function TracerouteLab() {
               </span>
               <span
                 className={cn(
-                  "text-right text-[10px]",
+                  "text-right text-[0.625rem]",
                   sel === h.n
                     ? "text-primary font-bold"
                     : "text-muted-foreground",
@@ -444,11 +444,11 @@ export function TracerouteLab() {
         {/* the explanation */}
         <div className="border border-border p-4">
           <div className="flex items-baseline justify-between mb-1">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-primary">
+            <span className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.15em] text-primary">
               ধাপ {toBn(hop.n)}
             </span>
             <span
-              className="font-mono text-[9px] text-muted-foreground"
+              className="font-mono text-[0.5625rem] text-muted-foreground"
               data-where={hop.where}
             >
               {hop.where}
@@ -470,7 +470,7 @@ export function TracerouteLab() {
           {jump && (
             <div
               data-jump
-              className="mt-4 px-3 py-2 border border-accent/50 bg-accent/10 font-mono text-[10px] text-accent"
+              className="mt-4 px-3 py-2 border border-accent/50 bg-accent/10 font-mono text-[0.625rem] text-accent"
             >
               {prev.ms} থেকে {hop.ms}, এই লাফটাই সমুদ্র।
             </div>
@@ -481,7 +481,7 @@ export function TracerouteLab() {
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
           onClick={() => setSel((s) => (s >= HOPS.length ? 1 : s + 1))}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 bg-primary/5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/10 transition-colors"
         >
           <SkipForward className="w-3 h-3" /> পরের ধাপ
         </button>

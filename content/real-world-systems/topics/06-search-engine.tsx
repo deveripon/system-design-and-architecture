@@ -656,7 +656,7 @@ export const searchEngineContent: TopicData = {
                                         <span className='font-mono text-2xl font-bold text-primary block mb-1'>
                                             {card.num}
                                         </span>
-                                        <span className='font-mono text-[10px] text-muted-foreground uppercase tracking-wide'>
+                                        <span className='font-mono text-[0.625rem] text-muted-foreground uppercase tracking-wide'>
                                             {card.label}
                                         </span>
                                     </div>

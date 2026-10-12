@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -73,7 +73,7 @@ export function RouteDecisionLab() {
       title="সরাসরি নাকি দরজা দিয়ে, চিঠি ঠিক করে"
       footer="আপনার যন্ত্র প্রতিটা চিঠির আগে একটাই প্রশ্ন করে, গন্তব্য কি আমার Network এর (192.168.0.0/24)? হ্যাঁ হলে সরাসরি পৌঁছে দেয়। না হলে সে গন্তব্যের পুরো ঠিকানা নিয়ে মাথা ঘামায় না, শুধু চিঠিটা তুলে দেয় Default Gateway 192.168.0.1 এর হাতে, আর দরজা বাকিটা সামলায়। খেয়াল করুন, 192.168.1.5 কাছের মনে হলেও আলাদা Network, তাই সেটাও দরজা দিয়ে যায়।"
     >
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-5 font-mono text-[10px] text-muted-foreground">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-5 font-mono text-[0.625rem] text-muted-foreground">
         <span>
           আপনি{" "}
           <span className="text-foreground font-bold">{MY_IP}</span>
@@ -102,15 +102,15 @@ export function RouteDecisionLab() {
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/40",
             )}
           >
-            <span className="font-mono text-[11px] font-bold">{d.ip}</span>
-            <span className="text-[9px] opacity-70">{d.label}</span>
+            <span className="font-mono text-[0.6875rem] font-bold">{d.ip}</span>
+            <span className="text-[0.5625rem] opacity-70">{d.label}</span>
           </button>
         ))}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             গন্তব্যের Network
           </div>
           <div className="font-mono text-sm font-bold text-foreground" data-destnet={networkOf(ip)}>
@@ -118,7 +118,7 @@ export function RouteDecisionLab() {
           </div>
         </div>
         <div className="border border-border bg-background p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             আমার Network এর?
           </div>
           <div
@@ -132,7 +132,7 @@ export function RouteDecisionLab() {
           </div>
         </div>
         <div className="border border-primary/40 bg-primary/5 p-4">
-          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+          <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
             পরের হাত
           </div>
           <div className="font-mono text-sm font-bold text-primary" data-nexthop={nextHop}>

@@ -32,18 +32,18 @@ export function NewsletterForm() {
           }}
           placeholder="NAME@EMAIL.COM"
           aria-label="Email address"
-          className="flex-1 min-w-0 border border-border bg-card px-4 py-3 font-mono text-[12px] tracking-wider text-foreground placeholder:text-muted-foreground/60 focus:border-primary/60 focus:outline-none"
+          className="flex-1 min-w-0 border border-border bg-card px-4 py-3 font-mono text-[0.75rem] tracking-wider text-foreground placeholder:text-muted-foreground/60 focus:border-primary/60 focus:outline-none"
         />
         <button
           type="submit"
-          className="shrink-0 border border-l-0 border-border bg-primary px-5 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-primary-foreground hover:opacity-90 transition-opacity"
+          className="shrink-0 border border-l-0 border-border bg-primary px-5 py-3 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.2em] text-primary-foreground hover:opacity-90 transition-opacity"
         >
           Subscribe
         </button>
       </form>
       <p
         className={cn(
-          "mt-2 font-mono text-[10px] tracking-wider min-h-[14px]",
+          "mt-2 font-mono text-[0.625rem] tracking-wider min-h-[14px]",
           state === "ok" && "text-foreground",
           state === "bad" && "text-destructive",
           state === "idle" && "text-transparent select-none",

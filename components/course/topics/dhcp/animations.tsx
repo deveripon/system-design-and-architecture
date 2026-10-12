@@ -19,10 +19,10 @@ function Panel({
   return (
     <figure className="my-10 border border-border bg-card">
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 border-b border-border bg-muted/30">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-primary">
+        <span className="font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary">
           {label}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">
           {title}
         </span>
       </figcaption>
@@ -120,7 +120,7 @@ export function DoraLab() {
             <span className="font-mono text-lg font-bold leading-none">
               {step.code}
             </span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.1em]">
+            <span className="font-mono text-[0.5625rem] uppercase tracking-[0.1em]">
               {step.name}
             </span>
           </button>
@@ -129,16 +129,16 @@ export function DoraLab() {
 
       {/* who to who */}
       <div className="flex flex-wrap items-center gap-3 mb-4">
-        <span className="px-3 py-1.5 border border-border bg-background font-mono text-[11px] font-bold text-foreground">
+        <span className="px-3 py-1.5 border border-border bg-background font-mono text-[0.6875rem] font-bold text-foreground">
           {s.from}
         </span>
         <span className="text-primary font-mono">{"->"}</span>
-        <span className="px-3 py-1.5 border border-border bg-background font-mono text-[11px] font-bold text-foreground">
+        <span className="px-3 py-1.5 border border-border bg-background font-mono text-[0.6875rem] font-bold text-foreground">
           {s.to}
         </span>
         <span
           className={cn(
-            "px-2.5 py-1 border font-mono text-[9px] font-bold uppercase tracking-[0.12em]",
+            "px-2.5 py-1 border font-mono text-[0.5625rem] font-bold uppercase tracking-[0.12em]",
             s.broadcast
               ? "border-primary/50 bg-primary/5 text-primary"
               : "border-accent/50 bg-accent/5 text-accent",
@@ -151,7 +151,7 @@ export function DoraLab() {
 
       {/* message */}
       <div className="border border-primary/40 bg-primary/5 p-4 mb-5" data-msg={s.code}>
-        <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground mb-1">
+        <div className="font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-muted-foreground mb-1">
           {s.code} · {s.name}
         </div>
         <div className="text-sm md:text-base font-medium text-foreground leading-relaxed">
