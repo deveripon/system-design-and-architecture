@@ -15,6 +15,11 @@ import { TopicData } from "../../types/content";
  *   2. import it below and map it to the lesson id used in
  *      `lib/devops-course-data.ts`.
  */
+import { computerFundamentalsOverviewContent } from "./01-computer-fundamentals/00-overview";
+import { internetFundamentalsOverviewContent } from "./02-internet-fundamentals/00-overview";
+import { computerNetworkingOverviewContent } from "./03-computer-networking/00-overview";
+import { dnsOverviewContent } from "./04-dns/00-overview";
+import { tcpIpOverviewContent } from "./05-tcp-ip/00-overview";
 import { binaryAndDataContent } from "./01-computer-fundamentals/01-binary-and-data";
 import { cpuBasicsContent } from "./01-computer-fundamentals/02-cpu-basics";
 import { memoryAndRamContent } from "./01-computer-fundamentals/03-memory-and-ram";
@@ -61,6 +66,7 @@ import { whatIsInternetContent } from "./02-internet-fundamentals/01-what-is-int
 
 export const devopsContentMap: Record<string, TopicData> = {
   // Module 01, Computer Fundamentals
+  "computer-fundamentals-overview": computerFundamentalsOverviewContent,
   "binary-and-data": binaryAndDataContent,
   "cpu-basics": cpuBasicsContent,
   "memory-and-ram": memoryAndRamContent,
@@ -70,6 +76,7 @@ export const devopsContentMap: Record<string, TopicData> = {
   "how-a-program-runs": howAProgramRunsContent,
 
   // Module 02, Internet Fundamentals
+  "internet-fundamentals-overview": internetFundamentalsOverviewContent,
   "what-is-internet": whatIsInternetContent,
   "client-server-isp": clientServerIspContent,
   "os-networking": osNetworkingContent,
@@ -78,6 +85,7 @@ export const devopsContentMap: Record<string, TopicData> = {
   "end-to-end-request-journey": endToEndRequestJourneyContent,
 
   // Module 03, Computer Networking
+  "computer-networking-overview": computerNetworkingOverviewContent,
   "network-basics": networkBasicsContent,
   "router-switch-hub": routerSwitchHubContent,
   "mac-address": macAddressContent,
@@ -91,6 +99,7 @@ export const devopsContentMap: Record<string, TopicData> = {
   "phone-internet-connection": phoneInternetConnectionContent,
 
   // Module 04, DNS
+  "dns-overview": dnsOverviewContent,
   "what-is-dns": whatIsDnsContent,
   "domain-registrar-registry": domainRegistrarRegistryContent,
   "root-tld-authoritative-dns": rootTldAuthoritativeDnsContent,
@@ -104,6 +113,7 @@ export const devopsContentMap: Record<string, TopicData> = {
   "wildcard-multi-tenant-domains": wildcardMultiTenantDomainsContent,
 
   // Module 05, TCP/IP & Transport Layer
+  "tcp-ip-overview": tcpIpOverviewContent,
   "osi-model": osiModelContent,
   "tcp-ip-model": tcpIpModelContent,
   "tcp-deep-dive": tcpDeepDiveContent,

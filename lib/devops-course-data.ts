@@ -208,6 +208,17 @@ export const devopsCourseData: DevOpsModule[] = [
         duration: '৫-৭ দিন',
         topics: [
             {
+                id: 'computer-fundamentals-overview',
+                title: 'Computer Fundamentals: Module Overview',
+                icon: Compass,
+                tag: 'OVERVIEW',
+                time: '১০-১৫ মিনিট',
+                level: 'Beginner',
+                type: 'Overview',
+                summary:
+                    'কেন Computer এর ভেতরটা আগে জানা দরকার, এই মডিউলে কী শিখবেন আর বাস্তবে কোথায় কাজে লাগবে।',
+            },
+            {
                 id: 'binary-and-data',
                 title: 'Binary, Bit and Byte',
                 icon: Binary,
@@ -293,6 +304,17 @@ export const devopsCourseData: DevOpsModule[] = [
         duration: '৫-৭ দিন',
         topics: [
             {
+                id: 'internet-fundamentals-overview',
+                title: 'Internet Fundamentals: Module Overview',
+                icon: Compass,
+                tag: 'OVERVIEW',
+                time: '১০-১৫ মিনিট',
+                level: 'Beginner',
+                type: 'Overview',
+                summary:
+                    'Internet আসলে কী দিয়ে তৈরি, এই মডিউলে কী শিখবেন, কেন শিখবেন আর বাস্তবে কোথায় কাজে লাগবে।',
+            },
+            {
                 id: 'what-is-internet',
                 title: 'Internet কী?',
                 icon: Globe,
@@ -366,6 +388,17 @@ export const devopsCourseData: DevOpsModule[] = [
         subtitle: 'কম্পিউটার নেটওয়ার্কিং',
         duration: '১-২ সপ্তাহ',
         topics: [
+            {
+                id: 'computer-networking-overview',
+                title: 'Computer Networking: Module Overview',
+                icon: Compass,
+                tag: 'OVERVIEW',
+                time: '১০-১৫ মিনিট',
+                level: 'Beginner',
+                type: 'Overview',
+                summary:
+                    'Network এর ভেতরের যন্ত্র আর ঠিকানা কেন জানা দরকার, কী শিখবেন আর বাস্তবে কোথায় কাজে লাগবে।',
+            },
             {
                 id: 'network-basics',
                 title: 'Network Basics (LAN, WAN, MAN)',
@@ -496,6 +529,17 @@ export const devopsCourseData: DevOpsModule[] = [
         duration: '১ সপ্তাহ',
         topics: [
             {
+                id: 'dns-overview',
+                title: 'DNS: Module Overview',
+                icon: Compass,
+                tag: 'OVERVIEW',
+                time: '১০-১৫ মিনিট',
+                level: 'Beginner',
+                type: 'Overview',
+                summary:
+                    'নাম থেকে ঠিকানা খোঁজার ব্যবস্থা কেন জানা দরকার, কী শিখবেন আর নিজের Domain এ কীভাবে কাজে লাগাবেন।',
+            },
+            {
                 id: 'what-is-dns',
                 title: 'What is DNS?',
                 icon: Globe,
@@ -624,6 +668,17 @@ export const devopsCourseData: DevOpsModule[] = [
         subtitle: 'ট্রান্সপোর্ট লেয়ার',
         duration: '১ সপ্তাহ',
         topics: [
+            {
+                id: 'tcp-ip-overview',
+                title: 'TCP/IP & Transport Layer: Module Overview',
+                icon: Compass,
+                tag: 'OVERVIEW',
+                time: '১০-১৫ মিনিট',
+                level: 'Beginner',
+                type: 'Overview',
+                summary:
+                    'Layer, TCP, UDP আর Port কেন জানা দরকার, কী শিখবেন আর Production এর সমস্যায় কীভাবে কাজে লাগবে।',
+            },
             {
                 id: 'osi-model',
                 title: 'OSI Model',
