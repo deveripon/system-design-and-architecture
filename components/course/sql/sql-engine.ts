@@ -109,6 +109,8 @@ export class SqlEngine {
 
 let engine: Promise<SqlEngine> | null = null;
 let current: SqlEngine | null = null;
+/** The page the running database belongs to. */
+let enginePage: string | null = null;
 let seed: Promise<string> | null = null;
 
 function loadSeed() {
@@ -129,7 +131,21 @@ function loadSeed() {
 }
 
 export function getEngine() {
+    // Client side navigation keeps this module alive, so a lesson would
+    // otherwise inherit every table the previous lesson created. Each page
+    // starts from the untouched sample data instead.
+    const page = window.location.pathname;
+    if (engine && enginePage !== page) {
+        const old = engine;
+        engine = null;
+        current = null;
+        old.then(
+            started => started.stop(),
+            () => {}
+        );
+    }
     if (!engine) {
+        enginePage = page;
         engine = loadSeed()
             .then(sql => SqlEngine.start(sql))
             .then(started => {

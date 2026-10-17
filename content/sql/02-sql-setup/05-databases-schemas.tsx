@@ -1116,8 +1116,10 @@ mysql> SELECT DATABASE(), SCHEMA();
                 এই পাতার Query বক্সগুলোতে আসল PostgreSQL 18 চলছে, তবে একটা ছোট
                 পার্থক্য আগে জেনে নিন। বক্সের ভেতরে আছে একটাই Database, যার নাম
                 postgres, আর Island Tours এর আটটা Table তার public Schema তে Load
-                করা। নিজের মেশিনের মতো island_tours নামের আলাদা Database এখানে নেই,
-                আর CREATE DATABASE এখানে চলে না। Schema অবশ্য পুরোপুরি চলে। SELECT
+                করা। নিজের মেশিনের মতো island_tours নামের আলাদা Database এখানে নেই।
+                বক্সে CREATE DATABASE চালালে নতুন Database টা তালিকায় ঠিকই উঠবে, কিন্তু
+                তার ভেতরে ঢোকা যাবে না, কারণ ঢোকার \c হলো psql এর নিজের Command, বক্স
+                সেটা চেনে না। Schema অবশ্য পুরোপুরি চলে। SELECT
                 এর নিয়ম এখনো শেখেননি, তাতে সমস্যা নেই, Run চাপুন আর উত্তর মেলান।
                 SELECT শুরু হবে Module 03 এ।
               </ContentParagraph>

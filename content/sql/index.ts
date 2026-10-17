@@ -65,6 +65,18 @@ import { runningTotalsFramesContent } from "./08-window-functions/04-running-tot
 import { lagLeadContent } from "./08-window-functions/05-lag-lead";
 import { topNGapsIslandsContent } from "./08-window-functions/06-top-n-gaps-islands";
 import { pivotingContent } from "./08-window-functions/07-pivoting";
+import { tablesTypesConstraintsOverviewContent } from "./09-tables-types-constraints/00-overview";
+import { createDatabaseContent } from "./09-tables-types-constraints/01-create-database";
+import { createTableContent } from "./09-tables-types-constraints/02-create-table";
+import { numericTypesContent } from "./09-tables-types-constraints/03-numeric-types";
+import { textTypesContent } from "./09-tables-types-constraints/04-text-types";
+import { dateTimeTypesContent } from "./09-tables-types-constraints/05-date-time-types";
+import { booleanUuidEnumContent } from "./09-tables-types-constraints/06-boolean-uuid-enum";
+import { basicConstraintsContent } from "./09-tables-types-constraints/07-basic-constraints";
+import { primaryKeysContent } from "./09-tables-types-constraints/08-primary-keys";
+import { foreignKeysContent } from "./09-tables-types-constraints/09-foreign-keys";
+import { alterTableContent } from "./09-tables-types-constraints/10-alter-table";
+import { dropTruncateDeleteContent } from "./09-tables-types-constraints/11-drop-truncate-delete";
 
 /**
  * Lesson content for the SQL & Database Mastery track.
@@ -159,4 +171,18 @@ export const sqlContentMap: Record<string, TopicData> = {
     "lag-lead": lagLeadContent,
     "top-n-gaps-islands": topNGapsIslandsContent,
     "pivoting": pivotingContent,
+
+    // Module 09: Tables, Data Types & Constraints
+    "tables-types-constraints-overview": tablesTypesConstraintsOverviewContent,
+    "create-database": createDatabaseContent,
+    "create-table": createTableContent,
+    "numeric-types": numericTypesContent,
+    "text-types": textTypesContent,
+    "date-time-types": dateTimeTypesContent,
+    "boolean-uuid-enum": booleanUuidEnumContent,
+    "basic-constraints": basicConstraintsContent,
+    "primary-keys": primaryKeysContent,
+    "foreign-keys": foreignKeysContent,
+    "alter-table": alterTableContent,
+    "drop-truncate-delete": dropTruncateDeleteContent,
 };
