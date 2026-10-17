@@ -57,6 +57,14 @@ import { derivedTablesContent } from "./07-subqueries-ctes/04-derived-tables";
 import { ctesContent } from "./07-subqueries-ctes/05-ctes";
 import { recursiveCtesContent } from "./07-subqueries-ctes/06-recursive-ctes";
 import { setOperationsContent } from "./07-subqueries-ctes/07-set-operations";
+import { windowFunctionsOverviewContent } from "./08-window-functions/00-overview";
+import { whatAreWindowFunctionsContent } from "./08-window-functions/01-what-are-window-functions";
+import { rankingFunctionsContent } from "./08-window-functions/02-ranking-functions";
+import { partitionByContent } from "./08-window-functions/03-partition-by";
+import { runningTotalsFramesContent } from "./08-window-functions/04-running-totals-frames";
+import { lagLeadContent } from "./08-window-functions/05-lag-lead";
+import { topNGapsIslandsContent } from "./08-window-functions/06-top-n-gaps-islands";
+import { pivotingContent } from "./08-window-functions/07-pivoting";
 
 /**
  * Lesson content for the SQL & Database Mastery track.
@@ -141,4 +149,14 @@ export const sqlContentMap: Record<string, TopicData> = {
     "ctes": ctesContent,
     "recursive-ctes": recursiveCtesContent,
     "set-operations": setOperationsContent,
+
+    // Module 08: Window Functions & Analytics
+    "window-functions-overview": windowFunctionsOverviewContent,
+    "what-are-window-functions": whatAreWindowFunctionsContent,
+    "ranking-functions": rankingFunctionsContent,
+    "partition-by": partitionByContent,
+    "running-totals-frames": runningTotalsFramesContent,
+    "lag-lead": lagLeadContent,
+    "top-n-gaps-islands": topNGapsIslandsContent,
+    "pivoting": pivotingContent,
 };

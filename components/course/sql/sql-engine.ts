@@ -2,6 +2,8 @@
 
 import {
     PGLITE_MODULE_URL,
+    PGLITE_PUBLIC_DIR,
+    PLAYGROUND_EXTENSIONS,
     PLAYGROUND_QUERY_TIMEOUT_MS,
     PLAYGROUND_TIME_ZONE,
     RAW_TEXT_TYPE_OIDS,
@@ -49,6 +51,12 @@ export class SqlEngine {
             {
                 type: 'init',
                 moduleUrl: new URL(PGLITE_MODULE_URL, window.location.origin).href,
+                extensionUrls: Object.fromEntries(
+                    PLAYGROUND_EXTENSIONS.map(name => [
+                        name,
+                        new URL(`${PGLITE_PUBLIC_DIR}/contrib/${name}.js`, window.location.origin).href,
+                    ])
+                ),
                 seedSql,
                 timeZone: PLAYGROUND_TIME_ZONE,
                 rawTypes: RAW_TEXT_TYPE_OIDS,

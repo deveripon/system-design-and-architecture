@@ -28,9 +28,14 @@ self.onmessage = async event => {
     const { id, type } = event.data;
     try {
         if (type === 'init') {
-            const { moduleUrl, seedSql, timeZone, rawTypes } = event.data;
+            const { moduleUrl, seedSql, timeZone, rawTypes, extensionUrls } = event.data;
             const { PGlite } = await import(moduleUrl);
-            db = await PGlite.create();
+            // Each extension module exports one object named after the extension.
+            const extensions = {};
+            for (const [name, url] of Object.entries(extensionUrls)) {
+                extensions[name] = (await import(url))[name];
+            }
+            db = await PGlite.create({ extensions });
             await db.query('SELECT set_config($1, $2, false)', ['TimeZone', timeZone]);
             await db.exec(seedSql);
             parsers = Object.fromEntries(rawTypes.map(oid => [oid, value => value]));

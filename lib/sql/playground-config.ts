@@ -20,6 +20,20 @@ export const PGLITE_MODULE_URL = `${PGLITE_PUBLIC_DIR}/index.js`;
 /** Island Tours runs in Bangladesh, so times print the way a local psql would. */
 export const PLAYGROUND_TIME_ZONE = 'Asia/Dhaka';
 
+/**
+ * PostgreSQL extensions the in-browser database can load, as in a real server
+ * the reader still runs CREATE EXTENSION first. Each is a small module plus a
+ * bundle in PGlite's dist; `scripts/copy-pglite.mjs` copies exactly these.
+ */
+export const PLAYGROUND_EXTENSIONS = [
+    'citext',
+    'tablefunc',
+    'pg_trgm',
+    'fuzzystrmatch',
+    'unaccent',
+    'ltree',
+] as const;
+
 /** The worker that runs PGlite off the main thread, see public/sql/sql-worker.js. */
 export const SQL_WORKER_PATH = '/sql/sql-worker.js';
 

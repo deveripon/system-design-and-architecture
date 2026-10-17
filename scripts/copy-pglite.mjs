@@ -5,7 +5,7 @@ import { copyFile, mkdir, readdir, rm } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PGLITE_PUBLIC_DIR } from '../lib/sql/playground-config.ts';
+import { PGLITE_PUBLIC_DIR, PLAYGROUND_EXTENSIONS } from '../lib/sql/playground-config.ts';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const require = createRequire(import.meta.url);
@@ -25,4 +25,16 @@ if (!files.includes('index.js') || !files.includes('pglite.wasm')) {
     throw new Error(`PGlite files not found in ${source}`);
 }
 await Promise.all(files.map(name => copyFile(join(source, name), join(target, name))));
-console.log(`copy-pglite: ${files.length} files to public${PGLITE_PUBLIC_DIR}`);
+
+// The extensions the query boxes may load: each is contrib/<name>.js, which
+// imports a shared chunk with a relative path, plus <name>.tar.gz beside it.
+await mkdir(join(target, 'contrib'), { recursive: true });
+await Promise.all(
+    PLAYGROUND_EXTENSIONS.flatMap(name => [
+        copyFile(join(source, 'contrib', `${name}.js`), join(target, 'contrib', `${name}.js`)),
+        copyFile(join(source, `${name}.tar.gz`), join(target, `${name}.tar.gz`)),
+    ])
+);
+console.log(
+    `copy-pglite: ${files.length} files and ${PLAYGROUND_EXTENSIONS.length} extensions to public${PGLITE_PUBLIC_DIR}`
+);
