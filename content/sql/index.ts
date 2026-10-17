@@ -77,6 +77,14 @@ import { primaryKeysContent } from "./09-tables-types-constraints/08-primary-key
 import { foreignKeysContent } from "./09-tables-types-constraints/09-foreign-keys";
 import { alterTableContent } from "./09-tables-types-constraints/10-alter-table";
 import { dropTruncateDeleteContent } from "./09-tables-types-constraints/11-drop-truncate-delete";
+import { changingDataOverviewContent } from "./10-changing-data/00-overview";
+import { insertContent } from "./10-changing-data/01-insert";
+import { updateContent } from "./10-changing-data/02-update";
+import { deleteSoftDeleteContent } from "./10-changing-data/03-delete-soft-delete";
+import { upsertContent } from "./10-changing-data/04-upsert";
+import { bulkLoadingContent } from "./10-changing-data/05-bulk-loading";
+import { generatedColumnsSequencesContent } from "./10-changing-data/06-generated-columns-sequences";
+import { updateWithoutWhereContent } from "./10-changing-data/07-update-without-where";
 
 /**
  * Lesson content for the SQL & Database Mastery track.
@@ -185,4 +193,14 @@ export const sqlContentMap: Record<string, TopicData> = {
     "foreign-keys": foreignKeysContent,
     "alter-table": alterTableContent,
     "drop-truncate-delete": dropTruncateDeleteContent,
+
+    // Module 10: Changing Data
+    "changing-data-overview": changingDataOverviewContent,
+    "insert": insertContent,
+    "update": updateContent,
+    "delete-soft-delete": deleteSoftDeleteContent,
+    "upsert": upsertContent,
+    "bulk-loading": bulkLoadingContent,
+    "generated-columns-sequences": generatedColumnsSequencesContent,
+    "update-without-where": updateWithoutWhereContent,
 };
