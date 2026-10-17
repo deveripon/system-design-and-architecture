@@ -7,6 +7,14 @@ import { relationalModelContent } from "./01-data-and-databases/04-relational-mo
 import { whatIsSqlContent } from "./01-data-and-databases/05-what-is-sql";
 import { appDatabaseConversationContent } from "./01-data-and-databases/06-app-database-conversation";
 import { oltpVsOlapContent } from "./01-data-and-databases/07-oltp-vs-olap";
+import { sqlSetupOverviewContent } from "./02-sql-setup/00-overview";
+import { installPostgresqlContent } from "./02-sql-setup/01-install-postgresql";
+import { installMysqlContent } from "./02-sql-setup/02-install-mysql";
+import { psqlBasicsContent } from "./02-sql-setup/03-psql-basics";
+import { guiClientsContent } from "./02-sql-setup/04-gui-clients";
+import { databasesSchemasContent } from "./02-sql-setup/05-databases-schemas";
+import { loadSampleDatabaseContent } from "./02-sql-setup/06-load-sample-database";
+import { errorsAndHelpContent } from "./02-sql-setup/07-errors-and-help";
 
 /**
  * Lesson content for the SQL & Database Mastery track.
@@ -29,4 +37,14 @@ export const sqlContentMap: Record<string, TopicData> = {
     "what-is-sql": whatIsSqlContent,
     "app-database-conversation": appDatabaseConversationContent,
     "oltp-vs-olap": oltpVsOlapContent,
+
+    // Module 02: Setup & Tools
+    "sql-setup-overview": sqlSetupOverviewContent,
+    "install-postgresql": installPostgresqlContent,
+    "install-mysql": installMysqlContent,
+    "psql-basics": psqlBasicsContent,
+    "gui-clients": guiClientsContent,
+    "databases-schemas": databasesSchemasContent,
+    "load-sample-database": loadSampleDatabaseContent,
+    "errors-and-help": errorsAndHelpContent,
 };

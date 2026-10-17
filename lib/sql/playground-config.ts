@@ -5,6 +5,9 @@
  */
 export const SAMPLE_DATABASE_PATH = '/sql/island-tours.sql';
 
+/** The same data translated for MySQL 8.4, for readers who follow a MySQL course alongside. */
+export const SAMPLE_DATABASE_MYSQL_PATH = '/sql/island-tours.mysql.sql';
+
 /**
  * Where PGlite is served from, untouched. Bundling it breaks its internal
  * module wiring (its namespace getters get tree-shaken), so `scripts/copy-pglite.mjs`

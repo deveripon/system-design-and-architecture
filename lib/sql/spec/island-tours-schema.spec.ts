@@ -2,17 +2,20 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 import { ISLAND_TOURS_TABLES } from '../island-tours-schema.ts';
-import { SAMPLE_DATABASE_PATH } from '../playground-config.ts';
+import {
+    SAMPLE_DATABASE_MYSQL_PATH,
+    SAMPLE_DATABASE_PATH,
+} from '../playground-config.ts';
 
-const sqlFile = readFileSync(
-    new URL(`../../../public${SAMPLE_DATABASE_PATH}`, import.meta.url),
-    'utf8'
-);
+const readPublic = (path: string) =>
+    readFileSync(new URL(`../../../public${path}`, import.meta.url), 'utf8');
+const sqlFile = readPublic(SAMPLE_DATABASE_PATH);
+const mysqlFile = readPublic(SAMPLE_DATABASE_MYSQL_PATH);
 
 /** Table name to its column lines, in order, read from the CREATE TABLE statements. */
-function tablesInSql(): Map<string, string[]> {
+function tablesInSql(file = sqlFile): Map<string, string[]> {
     const tables = new Map<string, string[]>();
-    for (const match of sqlFile.matchAll(/CREATE TABLE (\w+) \(\n([\s\S]*?)\n\);/g)) {
+    for (const match of file.matchAll(/CREATE TABLE (\w+) \(\n([\s\S]*?)\n\);/g)) {
         const lines = match[2]
             .split('\n')
             .map(line => line.trim().replace(/,$/, ''))
@@ -56,6 +59,33 @@ describe('Island Tours schema description', () => {
             });
         });
     }
+
+    it('has the same tables, columns and foreign keys in the MySQL version', () => {
+        const inMysql = tablesInSql(mysqlFile);
+        for (const table of ISLAND_TOURS_TABLES) {
+            const lines = inMysql.get(table.name) ?? [];
+            const columns = lines.filter(line => !line.startsWith('FOREIGN KEY'));
+            assert.deepEqual(
+                columns.map(line => line.split(/\s+/)[0]),
+                table.columns.map(c => c.name),
+                table.name
+            );
+            const foreignKeys = lines
+                .filter(line => line.startsWith('FOREIGN KEY'))
+                .map(line => line.match(/FOREIGN KEY \((\w+)\) REFERENCES (\w+)/)!.slice(1).join('->'));
+            assert.deepEqual(
+                foreignKeys,
+                table.columns.filter(c => c.references).map(c => `${c.name}->${c.references}`),
+                `${table.name} foreign keys`
+            );
+        }
+    });
+
+    it('holds the same rows in both versions, apart from the time zone suffix', () => {
+        const rows = (file: string) =>
+            file.slice(file.indexOf('INSERT INTO')).replace(/\+06'/g, "'");
+        assert.equal(rows(mysqlFile), rows(sqlFile));
+    });
 
     it('only points foreign keys at tables that exist', () => {
         const names = new Set(ISLAND_TOURS_TABLES.map(t => t.name));

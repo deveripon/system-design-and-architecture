@@ -7,7 +7,10 @@ import { Reveal } from '@/components/motion/reveal';
 import { SiteFooter } from '@/components/site/site-footer';
 import { SiteHeader } from '@/components/site/site-header';
 import { ISLAND_TOURS_TABLES } from '@/lib/sql/island-tours-schema';
-import { SAMPLE_DATABASE_PATH } from '@/lib/sql/playground-config';
+import {
+    SAMPLE_DATABASE_MYSQL_PATH,
+    SAMPLE_DATABASE_PATH,
+} from '@/lib/sql/playground-config';
 import { toBn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { ArrowLeft, Download } from 'lucide-react';
@@ -247,11 +250,26 @@ LIMIT 3;`}
                                 code={`createdb island_tours
 psql -d island_tours -f island-tours.sql`}
                             />
-                            <p className='text-sm text-muted-foreground leading-relaxed'>
-                                ফাইলটা PostgreSQL এর জন্য লেখা। MySQL এ কয়েকটা Type আর লেখার
-                                নিয়ম আলাদা, তাই হুবহু চলবে না। MySQL এ কীভাবে চালাবেন, সেটা
-                                Module 02 এর MySQL লেসনে দেখানো হবে।
+                            <p className='mt-8 text-sm text-muted-foreground leading-relaxed'>
+                                উপরের ফাইলটা PostgreSQL এর জন্য লেখা। MySQL এ কয়েকটা Type আর
+                                লেখার নিয়ম আলাদা, তাই সেটা হুবহু চলবে না। MySQL দিয়ে কোনো
+                                কোর্স ফলো করলে নিচের ফাইলটা নিন: একই Table, একই Row, শুধু
+                                MySQL এর ভাষায় লেখা। ধাপগুলো Module 02 এর MySQL লেসনে বিস্তারিত
+                                দেখানো আছে।
                             </p>
+                            <a
+                                href={SAMPLE_DATABASE_MYSQL_PATH}
+                                download
+                                className='mt-4 inline-flex items-center gap-2 border border-border px-4 py-2.5 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.15em] text-foreground hover:border-primary/50 transition-colors'>
+                                <Download className='h-4 w-4' />
+                                island-tours.mysql.sql
+                            </a>
+                            <CodeBlock
+                                language='bash'
+                                filename='terminal (MySQL)'
+                                code={`mysql -u root -p -e "CREATE DATABASE island_tours"
+mysql -u root -p island_tours < island-tours.mysql.sql`}
+                            />
                         </BorderCross>
                     </section>
                 </Reveal>

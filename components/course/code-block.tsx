@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { cn } from "@/lib/utils";
 import { Check, Copy, Terminal } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -16,10 +15,16 @@ interface CodeBlockProps {
 export function CodeBlock({ code, language, filename }: CodeBlockProps) {
   const [copied, setCopied] = React.useState(false);
 
+  // Only says "copied" once the browser confirms it; a refused write (no
+  // permission, insecure page) leaves the button as it was instead of lying.
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    navigator.clipboard
+      .writeText(code)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch(() => {});
   };
 
   const getPrismLanguage = (lang: string) => {
