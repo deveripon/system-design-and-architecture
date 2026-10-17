@@ -1,21 +1,22 @@
 "use client";
 
-import { ArrowUpRight, Network, Workflow } from "lucide-react";
+import { ArrowUpRight, Database, Network, Workflow } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 /**
- * The last cell of the footer social row points at the track you are NOT on:
- * "DevOps Track" while browsing System Design, "System Design" while on the
- * DevOps pages. It needs the current path, so it is the one client island in an
- * otherwise server-rendered footer.
+ * The last cell of the footer social row points at the next track along from
+ * the one you are on: System Design leads to DevOps, DevOps to SQL, and SQL
+ * back to System Design. It needs the current path, so it is the one client
+ * island in an otherwise server-rendered footer.
  */
 export function OtherTrackCta() {
   const pathname = usePathname();
-  const onDevops = pathname.startsWith("/devops");
-  const track = onDevops
-    ? { label: "System Design", href: "/", Icon: Workflow }
-    : { label: "DevOps Track", href: "/devops", Icon: Network };
+  const track = pathname.startsWith("/devops")
+    ? { label: "SQL Track", href: "/sql", Icon: Database }
+    : pathname.startsWith("/sql")
+      ? { label: "System Design", href: "/", Icon: Workflow }
+      : { label: "DevOps Track", href: "/devops", Icon: Network };
 
   return (
     <Link

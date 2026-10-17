@@ -20,6 +20,9 @@
 # production
 /build
 
+# PGlite runtime, copied from node_modules by scripts/copy-pglite.mjs
+/public/vendor/pglite/
+
 # misc
 .DS_Store
 *.pem

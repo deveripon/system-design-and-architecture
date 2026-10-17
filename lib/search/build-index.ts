@@ -1,7 +1,9 @@
 import { contentMap } from '@/content';
 import { devopsContentMap } from '@/content/devops';
+import { sqlContentMap } from '@/content/sql';
 import { courseData } from '@/lib/course-data';
 import { devopsCourseData, devopsTrack } from '@/lib/devops-course-data';
+import { sqlCourseData, sqlTrack } from '@/lib/sql-course-data';
 import type { ContentBlock, TopicData } from '@/types/content';
 import { CONTENT_TYPES } from '@/types/content';
 import { LESSON_EXTRA_ANCHORS } from './constants.ts';
@@ -49,6 +51,13 @@ const TRACKS: TrackSource[] = [
         groups: devopsCourseData,
         content: devopsContentMap,
     },
+    {
+        name: 'SQL',
+        unit: 'Module',
+        basePath: '/sql/topic',
+        groups: sqlCourseData,
+        content: sqlContentMap,
+    },
 ];
 
 const PAGES: SearchEntry[] = [
@@ -83,6 +92,22 @@ const PAGES: SearchEntry[] = [
         description: 'Every ASCII code in one table',
         href: '/devops/reference/ascii-table',
         keywords: 'ascii table reference character code hex binary',
+    },
+    {
+        kind: 'page',
+        title: sqlTrack.title,
+        context: 'Track',
+        description: sqlTrack.subtitle,
+        href: `/${sqlTrack.slug}`,
+        keywords: 'sql database postgresql mysql roadmap curriculum modules lessons',
+    },
+    {
+        kind: 'page',
+        title: 'The Island Tours Database',
+        context: 'SQL',
+        description: 'The sample database every SQL lesson runs on',
+        href: '/sql/database',
+        keywords: 'sample database schema tables er diagram island tours download',
     },
 ];
 

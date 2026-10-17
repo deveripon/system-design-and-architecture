@@ -1,6 +1,7 @@
 import { courseData } from '@/lib/course-data';
 import { devopsCourseData, devopsLessons } from '@/lib/devops-course-data';
-import { ArrowRight, Network, Workflow } from 'lucide-react';
+import { sqlCourseData, sqlLessons } from '@/lib/sql-course-data';
+import { ArrowRight, Database, Network, Workflow } from 'lucide-react';
 import Link from 'next/link';
 
 const TRACKS = [
@@ -30,11 +31,24 @@ const TRACKS = [
         sectionLabel: 'Modules',
         lessons: devopsLessons.length,
     },
+    {
+        id: 'sql',
+        icon: Database,
+        eyebrow: 'Track 03',
+        title: 'SQL & Database Mastery',
+        description:
+            'প্রথম SELECT থেকে Production Database পর্যন্ত। Join, Design, Transaction, Index, Security আর Scaling, PostgreSQL দিয়ে।',
+        href: '/sql',
+        cta: 'Open Track',
+        sections: sqlCourseData.length,
+        sectionLabel: 'Modules',
+        lessons: sqlLessons.length,
+    },
 ];
 
 export function TrackGrid() {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 border-t border-l border-border'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border'>
             {TRACKS.map(track => (
                 <Link
                     key={track.id}

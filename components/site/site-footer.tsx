@@ -26,6 +26,7 @@ const COLUMNS: {
     links: [
       { label: "System Design", href: "/" },
       { label: "DevOps & Internet", href: "/devops" },
+      { label: "SQL & Databases", href: "/sql" },
     ],
   },
   {
@@ -33,6 +34,7 @@ const COLUMNS: {
     links: [
       { label: "Roadmap", href: "/#roadmap" },
       { label: "Island Tours Project", href: "/devops/project" },
+      { label: "Island Tours Database", href: "/sql/database" },
       { label: "ASCII Reference", href: "/devops/reference/ascii-table" },
     ],
   },
@@ -136,9 +138,9 @@ export function SiteFooter() {
               <Logo className="h-20 md:h-24" />
             </Link>
             <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
-              System Design আর DevOps, একদম শূন্য থেকে হাতে কলমে শেখার একটা
-              বাংলা curriculum। Browser এর ভেতর থেকে Production Infrastructure
-              পর্যন্ত, গল্পের মতো করে।
+              System Design, DevOps আর SQL, একদম শূন্য থেকে হাতে কলমে শেখার
+              একটা বাংলা curriculum। Browser এর ভেতর থেকে Production
+              Infrastructure আর Database পর্যন্ত, গল্পের মতো করে।
             </p>
           </div>
           <div className="lg:justify-self-end w-full lg:max-w-md">

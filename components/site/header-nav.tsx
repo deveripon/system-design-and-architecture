@@ -11,6 +11,7 @@ import { useState } from "react";
 export const TRACKS = [
   { label: "System Design", href: "/" },
   { label: "DevOps", href: "/devops" },
+  { label: "SQL", href: "/sql" },
 ];
 
 const REPO_URL = "https://github.com/Deveripon/system-design-and-architecture";

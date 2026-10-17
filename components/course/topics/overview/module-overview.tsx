@@ -1,4 +1,5 @@
 import { devopsCourseData } from "@/lib/devops-course-data";
+import { sqlCourseData } from "@/lib/sql-course-data";
 import { toBn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -173,17 +174,27 @@ export function ModuleBridgeDiagram({
 /* 2. এই মডিউলের লেসনগুলো, কোনটা কোন প্রশ্নের উত্তর                              */
 /* ------------------------------------------------------------------------- */
 
+/** The tracks an overview chapter can belong to, and where their lessons live. */
+const TRACKS = {
+  devops: { modules: devopsCourseData, basePath: "/devops/topic" },
+  sql: { modules: sqlCourseData, basePath: "/sql/topic" },
+} as const;
+
 export function ModuleRoadmap({
   moduleId,
   questions,
   footer,
+  track = "devops",
 }: {
   moduleId: string;
   /** Lesson id to the one question that lesson answers, in Bengali. */
   questions: Record<string, string>;
   footer?: React.ReactNode;
+  /** Which track the module belongs to. */
+  track?: keyof typeof TRACKS;
 }) {
-  const section = devopsCourseData.find((m) => m.id === moduleId);
+  const { modules, basePath } = TRACKS[track];
+  const section = modules.find((m) => m.id === moduleId);
   if (!section) return null;
   // The overview chapter itself is not a stop on its own map.
   const lessons = section.topics.filter((t) => t.id !== `${moduleId}-overview`);
@@ -194,7 +205,7 @@ export function ModuleRoadmap({
         {lessons.map((lesson, i) => (
           <li key={lesson.id}>
             <Link
-              href={`/devops/topic/${lesson.id}`}
+              href={`${basePath}/${lesson.id}`}
               className="group flex h-full items-start gap-4 border border-border bg-background p-4 transition-colors hover:border-primary/50"
             >
               <span className="font-mono text-[0.6875rem] font-bold text-primary pt-0.5">
