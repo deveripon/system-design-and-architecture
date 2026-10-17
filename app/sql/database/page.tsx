@@ -1,5 +1,6 @@
 import { BorderCross } from '@/components/course/border-cross';
 import { CodeBlock } from '@/components/course/code-block';
+import { SqlExercise } from '@/components/course/sql/sql-exercise';
 import { SqlPlayground } from '@/components/course/sql/sql-playground';
 import { SubHeader } from '@/components/course/sub-header';
 import { IslandToursDatabaseDiagram } from '@/components/course/topics/island-tours/database-diagram';
@@ -147,6 +148,28 @@ export default function SqlDatabasePage() {
 FROM tours
 ORDER BY price_bdt DESC
 LIMIT 3;`}
+                        />
+                        <SqlExercise
+                            title='Your Turn'
+                            orderMatters
+                            task={
+                                <>
+                                    এবার নিজে লিখুন: দশ হাজার টাকার কম দামের সব ট্যুরের{' '}
+                                    <code className='font-mono'>title</code> আর{' '}
+                                    <code className='font-mono'>price_bdt</code>, সবচেয়ে সস্তাটা আগে।
+                                    উপরের Query টা একটু বদলালেই হবে।
+                                </>
+                            }
+                            hint={
+                                <>
+                                    দামের শর্ত বসে <code className='font-mono'>WHERE</code> এ, আর সস্তা আগে মানে{' '}
+                                    <code className='font-mono'>ORDER BY price_bdt</code>, শেষে DESC ছাড়া।
+                                </>
+                            }
+                            solution={`SELECT title, price_bdt
+FROM tours
+WHERE price_bdt < 10000
+ORDER BY price_bdt;`}
                         />
                     </section>
                 </Reveal>

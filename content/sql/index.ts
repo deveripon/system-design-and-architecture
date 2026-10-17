@@ -15,6 +15,16 @@ import { guiClientsContent } from "./02-sql-setup/04-gui-clients";
 import { databasesSchemasContent } from "./02-sql-setup/05-databases-schemas";
 import { loadSampleDatabaseContent } from "./02-sql-setup/06-load-sample-database";
 import { errorsAndHelpContent } from "./02-sql-setup/07-errors-and-help";
+import { readingDataOverviewContent } from "./03-reading-data/00-overview";
+import { selectFromContent } from "./03-reading-data/01-select-from";
+import { queryOrderContent } from "./03-reading-data/02-query-order";
+import { whereFiltersContent } from "./03-reading-data/03-where-filters";
+import { inBetweenLikeContent } from "./03-reading-data/04-in-between-like";
+import { nullLogicContent } from "./03-reading-data/05-null-logic";
+import { orderByContent } from "./03-reading-data/06-order-by";
+import { limitPaginationContent } from "./03-reading-data/07-limit-pagination";
+import { distinctContent } from "./03-reading-data/08-distinct";
+import { caseExpressionContent } from "./03-reading-data/09-case-expression";
 
 /**
  * Lesson content for the SQL & Database Mastery track.
@@ -47,4 +57,16 @@ export const sqlContentMap: Record<string, TopicData> = {
     "databases-schemas": databasesSchemasContent,
     "load-sample-database": loadSampleDatabaseContent,
     "errors-and-help": errorsAndHelpContent,
+
+    // Module 03: Reading Data
+    "reading-data-overview": readingDataOverviewContent,
+    "select-from": selectFromContent,
+    "query-order": queryOrderContent,
+    "where-filters": whereFiltersContent,
+    "in-between-like": inBetweenLikeContent,
+    "null-logic": nullLogicContent,
+    "order-by": orderByContent,
+    "limit-pagination": limitPaginationContent,
+    "distinct": distinctContent,
+    "case-expression": caseExpressionContent,
 };
