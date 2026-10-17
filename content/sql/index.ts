@@ -25,6 +25,13 @@ import { orderByContent } from "./03-reading-data/06-order-by";
 import { limitPaginationContent } from "./03-reading-data/07-limit-pagination";
 import { distinctContent } from "./03-reading-data/08-distinct";
 import { caseExpressionContent } from "./03-reading-data/09-case-expression";
+import { functionsExpressionsOverviewContent } from "./04-functions-expressions/00-overview";
+import { stringFunctionsContent } from "./04-functions-expressions/01-string-functions";
+import { numericFunctionsContent } from "./04-functions-expressions/02-numeric-functions";
+import { dateTimeFunctionsContent } from "./04-functions-expressions/03-date-time-functions";
+import { typeCastingContent } from "./04-functions-expressions/04-type-casting";
+import { nullFunctionsContent } from "./04-functions-expressions/05-null-functions";
+import { regularExpressionsContent } from "./04-functions-expressions/06-regular-expressions";
 
 /**
  * Lesson content for the SQL & Database Mastery track.
@@ -69,4 +76,13 @@ export const sqlContentMap: Record<string, TopicData> = {
     "limit-pagination": limitPaginationContent,
     "distinct": distinctContent,
     "case-expression": caseExpressionContent,
+
+    // Module 04: Functions & Expressions
+    "functions-expressions-overview": functionsExpressionsOverviewContent,
+    "string-functions": stringFunctionsContent,
+    "numeric-functions": numericFunctionsContent,
+    "date-time-functions": dateTimeFunctionsContent,
+    "type-casting": typeCastingContent,
+    "null-functions": nullFunctionsContent,
+    "regular-expressions": regularExpressionsContent,
 };
