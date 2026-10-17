@@ -1,9 +1,13 @@
 'use client';
 
-import { PLAYGROUND_MAX_ROWS } from '@/lib/sql/playground-config';
+import {
+    PLAYGROUND_MAX_ROWS,
+    PLAYGROUND_QUERY_TIMEOUT_MS,
+} from '@/lib/sql/playground-config';
 import { splitStatements } from '@/lib/sql/split-statements';
-import { cn } from '@/lib/utils';
-import type { PGlite, Results } from '@electric-sql/pglite';
+import { cn, toBn } from '@/lib/utils';
+import type { Results } from '@electric-sql/pglite';
+import type { EngineError, SqlEngine } from './sql-engine';
 
 /**
  * What the query box and the exercise box share: running a script the way
@@ -25,14 +29,6 @@ export interface Outcome {
     ms: number;
 }
 
-// PGlite turns numbers, dates and booleans into JavaScript values. Handing
-// every common type back as text keeps the output exactly as psql prints it:
-// 12500.00 instead of 12500, t instead of true, and the +06 offset kept.
-const RAW_TEXT_TYPES = [16, 20, 21, 23, 26, 114, 700, 701, 1082, 1083, 1114, 1184, 1186, 1266, 1700, 3802];
-const RAW_PARSERS = Object.fromEntries(
-    RAW_TEXT_TYPES.map(id => [id, (value: string) => value])
-);
-
 export function formatCell(value: unknown): string {
     if (value === null || value === undefined) return 'NULL';
     if (Array.isArray(value)) {
@@ -44,7 +40,13 @@ export function formatCell(value: unknown): string {
 
 /** psql style error: the message, then the offending line of that statement with a caret under it. */
 export function describeError(error: unknown, sql: string): QueryError {
-    const e = error as { message?: string; detail?: string; hint?: string; position?: string | number };
+    const e = error as EngineError;
+    if (e.timedOut) {
+        return {
+            message: e.message,
+            hint: `এই Statement ${toBn(PLAYGROUND_QUERY_TIMEOUT_MS / 1000)} সেকেন্ডের বেশি চলছিল, তাই Page আটকে যাওয়ার আগেই থামিয়ে দেওয়া হয়েছে। থামাতে গিয়ে Database নতুন করে শুরু হয়েছে, তাই এই Page এ আগে করা বদলগুলো আর নেই। শেষ না হওয়া Recursive Query বা বিশাল Cross Join এর ক্ষেত্রে এমন হয়।`,
+        };
+    }
     const outcome: QueryError = {
         message: e.message ?? String(error),
         detail: e.detail,
@@ -129,18 +131,13 @@ export function ErrorBox({ error }: { error: QueryError }) {
  * One statement at a time, like psql: each commits on its own, and the first
  * error stops the run while everything before it stays done.
  */
-export async function runScript(db: PGlite, sql: string): Promise<Outcome> {
+export async function runScript(db: SqlEngine, sql: string): Promise<Outcome> {
     const started = performance.now();
     const results: Results<unknown[]>[] = [];
     let failure: QueryError | undefined;
     for (const statement of splitStatements(sql)) {
         try {
-            results.push(
-                (await db.query(statement, [], {
-                    rowMode: 'array',
-                    parsers: RAW_PARSERS,
-                })) as Results<unknown[]>
-            );
+            results.push(await db.query(statement));
         } catch (error) {
             failure = describeError(error, statement);
             break;

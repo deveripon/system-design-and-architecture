@@ -49,6 +49,14 @@ import { selfJoinContent } from "./06-joins/06-self-join";
 import { multiTableJoinsContent } from "./06-joins/07-multi-table-joins";
 import { semiAntiJoinContent } from "./06-joins/08-semi-anti-join";
 import { lateralJoinContent } from "./06-joins/09-lateral-join";
+import { subqueriesCtesOverviewContent } from "./07-subqueries-ctes/00-overview";
+import { scalarSubqueriesContent } from "./07-subqueries-ctes/01-scalar-subqueries";
+import { inExistsAnyAllContent } from "./07-subqueries-ctes/02-in-exists-any-all";
+import { correlatedSubqueriesContent } from "./07-subqueries-ctes/03-correlated-subqueries";
+import { derivedTablesContent } from "./07-subqueries-ctes/04-derived-tables";
+import { ctesContent } from "./07-subqueries-ctes/05-ctes";
+import { recursiveCtesContent } from "./07-subqueries-ctes/06-recursive-ctes";
+import { setOperationsContent } from "./07-subqueries-ctes/07-set-operations";
 
 /**
  * Lesson content for the SQL & Database Mastery track.
@@ -123,4 +131,14 @@ export const sqlContentMap: Record<string, TopicData> = {
     "multi-table-joins": multiTableJoinsContent,
     "semi-anti-join": semiAntiJoinContent,
     "lateral-join": lateralJoinContent,
+
+    // Module 07: Subqueries, CTEs & Set Operations
+    "subqueries-ctes-overview": subqueriesCtesOverviewContent,
+    "scalar-subqueries": scalarSubqueriesContent,
+    "in-exists-any-all": inExistsAnyAllContent,
+    "correlated-subqueries": correlatedSubqueriesContent,
+    "derived-tables": derivedTablesContent,
+    "ctes": ctesContent,
+    "recursive-ctes": recursiveCtesContent,
+    "set-operations": setOperationsContent,
 };
