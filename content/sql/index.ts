@@ -39,6 +39,16 @@ import { havingVsWhereContent } from "./05-aggregation-grouping/03-having-vs-whe
 import { conditionalAggregationContent } from "./05-aggregation-grouping/04-conditional-aggregation";
 import { rollupCubeContent } from "./05-aggregation-grouping/05-rollup-cube";
 import { stringArrayAggContent } from "./05-aggregation-grouping/06-string-array-agg";
+import { joinsOverviewContent } from "./06-joins/00-overview";
+import { whySplitTablesContent } from "./06-joins/01-why-split-tables";
+import { innerJoinContent } from "./06-joins/02-inner-join";
+import { leftRightJoinContent } from "./06-joins/03-left-right-join";
+import { fullOuterJoinContent } from "./06-joins/04-full-outer-join";
+import { crossJoinContent } from "./06-joins/05-cross-join";
+import { selfJoinContent } from "./06-joins/06-self-join";
+import { multiTableJoinsContent } from "./06-joins/07-multi-table-joins";
+import { semiAntiJoinContent } from "./06-joins/08-semi-anti-join";
+import { lateralJoinContent } from "./06-joins/09-lateral-join";
 
 /**
  * Lesson content for the SQL & Database Mastery track.
@@ -101,4 +111,16 @@ export const sqlContentMap: Record<string, TopicData> = {
     "conditional-aggregation": conditionalAggregationContent,
     "rollup-cube": rollupCubeContent,
     "string-array-agg": stringArrayAggContent,
+
+    // Module 06: Joins
+    "joins-overview": joinsOverviewContent,
+    "why-split-tables": whySplitTablesContent,
+    "inner-join": innerJoinContent,
+    "left-right-join": leftRightJoinContent,
+    "full-outer-join": fullOuterJoinContent,
+    "cross-join": crossJoinContent,
+    "self-join": selfJoinContent,
+    "multi-table-joins": multiTableJoinsContent,
+    "semi-anti-join": semiAntiJoinContent,
+    "lateral-join": lateralJoinContent,
 };
