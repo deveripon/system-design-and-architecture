@@ -32,6 +32,13 @@ import { dateTimeFunctionsContent } from "./04-functions-expressions/03-date-tim
 import { typeCastingContent } from "./04-functions-expressions/04-type-casting";
 import { nullFunctionsContent } from "./04-functions-expressions/05-null-functions";
 import { regularExpressionsContent } from "./04-functions-expressions/06-regular-expressions";
+import { aggregationGroupingOverviewContent } from "./05-aggregation-grouping/00-overview";
+import { aggregateFunctionsContent } from "./05-aggregation-grouping/01-aggregate-functions";
+import { groupByContent } from "./05-aggregation-grouping/02-group-by";
+import { havingVsWhereContent } from "./05-aggregation-grouping/03-having-vs-where";
+import { conditionalAggregationContent } from "./05-aggregation-grouping/04-conditional-aggregation";
+import { rollupCubeContent } from "./05-aggregation-grouping/05-rollup-cube";
+import { stringArrayAggContent } from "./05-aggregation-grouping/06-string-array-agg";
 
 /**
  * Lesson content for the SQL & Database Mastery track.
@@ -85,4 +92,13 @@ export const sqlContentMap: Record<string, TopicData> = {
     "type-casting": typeCastingContent,
     "null-functions": nullFunctionsContent,
     "regular-expressions": regularExpressionsContent,
+
+    // Module 05: Aggregation & Grouping
+    "aggregation-grouping-overview": aggregationGroupingOverviewContent,
+    "aggregate-functions": aggregateFunctionsContent,
+    "group-by": groupByContent,
+    "having-vs-where": havingVsWhereContent,
+    "conditional-aggregation": conditionalAggregationContent,
+    "rollup-cube": rollupCubeContent,
+    "string-array-agg": stringArrayAggContent,
 };

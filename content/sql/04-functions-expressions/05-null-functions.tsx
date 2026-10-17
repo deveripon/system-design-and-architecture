@@ -67,14 +67,14 @@ export const nullFunctionsContent: TopicData = {
     {
       id: "theory",
       subHeader: { index: "001", title: "Theory" },
-      title: <SectionTitle>সোমবার সকালের চারটা ছোট বিপদ</SectionTitle>,
+      title: <SectionTitle>রবিবার সকালের চারটা ছোট বিপদ</SectionTitle>,
       blocks: [
         {
           type: CONTENT_TYPES.HTML,
           content: (
             <div className="space-y-6">
               <ContentParagraph>
-                ধরে নিন আজ 1 November 2026, শীতের মৌসুমের প্রথম সোমবার। Island Tours এর Support
+                ধরে নিন আজ 1 November 2026, শীতের মৌসুমের প্রথম রবিবার। Island Tours এর Support
                 টিমের দায়িত্বে আছেন নাবিলা। তিনি সকালে একটা তালিকা ছাপান, যাতে টিমের সবাই
                 Customer দের ফোন করে নতুন মৌসুমের ট্যুরের খবর দিতে পারেন। তালিকার পাঁচটা লাইনে
                 ফোনের ঘরটা পুরো ফাঁকা। নতুন একজন সহকর্মী জিজ্ঞেস করলেন, এই ঘরগুলো কি ছাপার

@@ -640,7 +640,7 @@ export const sqlCourseData: SqlModule[] = [
                 level: 'Beginner',
                 type: 'Hands-on',
                 summary:
-                    'প্রতিটা দল আলাদা করে গোনা, যেমন প্রতিটা Tour এ কতগুলো Booking।',
+                    'প্রতিটা দল আলাদা করে গোনা, যেমন প্রতিটা Status এ কতগুলো Booking।',
             },
             {
                 id: 'having-vs-where',
