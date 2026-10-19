@@ -1,17 +1,15 @@
 import { courseData } from '@/lib/course-data';
 import { devopsLessons } from '@/lib/devops-course-data';
 import { sqlLessons } from '@/lib/sql-course-data';
+import { absoluteUrl } from '@/lib/site-url';
 import { TRACK_HOME } from '@/lib/tracks';
 import type { MetadataRoute } from 'next';
 
-const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    'https://learnsystemdesign-bn.vercel.app/';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const topicEntries: MetadataRoute.Sitemap = courseData.flatMap(phase =>
         phase.topics.map(topic => ({
-            url: `${siteUrl}/topic/${topic.id}`,
+            url: absoluteUrl(`/topic/${topic.id}`),
             lastModified: new Date(),
             changeFrequency: 'monthly' as const,
             priority: 0.8,
@@ -19,14 +17,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
 
     const devopsEntries: MetadataRoute.Sitemap = devopsLessons.map(lesson => ({
-        url: `${siteUrl}/devops/topic/${lesson.id}`,
+        url: absoluteUrl(`/devops/topic/${lesson.id}`),
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.8,
     }));
 
     const sqlEntries: MetadataRoute.Sitemap = sqlLessons.map(lesson => ({
-        url: `${siteUrl}/sql/topic/${lesson.id}`,
+        url: absoluteUrl(`/sql/topic/${lesson.id}`),
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.8,
@@ -35,37 +33,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return [
         // The home page is the DevOps landing page.
         {
-            url: siteUrl,
+            url: absoluteUrl(TRACK_HOME.devops),
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 1.0,
         },
         {
-            url: `${siteUrl}/devops/reference/ascii-table`,
+            url: absoluteUrl('/devops/reference/ascii-table'),
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.7,
         },
         {
-            url: `${siteUrl}/devops/project`,
+            url: absoluteUrl('/devops/project'),
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.7,
         },
         {
-            url: `${siteUrl}${TRACK_HOME.sql}`,
+            url: absoluteUrl(TRACK_HOME.sql),
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.9,
         },
         {
-            url: `${siteUrl}/sql/database`,
+            url: absoluteUrl('/sql/database'),
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.7,
         },
         {
-            url: `${siteUrl}${TRACK_HOME['system-design']}`,
+            url: absoluteUrl(TRACK_HOME['system-design']),
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.9,

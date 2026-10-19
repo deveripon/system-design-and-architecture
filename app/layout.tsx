@@ -1,6 +1,7 @@
 import { GoogleAnalytics } from '@/components/google-analytics';
 import { SearchProvider } from '@/components/site/search/search-provider';
 import { ThemeProvider } from '@/components/theme-provider';
+import { siteUrl } from '@/lib/site-url';
 import { cn } from '@/lib/utils';
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Hind_Siliguri, JetBrains_Mono } from 'next/font/google';
@@ -26,16 +27,11 @@ const hindSiliguri = Hind_Siliguri({
     display: 'swap',
 });
 
-let siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    'https://learnsystemdesign-bn.vercel.app/';
-
-if (!siteUrl.startsWith('http')) {
-    siteUrl = `https://${siteUrl}`;
-}
+// Throws during the build when the site address is missing or malformed.
+const site = siteUrl();
 
 export const metadata: Metadata = {
-    metadataBase: new URL(siteUrl),
+    metadataBase: site,
     title: {
         default: 'System Design Mastery: Build for Scale',
         template: '%s | System Design Mastery',
@@ -76,7 +72,7 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'bn_BD',
         alternateLocale: 'en_US',
-        url: siteUrl,
+        url: site.href,
         siteName: 'System Design Mastery',
         title: 'System Design Mastery: Build for Scale',
         description:
@@ -99,7 +95,7 @@ export const metadata: Metadata = {
         images: ['/og-default.png'],
     },
     alternates: {
-        canonical: siteUrl,
+        canonical: site.href,
     },
     category: 'technology',
 };

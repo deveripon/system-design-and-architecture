@@ -1,8 +1,6 @@
+import { absoluteUrl, siteUrl } from '@/lib/site-url';
 import type { MetadataRoute } from 'next';
 
-const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    'https://learnsystemdesign-bn.vercel.app/';
 
 export default function robots(): MetadataRoute.Robots {
     return {
@@ -12,8 +10,8 @@ export default function robots(): MetadataRoute.Robots {
                 allow: '/',
             },
         ],
-        sitemap: `${siteUrl}/sitemap.xml`,
-        host: siteUrl,
+        sitemap: absoluteUrl('/sitemap.xml'),
+        host: siteUrl().origin,
     };
 }
 
