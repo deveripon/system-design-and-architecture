@@ -1,22 +1,27 @@
 "use client";
 
-import { ArrowUpRight, Database, Network, Workflow } from "lucide-react";
+import { nextTrack, trackForPath, TRACKS, type TrackId } from "@/lib/tracks";
+import { ArrowUpRight, Database, Network, Workflow, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const CTA: Record<TrackId, { label: string; Icon: LucideIcon }> = {
+  devops: { label: "DevOps Track", Icon: Network },
+  sql: { label: "SQL Track", Icon: Database },
+  "system-design": { label: "System Design", Icon: Workflow },
+};
+
 /**
  * The last cell of the footer social row points at the next track along from
- * the one you are on: System Design leads to DevOps, DevOps to SQL, and SQL
- * back to System Design. It needs the current path, so it is the one client
- * island in an otherwise server-rendered footer.
+ * the one you are on, in the site's track order, wrapping from the last back
+ * to the first. It needs the current path, so it is the one client island in
+ * an otherwise server-rendered footer.
  */
 export function OtherTrackCta() {
-  const pathname = usePathname();
-  const track = pathname.startsWith("/devops")
-    ? { label: "SQL Track", href: "/sql", Icon: Database }
-    : pathname.startsWith("/sql")
-      ? { label: "System Design", href: "/", Icon: Workflow }
-      : { label: "DevOps Track", href: "/devops", Icon: Network };
+  const current = trackForPath(usePathname());
+  // A page outside every track points at the main track, the first one.
+  const target = current ? nextTrack(current.id) : TRACKS[0];
+  const track = { ...CTA[target.id], href: target.href };
 
   return (
     <Link

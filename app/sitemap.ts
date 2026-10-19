@@ -1,6 +1,7 @@
 import { courseData } from '@/lib/course-data';
 import { devopsLessons } from '@/lib/devops-course-data';
 import { sqlLessons } from '@/lib/sql-course-data';
+import { TRACK_HOME } from '@/lib/tracks';
 import type { MetadataRoute } from 'next';
 
 const siteUrl =
@@ -32,17 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
 
     return [
+        // The home page is the DevOps landing page.
         {
             url: siteUrl,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 1.0,
-        },
-        {
-            url: `${siteUrl}/devops`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.9,
         },
         {
             url: `${siteUrl}/devops/reference/ascii-table`,
@@ -57,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.7,
         },
         {
-            url: `${siteUrl}/sql`,
+            url: `${siteUrl}${TRACK_HOME.sql}`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.9,
@@ -68,9 +64,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'monthly',
             priority: 0.7,
         },
-        ...topicEntries,
+        {
+            url: `${siteUrl}${TRACK_HOME['system-design']}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
         ...devopsEntries,
         ...sqlEntries,
+        ...topicEntries,
     ];
 }
 

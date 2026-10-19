@@ -4,13 +4,14 @@ import { sqlContentMap } from '@/content/sql';
 import { courseData } from '@/lib/course-data';
 import { devopsCourseData, devopsTrack } from '@/lib/devops-course-data';
 import { sqlCourseData, sqlTrack } from '@/lib/sql-course-data';
+import { TRACK_HOME, TRACKS, type TrackId } from '@/lib/tracks';
 import type { ContentBlock, TopicData } from '@/types/content';
 import { CONTENT_TYPES } from '@/types/content';
 import { LESSON_EXTRA_ANCHORS } from './constants.ts';
 import { extractKeywords, nodeToText, tidy } from './text.ts';
 import type { SearchEntry, SearchIndex } from './types.ts';
 
-/** The shape both tracks share, so one walker indexes them both. */
+/** The shape every track shares, so one walker indexes them all. */
 interface TrackSource {
     name: string;
     /** "Phase" for System Design, "Module" for DevOps. */
@@ -36,46 +37,41 @@ interface TrackSource {
     content: Record<string, TopicData>;
 }
 
-const TRACKS: TrackSource[] = [
-    {
-        name: 'System Design',
-        unit: 'Phase',
-        basePath: '/topic',
-        groups: courseData,
-        content: contentMap,
-    },
-    {
+const SOURCES: Record<TrackId, TrackSource> = {
+    devops: {
         name: 'DevOps',
         unit: 'Module',
         basePath: '/devops/topic',
         groups: devopsCourseData,
         content: devopsContentMap,
     },
-    {
+    sql: {
         name: 'SQL',
         unit: 'Module',
         basePath: '/sql/topic',
         groups: sqlCourseData,
         content: sqlContentMap,
     },
-];
+    'system-design': {
+        name: 'System Design',
+        unit: 'Phase',
+        basePath: '/topic',
+        groups: courseData,
+        content: contentMap,
+    },
+};
+
+/** Indexed in the site's track order, so equal matches list DevOps first. */
+const TRACK_SOURCES = TRACKS.map(track => SOURCES[track.id]);
 
 const PAGES: SearchEntry[] = [
     {
         kind: 'page',
-        title: 'System Design Mastery',
-        context: 'Home',
-        description: 'System Design track roadmap, every phase and topic',
-        href: '/',
-        keywords: 'home roadmap curriculum tracks interview framework',
-    },
-    {
-        kind: 'page',
         title: devopsTrack.title,
-        context: 'Track',
+        context: 'Home',
         description: devopsTrack.subtitle,
-        href: `/${devopsTrack.slug}`,
-        keywords: 'devops roadmap curriculum modules lessons',
+        href: TRACK_HOME.devops,
+        keywords: 'home devops roadmap curriculum modules lessons tracks',
     },
     {
         kind: 'page',
@@ -98,7 +94,7 @@ const PAGES: SearchEntry[] = [
         title: sqlTrack.title,
         context: 'Track',
         description: sqlTrack.subtitle,
-        href: `/${sqlTrack.slug}`,
+        href: TRACK_HOME.sql,
         keywords: 'sql database postgresql mysql roadmap curriculum modules lessons',
     },
     {
@@ -108,6 +104,14 @@ const PAGES: SearchEntry[] = [
         description: 'The sample database every SQL lesson runs on',
         href: '/sql/database',
         keywords: 'sample database schema tables er diagram island tours download',
+    },
+    {
+        kind: 'page',
+        title: 'System Design Mastery',
+        context: 'Track',
+        description: 'System Design track roadmap, every phase and topic',
+        href: TRACK_HOME['system-design'],
+        keywords: 'system design roadmap curriculum phases interview framework',
     },
 ];
 
@@ -227,7 +231,7 @@ export function buildSearchIndex(): SearchIndex {
     const lessons: SearchEntry[] = [];
     const sections: SearchEntry[] = [];
 
-    for (const track of TRACKS) {
+    for (const track of TRACK_SOURCES) {
         track.groups.forEach((group, groupIdx) => {
             const unit = `${track.unit} ${String(groupIdx + 1).padStart(2, '0')}`;
             const first = group.topics[0];

@@ -8,6 +8,7 @@ import { ContentPlaceholder } from "@/components/course/content-placeholder";
 import { contentMap } from "@/content";
 import { LessonToc } from "@/components/course/lesson-toc";
 import { lessonOutline } from "@/lib/lesson-outline";
+import { TRACK_HOME } from "@/lib/tracks";
 import { DynamicTopicContent } from "@/components/course/dynamic-topic-content";
 
 export async function generateMetadata({
@@ -97,7 +98,7 @@ export default async function TopicPage({ params }: { params: Promise<{ id: stri
           title={topic.title}
           details={topic.details}
           tools={topic.tools}
-          homeHref="/"
+          homeHref={TRACK_HOME['system-design']}
           sample={{ href: '/topic/scalability', label: 'View Scalability (Demo)' }}
         />
       )}

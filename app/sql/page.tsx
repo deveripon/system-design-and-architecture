@@ -7,6 +7,7 @@ import { SiteHeader } from '@/components/site/site-header';
 import { SiteFooter } from '@/components/site/site-footer';
 import { sqlCourseData, sqlLessons, sqlTrack } from '@/lib/sql-course-data';
 import { toBn } from '@/lib/utils';
+import { TRACK_HOME } from '@/lib/tracks';
 import type { Metadata } from 'next';
 import { ArrowLeft, ArrowRight, Check, Database } from 'lucide-react';
 import Link from 'next/link';
@@ -56,7 +57,7 @@ export default function SqlTrackPage() {
 
             <main className='max-w-6xl xl:max-w-7xl mx-auto px-4 md:px-6 xl:px-10 pt-10 md:pt-16 pb-10 relative z-10'>
                 <Link
-                    href='/'
+                    href={`${TRACK_HOME.devops}#tracks`}
                     className='inline-flex items-center gap-2 mb-10 font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors'>
                     <ArrowLeft className='w-3 h-3' />
                     All Tracks

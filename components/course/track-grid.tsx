@@ -1,58 +1,71 @@
 import { courseData } from '@/lib/course-data';
 import { devopsCourseData, devopsLessons } from '@/lib/devops-course-data';
 import { sqlCourseData, sqlLessons } from '@/lib/sql-course-data';
-import { ArrowRight, Database, Network, Workflow } from 'lucide-react';
+import { TRACKS, type TrackId } from '@/lib/tracks';
+import { ArrowRight, Database, Network, Workflow, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 
-const TRACKS = [
-    {
-        id: 'system-design',
-        icon: Workflow,
-        eyebrow: 'Track 01',
-        title: 'System Design Mastery',
-        description:
-            'Scalability, Databases, Distributed Systems আর Real-world Case Study। Interview আর Architecture দুটোর জন্যই।',
-        href: '#roadmap',
-        cta: 'View Roadmap',
-        sections: courseData.length,
-        sectionLabel: 'Phases',
-        lessons: courseData.flatMap(phase => phase.topics).length,
-    },
-    {
-        id: 'devops',
+/** Copy for each track's card. The order and the links come from lib/tracks. */
+const CARDS: Record<TrackId, Omit<Card, 'id' | 'href' | 'eyebrow'>> = {
+    devops: {
         icon: Network,
-        eyebrow: 'Track 02',
         title: 'DevOps & Internet From Scratch',
         description:
             'Browser থেকে Production Infrastructure পর্যন্ত। Internet, DNS, TCP/IP, Linux, Docker, Reverse Proxy, CI/CD আর Cloud।',
-        href: '/devops',
-        cta: 'Open Track',
         sections: devopsCourseData.length,
         sectionLabel: 'Modules',
         lessons: devopsLessons.length,
     },
-    {
-        id: 'sql',
+    sql: {
         icon: Database,
-        eyebrow: 'Track 03',
         title: 'SQL & Database Mastery',
         description:
             'প্রথম SELECT থেকে Production Database পর্যন্ত। Join, Design, Transaction, Index, Security আর Scaling, PostgreSQL দিয়ে।',
-        href: '/sql',
-        cta: 'Open Track',
         sections: sqlCourseData.length,
         sectionLabel: 'Modules',
         lessons: sqlLessons.length,
     },
-];
+    'system-design': {
+        icon: Workflow,
+        title: 'System Design Mastery',
+        description:
+            'Scalability, Databases, Distributed Systems আর Real-world Case Study। Interview আর Architecture দুটোর জন্যই।',
+        sections: courseData.length,
+        sectionLabel: 'Phases',
+        lessons: courseData.flatMap(phase => phase.topics).length,
+    },
+};
 
-export function TrackGrid() {
+interface Card {
+    id: TrackId;
+    icon: LucideIcon;
+    eyebrow: string;
+    title: string;
+    description: string;
+    href: string;
+    sections: number;
+    sectionLabel: string;
+    lessons: number;
+}
+
+const TRACK_CARDS: Card[] = TRACKS.map((track, index) => ({
+    ...CARDS[track.id],
+    id: track.id,
+    eyebrow: `Track ${String(index + 1).padStart(2, '0')}`,
+    href: track.href,
+}));
+
+/**
+ * One card per track. The card of the track whose landing page shows the grid
+ * scrolls to that page's roadmap instead of linking to the page itself.
+ */
+export function TrackGrid({ current }: { current?: TrackId }) {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border'>
-            {TRACKS.map(track => (
+            {TRACK_CARDS.map(track => (
                 <Link
                     key={track.id}
-                    href={track.href}
+                    href={track.id === current ? '#roadmap' : track.href}
                     className='group flex flex-col gap-6 p-6 md:p-10 border-r border-b border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors'>
                     <div className='flex items-start justify-between gap-4'>
                         <div className='w-12 h-12 border border-border flex items-center justify-center bg-background shrink-0'>
@@ -78,7 +91,7 @@ export function TrackGrid() {
                     </div>
 
                     <div className='mt-auto pt-2 inline-flex items-center gap-3 font-mono text-[0.625rem] font-black uppercase tracking-[0.25em] text-foreground/70 group-hover:text-foreground transition-colors'>
-                        {track.cta}
+                        {track.id === current ? 'View Roadmap' : 'Open Track'}
                         <ArrowRight className='w-3 h-3 text-primary group-hover:translate-x-0.5 transition-transform' />
                     </div>
                 </Link>

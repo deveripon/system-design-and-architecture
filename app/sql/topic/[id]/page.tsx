@@ -6,6 +6,7 @@ import { TopicNavigation } from '@/components/course/topic-navigation';
 import { sqlContentMap } from '@/content/sql';
 import { findSqlLesson, sqlLessons, sqlTrack } from '@/lib/sql-course-data';
 import { lessonOutline } from '@/lib/lesson-outline';
+import { TRACK_HOME } from '@/lib/tracks';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -111,7 +112,7 @@ export default async function SqlLessonPage({
                     title={lesson.title}
                     details={lesson.details ?? lesson.summary}
                     tools={lesson.tools}
-                    homeHref='/sql'
+                    homeHref={TRACK_HOME.sql}
                     homeLabel='Back to Track'
                 />
             )}

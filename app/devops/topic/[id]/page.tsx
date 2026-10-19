@@ -10,6 +10,7 @@ import {
     findDevopsLesson,
 } from '@/lib/devops-course-data';
 import { lessonOutline } from '@/lib/lesson-outline';
+import { TRACK_HOME } from '@/lib/tracks';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -115,7 +116,7 @@ export default async function DevopsLessonPage({
                     title={lesson.title}
                     details={lesson.details ?? lesson.summary}
                     tools={lesson.tools}
-                    homeHref='/devops'
+                    homeHref={TRACK_HOME.devops}
                     homeLabel='Back to Track'
                 />
             )}

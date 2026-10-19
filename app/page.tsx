@@ -1,48 +1,52 @@
-import type { Metadata } from 'next';
 import { BorderCross } from '@/components/course/border-cross';
 import { Reveal } from '@/components/motion/reveal';
-import { Roadmap } from '@/components/course/roadmap';
+import { DevopsRoadmap } from '@/components/course/devops-roadmap';
 import { SubHeader } from '@/components/course/sub-header';
 import { TrackGrid } from '@/components/course/track-grid';
 import { ExploreButton } from '@/components/explore-button';
 import { SiteHeader } from '@/components/site/site-header';
 import { SiteFooter } from '@/components/site/site-footer';
+import { devopsCourseData, devopsLessons, devopsTrack } from '@/lib/devops-course-data';
+import { TRACK_HOME } from '@/lib/tracks';
+import { toBn } from '@/lib/utils';
+import type { Metadata } from 'next';
+import { ArrowRight, Check, Compass } from 'lucide-react';
+import Link from 'next/link';
+
+const lessonCount = devopsLessons.length;
+const moduleCount = devopsCourseData.length;
 
 export const metadata: Metadata = {
-    title: 'System Design Mastery: Master the Architecture of Scale',
-    description:
-        'A free, battle-tested system design curriculum in Bengali. Learn scalability, distributed systems, cloud architecture, microservices, and crack any system design interview. 29 in-depth topics.',
-    alternates: {
-        canonical: '/',
-    },
+    title: `${devopsTrack.title}: ${devopsTrack.subtitle}`,
+    description: `Browser থেকে Production Infrastructure পর্যন্ত। ${lessonCount}টি লেসনে DNS, TCP/IP, HTTP, Linux, Docker, Reverse Proxy, CI/CD আর Cloud Infrastructure। বাংলায় সম্পূর্ণ DevOps কারিকুলাম।`,
+    alternates: { canonical: TRACK_HOME.devops },
     openGraph: {
-        title: 'System Design Mastery: Master the Architecture of Scale',
-        description:
-            'A free, battle-tested system design curriculum. 29 deep-dive topics covering scalability, cloud, microservices, and real-world system design case studies.',
-        url: '/',
+        title: `${devopsTrack.title}: ${devopsTrack.subtitle}`,
+        description: `${lessonCount} lessons covering the internet, networking, Linux, Docker, reverse proxies, CI/CD and production infrastructure.`,
+        url: TRACK_HOME.devops,
         type: 'website',
         images: [
             {
                 url: '/og-default.png',
                 width: 1200,
                 height: 630,
-                alt: 'System Design Mastery',
+                alt: devopsTrack.title,
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'System Design Mastery: Master the Architecture of Scale',
-        description:
-            'A free, battle-tested system design curriculum. 29 deep-dive topics covering scalability, cloud, microservices, and real-world system design case studies.',
+        title: `${devopsTrack.title}: ${devopsTrack.subtitle}`,
+        description: `${lessonCount} lessons from browser to production infrastructure.`,
         images: ['/og-default.png'],
     },
 };
 
+// DevOps & Internet is the main track, so its landing page is the home page.
 export default function Home() {
     return (
         <div className='min-h-screen bg-background relative overflow-clip'>
-            {/* Grid background */}
+            {/* Blueprint grid background */}
             <div
                 className='fixed inset-0 pointer-events-none opacity-30 dark:opacity-20'
                 style={{
@@ -54,8 +58,8 @@ export default function Home() {
             <SiteHeader />
 
             <main className='max-w-6xl xl:max-w-7xl mx-auto px-4 md:px-6 xl:px-10 pt-16 md:pt-24 pb-10 relative z-10'>
-                {/* Cool Hero Section with Stars */}
-                <BorderCross className='bg-primary/5 dark:bg-black/60 py-16 md:py-32 overflow-hidden'>
+                {/* Hero */}
+                <BorderCross className='bg-primary/5 dark:bg-black/60 py-16 md:py-28 overflow-hidden'>
                     <div className='absolute inset-0 animate-stars' />
                     <div className='absolute inset-0 animate-stars-slow' />
                     <div className='absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent' />
@@ -63,36 +67,226 @@ export default function Home() {
                     <div className='relative max-w-4xl mx-auto text-center px-4 md:px-6'>
                         <SubHeader
                             index='001'
-                            title='System Design Mastery'
+                            title={devopsTrack.badge}
                             className='justify-center mb-10'
                         />
 
-                        <h1 className='text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 md:mb-10 leading-[0.85] text-foreground dark:text-white'>
-                            Master the <br />
+                        <h1 className='text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-[0.85]'>
+                            DevOps &amp;{' '}
                             <span className='text-primary italic'>
-                                Architecture
+                                Internet
                             </span>{' '}
                             <br />
-                            of Scale
+                            From Scratch
                         </h1>
 
                         <p className='text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-medium'>
-                            A battle-tested curriculum designed for engineers to
-                            build distributed systems that never fail.
+                            {devopsTrack.subtitle}। {toBn(lessonCount)}টি
+                            লেসন, {toBn(moduleCount)}টি মডিউল।
                         </p>
 
-                        <div className='mt-16'>
+                        <div className='mt-14'>
                             <ExploreButton />
                         </div>
                     </div>
                 </BorderCross>
 
-                {/* Tracks */}
+                {/* The project this track is built around */}
                 <Reveal>
-                <section className='mt-24 md:mt-40'>
-                    <div className='mb-10 md:mb-16 px-2 md:px-5'>
+                <section className='mt-16 md:mt-24'>
+                    <BorderCross>
+                        <Link
+                            href='/devops/project'
+                            className='group flex flex-col md:flex-row md:items-center gap-5 md:gap-8 p-6 md:p-10 border border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors'>
+                            <span className='w-12 h-12 border border-border bg-background flex items-center justify-center shrink-0'>
+                                <Compass className='w-6 h-6 text-primary' />
+                            </span>
+                            <span className='flex-1'>
+                                <span className='block font-mono text-[0.5625rem] font-bold uppercase tracking-[0.2em] text-primary mb-2'>
+                                    The Project
+                                </span>
+                                <span className='block text-lg md:text-xl font-black uppercase tracking-tighter mb-2 group-hover:text-primary transition-colors'>
+                                    Island Tours
+                                </span>
+                                <span className='block text-sm text-muted-foreground leading-relaxed max-w-2xl'>
+                                    পুরো ট্র্যাকে উদাহরণ হিসেবে একটা সত্যিকারের
+                                    ট্যুর বুকিং অ্যাপ ব্যবহার করা হয়। এখানে দেখুন
+                                    সেটা কী, তার Architecture কেমন, আর আপনি
+                                    নিজের ভার্সন কীভাবে বানাবেন।
+                                </span>
+                            </span>
+                            <ArrowRight className='w-4 h-4 text-primary shrink-0 group-hover:translate-x-0.5 transition-transform' />
+                        </Link>
+                    </BorderCross>
+                </section>
+                </Reveal>
+
+                {/* Why this track */}
+                <Reveal>
+                <section className='mt-20 md:mt-32'>
+                    <div className='mb-10 md:mb-14 px-2 md:px-5'>
                         <SubHeader
                             index='002'
+                            title='The Goal'
+                            className='mb-4'
+                        />
+                        <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
+                            শেষ করলে কী পারবেন
+                        </h2>
+                    </div>
+
+                    <BorderCross>
+                        <div className='p-6 md:p-10 border border-border bg-card/50 mb-px'>
+                            <p className='text-base md:text-lg leading-relaxed text-muted-foreground font-medium max-w-4xl'>
+                                {devopsTrack.description}
+                            </p>
+                        </div>
+                        <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 border-t border-l border-border'>
+                            {devopsTrack.goals.map(goal => (
+                                <div
+                                    key={goal}
+                                    className='flex items-start gap-4 p-6 md:p-8 border-r border-b border-border bg-muted/5 hover:bg-primary/5 dark:hover:bg-white/2 transition-colors'>
+                                    <Check className='w-4 h-4 text-primary shrink-0 mt-1' />
+                                    <p className='text-sm leading-relaxed font-medium'>
+                                        {goal}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </BorderCross>
+                </section>
+                </Reveal>
+
+                {/* How a lesson is structured */}
+                <Reveal>
+                <section className='mt-20 md:mt-32'>
+                    <div className='mb-10 md:mb-14 px-2 md:px-5'>
+                        <SubHeader
+                            index='003'
+                            title='Learning Method'
+                            className='mb-4'
+                        />
+                        <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
+                            প্রতিটি লেসনের ৮টি ধাপ
+                        </h2>
+                    </div>
+
+                    <BorderCross>
+                        <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 border-t border-l border-border'>
+                            {devopsTrack.lessonSteps.map((step, idx) => (
+                                <div
+                                    key={step.title}
+                                    className='p-6 md:p-8 border-r border-b border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors group'>
+                                    <span className='font-mono text-[0.625rem] text-muted-foreground/50 font-black block mb-5'>
+                                        {String(idx + 1).padStart(2, '0')}
+                                    </span>
+                                    <h3 className='text-sm font-black uppercase tracking-widest text-primary mb-3 group-hover:text-foreground transition-colors'>
+                                        {step.title}
+                                    </h3>
+                                    <p className='text-xs md:text-sm text-muted-foreground leading-relaxed font-medium'>
+                                        {step.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </BorderCross>
+                </section>
+                </Reveal>
+
+                {/* What every lesson ships with */}
+                <Reveal>
+                <section className='mt-20 md:mt-32'>
+                    <div className='mb-10 md:mb-14 px-2 md:px-5'>
+                        <SubHeader
+                            index='004'
+                            title='Every Lesson Ships With'
+                            className='mb-4'
+                        />
+                        <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
+                            প্রতিটি লেসনে যা যা থাকবে
+                        </h2>
+                        <p className='mt-4 max-w-3xl text-sm md:text-base text-muted-foreground leading-relaxed font-medium'>
+                            কোনো Topic মুখস্থ করার জন্য নয়। প্রতিটি লেসন শুরু হবে
+                            গল্প দিয়ে, এমনভাবে লেখা হবে যাতে বিষয়টা সম্পর্কে
+                            আগে কিছুই না জানলেও পরিষ্কার বোঝা যায়।
+                        </p>
+                    </div>
+
+                    <BorderCross>
+                        <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 border-t border-l border-border'>
+                            {devopsTrack.lessonDeliverables.map(item => (
+                                <div
+                                    key={item}
+                                    className='flex items-start gap-4 p-6 md:p-8 border-r border-b border-border bg-card hover:bg-primary/5 dark:hover:bg-white/2 transition-colors'>
+                                    <Check className='w-4 h-4 text-accent shrink-0 mt-1' />
+                                    <p className='text-sm leading-relaxed font-medium'>
+                                        {item}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </BorderCross>
+                </section>
+                </Reveal>
+
+                {/* Curriculum */}
+                <Reveal>
+                <section id='roadmap' className='mt-20 md:mt-32'>
+                    <div className='mb-10 md:mb-14 px-2 md:px-5'>
+                        <SubHeader
+                            index='005'
+                            title='Full Curriculum'
+                            className='mb-4'
+                        />
+                        <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
+                            {toBn(moduleCount)}টি মডিউল, {toBn(lessonCount)}টি
+                            লেসন
+                        </h2>
+                    </div>
+                    <BorderCross>
+                        <DevopsRoadmap />
+                    </BorderCross>
+                </section>
+                </Reveal>
+
+                {/* Outcome */}
+                <Reveal>
+                <section className='mt-20 md:mt-32'>
+                    <div className='mb-10 md:mb-14 px-2 md:px-5'>
+                        <SubHeader
+                            index='006'
+                            title='Final Outcome'
+                            className='mb-4'
+                        />
+                        <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
+                            যেখানে গিয়ে দাঁড়াবেন
+                        </h2>
+                    </div>
+                    <BorderCross>
+                        <div className='grid grid-cols-1 md:grid-cols-2 border-t border-l border-border'>
+                            {devopsTrack.outcomes.map((outcome, idx) => (
+                                <div
+                                    key={outcome}
+                                    className='flex items-start gap-4 p-6 md:p-10 border-r border-b border-border bg-muted/5'>
+                                    <span className='font-mono text-[0.625rem] font-black text-primary mt-1'>
+                                        {String(idx + 1).padStart(2, '0')}
+                                    </span>
+                                    <p className='text-sm md:text-base leading-relaxed font-medium'>
+                                        {outcome}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </BorderCross>
+                </section>
+                </Reveal>
+
+                {/* The other tracks */}
+                <Reveal>
+                <section id='tracks' className='mt-20 md:mt-32 mb-24 md:mb-40'>
+                    <div className='mb-10 md:mb-14 px-2 md:px-5'>
+                        <SubHeader
+                            index='007'
                             title='Curriculum Tracks'
                             className='mb-4'
                         />
@@ -101,74 +295,7 @@ export default function Home() {
                         </h2>
                     </div>
                     <BorderCross>
-                        <TrackGrid />
-                    </BorderCross>
-                </section>
-                </Reveal>
-
-                {/* Curriculum Section */}
-                <Reveal>
-                <section id='roadmap' className='mb-24 md:mb-40 mt-24 md:mt-40'>
-                    <div className='mb-10 md:mb-16 px-2 md:px-5'>
-                        <SubHeader
-                            index='003'
-                            title='Full Curriculum'
-                            className='mb-4'
-                        />
-                        <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
-                            The Learning Path
-                        </h2>
-                    </div>
-                    <BorderCross>
-                        <Roadmap />
-                    </BorderCross>
-                </section>
-                </Reveal>
-
-                {/* Interview Section */}
-                <Reveal>
-                <section className='mb-24 md:mb-40'>
-                    <div className='mb-10 md:mb-16 px-2 md:px-5'>
-                        <SubHeader
-                            index='004'
-                            title='Interview Framework'
-                            className='mb-4'
-                        />
-                        <h2 className='text-2xl md:text-4xl font-black uppercase tracking-tighter'>
-                            How to Crack Any Interview
-                        </h2>
-                    </div>
-                    <BorderCross>
-                        <div className='grid grid-cols-1 md:grid-cols-3'>
-                            {[
-                                {
-                                    title: 'Requirements First',
-                                    desc: "Don't jump to architecture. Clarify functional and non-functional requirements in the first 5 minutes.",
-                                },
-                                {
-                                    title: 'Trade-off Analysis',
-                                    desc: 'Every design choice has a cost. Discuss CAP theorem, latency vs consistency, and cost vs scale.',
-                                },
-                                {
-                                    title: 'Iterative Approach',
-                                    desc: 'Start with a simple monolith, then scale specific components as bottlenecks are identified.',
-                                },
-                            ].map((tip, idx) => (
-                                <div
-                                    key={tip.title}
-                                    className='p-6 md:p-12 border-r border-b border-border bg-muted/5 hover:bg-primary/5 dark:hover:bg-white/2 transition-colors last:border-r-0 md:even:border-r-border'>
-                                    <span className='font-mono text-[0.625rem] text-muted-foreground/40 mb-6 block font-black'>
-                                        0{idx + 1}
-                                    </span>
-                                    <h3 className='text-sm font-black uppercase tracking-widest text-primary mb-4'>
-                                        {tip.title}
-                                    </h3>
-                                    <p className='text-sm text-muted-foreground leading-relaxed font-medium'>
-                                        {tip.desc}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
+                        <TrackGrid current='devops' />
                     </BorderCross>
                 </section>
                 </Reveal>
@@ -178,4 +305,3 @@ export default function Home() {
         </div>
     );
 }
-

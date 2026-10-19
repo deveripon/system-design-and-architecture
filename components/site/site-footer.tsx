@@ -1,3 +1,4 @@
+import { TRACKS } from "@/lib/tracks";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { FacebookIcon, GithubIcon, LinkedinIcon } from "./brand-icons";
@@ -23,11 +24,7 @@ const COLUMNS: {
 }[] = [
   {
     title: "Tracks",
-    links: [
-      { label: "System Design", href: "/" },
-      { label: "DevOps & Internet", href: "/devops" },
-      { label: "SQL & Databases", href: "/sql" },
-    ],
+    links: TRACKS.map((track) => ({ label: track.name, href: track.href })),
   },
   {
     title: "Resources",
@@ -138,7 +135,7 @@ export function SiteFooter() {
               <Logo className="h-20 md:h-24" />
             </Link>
             <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
-              System Design, DevOps আর SQL, একদম শূন্য থেকে হাতে কলমে শেখার
+              DevOps, SQL আর System Design, একদম শূন্য থেকে হাতে কলমে শেখার
               একটা বাংলা curriculum। Browser এর ভেতর থেকে Production
               Infrastructure আর Database পর্যন্ত, গল্পের মতো করে।
             </p>
