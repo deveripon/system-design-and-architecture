@@ -74,10 +74,14 @@ describe('reading NEXT_PUBLIC_SITE_URL', () => {
             return nested.flat();
         }
 
+        // A read is process.env.NAME or process.env['NAME']. Lessons may name the
+        // variable in prose (Module 07 Lesson 05 tells this site's own story) without
+        // reading it, so a bare mention must not count.
+        const read = /process\.env\s*(\.\s*NEXT_PUBLIC_SITE_URL\b|\[\s*['"`]NEXT_PUBLIC_SITE_URL['"`]\s*\])/;
         const files = (await Promise.all(['app', 'components', 'lib', 'content'].map(dir => sourceFiles(join(root, dir))))).flat();
         const readers: string[] = [];
         for (const file of files) {
-            if ((await readFile(file, 'utf8')).includes('NEXT_PUBLIC_SITE_URL')) readers.push(relative(root, file));
+            if (read.test(await readFile(file, 'utf8'))) readers.push(relative(root, file));
         }
         assert.deepEqual(readers, ['lib/site-url.ts']);
     });
