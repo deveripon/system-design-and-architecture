@@ -905,6 +905,17 @@ export const devopsCourseData: DevOpsModule[] = [
         duration: '১-২ সপ্তাহ',
         topics: [
             {
+                id: 'linux-vps-overview',
+                title: 'Linux & VPS Fundamentals: Module Overview',
+                icon: Compass,
+                tag: 'OVERVIEW',
+                time: '১০-১৫ মিনিট',
+                level: 'Beginner',
+                type: 'Overview',
+                summary:
+                    'Linux আর VPS কেন জানা দরকার, এগারোটা লেসনে কী শিখবেন আর নিজের Server চালানোর প্রতিদিনের কাজে কীভাবে লাগবে।',
+            },
+            {
                 id: 'linux-filesystem',
                 title: 'Linux Filesystem Architecture',
                 icon: FolderTree,
@@ -1013,6 +1024,17 @@ export const devopsCourseData: DevOpsModule[] = [
                 type: 'Hands-on Lab',
                 summary:
                     'crontab আর systemd timer দিয়ে নির্দিষ্ট সময়ে কাজ চালানো।',
+            },
+            {
+                id: 'vps-setup',
+                title: 'VPS Setup, End to End',
+                icon: Server,
+                tag: 'HANDS-ON',
+                time: '৬০-৯০ মিনিট',
+                level: 'Intermediate',
+                type: 'Hands-on Lab',
+                summary:
+                    'VPS ভাড়া নেওয়া থেকে HTTPS এ চালু App পর্যন্ত। প্রথম Login, Hardening, Deploy, Backup আর বাইরে থেকে শেষ যাচাই।',
             },
         ],
     },

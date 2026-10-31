@@ -69,6 +69,18 @@ import { httpsTlsSslContent } from "./06-http-https/07-https-tls-ssl";
 import { certificatesKeysContent } from "./06-http-https/08-certificates-keys";
 import { httpsJourneyContent } from "./06-http-https/09-https-journey";
 import { websocketRealtimeContent } from "./06-http-https/10-websocket-realtime";
+import { linuxVpsOverviewContent } from "./07-linux-vps/00-overview";
+import { linuxFilesystemContent } from "./07-linux-vps/01-linux-filesystem";
+import { processManagementSystemdContent } from "./07-linux-vps/02-process-management-systemd";
+import { sshSecurityKeysContent } from "./07-linux-vps/03-ssh-security-keys";
+import { permissionsUsersGroupsContent } from "./07-linux-vps/04-permissions-users-groups";
+import { environmentVariablesContent } from "./07-linux-vps/05-environment-variables";
+import { firewallUfwContent } from "./07-linux-vps/06-firewall-ufw";
+import { systemLogsContent } from "./07-linux-vps/07-system-logs";
+import { monitoringToolsContent } from "./07-linux-vps/08-monitoring-tools";
+import { networkDebuggingContent } from "./07-linux-vps/09-network-debugging";
+import { cronJobsContent } from "./07-linux-vps/10-cron-jobs";
+import { vpsSetupContent } from "./07-linux-vps/11-vps-setup";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -146,4 +158,18 @@ export const devopsContentMap: Record<string, TopicData> = {
   "certificates-keys": certificatesKeysContent,
   "https-journey": httpsJourneyContent,
   "websocket-realtime": websocketRealtimeContent,
+
+  // Module 07, Linux & VPS Fundamentals
+  "linux-vps-overview": linuxVpsOverviewContent,
+  "linux-filesystem": linuxFilesystemContent,
+  "process-management-systemd": processManagementSystemdContent,
+  "ssh-security-keys": sshSecurityKeysContent,
+  "permissions-users-groups": permissionsUsersGroupsContent,
+  "environment-variables": environmentVariablesContent,
+  "firewall-ufw": firewallUfwContent,
+  "system-logs": systemLogsContent,
+  "monitoring-tools": monitoringToolsContent,
+  "network-debugging": networkDebuggingContent,
+  "cron-jobs": cronJobsContent,
+  "vps-setup": vpsSetupContent,
 };
