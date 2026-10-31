@@ -776,6 +776,17 @@ export const devopsCourseData: DevOpsModule[] = [
         duration: '১ সপ্তাহ',
         topics: [
             {
+                id: 'http-https-overview',
+                title: 'HTTP & HTTPS: Module Overview',
+                icon: Compass,
+                tag: 'OVERVIEW',
+                time: '১০-১৫ মিনিট',
+                level: 'Beginner',
+                type: 'Overview',
+                summary:
+                    'HTTP আর HTTPS কেন জানা দরকার, দশটা লেসনে কী শিখবেন আর প্রতিদিনের Web কাজে কীভাবে কাজে লাগবে।',
+            },
+            {
                 id: 'url-vs-uri',
                 title: 'URL vs URI',
                 icon: Link,

@@ -58,6 +58,17 @@ import { threeWayHandshakeContent } from "./05-tcp-ip/05-three-way-handshake";
 import { packetSegmentFrameContent } from "./05-tcp-ip/06-packet-segment-frame";
 import { portAndSocketContent } from "./05-tcp-ip/07-port-and-socket";
 import { connectionCloseContent } from "./05-tcp-ip/08-connection-close";
+import { httpHttpsOverviewContent } from "./06-http-https/00-overview";
+import { urlVsUriContent } from "./06-http-https/01-url-vs-uri";
+import { httpBasicsContent } from "./06-http-https/02-http-basics";
+import { httpMethodsStatusCodesContent } from "./06-http-https/03-http-methods-status-codes";
+import { httpHeadersContent } from "./06-http-https/04-http-headers";
+import { cookiesContent } from "./06-http-https/05-cookies";
+import { sessionVsJwtContent } from "./06-http-https/06-session-vs-jwt";
+import { httpsTlsSslContent } from "./06-http-https/07-https-tls-ssl";
+import { certificatesKeysContent } from "./06-http-https/08-certificates-keys";
+import { httpsJourneyContent } from "./06-http-https/09-https-journey";
+import { websocketRealtimeContent } from "./06-http-https/10-websocket-realtime";
 import { macAddressContent } from "./03-computer-networking/03-mac-address";
 import { routerSwitchHubContent } from "./03-computer-networking/02-router-switch-hub";
 import { howDataTravelsContent } from "./02-internet-fundamentals/05-how-data-travels";
@@ -122,4 +133,17 @@ export const devopsContentMap: Record<string, TopicData> = {
   "packet-segment-frame": packetSegmentFrameContent,
   "port-and-socket": portAndSocketContent,
   "connection-close": connectionCloseContent,
+
+  // Module 06, HTTP & HTTPS
+  "http-https-overview": httpHttpsOverviewContent,
+  "url-vs-uri": urlVsUriContent,
+  "http-basics": httpBasicsContent,
+  "http-methods-status-codes": httpMethodsStatusCodesContent,
+  "http-headers": httpHeadersContent,
+  "cookies": cookiesContent,
+  "session-vs-jwt": sessionVsJwtContent,
+  "https-tls-ssl": httpsTlsSslContent,
+  "certificates-keys": certificatesKeysContent,
+  "https-journey": httpsJourneyContent,
+  "websocket-realtime": websocketRealtimeContent,
 };
