@@ -1395,8 +1395,8 @@ export async function DELETE() {
               </ContentList>
               <ContentParagraph>
                 curl এর নিজের একটা Jar আছে, একটা সাধারণ Text ফাইল। <code>-c ফাইল</code> মানে উত্তরের
-                সব Set-Cookie এই ফাইলে লিখে রাখো। <code>-b ফাইল</code> মানে ফাইলের যে Cookie গুলো এই
-                URL এ মেলে, সেগুলো পাঠাও। curl ও Domain, Path, Secure, মেয়াদ আর Prefix এর নিয়ম মানে, তাই
+                সব Set-Cookie এই ফাইলে লিখে রাখা। <code>-b ফাইল</code> মানে ফাইলের যে Cookie গুলো এই
+                URL এ মেলে, সেগুলো পাঠানো। curl ও Domain, Path, Secure, মেয়াদ আর Prefix এর নিয়ম মানে, তাই
                 Browser ছাড়াই অনেক কিছু পরীক্ষা করা যায়। একটা জিনিস বাদে: curl SameSite মানে না, কারণ
                 curl এ কোনো পাতাই নেই যেখান থেকে Request শুরু হবে। Lab এর Server এর বিরুদ্ধে চালানো আসল
                 Jar টা এরকম।
@@ -2199,7 +2199,7 @@ http
 set -euo pipefail
 : "\${LAB_PORT:?LAB_PORT is not set}"
 
-# -i মানে Response এর Header ও দেখাও, শুধু Body নয়
+# -i মানে Response এর Header ও দেখানো, শুধু Body নয়
 curl -s -i "http://localhost:\${LAB_PORT}/login"
 
 # এই যন্ত্রে চালানোর আসল ফলাফল (Random মানগুলো ছোট করে দেখানো, আপনার আলাদা হবে):
@@ -2225,13 +2225,13 @@ set -euo pipefail
 BASE="http://localhost:\${LAB_PORT}"
 
 rm -f jar.txt
-# -c jar.txt: যত Set-Cookie আসবে, এই ফাইলে লিখে রাখো (curl এর নিজের Cookie Jar)
+# -c jar.txt: যত Set-Cookie আসবে, এই ফাইলে লিখে রাখা (curl এর নিজের Cookie Jar)
 curl -s -c jar.txt "\${BASE}/login" > /dev/null
 
 echo "--- jar.txt এর ভেতরে"
 grep -v '^# ' jar.txt | grep -v '^$'
 
-# -b jar.txt: ফাইলের Cookie গুলোর মধ্যে যেগুলো এই URL এ মেলে, সেগুলো পাঠাও
+# -b jar.txt: ফাইলের Cookie গুলোর মধ্যে যেগুলো এই URL এ মেলে, সেগুলো পাঠানো
 for path in /me /api/tours /api-docs; do
   echo "--- GET \${path}"
   curl -s -b jar.txt "\${BASE}\${path}" | grep cookieHeader

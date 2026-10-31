@@ -1473,7 +1473,7 @@ islandtours.example.   CAA    0 issue "sectigo.com"     ; ZeroSSL, Caddy এর 
             <div className="space-y-6">
               <ContentParagraph>
                 বাতিল করা যেহেতু ঠিকমতো কাজ করে না, শিল্প অন্য পথ ধরেছে: Certificate
-                এর আয়ুই ছোট করে দাও। চুরি করা চাবি তাহলে অল্প কয়েক দিন কাজে লাগে।
+                এর আয়ুই ছোট করে দেওয়া। চুরি করা চাবি তাহলে অল্প কয়েক দিন কাজে লাগে।
                 2025 সালের এপ্রিলে CA/Browser Forum এ Ballot SC-081v3 পাস হয়েছে,
                 যাতে সব প্রকাশ্য Certificate এর সর্বোচ্চ মেয়াদ ধাপে ধাপে কমছে।
                 Let&apos;s Encrypt ও নিজের পরিকল্পনা ঘোষণা করেছে ডিসেম্বর 2025 এ।

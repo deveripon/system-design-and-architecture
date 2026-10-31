@@ -760,12 +760,12 @@ Connection: close`,
           type: CONTENT_TYPES.CODE_BLOCK,
           language: "text",
           filename: "Caddyfile (নমুনা, নিজের নামে বদলে নিন)",
-          code: `# Host: islandtours.example এলে ভেতরের App এর কাছে পাঠাও
+          code: `# Host: islandtours.example এলে ভেতরের App এর কাছে পাঠাবে
 islandtours.example {
 	reverse_proxy 127.0.0.1:3000
 }
 
-# Host: www.islandtours.example এলে App কে বিরক্ত না করে নিজেই উত্তর দাও:
+# Host: www.islandtours.example এলে App কে বিরক্ত না করে নিজেই উত্তর দেবে:
 # 308, মানে স্থায়ীভাবে সরে গেছে, আসল নামে যান
 www.islandtours.example {
 	redir https://islandtours.example{uri} 308
